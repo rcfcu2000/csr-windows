@@ -1,0 +1,159 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\projects\\csr-windows\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B73D3EA2-03A1-42BF-AC91-9AB5B7BEBA68}|csr-new.csproj|d:\\projects\\csr-windows\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B73D3EA2-03A1-42BF-AC91-9AB5B7BEBA68}|csr-new.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B73D3EA2-03A1-42BF-AC91-9AB5B7BEBA68}|csr-new.csproj|d:\\projects\\csr-windows\\tcpclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B73D3EA2-03A1-42BF-AC91-9AB5B7BEBA68}|csr-new.csproj|solutionrelative:tcpclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B73D3EA2-03A1-42BF-AC91-9AB5B7BEBA68}|csr-new.csproj|d:\\projects\\csr-windows\\redis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B73D3EA2-03A1-42BF-AC91-9AB5B7BEBA68}|csr-new.csproj|solutionrelative:redis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B73D3EA2-03A1-42BF-AC91-9AB5B7BEBA68}|csr-new.csproj|d:\\projects\\csr-windows\\sunnyrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B73D3EA2-03A1-42BF-AC91-9AB5B7BEBA68}|csr-new.csproj|solutionrelative:sunnyrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B73D3EA2-03A1-42BF-AC91-9AB5B7BEBA68}|csr-new.csproj|d:\\projects\\csr-windows\\sunnypublic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B73D3EA2-03A1-42BF-AC91-9AB5B7BEBA68}|csr-new.csproj|solutionrelative:sunnypublic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B73D3EA2-03A1-42BF-AC91-9AB5B7BEBA68}|csr-new.csproj|d:\\projects\\csr-windows\\callback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B73D3EA2-03A1-42BF-AC91-9AB5B7BEBA68}|csr-new.csproj|solutionrelative:callback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B73D3EA2-03A1-42BF-AC91-9AB5B7BEBA68}|csr-new.csproj|d:\\projects\\csr-windows\\tool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B73D3EA2-03A1-42BF-AC91-9AB5B7BEBA68}|csr-new.csproj|solutionrelative:tool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B73D3EA2-03A1-42BF-AC91-9AB5B7BEBA68}|csr-new.csproj|d:\\projects\\csr-windows\\sunnyhttp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B73D3EA2-03A1-42BF-AC91-9AB5B7BEBA68}|csr-new.csproj|solutionrelative:sunnyhttp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Redis.cs",
+              "DocumentMoniker": "D:\\projects\\csr-windows\\Redis.cs",
+              "RelativeDocumentMoniker": "Redis.cs",
+              "ToolTip": "D:\\projects\\csr-windows\\Redis.cs",
+              "RelativeToolTip": "Redis.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC4AAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T07:25:58.73Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TCPClient.cs",
+              "DocumentMoniker": "D:\\projects\\csr-windows\\TCPClient.cs",
+              "RelativeDocumentMoniker": "TCPClient.cs",
+              "ToolTip": "D:\\projects\\csr-windows\\TCPClient.cs",
+              "RelativeToolTip": "TCPClient.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAIwC4AAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T07:25:24.004Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\projects\\csr-windows\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "D:\\projects\\csr-windows\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-27T07:23:00.202Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Tool.cs",
+              "DocumentMoniker": "D:\\projects\\csr-windows\\Tool.cs",
+              "RelativeDocumentMoniker": "Tool.cs",
+              "ToolTip": "D:\\projects\\csr-windows\\Tool.cs",
+              "RelativeToolTip": "Tool.cs",
+              "ViewState": "AQIAAFwAAAAAAAAAAAAzwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T06:56:58.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SunnyRequest.cs",
+              "DocumentMoniker": "D:\\projects\\csr-windows\\SunnyRequest.cs",
+              "RelativeDocumentMoniker": "SunnyRequest.cs",
+              "ToolTip": "D:\\projects\\csr-windows\\SunnyRequest.cs",
+              "RelativeToolTip": "SunnyRequest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAOoBAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T06:56:42.25Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SunnyPublic.cs",
+              "DocumentMoniker": "D:\\projects\\csr-windows\\SunnyPublic.cs",
+              "RelativeDocumentMoniker": "SunnyPublic.cs",
+              "ToolTip": "D:\\projects\\csr-windows\\SunnyPublic.cs",
+              "RelativeToolTip": "SunnyPublic.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T06:56:56.193Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SunnyHttp.cs",
+              "DocumentMoniker": "D:\\projects\\csr-windows\\SunnyHttp.cs",
+              "RelativeDocumentMoniker": "SunnyHttp.cs",
+              "ToolTip": "D:\\projects\\csr-windows\\SunnyHttp.cs",
+              "RelativeToolTip": "SunnyHttp.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T06:56:55.585Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Callback.cs",
+              "DocumentMoniker": "D:\\projects\\csr-windows\\Callback.cs",
+              "RelativeDocumentMoniker": "Callback.cs",
+              "ToolTip": "D:\\projects\\csr-windows\\Callback.cs",
+              "RelativeToolTip": "Callback.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACwAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T06:56:26.89Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
