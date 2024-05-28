@@ -8,6 +8,9 @@
         <ResourceDictionary>
 
             <Color x:Key="PrimaryTextColor">#000000</Color>
+            <Style BasedOn="{StaticResource {x:Type Button}}" TargetType="Button">
+                <Setter Property="BorderThickness" Value="0" />
+            </Style>
 
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml" />

@@ -27,6 +27,7 @@ namespace csr_windows.Client.Services.Impl
             //DispatcherHelper.CheckBeginInvokeOnUI(action);
         }
 
+        
         public void OpenWelcomeView()
         {
             Action ac = new Action(() =>
@@ -34,6 +35,17 @@ namespace csr_windows.Client.Services.Impl
                 _welcomeView = new WelcomeView();
                 _welcomeView.DataContext = new WelcomeViewModel();
                 WeakReferenceMessenger.Default.Send(_welcomeView as UserControl, MessengerConstMessage.OpenMainUserControlToken);
+            });
+            DoWork(ac);
+        }
+
+        public void OpenNoStartClientView()
+        {
+            Action ac = new Action(() =>
+            {
+                var view = new NoStartClientView();
+                view.DataContext = new NoStartClientViewModel();
+                WeakReferenceMessenger.Default.Send(view as UserControl, MessengerConstMessage.OpenMainUserControlToken);
             });
             DoWork(ac);
         }
