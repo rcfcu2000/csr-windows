@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--  最小化  -->
+    <ImageSource x:Key="IMG_Main_Min">/csr-windows.Resources;component/Images/Main/min.png</ImageSource>
+
+    <!--  关闭  -->
+    <ImageSource x:Key="IMG_Main_Close">/csr-windows.Resources;component/Images/Main/close.png</ImageSource>
+
+    <!--  背景  -->
+    <ImageSource x:Key="IMG_Main_Background">/csr-windows.Resources;component/Images/Main/main_background.png</ImageSource>
+</ResourceDictionary>

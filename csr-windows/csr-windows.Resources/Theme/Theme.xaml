@@ -1,0 +1,32 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:o="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
+
+    <!--  主窗口正常按钮悬浮背景色  -->
+    <SolidColorBrush
+        x:Key="MainNormalButtonOverTheme"
+        o:Freeze="True"
+        Color="{DynamicResource MainNormalButtonOverColor}" />
+
+    <!--  主窗口正常按钮按下背景色  -->
+    <SolidColorBrush
+        x:Key="MainNormalButtonPressedTheme"
+        o:Freeze="True"
+        Color="{DynamicResource MainNormalButtonPressedColor}" />
+
+    <!--  主窗口关闭按钮悬浮色  -->
+    <SolidColorBrush
+        x:Key="MainCloseButtonOverTheme"
+        o:Freeze="True"
+        Color="{DynamicResource MainCloseButtonOverColor}" />
+
+    <!--  主窗口关闭按钮按下色  -->
+    <SolidColorBrush
+        x:Key="MainCloseButtonPressedTheme"
+        o:Freeze="True"
+        Color="{DynamicResource MainCloseButtonPressedColor}" />
+
+
+
+</ResourceDictionary>

@@ -1,0 +1,128 @@
+﻿<ResourceDictionary
+    x:Class="csr_windows.Resources.Styles.WindowStyles.WindowsStyle"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:attach="clr-namespace:csr_windows.Resources.AttachProperties"
+    xmlns:controls="clr-namespace:csr_windows.Resources.Controls"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:o="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/csr-windows.Resources;component/Theme/Theme.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/csr-windows.Resources;component/Styles/ButtonStyles/ButtonStyle.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/csr-windows.Resources;component/Images/ImageManagers/Main/MainImagesDictionary.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+
+    <Style x:Key="WindowChromeStyle" TargetType="{x:Type Window}">
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="ResizeMode" Value="NoResize" />
+        <Setter Property="WindowChrome.WindowChrome">
+            <Setter.Value>
+                <WindowChrome
+                    CaptionHeight="0"
+                    GlassFrameThickness="0,0,0,1"
+                    UseAeroCaptionButtons="False" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="MainWindowsStyle" TargetType="{x:Type Window}">
+        <Setter Property="WindowChrome.WindowChrome">
+            <Setter.Value>
+                <WindowChrome
+                    CaptionHeight="0"
+                    GlassFrameThickness="0"
+                    UseAeroCaptionButtons="False" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Background" Value="White" />
+        <Setter Property="BorderBrush" Value="#FF2d3755" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="FontFamily" Value="Microsoft YaHei" />
+        <Setter Property="AllowsTransparency" Value="True" />
+        <Setter Property="WindowStyle" Value="None" />
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="Foreground" Value="Transparent" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Window}">
+                    <AdornerDecorator>
+                        <controls:DpiDecorator>
+                            <Grid>
+
+                                <Border
+                                    Margin="5"
+                                    Background="Black"
+                                    CornerRadius="16"
+                                    Opacity="0.05">
+                                    <Border.Effect>
+                                        <BlurEffect KernelType="Box" RenderingBias="Quality" />
+                                    </Border.Effect>
+                                </Border>
+
+                                <Border
+                                    x:Name="root"
+                                    Margin="5"
+                                    Padding="0"
+                                    Background="White"
+                                    BorderBrush="#19000000"
+                                    BorderThickness="1">
+                                    <Grid>
+                                        <TextBlock
+                                            Margin="24,21,0,0"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Top"
+                                            FontSize="14"
+                                            Foreground="#818A92"
+                                            Text="{Binding VersionString, StringFormat={}V{0}}" />
+
+                                        <AdornerDecorator KeyboardNavigation.IsTabStop="False">
+                                            <ContentPresenter
+                                                Margin="0,0,-0.501,0"
+                                                Content="{TemplateBinding Content}"
+                                                KeyboardNavigation.TabNavigation="Cycle" />
+                                        </AdornerDecorator>
+                                        <Grid>
+                                            <Grid VerticalAlignment="Top">
+
+                                                <StackPanel
+                                                    Margin="0,4,4,0"
+                                                    HorizontalAlignment="Right"
+                                                    Orientation="Horizontal"
+                                                    WindowChrome.IsHitTestVisibleInChrome="True">
+                                                    <!--  右侧按钮  -->
+                                                    <controls:ImageButton
+                                                        Width="36"
+                                                        Height="36"
+                                                        attach:MouseDependencyProperty.OverBackColor="{DynamicResource MainNormalButtonOverTheme}"
+                                                        attach:MouseDependencyProperty.PressedColor="{DynamicResource MainNormalButtonPressedTheme}"
+                                                        hc:BorderElement.CornerRadius="4"
+                                                        Click="Button_Min_Click"
+                                                        NormalImageSource="{StaticResource IMG_Main_Min}"
+                                                        Style="{StaticResource MainImageButton}"
+                                                        ToolTip="最小化" />
+                                                    <controls:ImageButton
+                                                        Width="36"
+                                                        Height="36"
+                                                        attach:MouseDependencyProperty.OverBackColor="{DynamicResource MainCloseButtonOverTheme}"
+                                                        attach:MouseDependencyProperty.PressedColor="{DynamicResource MainCloseButtonPressedTheme}"
+                                                        hc:BorderElement.CornerRadius="4"
+                                                        Click="Button_Close_Click"
+                                                        NormalImageSource="{StaticResource IMG_Main_Close}"
+                                                        Style="{StaticResource MainImageButton}"
+                                                        ToolTip="关闭" />
+                                                </StackPanel>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                </Border>
+                            </Grid>
+                        </controls:DpiDecorator>
+
+                    </AdornerDecorator>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+</ResourceDictionary>

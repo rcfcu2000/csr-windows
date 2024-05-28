@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--  0.1透明度黑色  -->
+    <Color x:Key="MainNormalButtonOverColor">#19000000</Color>
+
+    <!--  0.2透明度黑色  -->
+    <Color x:Key="MainNormalButtonPressedColor">#32000000</Color>
+
+    <!--  主窗口关闭按钮悬浮色  -->
+    <Color x:Key="MainCloseButtonOverColor">#b2b70000</Color>
+
+    <!--  主窗口关闭按钮按下色  -->
+    <Color x:Key="MainCloseButtonPressedColor">#b70000</Color>
+</ResourceDictionary>
