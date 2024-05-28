@@ -261,8 +261,3 @@ __pycache__/
 *.pyc
 
 .gitignore
-/XtHk.TeacherLive.Install/Resources/XTHK_TeacherLive.zip
-/XtHk.TeacherLive.Install/Resources/XtHk.TeacherLive.Uninstall.exe
-/XtHk.TeacherLive.Install/万人直播端卸载程序
-/XtHk.TeacherLive.Install/教师直播端卸载程序
-/XtHk.TeacherLive.AssistantTools.Install/Resources/XtHk_TeacherLive_AssistantTools_Install.zip
