@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 
 namespace csr_windows.Client.Services.WebService
 {
-    class Sunny64
+    public class Sunny64
     {
         const string DLLName = "Sunny64.dll";
 

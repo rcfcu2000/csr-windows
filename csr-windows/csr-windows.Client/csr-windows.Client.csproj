@@ -35,6 +35,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Fleck, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fleck.1.2.0\lib\net45\Fleck.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.17.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.17\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="SunnyUI">
       <HintPath>..\..\ResouceFiles\SunnyUI.dll</HintPath>
     </Reference>
@@ -42,7 +51,10 @@
       <HintPath>..\..\ResouceFiles\SunnyUI.Common.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -61,14 +73,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Services\WebService\Callback.cs" />
+    <Compile Include="Services\WebService\Const.cs" />
     <Compile Include="Services\WebService\Utils\CertificateManager.cs" />
     <Compile Include="Services\WebService\Utils\Sunny.cs" />
     <Compile Include="Services\WebService\Utils\Sunny64.cs" />
     <Compile Include="Services\WebService\Utils\Sunny86.cs" />
     <Compile Include="Services\WebService\Utils\SunnyNet.cs" />
+    <Compile Include="Services\WebService\Utils\SunnyPublic.cs" />
     <Compile Include="Services\WebService\Utils\SunnyRequest.cs" />
     <Compile Include="Services\WebService\Utils\Tool.cs" />
+    <Compile Include="Services\WebService\Utils\TopHelper.cs" />
     <Compile Include="Services\WebService\WebServiceClient.cs" />
+    <Compile Include="Utils\Logger.cs" />
+    <Compile Include="Utils\Queue.cs" />
+    <Compile Include="Utils\Redis.cs" />
+    <Compile Include="Services\WebService\Utils\SunnyHttp.cs" />
+    <Compile Include="Services\WebService\Utils\SunnyKeyValueTable.cs" />
+    <Compile Include="Utils\TCPClient.cs" />
+    <Compile Include="Utils\WSClient.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -100,6 +123,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

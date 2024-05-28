@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Runtime.InteropServices;
+using csr_windows.Client.Services.WebService;
 
 
-namespace csr_windows.Client.Services.WebService
+namespace csr_windows.Client
 {
 
-    class Sunny
+    public class Sunny
     {
         public static Request MessageIdToSunny(int MessageId)
         {

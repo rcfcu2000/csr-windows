@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 namespace csr_windows.Client.Services.WebService
 {
 
-    class Sunny86
+    public class Sunny86
     {
         const string DLLName = "Sunny.dll";
 
