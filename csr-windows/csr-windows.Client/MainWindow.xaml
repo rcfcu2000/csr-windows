@@ -5,7 +5,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:csr_windows.Client"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:view="clr-namespace:csr_windows.Client.Views.Main"
+    xmlns:vm="clr-namespace:csr_windows.Client.ViewModels.Main"
     Title="MainWindow"
+    d:DataContext="{d:DesignInstance vm:MainViewModel}"
     d:DesignHeight="800"
     d:DesignWidth="400"
     MouseLeftButtonDown="Window_MouseLeftButtonDown"
@@ -14,7 +17,8 @@
     Style="{StaticResource MainWindowsStyle}"
     UseLayoutRounding="True"
     mc:Ignorable="d">
-    <Grid Background="Transparent">
+    <Grid Width="400" Height="800">
         <Image Source="{StaticResource IMG_Main_Background}" />
+        <ContentControl Content="{Binding MainUserControl}" />
     </Grid>
 </Window>

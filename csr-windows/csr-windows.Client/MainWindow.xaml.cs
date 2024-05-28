@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.DependencyInjection;
+using csr_windows.Client.Services.Base;
+using csr_windows.Client.ViewModels.Main;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,14 +23,38 @@ namespace csr_windows.Client
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region Fields
+        private static MainViewModel _mainViewModel;
+        private IUiService _uiService;
+        #endregion
+
+        #region Constructor
         public MainWindow()
         {
+            _uiService = Ioc.Default.GetService<IUiService>();
             InitializeComponent();
+            _mainViewModel = new MainViewModel();
+            this.DataContext = _mainViewModel;
+
+            _uiService.OpenWelcomeView();
+            
         }
+        #endregion
+
+
+        #region Methods
+
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
         }
+
+
+
+        #endregion
+
+
+
     }
 }

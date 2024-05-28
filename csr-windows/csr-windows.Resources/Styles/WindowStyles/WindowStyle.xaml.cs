@@ -19,7 +19,7 @@ namespace csr_windows.Resources.Styles.WindowStyles
         {
             if (sender is DependencyObject win)
             {
-                Window.GetWindow(win).Hide();
+                Window.GetWindow(win).WindowState = WindowState.Minimized;
             }
         }
 
