@@ -3,6 +3,9 @@
     <!--  最小化  -->
     <ImageSource x:Key="IMG_Main_Min">/csr-windows.Resources;component/Images/Main/min.png</ImageSource>
 
+    <!--  更多  -->
+    <ImageSource x:Key="IMG_Main_More">/csr-windows.Resources;component/Images/Main/more.png</ImageSource>
+
     <!--  关闭  -->
     <ImageSource x:Key="IMG_Main_Close">/csr-windows.Resources;component/Images/Main/close.png</ImageSource>
 

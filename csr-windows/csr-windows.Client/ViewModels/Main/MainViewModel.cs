@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace csr_windows.Client.ViewModels.Main
 {
@@ -16,6 +18,18 @@ namespace csr_windows.Client.ViewModels.Main
 
         private UserControl _mainUserControl;
 
+        private bool _isInIM = true;
+
+        #endregion
+
+        #region Commands
+
+        public ICommand OpenAICommand { get; set; }
+        public ICommand PersonalDataCommand { get; set; }
+        public ICommand AboutCommand { get; set; }
+
+
+
         #endregion
 
         #region Constructor
@@ -23,10 +37,15 @@ namespace csr_windows.Client.ViewModels.Main
         {
             WeakReferenceMessenger.Default.Register<UserControl, string>(this, MessengerConstMessage.OpenMainUserControlToken, (r, m) => { ChangeContent(m); });
             MainUserControl = new Views.Main.WelcomeView();
+
+            OpenAICommand = new RelayCommand(OnOpenAICommand);
+            PersonalDataCommand = new RelayCommand(OnPersonalDataCommand);
+            AboutCommand = new RelayCommand(OnAboutCommand);
         }
+
         #endregion
 
-        #region Methods
+        #region Properties
 
         /// <summary>
         /// 主界面的UserControl
@@ -37,6 +56,21 @@ namespace csr_windows.Client.ViewModels.Main
             set => SetProperty(ref _mainUserControl, value);
         }
 
+
+        /// <summary>
+        /// 是否是IM界面
+        /// </summary>
+        public bool IsInIM
+        {
+            get => _isInIM;
+            set => SetProperty(ref _isInIM, value);
+        }
+        #endregion
+
+        #region Methods
+
+
+
         /// <summary>
         /// 切换content
         /// </summary>
@@ -45,6 +79,30 @@ namespace csr_windows.Client.ViewModels.Main
         private void ChangeContent<T>(T content) where T : UserControl
         {
             MainUserControl = content;
+        }
+
+
+
+        /// <summary>
+        /// 打开ai界面
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
+        private void OnOpenAICommand()
+        {
+        }
+
+        /// <summary>
+        /// 个人资料
+        /// </summary>
+        private void OnPersonalDataCommand()
+        {
+        }
+
+        /// <summary>
+        /// 关于助手
+        /// </summary>
+        private void OnAboutCommand()
+        {
         }
         #endregion
 

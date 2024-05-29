@@ -55,10 +55,12 @@
     <Compile Include="AttachProperties\IconProperties.cs" />
     <Compile Include="AttachProperties\MouseDependencyProperty.cs" />
     <Compile Include="Controls\ButtonControl\ImageButton.cs" />
+    <Compile Include="Controls\TooltipContol\Poptip.cs" />
     <Compile Include="Controls\WindowContorl\DpiDecorator.cs" />
     <Compile Include="Converters\DPIConverter.cs" />
     <Compile Include="Enumeration\DPIConverterEnum.cs" />
     <Compile Include="Helpers\ScreenManager.cs" />
+    <Compile Include="Helpers\ValueBoxes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -106,7 +108,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\MenuStyles\MenuItemStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\PoptipStyles\PoptipStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\TextBoxStyles\TextBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ToggleButtonStyles\ToggleButtonStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -137,6 +151,9 @@
   <ItemGroup>
     <Resource Include="Images\Common\store.png" />
     <Resource Include="Images\Common\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Main\more.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
