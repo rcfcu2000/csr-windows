@@ -38,7 +38,7 @@ namespace csr_windows.Client
             this.DataContext = _mainViewModel;
             
 
-            _uiService.OpenFirstSettingView();
+            _uiService.OpenCustomerView();
             //_uiService.OpenWelcomeView();
 
         }

@@ -23,6 +23,11 @@ namespace csr_windows.Client.Services.Base
         /// </summary>
         void OpenFirstSettingView();
 
+        /// <summary>
+        /// 打开顾客界面
+        /// </summary>
+        void OpenCustomerView();
+
 
     }
 

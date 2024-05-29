@@ -132,10 +132,14 @@
     <Compile Include="Services\WebService\Utils\SunnyKeyValueTable.cs" />
     <Compile Include="Utils\TCPClient.cs" />
     <Compile Include="Utils\WSClient.cs" />
+    <Compile Include="ViewModels\Customer\CustomerViewModel.cs" />
     <Compile Include="ViewModels\Main\FirstSettingViewModel.cs" />
     <Compile Include="ViewModels\Main\MainViewModel.cs" />
     <Compile Include="ViewModels\Main\NoStartClientViewModel.cs" />
     <Compile Include="ViewModels\Main\WelcomeViewModel.cs" />
+    <Compile Include="Views\Customer\CustomerView.xaml.cs">
+      <DependentUpon>CustomerView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Main\FirstSettingView.xaml.cs">
       <DependentUpon>FirstSettingView.xaml</DependentUpon>
     </Compile>
@@ -157,6 +161,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\Customer\CustomerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Main\FirstSettingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

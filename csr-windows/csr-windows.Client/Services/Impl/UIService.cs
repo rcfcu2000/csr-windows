@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.Messaging;
 using csr_windows.Client.Services.Base;
+using csr_windows.Client.ViewModels.Customer;
 using csr_windows.Client.ViewModels.Main;
+using csr_windows.Client.Views.Customer;
 using csr_windows.Client.Views.Main;
 using System;
 using System.Collections.Generic;
@@ -56,6 +58,17 @@ namespace csr_windows.Client.Services.Impl
             {
                 var view = new FirstSettingView();
                 view.DataContext = new FirstSettingViewModel();
+                WeakReferenceMessenger.Default.Send(view as UserControl, MessengerConstMessage.OpenMainUserControlToken);
+            });
+            DoWork(ac);
+        }
+
+        public void OpenCustomerView()
+        {
+            Action ac = new Action(() =>
+            {
+                var view = new CustomerView();
+                view.DataContext = new CustomerViewModel();
                 WeakReferenceMessenger.Default.Send(view as UserControl, MessengerConstMessage.OpenMainUserControlToken);
             });
             DoWork(ac);

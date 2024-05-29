@@ -15,4 +15,11 @@
         o:Freeze="True"
         Color="{DynamicResource 0.5OpacityBlackColor}" />
 
+
+    <!--  0.1透明度黑色  -->
+    <SolidColorBrush
+        x:Key="0.1OpacityBlackTheme"
+        o:Freeze="True"
+        Color="{DynamicResource 0.1OpacityBlackColor}" />
+
 </ResourceDictionary>
