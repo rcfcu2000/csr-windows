@@ -8,11 +8,13 @@
 
         <ResourceDictionary Source="../Theme/Color.xaml" />
         <ResourceDictionary Source="../Theme/Theme.xaml" />
+        <ResourceDictionary Source="../Theme/CommonTheme.xaml" />
 
         <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml" />
         <ResourceDictionary Source="/csr-windows.Resources;component/Images/ImageManagers/ImageManagerAllDictionary.xaml" />
 
         <ResourceDictionary Source="ButtonStyles/ButtonStyle.xaml" />
+        <ResourceDictionary Source="TextBoxStyles/TextBoxStyle.xaml" />
         <ResourceDictionary Source="WindowStyles/WindowStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 

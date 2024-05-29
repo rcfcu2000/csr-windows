@@ -50,6 +50,17 @@ namespace csr_windows.Client.Services.Impl
             DoWork(ac);
         }
 
+        public void OpenFirstSettingView()
+        {
+            Action ac = new Action(() =>
+            {
+                var view = new FirstSettingView();
+                view.DataContext = new FirstSettingViewModel();
+                WeakReferenceMessenger.Default.Send(view as UserControl, MessengerConstMessage.OpenMainUserControlToken);
+            });
+            DoWork(ac);
+        }
+
         #endregion
 
     }

@@ -27,12 +27,13 @@
             </Grid.RowDefinitions>
             <TextBlock
                 Margin="0,0,0,5"
-                FontSize="32"
+                FontSize="24"
                 FontWeight="Bold"
-                Text="欢迎使用AI客服助手👏" />
+                Text="您好，我是绘绘" />
             <TextBlock
                 Grid.Row="1"
                 FontSize="14"
+                LineHeight="25"
                 Opacity="0.8"
                 Text="我们需要与您的千牛工作台协作才能更好给您提供精准的服务哦～"
                 TextWrapping="Wrap" />

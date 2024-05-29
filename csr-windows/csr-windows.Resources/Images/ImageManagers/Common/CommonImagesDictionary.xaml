@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--  用户  -->
+    <ImageSource x:Key="IMG_Common_User">/csr-windows.Resources;component/Images/Common/user.png</ImageSource>
+
+    <!--  商店  -->
+    <ImageSource x:Key="IMG_Common_Store">/csr-windows.Resources;component/Images/Common/store.png</ImageSource>
+
+</ResourceDictionary>

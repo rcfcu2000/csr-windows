@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.DependencyInjection;
 using csr_windows.Client.Services.Base;
 using csr_windows.Client.ViewModels.Main;
+using csr_windows.Client.Views.Main;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,9 +36,11 @@ namespace csr_windows.Client
             InitializeComponent();
             _mainViewModel = new MainViewModel();
             this.DataContext = _mainViewModel;
-
-            _uiService.OpenWelcomeView();
             
+
+            _uiService.OpenFirstSettingView();
+            //_uiService.OpenWelcomeView();
+
         }
         #endregion
 
@@ -50,7 +53,11 @@ namespace csr_windows.Client
             this.DragMove();
         }
 
-
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            //点击空白获取焦点
+            LostButton.Focus();
+        }
 
         #endregion
 

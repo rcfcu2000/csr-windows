@@ -28,7 +28,7 @@
             <TextBlock
                 Margin="0,0,0,5"
                 FontSize="24"
-                Text="使用AI客服助手是" />
+                Text="使用绘绘AI客服助手🪄" />
             <TextBlock
                 Grid.Row="1"
                 FontSize="32"

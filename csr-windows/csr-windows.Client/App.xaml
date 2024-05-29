@@ -8,7 +8,16 @@
         <ResourceDictionary>
 
             <Color x:Key="PrimaryTextColor">#000000</Color>
-            <Style BasedOn="{StaticResource {x:Type Button}}" TargetType="Button">
+            <Style BasedOn="{StaticResource ButtonBaseStyle}" TargetType="{x:Type Button}">
+                <Style.Triggers>
+                    <Trigger Property="UIElement.IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="{DynamicResource DarkDefaultBrush}" />
+                    </Trigger>
+                    <Trigger Property="IsPressed" Value="True">
+                        <Setter Property="Background" Value="{DynamicResource BorderBrush}" />
+                    </Trigger>
+                </Style.Triggers>
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
                 <Setter Property="BorderThickness" Value="0" />
             </Style>
 

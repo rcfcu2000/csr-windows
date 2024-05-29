@@ -18,6 +18,11 @@ namespace csr_windows.Client.Services.Base
         /// </summary>
         void OpenNoStartClientView();
 
+        /// <summary>
+        /// 打开第一次设置界面
+        /// </summary>
+        void OpenFirstSettingView();
+
 
     }
 

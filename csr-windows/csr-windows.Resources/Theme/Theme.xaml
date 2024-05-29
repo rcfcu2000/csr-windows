@@ -7,13 +7,14 @@
     <SolidColorBrush
         x:Key="MainNormalButtonOverTheme"
         o:Freeze="True"
-        Color="{DynamicResource MainNormalButtonOverColor}" />
+        Color="{DynamicResource 0.1OpacityBlackColor}" />
 
     <!--  主窗口正常按钮按下背景色  -->
     <SolidColorBrush
         x:Key="MainNormalButtonPressedTheme"
         o:Freeze="True"
-        Color="{DynamicResource MainNormalButtonPressedColor}" />
+        Color="{DynamicResource 0.2OpacityBlackColor}" />
+
 
     <!--  主窗口关闭按钮悬浮色  -->
     <SolidColorBrush
