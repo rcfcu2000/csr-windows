@@ -39,20 +39,10 @@
                     FontWeight="Bold"
                     Opacity="0.8"
                     Text="AI客服助手" />
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <Grid.Resources>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="Foreground" Value="{StaticResource 0.5OpacityBlackTheme}" />
-                            <Setter Property="FontSize" Value="12" />
-                        </Style>
-                    </Grid.Resources>
-                    <TextBlock Text="当前服务：" />
-                    <TextBlock Grid.Column="1" Text="{Binding CustomerNickname}" />
-                </Grid>
+                <TextBlock
+                    FontSize=" 12"
+                    Foreground="{StaticResource 0.5OpacityBlackTheme}"
+                    Text="{Binding CustomerNickname, StringFormat={}当前服务：{0}}" />
             </StackPanel>
 
             <Rectangle
