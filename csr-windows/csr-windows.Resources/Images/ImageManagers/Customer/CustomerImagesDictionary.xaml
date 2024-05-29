@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--  询问AI  -->
+    <ImageSource x:Key="IMG_Customer_AskAI">/csr-windows.Resources;component/Images/Customer/ask_ai.png</ImageSource>
+
+    <!--  发送给AI  -->
+    <ImageSource x:Key="IMG_Customer_InputAI">/csr-windows.Resources;component/Images/Customer/input_ai.png</ImageSource>
+
+    <!--  更多  -->
+    <ImageSource x:Key="IMG_Customer_More">/csr-windows.Resources;component/Images/Customer/more.png</ImageSource>
+    <!--  选中更多  -->
+    <ImageSource x:Key="IMG_Customer_CheckMore">/csr-windows.Resources;component/Images/Customer/check_more.png</ImageSource>
+
+</ResourceDictionary>

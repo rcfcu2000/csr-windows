@@ -63,6 +63,7 @@
                 VerticalAlignment="Top"
                 Fill="{StaticResource 0.1OpacityBlackTheme}"
                 Visibility="{Binding ElementName=sv, Path=ComputedVerticalScrollBarVisibility}" />
+            <local:CustomerInitBottomView />
         </Grid>
         <!--  测试代码  -->
         <StackPanel

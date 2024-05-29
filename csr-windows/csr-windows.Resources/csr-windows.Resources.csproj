@@ -92,6 +92,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Images\ImageManagers\Customer\CustomerImagesDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Images\ImageManagers\ImageManagerAllDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -154,6 +158,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Main\more.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Customer\ask_ai.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Customer\input_ai.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Customer\check_more.png" />
+    <Resource Include="Images\Customer\more.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
