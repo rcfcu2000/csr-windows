@@ -1,10 +1,12 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace csr_windows.Client.ViewModels.Customer
 {
@@ -19,9 +21,19 @@ namespace csr_windows.Client.ViewModels.Customer
         private string _buttonContent;
         #endregion
 
+        #region Commands
+
+        /// <summary>
+        /// 商品推荐
+        /// </summary>
+        public ICommand ProductIntroductionCommand { get; set; }
+        #endregion
+
         #region Constructor
         public ProductIntroductionViewModel()
         {
+            ProductIntroductionCommand = new RelayCommand(OnProductIntroductionCommand);
+
             List<MyProduct> myProducts = new List<MyProduct>();
             for (int i = 0; i < 3; i++)
             {
@@ -33,6 +45,8 @@ namespace csr_windows.Client.ViewModels.Customer
             }
             MyProductList = new ObservableCollection<MyProduct>(myProducts);
         }
+
+     
 
 
         #endregion
@@ -78,6 +92,13 @@ namespace csr_windows.Client.ViewModels.Customer
         {
             get => _buttonContent;
             set => SetProperty(ref _buttonContent, value);
+        }
+
+        /// <summary>
+        /// 商品推荐Command
+        /// </summary>
+        private void OnProductIntroductionCommand()
+        {
         }
 
         #endregion
