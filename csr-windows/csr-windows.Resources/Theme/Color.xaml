@@ -17,4 +17,7 @@
 
     <!--  主窗口关闭按钮按下色  -->
     <Color x:Key="MainCloseButtonPressedColor">#b70000</Color>
+
+    <!--  0.1 透明度蓝色  -->
+    <Color x:Key="0.1OpacityBlueColor">#192335c5</Color>
 </ResourceDictionary>

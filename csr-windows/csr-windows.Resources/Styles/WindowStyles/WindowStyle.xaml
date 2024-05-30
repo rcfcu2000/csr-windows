@@ -11,15 +11,15 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/csr-windows.Resources;component/Theme/Theme.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/csr-windows.Resources;component/Theme/CommonTheme.xaml" />
         <ResourceDictionary Source="pack://application:,,,/csr-windows.Resources;component/Styles/ButtonStyles/ButtonStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/csr-windows.Resources;component/Styles/MenuStyles/MenuItemStyles.xaml" />
         <ResourceDictionary Source="pack://application:,,,/csr-windows.Resources;component/Styles/ToggleButtonStyles/ToggleButtonStyle.xaml" />
         <ResourceDictionary Source="pack://application:,,,/csr-windows.Resources;component/Images/ImageManagers/Main/MainImagesDictionary.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <system:Double x:Key="ContextMenuHorizontalOffset">-45</system:Double>
-    <system:Double x:Key="ContextMenuVerticalOffset">15</system:Double>
-    <Thickness x:Key="DefaultControlPadding">0</Thickness>
+    <system:Double x:Key="PopupMenuHorizontalOffset">15</system:Double>
+    <system:Double x:Key="PopupMenuVerticalOffset">63</system:Double>
     <converter:DPIConverter x:Key="DPIConverter" />
 
 
@@ -101,45 +101,54 @@
                                                     WindowChrome.IsHitTestVisibleInChrome="True">
                                                     <!--  右侧按钮  -->
                                                     <ToggleButton
+                                                        x:Name="tb"
                                                         Width="36"
                                                         Height="36"
                                                         attach:IconProperties.IconUrl="{StaticResource IMG_Main_More}"
                                                         attach:MouseDependencyProperty.OverBackColor="{DynamicResource MainNormalButtonOverTheme}"
                                                         attach:MouseDependencyProperty.PressedColor="{DynamicResource MainNormalButtonPressedTheme}"
                                                         hc:BorderElement.CornerRadius="4"
-                                                        LostFocus="ToggleButton_More_LostFocus"
+                                                        DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
                                                         Style="{StaticResource MainToggleButton}"
                                                         ToolTip="更多"
-                                                        Visibility="{Binding IsInIM, Converter={StaticResource Boolean2VisibilityConverter}}">
-                                                        <ToggleButton.ContextMenu>
-                                                            <ContextMenu
-                                                                x:Name="menu"
-                                                                Width="184"
-                                                                Padding="5"
-                                                                hc:BorderElement.CornerRadius="5"
-                                                                HorizontalOffset="{Binding ., Source={StaticResource ContextMenuHorizontalOffset}, Converter={StaticResource DPIConverter}, ConverterParameter={x:Static resourcesEnums:DPIConverterEnum.X}}"
-                                                                Placement="Bottom"
-                                                                VerticalOffset="{Binding ., Source={StaticResource ContextMenuVerticalOffset}, Converter={StaticResource DPIConverter}, ConverterParameter={x:Static resourcesEnums:DPIConverterEnum.X}}">
+                                                        Visibility="{Binding IsInIM, Converter={StaticResource Boolean2VisibilityConverter}}" />
 
-                                                                <ContextMenu.Resources>
-                                                                    <Style BasedOn="{StaticResource MainMenuItemStyle}" TargetType="MenuItem">
-                                                                        <Setter Property="FontSize" Value="18" />
-                                                                        <Setter Property="Foreground" Value="#000000" />
-                                                                        <Setter Property="Height" Value="60" />
-                                                                        <Setter Property="VerticalContentAlignment" Value="Center" />
+
+                                                    <Popup
+                                                        AllowsTransparency="True"
+                                                        HorizontalOffset="{Binding ., Source={StaticResource PopupMenuHorizontalOffset}, Converter={StaticResource DPIConverter}, ConverterParameter={x:Static resourcesEnums:DPIConverterEnum.X}}"
+                                                        IsOpen="{Binding ElementName=tb, Path=IsChecked}"
+                                                        Placement="Center"
+                                                        PlacementTarget="{Binding ElementName=tb}"
+                                                        StaysOpen="False"
+                                                        VerticalOffset="{Binding ., Source={StaticResource PopupMenuVerticalOffset}, Converter={StaticResource DPIConverter}, ConverterParameter={x:Static resourcesEnums:DPIConverterEnum.X}}">
+                                                        <Border
+                                                            Width="124"
+                                                            Padding="5"
+                                                            Background="White"
+                                                            CornerRadius="5">
+                                                            <StackPanel>
+                                                                <StackPanel.Resources>
+                                                                    <Style BasedOn="{StaticResource ColorChangedButtonStyle}" TargetType="Button">
+                                                                        <Setter Property="Width" Value="114" />
+                                                                        <Setter Property="Height" Value="40" />
+                                                                        <Setter Property="Padding" Value="15,0" />
+                                                                        <Setter Property="HorizontalAlignment" Value="Left" />
                                                                         <Setter Property="HorizontalContentAlignment" Value="Left" />
+                                                                        <Setter Property="attach:MouseDependencyProperty.OverBackColor" Value="{StaticResource 0.1OpacityBlueTheme}" />
+                                                                        <Setter Property="attach:MouseDependencyProperty.PressedColor" Value="{StaticResource 0.1OpacityBlueTheme}" />
+                                                                        <Setter Property="hc:BorderElement.CornerRadius" Value="2" />
+                                                                        <Setter Property="Background" Value="White" />
                                                                         <Setter Property="Cursor" Value="Hand" />
+                                                                        <Setter Property="FontSize" Value="14" />
                                                                     </Style>
-                                                                    <Color x:Key="SecondaryRegionColor">#192335c5</Color>
-                                                                    <SolidColorBrush x:Key="SecondaryRegionBrush" Color="{DynamicResource SecondaryRegionColor}" />
-                                                                </ContextMenu.Resources>
-                                                                <MenuItem Command="{Binding OpenAICommand}" Header="AI训练语料库" />
-                                                                <MenuItem Command="{Binding PersonalDataCommand}" Header="个人资料" />
-                                                                <MenuItem Command="{Binding AboutCommand}" Header="关于助手" />
-                                                            </ContextMenu>
-                                                        </ToggleButton.ContextMenu>
-                                                    </ToggleButton>
-
+                                                                </StackPanel.Resources>
+                                                                <Button Command="{Binding OpenAICommand}" Content="AI训练语料库" />
+                                                                <Button Command="{Binding PersonalDataCommand}" Content="个人资料" />
+                                                                <Button Command="{Binding AboutCommand}" Content="关于助手" />
+                                                            </StackPanel>
+                                                        </Border>
+                                                    </Popup>
                                                     <!--  右侧按钮  -->
                                                     <controls:ImageButton
                                                         Width="36"

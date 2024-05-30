@@ -22,4 +22,10 @@
         o:Freeze="True"
         Color="{DynamicResource 0.1OpacityBlackColor}" />
 
+    <!--  0.1透明度蓝色  -->
+    <SolidColorBrush
+        x:Key="0.1OpacityBlueTheme"
+        o:Freeze="True"
+        Color="{DynamicResource 0.1OpacityBlueColor}" />
+
 </ResourceDictionary>
