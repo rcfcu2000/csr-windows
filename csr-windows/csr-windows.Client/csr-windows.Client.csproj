@@ -135,6 +135,7 @@
     <Compile Include="ViewModels\Customer\CustomerBottomAskAIViewModel.cs" />
     <Compile Include="ViewModels\Customer\CustomerInitBottomViewModel.cs" />
     <Compile Include="ViewModels\Customer\CustomerViewModel.cs" />
+    <Compile Include="ViewModels\Customer\ProductIntroductionViewModel.cs" />
     <Compile Include="ViewModels\Main\FirstSettingViewModel.cs" />
     <Compile Include="ViewModels\Main\MainViewModel.cs" />
     <Compile Include="ViewModels\Main\NoStartClientViewModel.cs" />
@@ -147,6 +148,9 @@
     </Compile>
     <Compile Include="Views\Customer\CustomerView.xaml.cs">
       <DependentUpon>CustomerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Customer\ProductIntroductionView.xaml.cs">
+      <DependentUpon>ProductIntroductionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Main\FirstSettingView.xaml.cs">
       <DependentUpon>FirstSettingView.xaml</DependentUpon>
@@ -178,6 +182,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Customer\CustomerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Customer\ProductIntroductionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

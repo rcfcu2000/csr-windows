@@ -72,5 +72,89 @@
         </Setter>
     </Style>
 
+    <ControlTemplate x:Key="TextBoxExtendTopTemplate" TargetType="TextBox">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="{Binding Path=(hc:InfoElement.ContentHeight), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Double2GridLengthConverter}}" MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight), RelativeSource={RelativeSource TemplatedParent}}" />
+            </Grid.RowDefinitions>
+            <DockPanel
+                Margin="{Binding Path=(hc:TitleElement.MarginOnTheTop), RelativeSource={RelativeSource TemplatedParent}}"
+                HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment), RelativeSource={RelativeSource TemplatedParent}}"
+                LastChildFill="True"
+                Visibility="{Binding Path=(hc:InfoElement.Title), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource String2VisibilityConverter}}">
+                <ContentPresenter
+                    Margin="4,0,0,0"
+                    Content="{Binding Path=(hc:InfoElement.Symbol), RelativeSource={RelativeSource TemplatedParent}}"
+                    DockPanel.Dock="Right"
+                    TextElement.Foreground="{DynamicResource DangerBrush}"
+                    Visibility="{Binding Path=(hc:InfoElement.Necessary), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Boolean2VisibilityConverter}}" />
+                <TextBlock
+                    hc:TextBlockAttach.AutoTooltip="True"
+                    Text="{Binding Path=(hc:InfoElement.Title), RelativeSource={RelativeSource TemplatedParent}}"
+                    TextTrimming="CharacterEllipsis"
+                    TextWrapping="NoWrap" />
+            </DockPanel>
+            <Border
+                x:Name="border"
+                Grid.Row="1"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                SnapsToDevicePixels="True" />
+            <TextBlock
+                x:Name="Placeholder"
+                Grid.Row="1"
+                Margin="{TemplateBinding Padding}"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                Style="{StaticResource TextBlockDefaultThiLight}"
+                Text="{Binding Path=(hc:InfoElement.Placeholder), RelativeSource={RelativeSource TemplatedParent}}"
+                TextWrapping="Wrap"
+                Visibility="{TemplateBinding Text,
+                                             Converter={StaticResource String2VisibilityReConverter}}" />
+            <ScrollViewer
+                x:Name="PART_ContentHost"
+                Grid.Row="1"
+                Margin="-2,0"
+                Padding="{TemplateBinding Padding}"
+                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                Focusable="false"
+                HorizontalScrollBarVisibility="Hidden"
+                VerticalScrollBarVisibility="Hidden" />
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="false">
+                <Setter TargetName="border" Property="Opacity" Value="0.4" />
+                <Setter TargetName="PART_ContentHost" Property="Opacity" Value="0.4" />
+                <Setter TargetName="Placeholder" Property="Opacity" Value="0.4" />
+            </Trigger>
+            <Trigger SourceName="PART_ContentHost" Property="IsMouseOver" Value="true">
+                <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}" />
+            </Trigger>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+
+    <Style
+        x:Key="TextBoxExtendBaseStyle"
+        BasedOn="{StaticResource TextBoxBaseStyle}"
+        TargetType="TextBox">
+        <Setter Property="hc:InfoElement.Symbol" Value="●" />
+        <Setter Property="hc:InfoElement.ContentHeight" Value="{x:Static system:Double.NaN}" />
+        <Setter Property="hc:InfoElement.MinContentHeight" Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="Height" Value="Auto" />
+        <Setter Property="Template" Value="{StaticResource TextBoxExtendTopTemplate}" />
+        <Style.Triggers>
+            <Trigger Property="hc:InfoElement.TitlePlacement" Value="Left">
+                <Setter Property="Template" Value="{StaticResource TextBoxExtendLeftTemplate}" />
+                <Setter Property="Width" Value="Auto" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 
 </ResourceDictionary>

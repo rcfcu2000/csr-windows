@@ -13,6 +13,8 @@
         <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml" />
         <ResourceDictionary Source="/csr-windows.Resources;component/Images/ImageManagers/ImageManagerAllDictionary.xaml" />
 
+
+        <ResourceDictionary Source="ShopStyle/ProductControlStyle.xaml" />
         <ResourceDictionary Source="MenuStyles/MenuItemStyles.xaml" />
         <ResourceDictionary Source="PoptipStyles/PoptipStyle.xaml" />
         <ResourceDictionary Source="ButtonStyles/ButtonStyle.xaml" />

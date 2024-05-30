@@ -14,6 +14,8 @@
 
     <!--  商品介绍  -->
     <ImageSource x:Key="IMG_Customer_ProductIntroduction">/csr-windows.Resources;component/Images/Customer/product_introduction.png</ImageSource>
+    <!--  商品介绍（白色图标）  -->
+    <ImageSource x:Key="IMG_Customer_ProductIntroductionWhite">/csr-windows.Resources;component/Images/Customer/product_introduction_white.png</ImageSource>
     <!--  推荐搭配  -->
     <ImageSource x:Key="IMG_Customer_RecommendedPairing">/csr-windows.Resources;component/Images/Customer/recommended_pairing.png</ImageSource>
     <!--  选择商品  -->

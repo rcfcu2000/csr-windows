@@ -128,31 +128,30 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="{TemplateBinding Border.CornerRadius}"
                             Opacity="{TemplateBinding Opacity}"
-                            SnapsToDevicePixels="True">
-                            <StackPanel
-                                Margin="{TemplateBinding Padding}"
-                                HorizontalAlignment="Center"
+                            SnapsToDevicePixels="True" />
+                        <StackPanel
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                            <Image
+                                x:Name="image"
+                                Width="{TemplateBinding attach:IconProperties.IconWidth}"
+                                Height="{TemplateBinding attach:IconProperties.IconHeight}"
+                                Margin="{TemplateBinding attach:IconProperties.IconThickness}"
                                 VerticalAlignment="Center"
-                                Orientation="Horizontal">
-                                <Image
-                                    x:Name="image"
-                                    Width="{TemplateBinding attach:IconProperties.IconWidth}"
-                                    Height="{TemplateBinding attach:IconProperties.IconHeight}"
-                                    Margin="{TemplateBinding attach:IconProperties.IconThickness}"
-                                    VerticalAlignment="Center"
-                                    RenderOptions.BitmapScalingMode="NearestNeighbor"
-                                    SnapsToDevicePixels="True"
-                                    Source="{Binding Path=(attach:IconProperties.IconUrl), RelativeSource={RelativeSource TemplatedParent}}" />
-                                <TextBlock
-                                    x:Name="cp"
-                                    VerticalAlignment="Center"
-                                    FontSize="{TemplateBinding FontSize}"
-                                    Foreground="{TemplateBinding Foreground}"
-                                    TextDecorations="{TemplateBinding TextBlock.TextDecorations}">
-                                    <ContentPresenter />
-                                </TextBlock>
-                            </StackPanel>
-                        </Border>
+                                RenderOptions.BitmapScalingMode="NearestNeighbor"
+                                SnapsToDevicePixels="True"
+                                Source="{Binding Path=(attach:IconProperties.IconUrl), RelativeSource={RelativeSource TemplatedParent}}" />
+                            <TextBlock
+                                x:Name="cp"
+                                VerticalAlignment="Center"
+                                FontSize="{TemplateBinding FontSize}"
+                                Foreground="{TemplateBinding Foreground}"
+                                TextDecorations="{TemplateBinding TextBlock.TextDecorations}">
+                                <ContentPresenter />
+                            </TextBlock>
+                        </StackPanel>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="Content" Value="{x:Null}">

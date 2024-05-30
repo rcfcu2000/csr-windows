@@ -86,7 +86,8 @@
                     Content="删除" />
             </StackPanel>
         </Grid>
-        <local:CustomerBottomAskAIView VerticalAlignment="Bottom" />
+        <!--<local:CustomerBottomAskAIView VerticalAlignment="Bottom" />-->
+        <local:ProductIntroductionView VerticalAlignment="Bottom" />
     </Grid>
 
 </UserControl>

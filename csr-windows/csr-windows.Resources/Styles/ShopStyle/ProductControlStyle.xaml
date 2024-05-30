@@ -1,7 +1,13 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:contorls="clr-namespace:csr_windows.Resources.Controls">
+    xmlns:contorls="clr-namespace:csr_windows.Resources.Controls"
+    xmlns:hc="https://handyorg.github.io/handycontrol">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/csr-windows.Resources;component/Theme/CommonTheme.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/csr-windows.Resources;component/Images/ImageManagers/Customer/CustomerImagesDictionary.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
 
     <Style x:Key="ProductControlBaseStyle" TargetType="{x:Type contorls:ProductControl}">
         <Setter Property="Cursor" Value="Hand" />
@@ -17,16 +23,19 @@
                                         <ColumnDefinition Width="auto" />
                                         <ColumnDefinition />
                                     </Grid.ColumnDefinitions>
-                                    <Image
+                                    <hc:Gravatar
                                         Width="50"
                                         Height="50"
                                         Margin="5,5,10,5"
-                                        Source="{Binding Image}" />
+                                        hc:BorderElement.CornerRadius="2"
+                                        Source="{Binding ProductImage}" />
 
                                     <TextBlock
+                                        Grid.Column="1"
+                                        VerticalAlignment="Center"
                                         FontSize="14"
                                         Foreground="{StaticResource 0.8OpacityBlackTheme}"
-                                        Text="{Binding Name}" />
+                                        Text="{Binding ProductName}" />
                                 </Grid>
                                 <Image
                                     Width="82"
