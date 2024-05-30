@@ -55,6 +55,7 @@
     <Compile Include="AttachProperties\IconProperties.cs" />
     <Compile Include="AttachProperties\MouseDependencyProperty.cs" />
     <Compile Include="Controls\ButtonControl\ImageButton.cs" />
+    <Compile Include="Controls\ShopControl\ProductControl.cs" />
     <Compile Include="Controls\TooltipContol\Poptip.cs" />
     <Compile Include="Controls\WindowContorl\DpiDecorator.cs" />
     <Compile Include="Converters\DPIConverter.cs" />
@@ -120,6 +121,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\ShopStyle\ProductControlStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\TextBoxStyles\TextBoxStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -175,6 +180,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Customer\choose_product.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Customer\product_control_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

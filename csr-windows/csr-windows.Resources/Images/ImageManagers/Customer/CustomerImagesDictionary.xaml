@@ -19,4 +19,8 @@
     <!--  选择商品  -->
     <ImageSource x:Key="IMG_Customer_ChooseProduct">/csr-windows.Resources;component/Images/Customer/choose_product.png</ImageSource>
 
+
+    <!--  商品控件图标  -->
+    <ImageSource x:Key="IMG_Customer_ProductControlIcon">/csr-windows.Resources;component/Images/Customer/product_control_icon.png</ImageSource>
+
 </ResourceDictionary>
