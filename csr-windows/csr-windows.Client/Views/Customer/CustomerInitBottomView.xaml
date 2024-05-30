@@ -4,14 +4,23 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:attach="clr-namespace:csr_windows.Resources.AttachProperties;assembly=csr-windows.Resources"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:enum="clr-namespace:csr_windows.Resources.Enumeration;assembly=csr-windows.Resources"
     xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:local="clr-namespace:csr_windows.Client.Views.Customer"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    xmlns:vm="clr-namespace:csr_windows.Client.ViewModels.Customer"
+    d:DataContext="{d:DesignInstance vm:CustomerInitBottomViewModel}"
     d:DesignHeight="94"
     d:DesignWidth="400"
+    UseLayoutRounding="True"
     mc:Ignorable="d">
+    <UserControl.Resources>
+        <system:Double x:Key="PopupMenuHorizontalOffset">-50</system:Double>
+        <system:Double x:Key="PopupMenuVerticalOffset">0</system:Double>
+    </UserControl.Resources>
     <Grid>
-        <StackPanel Margin="15" Orientation="Horizontal">
+        <StackPanel Margin="15,0,0,40" Orientation="Horizontal">
             <Button
                 Width="155"
                 Height="40"
@@ -46,6 +55,7 @@
                 Foreground="White"
                 Style="{StaticResource PrimaryImageContentButton}" />
             <ToggleButton
+                x:Name="tb"
                 Width="50"
                 Height="40"
                 attach:IconProperties.CheckIconUrl="{StaticResource IMG_Customer_CheckMore}"
@@ -54,7 +64,98 @@
                 attach:IconProperties.IconWidth="16"
                 hc:BorderElement.CornerRadius="5"
                 Style="{StaticResource CustomMoreTBStyle}" />
-        </StackPanel>
 
+            <Popup
+                AllowsTransparency="True"
+                HorizontalOffset="{Binding ., Source={StaticResource PopupMenuHorizontalOffset}, Converter={StaticResource DPIConverter}, ConverterParameter={x:Static enum:DPIConverterEnum.X}}"
+                IsOpen="{Binding ElementName=tb, Path=IsChecked}"
+                Placement="Top"
+                PlacementTarget="{Binding ElementName=tb}"
+                StaysOpen="False"
+                VerticalOffset="{Binding ., Source={StaticResource PopupMenuVerticalOffset}, Converter={StaticResource DPIConverter}, ConverterParameter={x:Static enum:DPIConverterEnum.X}}">
+                <Grid>
+                    <Border
+                        Margin="5"
+                        Background="Black"
+                        CornerRadius="5"
+                        Opacity="0.1">
+                        <Border.Effect>
+                            <BlurEffect KernelType="Box" RenderingBias="Quality" />
+                        </Border.Effect>
+                    </Border>
+
+                    <Border
+                        Width="112"
+                        Margin="5"
+                        Padding="5"
+                        HorizontalAlignment="Center"
+                        Background="White"
+                        CornerRadius="5">
+                        <StackPanel>
+                            <StackPanel.Resources>
+                                <Style BasedOn="{StaticResource ColorChangedImageButtonStyle}" TargetType="Button">
+                                    <Setter Property="Width" Value="102" />
+                                    <Setter Property="Height" Value="40" />
+                                    <Setter Property="Padding" Value="0,0" />
+                                    <Setter Property="HorizontalAlignment" Value="Left" />
+                                    <Setter Property="HorizontalContentAlignment" Value="Left" />
+                                    <Setter Property="attach:MouseDependencyProperty.OverBackColor" Value="{StaticResource 0.1OpacityBlueTheme}" />
+                                    <Setter Property="attach:MouseDependencyProperty.PressedColor" Value="{StaticResource 0.1OpacityBlueTheme}" />
+                                    <Setter Property="hc:BorderElement.CornerRadius" Value="2" />
+                                    <Setter Property="Background" Value="White" />
+                                    <Setter Property="Cursor" Value="Hand" />
+                                    <Setter Property="FontSize" Value="14" />
+                                    <Setter Property="Foreground" Value="{StaticResource 0.8OpacityBlackTheme}" />
+                                    <Setter Property="attach:IconProperties.IconHeight" Value="16" />
+                                    <Setter Property="attach:IconProperties.IconWidth" Value="16" />
+                                    <Setter Property="attach:IconProperties.IconThickness" Value="10,12" />
+                                </Style>
+                            </StackPanel.Resources>
+                            <Button
+                                attach:IconProperties.IconUrl="{StaticResource IMG_Customer_ProductIntroduction}"
+                                Command="{Binding ProductIntroductionCommand}"
+                                Content="商品介绍" />
+                            <Button
+                                attach:IconProperties.IconUrl="{StaticResource IMG_Customer_RecommendedPairing}"
+                                Command="{Binding RecommendedPairingCommand}"
+                                Content="个人资料" />
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </Popup>
+        </StackPanel>
+        <Grid Margin="15" VerticalAlignment="Bottom">
+            <TextBlock
+                Foreground="{StaticResource 0.8OpacityBlackTheme}"
+                Text="暂无可供 AI 分析的商品"
+                Visibility="{Binding IsHaveProduct, Converter={StaticResource Boolean2VisibilityReConverter}}" />
+            <StackPanel Orientation="Horizontal" Visibility="{Binding IsHaveProduct, Converter={StaticResource Boolean2VisibilityConverter}}">
+                <StackPanel.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Foreground" Value="{StaticResource 0.8OpacityBlackTheme}" />
+                    </Style>
+                </StackPanel.Resources>
+                <TextBlock Text="后续内容将基于 " />
+                <TextBlock FontWeight="Bold" Text="{Binding ProductName}" />
+                <TextBlock Text=" 生成" />
+            </StackPanel>
+        </Grid>
+        <Button
+            Width="70"
+            Height="15"
+            Margin="15"
+            Padding="0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            attach:IconProperties.IconHeight="16"
+            attach:IconProperties.IconThickness="0 3 5 0"
+            attach:IconProperties.IconUrl="{StaticResource IMG_Customer_ChooseProduct}"
+            attach:IconProperties.IconWidth="16"
+            Background="Transparent"
+            Command="{Binding ChooseProductCommand}"
+            Content="选择商品"
+            FontSize="12"
+            Foreground="#2335C5"
+            Style="{StaticResource PrimaryImageContentButton}" />
     </Grid>
 </UserControl>

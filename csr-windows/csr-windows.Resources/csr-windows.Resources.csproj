@@ -169,5 +169,12 @@
     <Resource Include="Images\Customer\check_more.png" />
     <Resource Include="Images\Customer\more.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Customer\product_introduction.png" />
+    <Resource Include="Images\Customer\recommended_pairing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Customer\choose_product.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

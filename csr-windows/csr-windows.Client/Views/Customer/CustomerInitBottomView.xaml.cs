@@ -1,4 +1,5 @@
-﻿using System;
+﻿using csr_windows.Client.ViewModels.Customer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace csr_windows.Client.Views.Customer
         public CustomerInitBottomView()
         {
             InitializeComponent();
+            this.DataContext = new CustomerInitBottomViewModel();
         }
     }
 }

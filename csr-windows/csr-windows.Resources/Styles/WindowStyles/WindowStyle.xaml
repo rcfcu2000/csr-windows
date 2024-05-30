@@ -121,33 +121,48 @@
                                                         Placement="Center"
                                                         PlacementTarget="{Binding ElementName=tb}"
                                                         StaysOpen="False"
-                                                        VerticalOffset="{Binding ., Source={StaticResource PopupMenuVerticalOffset}, Converter={StaticResource DPIConverter}, ConverterParameter={x:Static resourcesEnums:DPIConverterEnum.X}}">
-                                                        <Border
-                                                            Width="124"
-                                                            Padding="5"
-                                                            Background="White"
-                                                            CornerRadius="5">
-                                                            <StackPanel>
-                                                                <StackPanel.Resources>
-                                                                    <Style BasedOn="{StaticResource ColorChangedButtonStyle}" TargetType="Button">
-                                                                        <Setter Property="Width" Value="114" />
-                                                                        <Setter Property="Height" Value="40" />
-                                                                        <Setter Property="Padding" Value="15,0" />
-                                                                        <Setter Property="HorizontalAlignment" Value="Left" />
-                                                                        <Setter Property="HorizontalContentAlignment" Value="Left" />
-                                                                        <Setter Property="attach:MouseDependencyProperty.OverBackColor" Value="{StaticResource 0.1OpacityBlueTheme}" />
-                                                                        <Setter Property="attach:MouseDependencyProperty.PressedColor" Value="{StaticResource 0.1OpacityBlueTheme}" />
-                                                                        <Setter Property="hc:BorderElement.CornerRadius" Value="2" />
-                                                                        <Setter Property="Background" Value="White" />
-                                                                        <Setter Property="Cursor" Value="Hand" />
-                                                                        <Setter Property="FontSize" Value="14" />
-                                                                    </Style>
-                                                                </StackPanel.Resources>
-                                                                <Button Command="{Binding OpenAICommand}" Content="AI训练语料库" />
-                                                                <Button Command="{Binding PersonalDataCommand}" Content="个人资料" />
-                                                                <Button Command="{Binding AboutCommand}" Content="关于助手" />
-                                                            </StackPanel>
-                                                        </Border>
+                                                        VerticalOffset="{Binding ., Source={StaticResource PopupMenuVerticalOffset}, Converter={StaticResource DPIConverter}, ConverterParameter={x:Static resourcesEnums:DPIConverterEnum.Y}}">
+                                                        <Grid>
+                                                            <Border
+                                                                Margin="5"
+                                                                Background="Black"
+                                                                CornerRadius="5"
+                                                                Opacity="0.1">
+                                                                <Border.Effect>
+                                                                    <BlurEffect KernelType="Box" RenderingBias="Quality" />
+                                                                </Border.Effect>
+                                                            </Border>
+                                                            <Border
+                                                                Width="124"
+                                                                Margin="5"
+                                                                Padding="5"
+                                                                Background="White"
+                                                                CornerRadius="5"
+                                                                SnapsToDevicePixels="True"
+                                                                UseLayoutRounding="True">
+                                                                <StackPanel>
+                                                                    <StackPanel.Resources>
+                                                                        <Style BasedOn="{StaticResource ColorChangedButtonStyle}" TargetType="Button">
+                                                                            <Setter Property="Width" Value="114" />
+                                                                            <Setter Property="Height" Value="40" />
+                                                                            <Setter Property="Padding" Value="15,0" />
+                                                                            <Setter Property="HorizontalAlignment" Value="Left" />
+                                                                            <Setter Property="HorizontalContentAlignment" Value="Left" />
+                                                                            <Setter Property="attach:MouseDependencyProperty.OverBackColor" Value="{StaticResource 0.1OpacityBlueTheme}" />
+                                                                            <Setter Property="attach:MouseDependencyProperty.PressedColor" Value="{StaticResource 0.1OpacityBlueTheme}" />
+                                                                            <Setter Property="hc:BorderElement.CornerRadius" Value="2" />
+                                                                            <Setter Property="Background" Value="White" />
+                                                                            <Setter Property="Cursor" Value="Hand" />
+                                                                            <Setter Property="FontSize" Value="14" />
+                                                                        </Style>
+                                                                    </StackPanel.Resources>
+                                                                    <Button Command="{Binding OpenAICommand}" Content="AI训练语料库" />
+                                                                    <Button Command="{Binding PersonalDataCommand}" Content="个人资料" />
+                                                                    <Button Command="{Binding AboutCommand}" Content="关于助手" />
+                                                                </StackPanel>
+                                                            </Border>
+                                                        </Grid>
+
                                                     </Popup>
                                                     <!--  右侧按钮  -->
                                                     <controls:ImageButton
