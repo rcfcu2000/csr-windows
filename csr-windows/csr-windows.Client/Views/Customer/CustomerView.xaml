@@ -11,77 +11,82 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="104" />
-            <RowDefinition />
-            <RowDefinition Height="94" />
-        </Grid.RowDefinitions>
-        <Grid>
-            <StackPanel Margin="15,10,15,15">
-                <StackPanel
-                    Margin="0,0,0,15"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Orientation="Horizontal">
-                    <StackPanel.Resources>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="Foreground" Value="{StaticResource 0.8OpacityBlackTheme}" />
-                            <Setter Property="FontSize" Value="14" />
-                        </Style>
-                    </StackPanel.Resources>
-                    <TextBlock Text="{Binding StoreName}" />
-                    <TextBlock Text="：" />
-                    <TextBlock Text="{Binding UserName}" />
-                </StackPanel>
-                <TextBlock
-                    Margin="0,0,0,5"
-                    FontSize="20"
-                    FontWeight="Bold"
-                    Opacity="0.8"
-                    Text="AI客服助手" />
-                <TextBlock
-                    FontSize=" 12"
-                    Foreground="{StaticResource 0.5OpacityBlackTheme}"
-                    Text="{Binding CustomerNickname, StringFormat={}当前服务：{0}}" />
-            </StackPanel>
 
-            <Rectangle
-                Height="1"
-                VerticalAlignment="Bottom"
-                Fill="{StaticResource 0.1OpacityBlackTheme}"
-                Visibility="{Binding ElementName=sv, Path=ComputedVerticalScrollBarVisibility}" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="104" />
+                <RowDefinition />
+                <RowDefinition Height="94" />
+            </Grid.RowDefinitions>
+            <Grid>
+                <StackPanel Margin="15,10,15,15">
+                    <StackPanel
+                        Margin="0,0,0,15"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Orientation="Horizontal">
+                        <StackPanel.Resources>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Foreground" Value="{StaticResource 0.8OpacityBlackTheme}" />
+                                <Setter Property="FontSize" Value="14" />
+                            </Style>
+                        </StackPanel.Resources>
+                        <TextBlock Text="{Binding StoreName}" />
+                        <TextBlock Text="：" />
+                        <TextBlock Text="{Binding UserName}" />
+                    </StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,5"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Opacity="0.8"
+                        Text="AI客服助手" />
+                    <TextBlock
+                        FontSize=" 12"
+                        Foreground="{StaticResource 0.5OpacityBlackTheme}"
+                        Text="{Binding CustomerNickname, StringFormat={}当前服务：{0}}" />
+                </StackPanel>
+
+                <Rectangle
+                    Height="1"
+                    VerticalAlignment="Bottom"
+                    Fill="{StaticResource 0.1OpacityBlackTheme}"
+                    Visibility="{Binding ElementName=sv, Path=ComputedVerticalScrollBarVisibility}" />
+            </Grid>
+            <ScrollViewer
+                x:Name="sv"
+                Grid.Row="1"
+                VerticalScrollBarVisibility="Auto">
+                <StackPanel x:Name="testSP" />
+            </ScrollViewer>
+            <Grid Grid.Row="2">
+                <Rectangle
+                    Height="1"
+                    VerticalAlignment="Top"
+                    Fill="{StaticResource 0.1OpacityBlackTheme}"
+                    Visibility="{Binding ElementName=sv, Path=ComputedVerticalScrollBarVisibility}" />
+                <local:CustomerInitBottomView />
+            </Grid>
+            <!--  测试代码  -->
+            <StackPanel
+                Grid.Row="2"
+                HorizontalAlignment="Center"
+                Orientation="Horizontal"
+                Visibility="Collapsed">
+                <Button
+                    Width="150"
+                    Height="50"
+                    Margin="15"
+                    Click="Button_Click"
+                    Content="点我" />
+                <Button
+                    Width="150"
+                    Height="50"
+                    Click="Button_Click_1"
+                    Content="删除" />
+            </StackPanel>
         </Grid>
-        <ScrollViewer
-            x:Name="sv"
-            Grid.Row="1"
-            VerticalScrollBarVisibility="Auto">
-            <StackPanel x:Name="testSP" />
-        </ScrollViewer>
-        <Grid Grid.Row="2">
-            <Rectangle
-                Height="1"
-                VerticalAlignment="Top"
-                Fill="{StaticResource 0.1OpacityBlackTheme}"
-                Visibility="{Binding ElementName=sv, Path=ComputedVerticalScrollBarVisibility}" />
-            <local:CustomerInitBottomView />
-        </Grid>
-        <!--  测试代码  -->
-        <StackPanel
-            Grid.Row="2"
-            HorizontalAlignment="Center"
-            Orientation="Horizontal"
-            Visibility="Collapsed">
-            <Button
-                Width="150"
-                Height="50"
-                Margin="15"
-                Click="Button_Click"
-                Content="点我" />
-            <Button
-                Width="150"
-                Height="50"
-                Click="Button_Click_1"
-                Content="删除" />
-        </StackPanel>
+        <local:CustomerBottomAskAIView VerticalAlignment="Bottom" />
     </Grid>
+
 </UserControl>

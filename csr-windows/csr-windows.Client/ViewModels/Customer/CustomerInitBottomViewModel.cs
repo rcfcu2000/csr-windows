@@ -17,11 +17,21 @@ namespace csr_windows.Client.ViewModels.Customer
 
         private string _productName;
 
-    
+
 
         #endregion
 
         #region Commands
+        /// <summary>
+        /// 问AI
+        /// </summary>
+        public ICommand AskAICommand { get; set; }
+
+        /// <summary>
+        /// 输入AI
+        /// </summary>
+        public ICommand InputAICommand { get; set; }
+
         /// <summary>
         /// 商品介绍
         /// </summary>
@@ -41,15 +51,13 @@ namespace csr_windows.Client.ViewModels.Customer
         #region Constructro
         public CustomerInitBottomViewModel()
         {
+            AskAICommand = new RelayCommand(OnAskAICommand);
+            InputAICommand = new RelayCommand(OnInputAICommand);
             ProductIntroductionCommand = new RelayCommand(OnProductIntroductionCommand);
             RecommendedPairing = new RelayCommand(OnRecommendedPairing);
             ChooseProductCommand = new RelayCommand(OnChooseProductCommand);
         }
-
-      
-
-
-
+        
 
         #endregion
 
@@ -95,6 +103,21 @@ namespace csr_windows.Client.ViewModels.Customer
         #endregion
 
         #region Methods
+
+        /// <summary>
+        /// 问AI
+        /// </summary>
+        private void OnAskAICommand()
+        {
+        }
+
+        /// <summary>
+        /// 给AI输入
+        /// </summary>
+        private void OnInputAICommand()
+        {
+        }
+
         /// <summary>
         /// 商品介绍
         /// </summary>
