@@ -30,7 +30,7 @@
                 attach:IconProperties.IconUrl="{StaticResource IMG_Customer_AskAI}"
                 attach:IconProperties.IconWidth="20"
                 hc:BorderElement.CornerRadius="5"
-                Background="#2335C5"
+                Background="{StaticResource ThemeColorBrush}"
                 Command="{Binding AskAICommand}"
                 Content="我该怎么回"
                 Cursor="Hand"
@@ -47,7 +47,7 @@
                 attach:IconProperties.IconUrl="{StaticResource IMG_Customer_InputAI}"
                 attach:IconProperties.IconWidth="20"
                 hc:BorderElement.CornerRadius="5"
-                Background="#2335C5"
+                Background="{StaticResource ThemeColorBrush}"
                 Command="{Binding InputAICommand}"
                 Content="我想这样回"
                 Cursor="Hand"
@@ -155,7 +155,7 @@
             Command="{Binding ChooseProductCommand}"
             Content="选择商品"
             FontSize="12"
-            Foreground="#2335C5"
+            Foreground="{StaticResource ThemeColorBrush}"
             Style="{StaticResource PrimaryImageContentButton}" />
     </Grid>
 </UserControl>

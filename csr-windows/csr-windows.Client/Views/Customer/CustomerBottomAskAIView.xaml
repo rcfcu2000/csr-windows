@@ -54,7 +54,7 @@
                         attach:IconProperties.IconUrl="{StaticResource IMG_Customer_InputAI}"
                         attach:IconProperties.IconWidth="20"
                         hc:BorderElement.CornerRadius="5"
-                        Background="#2335C5"
+                        Background="{StaticResource ThemeColorBrush}"
                         Command="{Binding InputAICommand}"
                         Content="我想这样回"
                         Cursor="Hand"

@@ -173,7 +173,7 @@
                                                         hc:BorderElement.CornerRadius="4"
                                                         Click="Button_Min_Click"
                                                         NormalImageSource="{StaticResource IMG_Main_Min}"
-                                                        Style="{StaticResource MainImageButton}"
+                                                        Style="{StaticResource BorderImageButton}"
                                                         ToolTip="最小化" />
                                                     <controls:ImageButton
                                                         Width="36"
@@ -183,7 +183,7 @@
                                                         hc:BorderElement.CornerRadius="4"
                                                         Click="Button_Close_Click"
                                                         NormalImageSource="{StaticResource IMG_Main_Close}"
-                                                        Style="{StaticResource MainImageButton}"
+                                                        Style="{StaticResource BorderImageButton}"
                                                         ToolTip="关闭" />
                                                 </StackPanel>
                                             </Grid>

@@ -91,6 +91,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Images\ImageManagers\Chat\ChatImagesDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Images\ImageManagers\Common\CommonImagesDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -188,6 +192,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Customer\product_introduction_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Chat\copy.png" />
+    <Resource Include="Images\Chat\send.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

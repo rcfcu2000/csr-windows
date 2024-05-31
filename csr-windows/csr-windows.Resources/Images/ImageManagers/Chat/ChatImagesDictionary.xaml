@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--  复制  -->
+    <ImageSource x:Key="IMG_Chat_Copy">/csr-windows.Resources;component/Images/Chat/copy.png</ImageSource>
+
+    <!--  发送  -->
+    <ImageSource x:Key="IMG_Chat_Send">/csr-windows.Resources;component/Images/Chat/send.png</ImageSource>
+
+</ResourceDictionary>

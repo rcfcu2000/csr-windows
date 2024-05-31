@@ -134,6 +134,10 @@
     <Compile Include="Utils\WSClient.cs" />
     <Compile Include="ViewModels\Chat\ChatBaseViewModel.cs" />
     <Compile Include="ViewModels\Chat\ChatBottomBoldTextViewModel.cs" />
+    <Compile Include="ViewModels\Chat\ChatCopyTextViewModel.cs" />
+    <Compile Include="Views\Chat\ChatCopyTextView.xaml.cs">
+      <DependentUpon>ChatCopyTextView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Chat\ChatLoadingView.xaml.cs">
       <DependentUpon>ChatLoadingView.xaml</DependentUpon>
     </Compile>
@@ -192,6 +196,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\Chat\ChatCopyTextView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Chat\ChatLoadingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
