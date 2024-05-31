@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using csr_windows.Domain.Common;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -104,9 +105,5 @@ namespace csr_windows.Client.ViewModels.Customer
         #endregion
     }
 
-    public class MyProduct
-    {
-        public string ProductName { get; set; }
-        public string ProductImage { get; set; }
-    }
+ 
 }
