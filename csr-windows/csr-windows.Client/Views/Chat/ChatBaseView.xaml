@@ -13,13 +13,24 @@
     mc:Ignorable="d">
     <Grid Margin="10">
         <Border
-            Margin="5"
             Background="Black"
             CornerRadius="5"
             Opacity="0.1">
             <Border.Effect>
                 <BlurEffect KernelType="Box" RenderingBias="Quality" />
             </Border.Effect>
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ChatIdentityEnum}" Value="Recipient">
+                            <Setter Property="Margin" Value="5,5,25,5" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ChatIdentityEnum}" Value="Sender">
+                            <Setter Property="Margin" Value="25,5,5,5" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
         </Border>
         <Grid Margin="5">
             <Border
