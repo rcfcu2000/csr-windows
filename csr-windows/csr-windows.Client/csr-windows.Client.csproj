@@ -133,6 +133,7 @@
     <Compile Include="Utils\TCPClient.cs" />
     <Compile Include="Utils\WSClient.cs" />
     <Compile Include="ViewModels\Chat\ChatBaseViewModel.cs" />
+    <Compile Include="ViewModels\Chat\ChatBottomBoldTextViewModel.cs" />
     <Compile Include="ViewModels\Chat\ChatTextViewModel.cs" />
     <Compile Include="ViewModels\Customer\CustomerBottomAskAIViewModel.cs" />
     <Compile Include="ViewModels\Customer\CustomerInitBottomViewModel.cs" />
@@ -144,6 +145,9 @@
     <Compile Include="ViewModels\Main\WelcomeViewModel.cs" />
     <Compile Include="Views\Chat\ChatBaseView.xaml.cs">
       <DependentUpon>ChatBaseView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Chat\ChatBottomBoldTextView.xaml.cs">
+      <DependentUpon>ChatBottomBoldTextView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Chat\ChatTextView.xaml.cs">
       <DependentUpon>ChatTextView.xaml</DependentUpon>
@@ -182,6 +186,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\Chat\ChatBaseView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Chat\ChatBottomBoldTextView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
