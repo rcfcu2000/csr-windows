@@ -3,7 +3,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:attach="clr-namespace:csr_windows.Resources.AttachProperties"
     xmlns:controls="clr-namespace:csr_windows.Resources.Controls"
+    xmlns:convert="clr-namespace:csr_windows.Resources.Converters"
     xmlns:hc="https://handyorg.github.io/handycontrol">
+    
+    <convert:IsNullConverter x:Key="IsNull" />
 
     <!--  图片button  -->
     <Style TargetType="{x:Type controls:ImageButton}">

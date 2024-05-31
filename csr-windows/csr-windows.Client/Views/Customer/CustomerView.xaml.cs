@@ -25,19 +25,6 @@ namespace csr_windows.Client.Views.Customer
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Grid grid = new Grid();
-            grid.Width = 200;
-            grid.Height = 200;
-            grid.Background = Brushes.Red;
-            grid.Margin = new Thickness(10);
-            testSP.Children.Add(grid);
-        }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            testSP.Children.Clear();
-        }
     }
 }

@@ -57,7 +57,7 @@
                 x:Name="sv"
                 Grid.Row="1"
                 VerticalScrollBarVisibility="Auto">
-                <StackPanel x:Name="testSP" />
+                <ItemsControl ItemsSource="{Binding UserControls}" />
             </ScrollViewer>
             <Grid Grid.Row="2">
                 <Rectangle
@@ -66,28 +66,11 @@
                     Fill="{StaticResource 0.1OpacityBlackTheme}"
                     Visibility="{Binding ElementName=sv, Path=ComputedVerticalScrollBarVisibility}" />
                 <local:CustomerInitBottomView />
+                <Button Command="{Binding TestCommand}" Content="点我点我" />
             </Grid>
-            <!--  测试代码  -->
-            <StackPanel
-                Grid.Row="2"
-                HorizontalAlignment="Center"
-                Orientation="Horizontal"
-                Visibility="Collapsed">
-                <Button
-                    Width="150"
-                    Height="50"
-                    Margin="15"
-                    Click="Button_Click"
-                    Content="点我" />
-                <Button
-                    Width="150"
-                    Height="50"
-                    Click="Button_Click_1"
-                    Content="删除" />
-            </StackPanel>
         </Grid>
         <!--<local:CustomerBottomAskAIView VerticalAlignment="Bottom" />-->
-        <local:ProductIntroductionView VerticalAlignment="Bottom" />
+        <!--<local:ProductIntroductionView VerticalAlignment="Bottom" />-->
     </Grid>
 
 </UserControl>

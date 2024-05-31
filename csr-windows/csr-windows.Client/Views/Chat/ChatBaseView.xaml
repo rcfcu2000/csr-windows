@@ -23,21 +23,32 @@
         </Border>
         <Grid Margin="5">
             <Border
+                Margin="0,0,20,0"
                 Background="White"
                 CornerRadius="5"
-                TextBlock.FontSize="14"
-                TextBlock.Foreground="{StaticResource 0.8OpacityBlackTheme}"
-                Visibility="{Binding ChatIdentityEnum, Converter={StaticResource ChatIdentityEnumConverter}, ConverterParameter={x:Static enum:ChatIdentityEnum.Recipient}}">
-                <ContentControl Margin="15,10,15,0" Content="{Binding ContentControl}" />
-            </Border>
+                Visibility="{Binding ChatIdentityEnum, Converter={StaticResource ChatIdentityEnumConverter}, ConverterParameter={x:Static enum:ChatIdentityEnum.Recipient}}" />
             <Border
+                Margin="20,0,0,0"
                 Background="{StaticResource ThemeColorBrush}"
                 CornerRadius="5"
-                TextBlock.FontSize="14"
-                TextBlock.Foreground="White"
-                Visibility="{Binding ChatIdentityEnum, Converter={StaticResource ChatIdentityEnumConverter}, ConverterParameter={x:Static enum:ChatIdentityEnum.Sender}}">
-                <ContentControl Margin="15,10,15,0" Content="{Binding ContentControl}" />
-            </Border>
+                Visibility="{Binding ChatIdentityEnum, Converter={StaticResource ChatIdentityEnumConverter}, ConverterParameter={x:Static enum:ChatIdentityEnum.Sender}}" />
+            <ContentControl Content="{Binding ContentControl}" FontSize="14">
+                <ContentControl.Style>
+                    <Style TargetType="ContentControl">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ChatIdentityEnum}" Value="Recipient">
+                                <Setter Property="Foreground" Value="{StaticResource 0.8OpacityBlackTheme}" />
+                                <Setter Property="Margin" Value="15,10,35,0" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ChatIdentityEnum}" Value="Sender">
+                                <Setter Property="Foreground" Value="White" />
+                                <Setter Property="Margin" Value="35,10,15,0" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ContentControl.Style>
+            </ContentControl>
+
         </Grid>
     </Grid>
 </UserControl>
