@@ -58,7 +58,9 @@
     <Compile Include="Controls\ShopControl\ProductControl.cs" />
     <Compile Include="Controls\TooltipContol\Poptip.cs" />
     <Compile Include="Controls\WindowContorl\DpiDecorator.cs" />
+    <Compile Include="Converters\ChatIdentityEnumConverter.cs" />
     <Compile Include="Converters\DPIConverter.cs" />
+    <Compile Include="Enumeration\ChatEnum.cs" />
     <Compile Include="Enumeration\DPIConverterEnum.cs" />
     <Compile Include="Helpers\ScreenManager.cs" />
     <Compile Include="Helpers\ValueBoxes.cs" />

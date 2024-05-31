@@ -4,6 +4,7 @@
     xmlns:converter="clr-namespace:csr_windows.Resources.Converters">
 
     <converter:DPIConverter x:Key="DPIConverter" />
+    <converter:ChatIdentityEnumConverter x:Key="ChatIdentityEnumConverter" />
     <ResourceDictionary.MergedDictionaries>
 
         <ResourceDictionary Source="../Theme/Color.xaml" />

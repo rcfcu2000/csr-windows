@@ -20,4 +20,7 @@
 
     <!--  0.1 透明度蓝色  -->
     <Color x:Key="0.1OpacityBlueColor">#192335c5</Color>
+
+    <!--  主题色  -->
+    <Color x:Key="ThemeColor">#2335C5</Color>
 </ResourceDictionary>

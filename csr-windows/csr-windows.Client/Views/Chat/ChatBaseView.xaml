@@ -1,0 +1,43 @@
+﻿<UserControl
+    x:Class="csr_windows.Client.Views.Chat.ChatBaseView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:enum="clr-namespace:csr_windows.Resources.Enumeration;assembly=csr-windows.Resources"
+    xmlns:local="clr-namespace:csr_windows.Client.Views.Chat"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:csr_windows.Client.ViewModels.Chat"
+    d:DataContext="{d:DesignInstance vm:ChatBaseViewModel}"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid Margin="10">
+        <Border
+            Margin="5"
+            Background="Black"
+            CornerRadius="5"
+            Opacity="0.1">
+            <Border.Effect>
+                <BlurEffect KernelType="Box" RenderingBias="Quality" />
+            </Border.Effect>
+        </Border>
+        <Grid Margin="5">
+            <Border
+                Background="White"
+                CornerRadius="5"
+                TextBlock.FontSize="14"
+                TextBlock.Foreground="{StaticResource 0.8OpacityBlackTheme}"
+                Visibility="{Binding ChatIdentityEnum, Converter={StaticResource ChatIdentityEnumConverter}, ConverterParameter={x:Static enum:ChatIdentityEnum.Recipient}}">
+                <ContentControl Margin="15,10" Content="{Binding ContentControl}" />
+            </Border>
+            <Border
+                Background="{StaticResource ThemeColorBrush}"
+                CornerRadius="5"
+                TextBlock.FontSize="14"
+                TextBlock.Foreground="White"
+                Visibility="{Binding ChatIdentityEnum, Converter={StaticResource ChatIdentityEnumConverter}, ConverterParameter={x:Static enum:ChatIdentityEnum.Sender}}">
+                <ContentControl Margin="15,10" Content="{Binding ContentControl}" />
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>
