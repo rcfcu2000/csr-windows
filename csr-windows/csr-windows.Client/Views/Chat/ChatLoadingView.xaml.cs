@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace csr_windows.Client.ViewModels.Chat
+namespace csr_windows.Client.View.Chat
 {
     /// <summary>
     /// ChatLoadingView.xaml 的交互逻辑
