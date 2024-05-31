@@ -145,8 +145,36 @@ namespace csr_windows.Client.ViewModels.Chat
         #endregion
     }
 
-    public class ChatTestModel 
+    public class ChatTestModel : ObservableRecipient
     {
-        public string Content { get; set; }
+
+        #region Fields
+
+        private string _content;
+
+        private bool _isLast;
+
+        #endregion
+
+        #region Properties
+        /// <summary>
+        /// 文本内容
+        /// </summary>
+        public string Content
+        {
+            get => _content;
+            set => SetProperty(ref _content, value);
+        }
+
+        /// <summary>
+        /// 是否是最后一个
+        /// </summary>
+        public bool IsLast
+        {
+            get => _isLast;
+            set => SetProperty(ref _isLast, value);
+        }
+        #endregion
+
     }
 }
