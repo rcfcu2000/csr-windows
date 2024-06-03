@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:csr_windows.Client"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:public="clr-namespace:csr_windows.Client.Views.Public"
     xmlns:view="clr-namespace:csr_windows.Client.Views.Main"
     xmlns:vm="clr-namespace:csr_windows.Client.ViewModels.Main"
     Title="MainWindow"
@@ -26,5 +27,13 @@
             x:Name="LostButton"
             Width="0"
             Height="0" />
+        <public:PromptWindow
+            x:Name="promptWindow"
+            Width="auto"
+            Height="50"
+            Margin="0,115,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Visibility="Collapsed" />
     </Grid>
 </Window>

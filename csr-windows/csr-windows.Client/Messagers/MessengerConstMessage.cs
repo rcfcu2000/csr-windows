@@ -12,5 +12,10 @@ namespace csr_windows.Client
         /// 打开Main中的窗体
         /// </summary>
         public const string OpenMainUserControlToken = "OpenMainUserControlToken";
+
+        /// <summary>
+        /// 打开PromptMessage
+        /// </summary>
+        public const string OpenPromptMessageToken = "OpenPromptMessageToken";
     }
 }

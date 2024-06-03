@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,6 +17,9 @@ namespace csr_windows.Client.ViewModels.Chat
         private bool _isHaveProduct;
 
         private string _productName;
+
+        private const string CopyContentMessage = "复制成功";
+        private const string SendContentMessage = "已发送给顾客";
 
 
 
@@ -115,6 +119,7 @@ namespace csr_windows.Client.ViewModels.Chat
         /// </summary>
         private void OnSendAllCommand()
         {
+            WeakReferenceMessenger.Default.Send(SendContentMessage, MessengerConstMessage.OpenPromptMessageToken);
         }
 
         /// <summary>
@@ -122,6 +127,8 @@ namespace csr_windows.Client.ViewModels.Chat
         /// </summary>
         private void OnCopyAllCommand()
         {
+
+            WeakReferenceMessenger.Default.Send(CopyContentMessage, MessengerConstMessage.OpenPromptMessageToken);
         }
 
 
@@ -135,12 +142,14 @@ namespace csr_windows.Client.ViewModels.Chat
         private void CopyContent(string content)
         {
             //TODO :弹提示框
+          WeakReferenceMessenger.Default.Send(CopyContentMessage, MessengerConstMessage.OpenPromptMessageToken);
             //复制到剪切板
         }
 
         private void SendContent(string content)
         {
             //TODO :弹提示框
+            WeakReferenceMessenger.Default.Send(SendContentMessage, MessengerConstMessage.OpenPromptMessageToken);
             //TODO :发送消息
         }
 

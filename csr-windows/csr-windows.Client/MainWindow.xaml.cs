@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.DependencyInjection;
+using CommunityToolkit.Mvvm.Messaging;
 using csr_windows.Client.Services.Base;
 using csr_windows.Client.ViewModels.Main;
 using csr_windows.Client.Views.Main;
@@ -33,6 +34,11 @@ namespace csr_windows.Client
         public MainWindow()
         {
             _uiService = Ioc.Default.GetService<IUiService>();
+            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.OpenPromptMessageToken, (r, m) => 
+            { 
+                promptWindow.PromptContent = m;
+                promptWindow.Visibility = Visibility.Visible; 
+            });
             InitializeComponent();
             _mainViewModel = new MainViewModel();
             this.DataContext = _mainViewModel;
