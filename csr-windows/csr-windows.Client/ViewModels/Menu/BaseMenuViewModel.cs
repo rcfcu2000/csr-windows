@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace csr_windows.Client.ViewModels.Menu
 
         public BaseMenuViewModel()
         {
-            
+             WeakReferenceMessenger.Default.Register<UserControl, string>(this, MessengerConstMessage.OpenMenuUserControlToken, (r, m) => { ChangeContent(m); });
         }
 
         #endregion
@@ -43,6 +44,16 @@ namespace csr_windows.Client.ViewModels.Menu
         #endregion
 
         #region Methods
+
+        /// <summary>
+        /// 切换content
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="content"></param>
+        private void ChangeContent<T>(T content) where T : UserControl
+        {
+            ContentControl = content;
+        }
 
         #endregion
     }

@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.DependencyInjection;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
+using csr_windows.Client.Services.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +19,7 @@ namespace csr_windows.Client.ViewModels.Main
         #region Fields
 
         private UserControl _mainUserControl;
-
+        private IUiService _uiService;
         private bool _isInIM = true;
 
         #endregion
@@ -35,6 +37,7 @@ namespace csr_windows.Client.ViewModels.Main
         #region Constructor
         public MainViewModel()
         {
+            _uiService = Ioc.Default.GetService<IUiService>();
             WeakReferenceMessenger.Default.Register<UserControl, string>(this, MessengerConstMessage.OpenMainUserControlToken, (r, m) => { ChangeContent(m); });
             MainUserControl = new Views.Main.WelcomeView();
 
@@ -103,6 +106,7 @@ namespace csr_windows.Client.ViewModels.Main
         /// </summary>
         private void OnAboutCommand()
         {
+            _uiService.OpenMenuAboutView();
         }
         #endregion
 

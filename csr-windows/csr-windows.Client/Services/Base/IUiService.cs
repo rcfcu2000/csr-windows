@@ -28,6 +28,10 @@ namespace csr_windows.Client.Services.Base
         /// </summary>
         void OpenCustomerView();
 
+        /// <summary>
+        /// 打开关于界面
+        /// </summary>
+        void OpenMenuAboutView();
 
     }
 

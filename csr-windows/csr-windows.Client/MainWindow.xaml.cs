@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Messaging;
 using csr_windows.Client.Services.Base;
 using csr_windows.Client.ViewModels.Main;
+using csr_windows.Client.ViewModels.Menu;
 using csr_windows.Client.Views.Main;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -39,9 +41,16 @@ namespace csr_windows.Client
                 promptWindow.PromptContent = m;
                 promptWindow.Visibility = Visibility.Visible; 
             });
+            WeakReferenceMessenger.Default.Register<UserControl, string>(this, MessengerConstMessage.OpenMenuUserControlToken, (r, m) => { baseMenuView.Visibility = Visibility.Visible; });
+            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.CloseMenuUserControlToken, (r, m) => 
+            { 
+                baseMenuView.Visibility = Visibility.Collapsed;
+            });
+
             InitializeComponent();
             _mainViewModel = new MainViewModel();
             this.DataContext = _mainViewModel;
+            baseMenuView.DataContext = new BaseMenuViewModel();
             
 
             _uiService.OpenCustomerView();
@@ -65,6 +74,45 @@ namespace csr_windows.Client
             LostButton.Focus();
         }
 
+
+        /// <summary>
+        /// 窗体变为最小化状态
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">     </param>
+        public void Button_Min_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is DependencyObject win)
+            {
+                Window.GetWindow(win).WindowState = WindowState.Minimized;
+            }
+        }
+
+
+        public void Button_Close_Click(object sender, RoutedEventArgs e)
+        {
+            //if (XDD.Control.XlyMessageBox.ShowQuestion(XLY.DF.FoundationService.Localization.Language.Get("LANGKEY_QueDingTuiChu_03937"), XLY.DF.FoundationService.Localization.Language.Get("LANGKEY_Shi_03938"), XLY.DF.FoundationService.Localization.Language.Get("LANGKEY_Fou_03939")))
+            Window.GetWindow(sender as UIElement).Close();
+        }
+
+        public void ToggleButton_More_LostFocus(object sender, RoutedEventArgs e)
+        {
+            var toggleButton = sender as ToggleButton;
+            if ((bool)toggleButton.IsChecked)
+                toggleButton.IsChecked = false;
+        }
+
+        private void tb_LostFocus(object sender, RoutedEventArgs e)
+        {
+            Task.Delay(50).ContinueWith(t =>
+            {
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    (sender as ToggleButton).IsChecked = false;
+
+                });
+            });
+        }
         #endregion
 
 

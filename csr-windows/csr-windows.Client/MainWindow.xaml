@@ -2,10 +2,16 @@
     x:Class="csr_windows.Client.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:attach="clr-namespace:csr_windows.Resources.AttachProperties;assembly=csr-windows.Resources"
+    xmlns:controls="clr-namespace:csr_windows.Resources.Controls;assembly=csr-windows.Resources"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:local="clr-namespace:csr_windows.Client"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:menu="clr-namespace:csr_windows.Client.Views.Menu"
     xmlns:public="clr-namespace:csr_windows.Client.Views.Public"
+    xmlns:resourcesEnums="clr-namespace:csr_windows.Resources.Enumeration;assembly=csr-windows.Resources"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
     xmlns:view="clr-namespace:csr_windows.Client.Views.Main"
     xmlns:vm="clr-namespace:csr_windows.Client.ViewModels.Main"
     Title="MainWindow"
@@ -20,6 +26,10 @@
     UseLayoutRounding="True"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
+    <Window.Resources>
+        <system:Double x:Key="PopupMenuHorizontalOffset">0</system:Double>
+        <system:Double x:Key="PopupMenuVerticalOffset">0</system:Double>
+    </Window.Resources>
     <Grid Width="400" Height="800">
         <Image Source="{StaticResource IMG_Main_Background}" />
         <ContentControl Content="{Binding MainUserControl}" />
@@ -27,6 +37,106 @@
             x:Name="LostButton"
             Width="0"
             Height="0" />
+        <!--#region 右上角三个按钮-->
+        <Grid VerticalAlignment="Top">
+
+            <StackPanel
+                Margin="0,4,4,0"
+                HorizontalAlignment="Right"
+                Orientation="Horizontal"
+                WindowChrome.IsHitTestVisibleInChrome="True">
+                <!--  右侧按钮  -->
+                <ToggleButton
+                    x:Name="tb"
+                    Width="36"
+                    Height="36"
+                    attach:IconProperties.IconUrl="{StaticResource IMG_Main_More}"
+                    attach:MouseDependencyProperty.OverBackColor="{DynamicResource MainNormalButtonOverTheme}"
+                    attach:MouseDependencyProperty.PressedColor="{DynamicResource MainNormalButtonPressedTheme}"
+                    hc:BorderElement.CornerRadius="4"
+                    DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                    LostFocus="tb_LostFocus"
+                    Style="{StaticResource MainToggleButton}"
+                    ToolTip="更多"
+                    Visibility="{Binding IsInIM, Converter={StaticResource Boolean2VisibilityConverter}}" />
+
+
+                <Popup
+                    AllowsTransparency="True"
+                    HorizontalOffset="{Binding ., Source={StaticResource PopupMenuHorizontalOffset}, Converter={StaticResource DPIConverter}, ConverterParameter={x:Static resourcesEnums:DPIConverterEnum.X}}"
+                    IsOpen="{Binding ElementName=tb, Path=IsChecked}"
+                    Placement="Center"
+                    PlacementTarget="{Binding ElementName=tb}"
+                    StaysOpen="False"
+                    VerticalOffset="{Binding VerticalOffset, Source={StaticResource PopupMenuVerticalOffset}, Converter={StaticResource DPIConverter}, ConverterParameter={x:Static resourcesEnums:DPIConverterEnum.Y}}">
+                    <Grid>
+                        <Border
+                            Margin="5"
+                            Background="Black"
+                            CornerRadius="5"
+                            Opacity="0.1">
+                            <Border.Effect>
+                                <BlurEffect KernelType="Box" RenderingBias="Quality" />
+                            </Border.Effect>
+                        </Border>
+                        <Border
+                            Width="124"
+                            Margin="5"
+                            Padding="5"
+                            Background="White"
+                            CornerRadius="5"
+                            SnapsToDevicePixels="True"
+                            UseLayoutRounding="True">
+                            <StackPanel>
+                                <StackPanel.Resources>
+                                    <Style BasedOn="{StaticResource ColorChangedButtonStyle}" TargetType="Button">
+                                        <Setter Property="Width" Value="114" />
+                                        <Setter Property="Height" Value="40" />
+                                        <Setter Property="Padding" Value="15,0" />
+                                        <Setter Property="HorizontalAlignment" Value="Left" />
+                                        <Setter Property="HorizontalContentAlignment" Value="Left" />
+                                        <Setter Property="attach:MouseDependencyProperty.OverBackColor" Value="{StaticResource 0.1OpacityBlueTheme}" />
+                                        <Setter Property="attach:MouseDependencyProperty.PressedColor" Value="{StaticResource 0.1OpacityBlueTheme}" />
+                                        <Setter Property="hc:BorderElement.CornerRadius" Value="2" />
+                                        <Setter Property="Background" Value="White" />
+                                        <Setter Property="Cursor" Value="Hand" />
+                                        <Setter Property="FontSize" Value="14" />
+                                    </Style>
+                                </StackPanel.Resources>
+                                <Button Command="{Binding OpenAICommand}" Content="AI训练语料库" />
+                                <Button Command="{Binding PersonalDataCommand}" Content="个人资料" />
+                                <Button Command="{Binding AboutCommand}" Content="关于助手" />
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+
+                </Popup>
+                <!--  右侧按钮  -->
+                <controls:ImageButton
+                    Width="36"
+                    Height="36"
+                    attach:MouseDependencyProperty.OverBackColor="{DynamicResource MainNormalButtonOverTheme}"
+                    attach:MouseDependencyProperty.PressedColor="{DynamicResource MainNormalButtonPressedTheme}"
+                    hc:BorderElement.CornerRadius="4"
+                    Click="Button_Min_Click"
+                    NormalImageSource="{StaticResource IMG_Main_Min}"
+                    Style="{StaticResource BorderImageButton}"
+                    ToolTip="最小化" />
+                <controls:ImageButton
+                    Width="36"
+                    Height="36"
+                    attach:MouseDependencyProperty.OverBackColor="{DynamicResource MainCloseButtonOverTheme}"
+                    attach:MouseDependencyProperty.PressedColor="{DynamicResource MainCloseButtonPressedTheme}"
+                    hc:BorderElement.CornerRadius="4"
+                    Click="Button_Close_Click"
+                    NormalImageSource="{StaticResource IMG_Main_Close}"
+                    Style="{StaticResource BorderImageButton}"
+                    ToolTip="关闭" />
+            </StackPanel>
+        </Grid>
+        <!--#endregion-->
+
+        <menu:BaseMenuView x:Name="baseMenuView" Visibility="Collapsed" />
         <public:PromptWindow
             x:Name="promptWindow"
             Width="auto"

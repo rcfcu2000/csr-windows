@@ -1,0 +1,75 @@
+﻿<UserControl
+    x:Class="csr_windows.Client.Views.Menu.AboutView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:csr_windows.Resources.Controls;assembly=csr-windows.Resources"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:csr_windows.Client.Views.Menu"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:csr_windows.Client.ViewModels.Menu"
+    d:DataContext="{d:DesignInstance vm:AboutViewModel}"
+    d:DesignHeight="258"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+    <Border Background="White" CornerRadius="15 15 0 0">
+        <Grid>
+            <Image VerticalAlignment="Top" Source="{StaticResource IMG_Menu_SuspendedBg}" />
+            <Grid>
+                <controls:ImageButton
+                    Width="16"
+                    Height="16"
+                    Margin="14"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Command="{Binding CloseCommand}"
+                    NormalImageSource="{StaticResource IMG_Main_Close}" />
+                <Grid Margin="15,30">
+                    <StackPanel HorizontalAlignment="Left">
+                        <TextBlock
+                            Margin="0,0,0,5"
+                            FontSize="24"
+                            FontWeight="Bold"
+                            Text="关于助手" />
+                        <TextBlock Foreground="#99000000" Text="{Binding Version, StringFormat={}当前版本 {0}}" />
+                        <!--<TextBlock Foreground="#99000000" Text="当前版本 0.7.2" />-->
+                        <Button
+                            Margin="0,0,0,10"
+                            Padding="0"
+                            HorizontalAlignment="Left"
+                            Background="Transparent"
+                            Command="{Binding CheckVersionCommand}"
+                            Content="检查更新"
+                            Foreground="#2335C5" />
+                        <TextBlock
+                            FontSize="14"
+                            LineHeight="25"
+                            Text="我是您的智能 AI 客服助手，利用先进的 AI 人工智能技术，"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            FontSize="14"
+                            LineHeight="25"
+                            Text="我能够实时帮助您更精准而高效的回复顾客咨询的问题，让"
+                            TextWrapping="Wrap" />
+                        <StackPanel Margin="0,0,0,15" Orientation="Horizontal">
+
+                            <TextBlock
+                                FontSize="14"
+                                LineHeight="25"
+                                Text="您的客服工作 "
+                                TextWrapping="Wrap" />
+                            <TextBlock
+                                FontSize="14"
+                                FontWeight="Bold"
+                                LineHeight="25"
+                                Text="从未如此轻松！" />
+                        </StackPanel>
+                        <TextBlock Foreground="{StaticResource 0.5OpacityBlackTheme}" Text="©2024 智绘阁（成都）科技有限公司" />
+                    </StackPanel>
+
+                </Grid>
+            </Grid>
+            <Image />
+        </Grid>
+    </Border>
+
+</UserControl>

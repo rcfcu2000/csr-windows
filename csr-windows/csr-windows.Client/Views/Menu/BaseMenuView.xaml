@@ -11,7 +11,7 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
     <Grid>
-        <Border Background="Black" Opacity="0.4" />
+        <Border Background="#65000000" />
         <UserControl VerticalAlignment="Bottom" Content="{Binding ContentControl}" />
     </Grid>
 </UserControl>

@@ -17,5 +17,15 @@ namespace csr_windows.Client
         /// 打开PromptMessage
         /// </summary>
         public const string OpenPromptMessageToken = "OpenPromptMessageToken";
+
+        /// <summary>
+        /// 打开菜单的窗体
+        /// </summary>
+        public const string OpenMenuUserControlToken = "OpenMenuUserControlToken";
+
+        /// <summary>
+        /// 关闭菜单的窗体
+        /// </summary>
+        public const string CloseMenuUserControlToken = "CloseMenuUserControlToken";
     }
 }

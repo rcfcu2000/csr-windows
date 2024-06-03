@@ -135,6 +135,7 @@
     <Compile Include="ViewModels\Chat\ChatBaseViewModel.cs" />
     <Compile Include="ViewModels\Chat\ChatBottomBoldTextViewModel.cs" />
     <Compile Include="ViewModels\Chat\ChatCopyTextViewModel.cs" />
+    <Compile Include="ViewModels\Menu\AboutViewModel.cs" />
     <Compile Include="ViewModels\Menu\BaseMenuViewModel.cs" />
     <Compile Include="Views\Chat\ChatCopyTextView.xaml.cs">
       <DependentUpon>ChatCopyTextView.xaml</DependentUpon>
