@@ -22,47 +22,52 @@
         <ItemsControl ItemsSource="{Binding ChatTestModels}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Grid Margin="0,5,0,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="263" />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <Grid Margin="0,0,5,0">
-                            <TextBlock
-                                HorizontalAlignment="Left"
-                                FontWeight="Bold"
-                                Text="{Binding Content}"
-                                TextWrapping="Wrap" />
-                        </Grid>
+                    <Grid>
+                        <Grid Margin="0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="263" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid Margin="0,0,5,0">
+                                <TextBlock
+                                    HorizontalAlignment="Left"
+                                    FontWeight="Bold"
+                                    LineHeight="25"
+                                    Text="{Binding Content}"
+                                    TextWrapping="Wrap" />
+                            </Grid>
+                            <StackPanel
+                                Grid.Column="1"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom"
+                                Orientation="Horizontal">
+                                <controls:ImageButton
+                                    Width="26"
+                                    Height="26"
+                                    attach:MouseDependencyProperty.OverBackColor="{DynamicResource MainNormalButtonOverTheme}"
+                                    attach:MouseDependencyProperty.PressedColor="{DynamicResource MainNormalButtonPressedTheme}"
+                                    hc:BorderElement.CornerRadius="4"
+                                    Command="{Binding SingleChatCopyCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                                    CommandParameter="{Binding}"
+                                    NormalImageSource="{StaticResource IMG_Chat_Copy}"
+                                    Style="{StaticResource BorderImageButton}"
+                                    ToolTip="复制" />
+                                <controls:ImageButton
+                                    Width="26"
+                                    Height="26"
+                                    attach:MouseDependencyProperty.OverBackColor="{DynamicResource MainNormalButtonOverTheme}"
+                                    attach:MouseDependencyProperty.PressedColor="{DynamicResource MainNormalButtonPressedTheme}"
+                                    hc:BorderElement.CornerRadius="4"
+                                    Command="{Binding SingleChatSendCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                                    CommandParameter="{Binding}"
+                                    NormalImageSource="{StaticResource IMG_Chat_Send}"
+                                    Style="{StaticResource BorderImageButton}"
+                                    ToolTip="发送" />
+                            </StackPanel>
 
-                        <StackPanel
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Bottom"
-                            Orientation="Horizontal">
-                            <controls:ImageButton
-                                Width="26"
-                                Height="26"
-                                attach:MouseDependencyProperty.OverBackColor="{DynamicResource MainNormalButtonOverTheme}"
-                                attach:MouseDependencyProperty.PressedColor="{DynamicResource MainNormalButtonPressedTheme}"
-                                hc:BorderElement.CornerRadius="4"
-                                Command="{Binding SingleChatCopyCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
-                                CommandParameter="{Binding}"
-                                NormalImageSource="{StaticResource IMG_Chat_Copy}"
-                                Style="{StaticResource BorderImageButton}"
-                                ToolTip="复制" />
-                            <controls:ImageButton
-                                Width="26"
-                                Height="26"
-                                attach:MouseDependencyProperty.OverBackColor="{DynamicResource MainNormalButtonOverTheme}"
-                                attach:MouseDependencyProperty.PressedColor="{DynamicResource MainNormalButtonPressedTheme}"
-                                hc:BorderElement.CornerRadius="4"
-                                Command="{Binding SingleChatSendCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
-                                CommandParameter="{Binding}"
-                                NormalImageSource="{StaticResource IMG_Chat_Send}"
-                                Style="{StaticResource BorderImageButton}"
-                                ToolTip="发送" />
-                        </StackPanel>
+                        </Grid>
                         <Rectangle
+                            Grid.ColumnSpan="2"
                             Height="1"
                             VerticalAlignment="Bottom"
                             Fill="{StaticResource 0.1OpacityBlackTheme}"
@@ -81,7 +86,7 @@
                 Margin="0,0,0,10"
                 attach:IconProperties.IconHeight="16"
                 attach:IconProperties.IconThickness="0 0 5 0"
-                attach:IconProperties.IconUrl="{StaticResource IMG_Chat_Send}"
+                attach:IconProperties.IconUrl="{StaticResource IMG_Chat_WhiteSend}"
                 attach:IconProperties.IconWidth="16"
                 hc:BorderElement.CornerRadius="5"
                 Background="{StaticResource ThemeColorBrush}"
@@ -105,15 +110,16 @@
                 Content="整段复制"
                 Cursor="Hand"
                 FontSize="14"
-                Foreground="White"
+                Foreground="{StaticResource ThemeColorBrush}"
                 Style="{StaticResource PrimaryImageContentButton}" />
         </Grid>
         <Grid
             Grid.Row="2"
-            Margin="0,10"
+            Margin="0,5,0,10"
             VerticalAlignment="Bottom">
             <Grid VerticalAlignment="Center">
                 <TextBlock
+                    FontSize="12"
                     Foreground="#E84993"
                     Text="未检测到具体商品，内容可能有误"
                     Visibility="{Binding IsHaveProduct, Converter={StaticResource Boolean2VisibilityReConverter}}" />
@@ -123,21 +129,24 @@
                             <Setter Property="Foreground" Value="{StaticResource 0.8OpacityBlackTheme}" />
                         </Style>
                     </StackPanel.Resources>
-                    <TextBlock Text="内容基于  " />
-                    <TextBlock FontWeight="Bold" Text="{Binding ProductName}" />
-                    <TextBlock Text=" 生成" />
+                    <TextBlock FontSize="12" Text="内容基于 " />
+                    <TextBlock
+                        FontSize="12"
+                        FontWeight="Bold"
+                        Text="{Binding ProductName}" />
+                    <TextBlock FontSize="12" Text=" 生成" />
                 </StackPanel>
             </Grid>
 
             <Button
                 Width="70"
                 Height="15"
-                Margin="15"
+                Margin="0,0,0,2"
                 Padding="0"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom"
                 attach:IconProperties.IconHeight="16"
-                attach:IconProperties.IconThickness="0 3 5 0"
+                attach:IconProperties.IconThickness="0 0 5 0"
                 attach:IconProperties.IconUrl="{StaticResource IMG_Customer_ChooseProduct}"
                 attach:IconProperties.IconWidth="16"
                 Background="Transparent"

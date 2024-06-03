@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using csr_windows.Domain.Common;
+using csr_windows.Resources.Enumeration;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,8 +17,7 @@ namespace csr_windows.Client.ViewModels.Chat
         private string _startContent;
         private string _endContent;
         private bool _isShowEndContent;
-
-
+        private ChatIdentityEnum _chatIdentityEnum;
         #endregion
 
         #region Commands
@@ -26,9 +26,10 @@ namespace csr_windows.Client.ViewModels.Chat
 
         #region Constructor
 
-        public ChatTextAndProductViewModel()
+        public ChatTextAndProductViewModel(List<MyProduct> myProducts, ChatIdentityEnum chatIdentityEnum)
         {
-            
+            ProductsList=  new ObservableCollection<MyProduct>(myProducts);
+            ChatIdentityEnum = chatIdentityEnum;
         }
 
         #endregion
@@ -73,6 +74,14 @@ namespace csr_windows.Client.ViewModels.Chat
             set => SetProperty(ref _isShowEndContent, value);
         }
 
+        /// <summary>
+        /// 文本身份枚举
+        /// </summary>
+        public ChatIdentityEnum ChatIdentityEnum
+        {
+            get => _chatIdentityEnum;
+            set => SetProperty(ref _chatIdentityEnum, value);
+        }
         #endregion
 
         #region Methods

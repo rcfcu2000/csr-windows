@@ -20,7 +20,7 @@
         <system:Double x:Key="PopupMenuVerticalOffset">0</system:Double>
     </UserControl.Resources>
     <Grid>
-        <StackPanel Margin="15,0,0,40" Orientation="Horizontal">
+        <StackPanel Margin="15,10,0,40" Orientation="Horizontal">
             <Button
                 Width="155"
                 Height="40"

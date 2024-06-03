@@ -6,4 +6,7 @@
     <!--  发送  -->
     <ImageSource x:Key="IMG_Chat_Send">/csr-windows.Resources;component/Images/Chat/send.png</ImageSource>
 
+    <!--  白色 发送  -->
+    <ImageSource x:Key="IMG_Chat_WhiteSend">/csr-windows.Resources;component/Images/Chat/white_send.png</ImageSource>
+
 </ResourceDictionary>

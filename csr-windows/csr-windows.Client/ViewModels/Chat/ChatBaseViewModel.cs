@@ -45,7 +45,7 @@ namespace csr_windows.Client.ViewModels.Chat
         /// <summary>
         /// 内容控件
         /// </summary>
-        public UserControl ContentControl
+        public UserControl ContentControl 
         {
             get => _contentConTrol;
             set => SetProperty(ref _contentConTrol, value);

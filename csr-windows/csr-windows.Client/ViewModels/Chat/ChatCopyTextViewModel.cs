@@ -47,7 +47,7 @@ namespace csr_windows.Client.ViewModels.Chat
         #endregion
 
         #region Constructor
-        public ChatCopyTextViewModel()
+        public ChatCopyTextViewModel(List<ChatTestModel> chatTestModels)
         {
             SingleChatCopyCommand = new RelayCommand<ChatTestModel>(OnSingleChatCopyCommand);
             SingleChatSendCommand = new RelayCommand<ChatTestModel>(OnSingleChatSendCommand);
@@ -55,6 +55,8 @@ namespace csr_windows.Client.ViewModels.Chat
             CopyAllCommand = new RelayCommand(OnCopyAllCommand);
 
             ChooseProductCommand = new RelayCommand(OnChooseProductCommand);
+
+            ChatTestModels = new ObservableCollection<ChatTestModel>(chatTestModels);
         }
 
     

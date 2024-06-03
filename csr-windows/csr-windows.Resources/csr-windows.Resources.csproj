@@ -198,5 +198,11 @@
     <Resource Include="Images\Chat\copy.png" />
     <Resource Include="Images\Chat\send.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Chat\white_send.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Customer\product_control_white_icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
