@@ -13,7 +13,10 @@
     mc:Ignorable="d">
     <Grid Margin="0,0,0,10">
         <StackPanel>
-            <TextBlock Margin="0,0,0,15" Text="后续回复是否需要基于该商品？" />
+            <TextBlock
+                Margin="0,0,0,5"
+                LineHeight="25"
+                Text="后续回复是否需要基于该商品？" />
             <Button
                 Width="320"
                 Height="40"
