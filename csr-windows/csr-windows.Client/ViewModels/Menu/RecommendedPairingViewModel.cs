@@ -29,6 +29,11 @@ namespace csr_windows.Client.ViewModels.Menu
         private bool _isSearchResult;
         private int _searchProductNum;
 
+        private bool _haveDialogueProduct;
+
+
+
+
 
         private ObservableCollection<MyProduct> _searchProducts;
         private List<MyProduct> storeProducts = new List<MyProduct>();
@@ -159,6 +164,15 @@ namespace csr_windows.Client.ViewModels.Menu
         {
             get => _searchProductNum;
             set => SetProperty(ref _searchProductNum, value);
+        }
+
+        /// <summary>
+        /// 是否有对话中的商品
+        /// </summary>
+        public bool HaveDialogueProduct
+        {
+            get => _haveDialogueProduct;
+            set => SetProperty(ref _haveDialogueProduct, value);
         }
 
         /// <summary>
