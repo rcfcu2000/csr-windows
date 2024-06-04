@@ -61,7 +61,7 @@
                         </hc:TextBox>
                         <Grid Visibility="{Binding IsSearch, Converter={StaticResource Boolean2VisibilityReConverter}}">
 
-                            <hc:ScrollViewer Height="387">
+                            <hc:ScrollViewer Height="545">
                                 <StackPanel>
                                     <StackPanel Visibility="{Binding HaveDialogueProduct, Converter={StaticResource Boolean2VisibilityConverter}}">
                                         <TextBlock
@@ -101,7 +101,7 @@
                         </Grid>
                         <Grid Visibility="{Binding IsSearch, Converter={StaticResource Boolean2VisibilityConverter}}">
                             <Grid Visibility="{Binding IsSearchResult, Converter={StaticResource Boolean2VisibilityConverter}}">
-                                <hc:ScrollViewer Height="387">
+                                <hc:ScrollViewer Height="545">
                                     <StackPanel>
                                         <TextBlock
                                             Margin="15,0,15,7"
@@ -121,7 +121,7 @@
                                     </StackPanel>
                                 </hc:ScrollViewer>
                             </Grid>
-                            <Grid Height="387" Visibility="{Binding IsSearchResult, Converter={StaticResource Boolean2VisibilityReConverter}}">
+                            <Grid Height="545" Visibility="{Binding IsSearchResult, Converter={StaticResource Boolean2VisibilityReConverter}}">
                                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                                     <Image
                                         Width="82"
