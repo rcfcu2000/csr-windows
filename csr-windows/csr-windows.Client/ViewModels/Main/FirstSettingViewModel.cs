@@ -36,16 +36,9 @@ namespace csr_windows.Client.ViewModels.Main
                 //通知命令能否执行
                 ConfirmCommand?.NotifyCanExecuteChanged();
             };
-            ConfirmCommand = new RelayCommand(OnConfirmCommand,CanOnConfirmCommand);
+            ConfirmCommand = new RelayCommand(OnConfirmCommand);
         }
 
-        private bool CanOnConfirmCommand()
-        {
-            if (string.IsNullOrEmpty(UserName) || string.IsNullOrEmpty(StoreName))
-                return false;
-
-            return true;
-        }
 
 
         #endregion
@@ -71,7 +64,7 @@ namespace csr_windows.Client.ViewModels.Main
         }
 
         /// <summary>
-        /// 是否售前客服s
+        /// 是否售前客服
         /// </summary>
         public bool IsItPreSalesCustomerService
         {
@@ -86,7 +79,7 @@ namespace csr_windows.Client.ViewModels.Main
         /// </summary>
         private void OnConfirmCommand()
         {
-            ValidateAllProperties();
+           
         }
         #endregion
     }
