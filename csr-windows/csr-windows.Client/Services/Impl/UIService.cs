@@ -116,6 +116,17 @@ namespace csr_windows.Client.Services.Impl
             DoWork(ac);
         }
 
+        public void OpenPersonalDataView()
+        {
+            Action ac = new Action(() =>
+            {
+                var view = new PersonalDataView();
+                view.DataContext = new PersonalDataViewModel();
+                WeakReferenceMessenger.Default.Send(view as UserControl, MessengerConstMessage.OpenMenuUserControlToken);
+            });
+            DoWork(ac);
+        }
+
         #endregion
 
     }

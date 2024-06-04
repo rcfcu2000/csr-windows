@@ -39,6 +39,12 @@ namespace csr_windows.Client.Services.Base
         /// </summary>
         void OpenRecommendedPairingView();
 
+
+        /// <summary>
+        /// 打开个人资料界面
+        /// </summary>
+        void OpenPersonalDataView();
+
         /// <summary>
         /// 打开选择商品界面
         /// </summary>

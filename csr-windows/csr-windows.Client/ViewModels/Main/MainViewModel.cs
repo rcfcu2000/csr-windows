@@ -99,6 +99,7 @@ namespace csr_windows.Client.ViewModels.Main
         /// </summary>
         private void OnPersonalDataCommand()
         {
+            _uiService.OpenPersonalDataView();
         }
 
         /// <summary>
