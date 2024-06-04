@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.DependencyInjection;
 using CommunityToolkit.Mvvm.Input;
 using csr_windows.Client.Services.Base;
+using csr_windows.Domain.Enumeration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -127,6 +128,7 @@ namespace csr_windows.Client.ViewModels.Customer
         /// </summary>
         private void OnProductIntroductionCommand()
         {
+            _uIService.OpenChooseProductView(ChooseWindowType.ProductIntroduction);
         }
 
         /// <summary>
@@ -142,6 +144,7 @@ namespace csr_windows.Client.ViewModels.Customer
         /// </summary>
         private void OnChooseProductCommand()
         {
+            _uIService.OpenChooseProductView(ChooseWindowType.ChooseProduct);
         }
         #endregion
     }

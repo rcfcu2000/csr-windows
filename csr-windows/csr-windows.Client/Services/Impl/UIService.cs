@@ -6,6 +6,7 @@ using csr_windows.Client.ViewModels.Menu;
 using csr_windows.Client.Views.Customer;
 using csr_windows.Client.Views.Main;
 using csr_windows.Client.Views.Menu;
+using csr_windows.Domain.Enumeration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -99,6 +100,17 @@ namespace csr_windows.Client.Services.Impl
             {
                 var view = new RecommendedPairingView();
                 view.DataContext = new RecommendedPairingViewModel();
+                WeakReferenceMessenger.Default.Send(view as UserControl, MessengerConstMessage.OpenMenuUserControlToken);
+            });
+            DoWork(ac);
+        }
+
+        public void OpenChooseProductView(ChooseWindowType chooseWindowType)
+        {
+            Action ac = new Action(() =>
+            {
+                var view = new ChooseProductView();
+                view.DataContext = new ChooseProductViewModel(chooseWindowType);
                 WeakReferenceMessenger.Default.Send(view as UserControl, MessengerConstMessage.OpenMenuUserControlToken);
             });
             DoWork(ac);

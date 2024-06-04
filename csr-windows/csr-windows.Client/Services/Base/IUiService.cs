@@ -1,4 +1,5 @@
-﻿using System;
+﻿using csr_windows.Domain.Enumeration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,6 +38,11 @@ namespace csr_windows.Client.Services.Base
         /// 打开商品推荐
         /// </summary>
         void OpenRecommendedPairingView();
+
+        /// <summary>
+        /// 打开选择商品界面
+        /// </summary>
+        void OpenChooseProductView(ChooseWindowType chooseWindowType);
 
     }
 

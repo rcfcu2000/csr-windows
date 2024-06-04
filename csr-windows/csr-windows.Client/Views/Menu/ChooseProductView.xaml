@@ -1,0 +1,150 @@
+﻿<UserControl
+    x:Class="csr_windows.Client.Views.Menu.ChooseProductView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:attach="clr-namespace:csr_windows.Resources.AttachProperties;assembly=csr-windows.Resources"
+    xmlns:controls="clr-namespace:csr_windows.Resources.Controls;assembly=csr-windows.Resources"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:local="clr-namespace:csr_windows.Client.Views.Menu"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:csr_windows.Client.ViewModels.Menu"
+    d:DataContext="{d:DesignInstance vm:ChooseProductViewModel}"
+    d:DesignHeight="700"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+    <Border Background="White" CornerRadius="15 15 0 0">
+        <Grid>
+            <Image VerticalAlignment="Top" Source="{StaticResource IMG_Menu_SuspendedBg}" />
+            <Grid>
+                <controls:ImageButton
+                    Width="16"
+                    Height="16"
+                    Margin="14"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Command="{Binding CloseCommand}"
+                    NormalImageSource="{StaticResource IMG_Main_Close}" />
+                <Grid>
+                    <StackPanel>
+                        <TextBlock
+                            Margin="15,30,0,5"
+                            FontSize="24"
+                            FontWeight="Bold"
+                            Text="选择商品" />
+                        <TextBlock
+                            Margin="15,0,0,15"
+                            FontSize="14"
+                            Foreground="#99000000"
+                            Text="后续回答将基于此商品" />
+
+                        <hc:TextBox
+                            Grid.Row="1"
+                            Height="40"
+                            Margin="15,0,15,15"
+                            Padding="0"
+                            attach:IconProperties.IconHeight="16"
+                            attach:IconProperties.IconThickness="15 0 15 0"
+                            attach:IconProperties.IconUrl="{StaticResource IMG_Menu_Search}"
+                            attach:IconProperties.IconWidth="16"
+                            hc:BorderElement.CornerRadius="5"
+                            hc:InfoElement.Necessary="True"
+                            hc:InfoElement.Placeholder="搜索本店商品"
+                            Background="#192335c5"
+                            BorderThickness="0"
+                            FontSize="14"
+                            Style="{StaticResource UserSettingTextBoxStyle}"
+                            Text="{Binding SearchContent, UpdateSourceTrigger=PropertyChanged}">
+                            <hc:TextBox.InputBindings>
+                                <KeyBinding Key="Enter" Command="{Binding SearchCommand}" />
+                            </hc:TextBox.InputBindings>
+                        </hc:TextBox>
+                        <Grid Visibility="{Binding IsSearch, Converter={StaticResource Boolean2VisibilityReConverter}}">
+
+                            <hc:ScrollViewer Height="387">
+                                <StackPanel>
+                                    <StackPanel Visibility="{Binding HaveDialogueProduct, Converter={StaticResource Boolean2VisibilityConverter}}">
+                                        <TextBlock
+                                            Margin="15,0,15,7"
+                                            FontSize="14"
+                                            FontWeight="Bold"
+                                            Text="对话中提到的商品" />
+                                        <ItemsControl Margin="0,0,0,5" ItemsSource="{Binding DialogueProducts}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <controls:ProductControl
+                                                        Width="370"
+                                                        Command="{Binding DataContext.ChooseCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                                                        CommandParameter="{Binding .}" />
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </StackPanel>
+
+                                    <TextBlock
+                                        Margin="15,0,15,7"
+                                        FontSize="14"
+                                        FontWeight="Bold"
+                                        Text="店铺热销商品" />
+                                    <ItemsControl Margin="0,0,0,5" ItemsSource="{Binding HotSellingProducts}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <controls:ProductControl
+                                                    Width="370"
+                                                    Command="{Binding DataContext.ChooseCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                                                    CommandParameter="{Binding .}" />
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </hc:ScrollViewer>
+                        </Grid>
+                        <Grid Visibility="{Binding IsSearch, Converter={StaticResource Boolean2VisibilityConverter}}">
+                            <Grid Visibility="{Binding IsSearchResult, Converter={StaticResource Boolean2VisibilityConverter}}">
+                                <hc:ScrollViewer Height="387">
+                                    <StackPanel>
+                                        <TextBlock
+                                            Margin="15,0,15,7"
+                                            FontSize="14"
+                                            FontWeight="Bold"
+                                            Text="{Binding SearchProductNum, StringFormat={}搜索出 {0} 款商品}" />
+                                        <ItemsControl Margin="0,0,0,5" ItemsSource="{Binding SearchProducts}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <controls:ProductControl
+                                                        Width="370"
+                                                        Command="{Binding DataContext.ChooseCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                                                        CommandParameter="{Binding .}" />
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </StackPanel>
+                                </hc:ScrollViewer>
+                            </Grid>
+                            <Grid Height="387" Visibility="{Binding IsSearchResult, Converter={StaticResource Boolean2VisibilityReConverter}}">
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Image
+                                        Width="82"
+                                        Height="98"
+                                        Margin="0,0,0,10"
+                                        Source="{StaticResource IMG_Menu_SearchResultDefault}" />
+
+                                    <TextBlock
+                                        Margin="0,0,0,5"
+                                        FontSize="14"
+                                        FontWeight="Bold"
+                                        Text="我很努力的找了，还是没找到" />
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        Foreground="#99000000"
+                                        Text="换一个关键词试试吧" />
+
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>
