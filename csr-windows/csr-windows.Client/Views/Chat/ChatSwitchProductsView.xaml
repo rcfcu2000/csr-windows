@@ -21,6 +21,7 @@
                 Background="{StaticResource 0.1OpacityBlueTheme}"
                 Command="{Binding CheckProductCommand}"
                 Content="切换到该商品"
+                Cursor="Hand"
                 FontSize="14"
                 FontWeight="Bold"
                 Foreground="#FF2335C5" />

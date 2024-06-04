@@ -78,6 +78,8 @@ namespace csr_windows.Client.ViewModels.Customer
         private int _copyTextCount = 2;
         private int _chatTextAndProductCount = 2;
         private int _loadingCount = 1;
+        private int _chooseProductCount = 1;
+        private int _endConvertsationContent = 1;
         private ChatIdentityEnum LastEnum;
         private void OnTestCommand()
         {
@@ -201,6 +203,25 @@ namespace csr_windows.Client.ViewModels.Customer
                 
                 chatBaseViewModel.ContentControl = chatTextAndProductView;
                 _chatTextAndProductCount--;
+                goto AddFlag;
+            }
+
+            if (_chooseProductCount != 0)
+            {
+                ChatSwitchProductsView chatSwitchProductsView = new ChatSwitchProductsView();
+                chatSwitchProductsView.DataContext = new ChatSwitchProductsViewModel();
+                chatBaseViewModel.ContentControl = chatSwitchProductsView;
+                chatBaseViewModel.ChatIdentityEnum = ChatIdentityEnum.Recipient;
+                _chooseProductCount--;
+                goto AddFlag;
+            }
+            if (_endConvertsationContent != 0)
+            {
+                ChatEndConversationView chatEndConversationView = new ChatEndConversationView();
+                chatEndConversationView.DataContext = new ChatEndConversationViewModel();
+                chatBaseViewModel.ContentControl = chatEndConversationView;
+                chatBaseViewModel.ChatIdentityEnum = ChatIdentityEnum.Recipient;
+                _endConvertsationContent--;
                 goto AddFlag;
             }
             
