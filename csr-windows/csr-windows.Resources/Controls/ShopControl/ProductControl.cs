@@ -44,7 +44,7 @@ namespace csr_windows.Resources.Controls
     ///     <MyNamespace:ProductControl/>
     ///
     /// </summary>
-    public class ProductControl : Control
+    public class ProductControl : Button
     {
         static ProductControl()
         {

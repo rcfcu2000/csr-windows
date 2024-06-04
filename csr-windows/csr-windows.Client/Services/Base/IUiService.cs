@@ -33,6 +33,11 @@ namespace csr_windows.Client.Services.Base
         /// </summary>
         void OpenMenuAboutView();
 
+        /// <summary>
+        /// 打开商品推荐
+        /// </summary>
+        void OpenRecommendedPairingView();
+
     }
 
     

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -25,6 +26,17 @@ namespace csr_windows.Client.Views.Customer
         {
             InitializeComponent();
             this.DataContext = new CustomerInitBottomViewModel();
+        }
+
+        private void tb_LostFocus(object sender, RoutedEventArgs e)
+        {
+            Task.Delay(50).ContinueWith(t =>
+            {
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    (sender as ToggleButton).IsChecked = false;
+                });
+            });
         }
     }
 }

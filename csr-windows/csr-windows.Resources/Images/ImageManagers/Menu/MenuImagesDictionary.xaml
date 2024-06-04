@@ -4,4 +4,10 @@
     <!--  悬浮窗背景  -->
     <ImageSource x:Key="IMG_Menu_SuspendedBg">/csr-windows.Resources;component/Images/Menu/suspended_bg.png</ImageSource>
 
+    <!--  搜索  -->
+    <ImageSource x:Key="IMG_Menu_Search">/csr-windows.Resources;component/Images/Menu/search.png</ImageSource>
+
+    <!--  搜索结果缺省图  -->
+    <ImageSource x:Key="IMG_Menu_SearchResultDefault">/csr-windows.Resources;component/Images/Menu/search_result_default.png</ImageSource>
+
 </ResourceDictionary>

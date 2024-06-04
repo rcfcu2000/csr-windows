@@ -218,5 +218,11 @@
   <ItemGroup>
     <Resource Include="Images\Menu\suspended_bg.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Menu\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Menu\search_result_default.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

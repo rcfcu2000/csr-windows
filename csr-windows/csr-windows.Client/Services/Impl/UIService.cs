@@ -76,13 +76,29 @@ namespace csr_windows.Client.Services.Impl
             DoWork(ac);
         }
 
-
+        /// <summary>
+        /// 打开关于界面
+        /// </summary>
         public void OpenMenuAboutView()
         {
             Action ac = new Action(() =>
             {
                 var view = new AboutView();
                 view.DataContext = new AboutViewModel();
+                WeakReferenceMessenger.Default.Send(view as UserControl, MessengerConstMessage.OpenMenuUserControlToken);
+            });
+            DoWork(ac);
+        }
+
+        /// <summary>
+        /// 打开商品搭配
+        /// </summary>
+        public void OpenRecommendedPairingView()
+        {
+            Action ac = new Action(() =>
+            {
+                var view = new RecommendedPairingView();
+                view.DataContext = new RecommendedPairingViewModel();
                 WeakReferenceMessenger.Default.Send(view as UserControl, MessengerConstMessage.OpenMenuUserControlToken);
             });
             DoWork(ac);

@@ -137,6 +137,7 @@
     <Compile Include="ViewModels\Chat\ChatCopyTextViewModel.cs" />
     <Compile Include="ViewModels\Menu\AboutViewModel.cs" />
     <Compile Include="ViewModels\Menu\BaseMenuViewModel.cs" />
+    <Compile Include="ViewModels\Menu\RecommendedPairingViewModel.cs" />
     <Compile Include="Views\Chat\ChatCopyTextView.xaml.cs">
       <DependentUpon>ChatCopyTextView.xaml</DependentUpon>
     </Compile>
@@ -191,6 +192,9 @@
     </Compile>
     <Compile Include="Views\Menu\BaseMenuView.xaml.cs">
       <DependentUpon>BaseMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Menu\RecommendedPairingView.xaml.cs">
+      <DependentUpon>RecommendedPairingView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Public\PromptView.xaml.cs">
       <DependentUpon>PromptView.xaml</DependentUpon>
@@ -264,6 +268,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Menu\BaseMenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Menu\RecommendedPairingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

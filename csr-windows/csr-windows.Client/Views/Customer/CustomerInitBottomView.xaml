@@ -63,6 +63,7 @@
                 attach:IconProperties.IconUrl="{StaticResource IMG_Customer_More}"
                 attach:IconProperties.IconWidth="16"
                 hc:BorderElement.CornerRadius="5"
+                LostFocus="tb_LostFocus"
                 Style="{StaticResource CustomMoreTBStyle}" />
 
             <Popup
@@ -118,7 +119,7 @@
                             <Button
                                 attach:IconProperties.IconUrl="{StaticResource IMG_Customer_RecommendedPairing}"
                                 Command="{Binding RecommendedPairingCommand}"
-                                Content="个人资料" />
+                                Content="推荐搭配" />
                         </StackPanel>
                     </Border>
                 </Grid>

@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.DependencyInjection;
 using CommunityToolkit.Mvvm.Input;
+using csr_windows.Client.Services.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +19,7 @@ namespace csr_windows.Client.ViewModels.Customer
 
         private string _productName;
 
+        private IUiService _uIService;
 
 
         #endregion
@@ -40,7 +43,7 @@ namespace csr_windows.Client.ViewModels.Customer
         /// <summary>
         /// 推荐搭配
         /// </summary>
-        public ICommand RecommendedPairing { get; set; }
+        public ICommand RecommendedPairingCommand { get; set; }
 
         /// <summary>
         /// 选择商品
@@ -51,10 +54,11 @@ namespace csr_windows.Client.ViewModels.Customer
         #region Constructro
         public CustomerInitBottomViewModel()
         {
+            _uIService = Ioc.Default.GetService<IUiService>();
             AskAICommand = new RelayCommand(OnAskAICommand);
             InputAICommand = new RelayCommand(OnInputAICommand);
             ProductIntroductionCommand = new RelayCommand(OnProductIntroductionCommand);
-            RecommendedPairing = new RelayCommand(OnRecommendedPairing);
+            RecommendedPairingCommand = new RelayCommand(OnRecommendedPairingCommand);
             ChooseProductCommand = new RelayCommand(OnChooseProductCommand);
         }
         
@@ -128,8 +132,9 @@ namespace csr_windows.Client.ViewModels.Customer
         /// <summary>
         /// 推荐搭配
         /// </summary>
-        private void OnRecommendedPairing()
+        private void OnRecommendedPairingCommand()
         {
+            _uIService.OpenRecommendedPairingView();
         }
 
         /// <summary>
