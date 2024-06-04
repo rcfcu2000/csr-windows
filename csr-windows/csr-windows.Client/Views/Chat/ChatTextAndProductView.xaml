@@ -37,9 +37,9 @@
                             <Setter Property="attach:IconProperties.IconUrl" Value="{StaticResource IMG_Customer_ProductControlIcon}" />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding DataContext.ChatIdentityEnum, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}" Value="Sender">
-                            <Setter Property="Background" Value="#19ffffff" />
-                            <Setter Property="Foreground" Value="White" />
-                            <Setter Property="attach:IconProperties.IconUrl" Value="{StaticResource IMG_Customer_ProductControlWhiteIcon}" />
+                            <Setter Property="Background" Value="#87B0FF" />
+                            <Setter Property="Foreground" Value="#e5000000" />
+                            <Setter Property="attach:IconProperties.IconUrl" Value="{StaticResource IMG_Customer_ProductControlDeepIcon}" />
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>

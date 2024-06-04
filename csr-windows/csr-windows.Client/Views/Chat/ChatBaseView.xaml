@@ -60,12 +60,12 @@
                         <Style TargetType="ContentControl">
                             <Style.Triggers>
                                 <DataTrigger Binding="{Binding ChatIdentityEnum}" Value="Recipient">
-                                    <Setter Property="Foreground" Value="{StaticResource 0.8OpacityBlackTheme}" />
+                                    <Setter Property="Foreground" Value="#e5000000" />
                                     <Setter Property="Margin" Value="15,10,15,0" />
                                     <Setter Property="HorizontalAlignment" Value="Left" />
                                 </DataTrigger>
                                 <DataTrigger Binding="{Binding ChatIdentityEnum}" Value="Sender">
-                                    <Setter Property="Foreground" Value="{StaticResource 0.8OpacityBlackTheme}" />
+                                    <Setter Property="Foreground" Value="#e5000000" />
                                     <Setter Property="Margin" Value="15,10,15,0" />
                                     <Setter Property="HorizontalAlignment" Value="Right" />
                                 </DataTrigger>
