@@ -44,7 +44,13 @@
                     <TextBlock
                         FontSize=" 12"
                         Foreground="{StaticResource 0.5OpacityBlackTheme}"
-                        Text="{Binding CustomerNickname, StringFormat={}当前服务：{0}}" />
+                        Text="{Binding CustomerNickname, StringFormat={}当前服务：{0}}"
+                        Visibility="{Binding HaveCustomer, Converter={StaticResource Boolean2VisibilityConverter}}" />
+                    <TextBlock
+                        FontSize=" 12"
+                        Foreground="{StaticResource 0.5OpacityBlackTheme}"
+                        Text="当前暂无接入的顾客"
+                        Visibility="{Binding HaveCustomer, Converter={StaticResource Boolean2VisibilityReConverter}}" />
                 </StackPanel>
 
                 <Rectangle

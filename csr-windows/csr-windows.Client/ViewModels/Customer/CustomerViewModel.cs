@@ -26,6 +26,11 @@ namespace csr_windows.Client.ViewModels.Customer
         private string _customerNickname = "章盼angela";
         public IList<UserControl> UserControls { get; } = new ObservableCollection<UserControl>();
 
+        private bool _haveCustomer = true;
+
+       
+
+
         #endregion
 
         #region Commands
@@ -68,6 +73,15 @@ namespace csr_windows.Client.ViewModels.Customer
         {
             get => _customerNickname;
             set => SetProperty(ref _customerNickname, value);
+        }
+
+        /// <summary>
+        /// 是否有顾客
+        /// </summary>
+        public bool HaveCustomer
+        {
+            get => _haveCustomer;
+            set => SetProperty(ref _haveCustomer, value);
         }
 
         #endregion
