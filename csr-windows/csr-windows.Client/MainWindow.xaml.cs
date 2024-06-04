@@ -47,6 +47,18 @@ namespace csr_windows.Client
                 baseMenuView.Visibility = Visibility.Collapsed;
             });
 
+            //关闭退出界面
+            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.CloseLogoutViewToken, (r, m) =>
+            {
+                logoutView.Visibility = Visibility.Collapsed;
+            });
+
+            //退出
+            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.ExitToken, (r, m) =>
+            {
+                this.Close();
+            });
+
             InitializeComponent();
             _mainViewModel = new MainViewModel();
             this.DataContext = _mainViewModel;
@@ -91,8 +103,8 @@ namespace csr_windows.Client
 
         public void Button_Close_Click(object sender, RoutedEventArgs e)
         {
-            //if (XDD.Control.XlyMessageBox.ShowQuestion(XLY.DF.FoundationService.Localization.Language.Get("LANGKEY_QueDingTuiChu_03937"), XLY.DF.FoundationService.Localization.Language.Get("LANGKEY_Shi_03938"), XLY.DF.FoundationService.Localization.Language.Get("LANGKEY_Fou_03939")))
-            Window.GetWindow(sender as UIElement).Close();
+            logoutView.Visibility = Visibility.Visible;
+
         }
 
         public void ToggleButton_More_LostFocus(object sender, RoutedEventArgs e)

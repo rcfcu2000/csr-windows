@@ -3,4 +3,7 @@
     <!--  消息图标 (成功)  -->
     <ImageSource x:Key="IMG_Public_Success">/csr-windows.Resources;component/Images/Public/success.png</ImageSource>
 
+    <!--  注意图标  -->
+    <ImageSource x:Key="IMG_Public_Note">/csr-windows.Resources;component/Images/Public/note.png</ImageSource>
+
 </ResourceDictionary>
