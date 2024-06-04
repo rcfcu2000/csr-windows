@@ -1,0 +1,29 @@
+﻿<UserControl
+    x:Class="csr_windows.Client.Views.Chat.ChatSwitchProductsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:local="clr-namespace:csr_windows.Client.Views.Chat"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:csr_windows.Client.ViewModels.Chat"
+    d:DataContext="{d:DesignInstance vm:ChatSwitchProductsViewModel}"
+    d:DesignHeight="80"
+    d:DesignWidth="350"
+    mc:Ignorable="d">
+    <Grid Margin="0,0,0,10">
+        <StackPanel>
+            <TextBlock Margin="0,0,0,15" Text="后续回复是否需要基于该商品？" />
+            <Button
+                Width="320"
+                Height="40"
+                hc:BorderElement.CornerRadius="5"
+                Background="{StaticResource 0.1OpacityBlueTheme}"
+                Command="{Binding CheckProductCommand}"
+                Content="切换到该商品"
+                FontSize="14"
+                FontWeight="Bold"
+                Foreground="#FF2335C5" />
+        </StackPanel>
+    </Grid>
+</UserControl>

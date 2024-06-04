@@ -135,6 +135,7 @@
     <Compile Include="ViewModels\Chat\ChatBaseViewModel.cs" />
     <Compile Include="ViewModels\Chat\ChatBottomBoldTextViewModel.cs" />
     <Compile Include="ViewModels\Chat\ChatCopyTextViewModel.cs" />
+    <Compile Include="ViewModels\Chat\ChatSwitchProductsViewModel.cs" />
     <Compile Include="ViewModels\Menu\AboutViewModel.cs" />
     <Compile Include="ViewModels\Menu\BaseMenuViewModel.cs" />
     <Compile Include="ViewModels\Menu\ChooseProductViewModel.cs" />
@@ -160,6 +161,9 @@
     </Compile>
     <Compile Include="Views\Chat\ChatBottomBoldTextView.xaml.cs">
       <DependentUpon>ChatBottomBoldTextView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Chat\ChatSwitchProductsView.xaml.cs">
+      <DependentUpon>ChatSwitchProductsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Chat\ChatTextAndProductView.xaml.cs">
       <DependentUpon>ChatTextAndProductView.xaml</DependentUpon>
@@ -228,6 +232,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Chat\ChatBottomBoldTextView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Chat\ChatSwitchProductsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
