@@ -60,6 +60,7 @@
     <Compile Include="BaseModels\MResult.cs" />
     <Compile Include="Common\MyProduct.cs" />
     <Compile Include="Enumeration\ChooseWindowType.cs" />
+    <Compile Include="GlobalCache.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -19,7 +19,6 @@ namespace csr_windows.Client.ViewModels.Main
 
         private string _storeName = "蜡笔派家居旗舰店";
 
-        private bool _isItPreSalesCustomerService = true;
 
 
         #endregion
@@ -65,15 +64,6 @@ namespace csr_windows.Client.ViewModels.Main
         {
             get => _storeName;
             set => SetProperty(ref _storeName, value);
-        }
-
-        /// <summary>
-        /// 是否售前客服
-        /// </summary>
-        public bool IsItPreSalesCustomerService
-        {
-            get => _isItPreSalesCustomerService;
-            set => SetProperty(ref _isItPreSalesCustomerService, value);
         }
         #endregion
 
