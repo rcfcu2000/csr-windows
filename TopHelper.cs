@@ -1,15 +1,13 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Sunny.UI;
-using Sunny.UI.Win32;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -17,6 +15,7 @@ using System.Threading.Tasks;
 using System.Web.UI.WebControls.WebParts;
 using System.Windows;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -69,7 +68,7 @@ namespace csr_new
         private static extern IntPtr SetActiveWindow(IntPtr hwnd);
 
         [DllImport("user32.dll")]
-        public static extern bool GetCursorPos(out POINT lpPoint);
+        public static extern bool GetCursorPos(out Point lpPoint);
 
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
@@ -86,7 +85,6 @@ namespace csr_new
 
         private const int MOUSEEVENTF_LEFTDOWN = 0x02;
         private const int MOUSEEVENTF_LEFTUP = 0x04;
-
 
         // 辅助方法：遍历顶层窗口并查找匹配的窗口标题
         private IntPtr FindTopLevelWindowsClassName(uint processId, IntPtr hWndStart, string className)
@@ -358,7 +356,7 @@ namespace csr_new
         {
             //bool isSuccess = OpenAliim(nick);
 
-            POINT lpPoint;
+            Point lpPoint;
             GetCursorPos(out lpPoint);
 
             Console.WriteLine($"cursor: {lpPoint.X}, {lpPoint.Y}");
@@ -391,7 +389,7 @@ namespace csr_new
 
                         Console.WriteLine($"window rect: {rect.Left}, {rect.Top}, {rect.Right}, {rect.Bottom}");
 
-                        Point clientPoint = new Point((rect.Right + rect.Left) / 2, rect.Top + (rect.Bottom - rect.Top)* 0.7);
+                        Point clientPoint = new Point((rect.Right + rect.Left) / 2, rect.Top + (rect.Bottom - rect.Top) * 0.7);
                         ClientToScreen(hwd, ref clientPoint);
 
                         for (int i = 0; i < 2; i++)
@@ -451,6 +449,62 @@ namespace csr_new
                 return false;
             }
         }
+        public void SendDingdingMarkdownMessage(string aiMsg, string chat_link)
+        {
+            string webhookUrl = "https://connector.dingtalk.com/webhook/flow/102a9297ee950b523850000k";
+            string markdownContent = "### AI消息 ####" + aiMsg + "![](" + chat_link + ")";
+            string title = "AI 实时检查";
+
+            using (HttpClient client = new HttpClient())
+            {
+                var payload = new
+                {
+                    msgtype = "markdown",
+                    markdown = new
+                    {
+                        title = title,
+                        text = markdownContent
+                    }
+                };
+
+                string jsonPayload = Newtonsoft.Json.JsonConvert.SerializeObject(payload);
+                var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
+
+                var response = client.PostAsync(webhookUrl, content);
+
+                try
+                {
+                    response.Result.EnsureSuccessStatusCode();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.ToString());
+                }
+            }
+        }
+
+        public async void SaveMessage(HttpClient _httpClient, List<JObject> messages)
+        {
+            string webhookUrl = "http://192.168.2.8:8080/api/v1/message/biz_messages";
+
+            var payload = new
+            {
+                messages = messages
+            };
+
+            string jsonPayload = Newtonsoft.Json.JsonConvert.SerializeObject(payload);
+            var post_content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
+
+            try
+            {
+                var response = await _httpClient.PostAsync(webhookUrl, post_content);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"post error: {e.Message} {jsonPayload}");
+            }
+        }
+
     }
 }
 

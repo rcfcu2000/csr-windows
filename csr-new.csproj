@@ -57,10 +57,10 @@
       <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="SunnyUI">
-      <HintPath>packages\SunnyUI.3.6.5\lib\net472\SunnyUI.dll</HintPath>
+      <HintPath>sunny\SunnyUI.dll</HintPath>
     </Reference>
     <Reference Include="SunnyUI.Common">
-      <HintPath>packages\SunnyUI.Common.3.6.5\lib\net472\SunnyUI.Common.dll</HintPath>
+      <HintPath>sunny\SunnyUI.Common.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -160,6 +160,22 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="packages\Fleck.1.2.0\.signature.p7s" />
+    <None Include="packages\Fleck.1.2.0\Fleck.1.2.0.nupkg" />
+    <None Include="packages\log4net.2.0.17\.signature.p7s" />
+    <None Include="packages\log4net.2.0.17\log4net.2.0.17.nupkg" />
+    <None Include="packages\Newtonsoft.Json.13.0.3\.signature.p7s" />
+    <None Include="packages\Newtonsoft.Json.13.0.3\LICENSE.md" />
+    <None Include="packages\Newtonsoft.Json.13.0.3\Newtonsoft.Json.13.0.3.nupkg" />
+    <None Include="packages\Newtonsoft.Json.13.0.3\README.md" />
+    <None Include="packages\System.Text.Json.8.0.3\.signature.p7s" />
+    <None Include="packages\System.Text.Json.8.0.3\buildTransitive\net461\System.Text.Json.targets" />
+    <None Include="packages\System.Text.Json.8.0.3\buildTransitive\net462\System.Text.Json.targets" />
+    <None Include="packages\System.Text.Json.8.0.3\buildTransitive\net6.0\System.Text.Json.targets" />
+    <None Include="packages\System.Text.Json.8.0.3\buildTransitive\netcoreapp2.0\System.Text.Json.targets" />
+    <None Include="packages\System.Text.Json.8.0.3\buildTransitive\netstandard2.0\System.Text.Json.targets" />
+    <None Include="packages\System.Text.Json.8.0.3\PACKAGE.md" />
+    <None Include="packages\System.Text.Json.8.0.3\System.Text.Json.8.0.3.nupkg" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -171,6 +187,38 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="packages\log4net.2.0.17\lib\net20\log4net.xml" />
+    <Resource Include="packages\log4net.2.0.17\lib\net35\log4net.xml" />
+    <Resource Include="packages\log4net.2.0.17\lib\net40-client\log4net.xml" />
+    <Resource Include="packages\log4net.2.0.17\lib\net40\log4net.xml" />
+    <Resource Include="packages\log4net.2.0.17\lib\net45\log4net.xml" />
+    <Resource Include="packages\log4net.2.0.17\lib\netstandard1.3\log4net.xml" />
+    <Resource Include="packages\log4net.2.0.17\lib\netstandard2.0\log4net.xml" />
+    <Resource Include="packages\log4net.2.0.17\package-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="packages\Newtonsoft.Json.13.0.3\lib\net20\Newtonsoft.Json.xml" />
+    <Resource Include="packages\Newtonsoft.Json.13.0.3\lib\net35\Newtonsoft.Json.xml" />
+    <Resource Include="packages\Newtonsoft.Json.13.0.3\lib\net40\Newtonsoft.Json.xml" />
+    <Resource Include="packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.xml" />
+    <Resource Include="packages\Newtonsoft.Json.13.0.3\lib\net6.0\Newtonsoft.Json.xml" />
+    <Resource Include="packages\Newtonsoft.Json.13.0.3\lib\netstandard1.0\Newtonsoft.Json.xml" />
+    <Resource Include="packages\Newtonsoft.Json.13.0.3\lib\netstandard1.3\Newtonsoft.Json.xml" />
+    <Resource Include="packages\Newtonsoft.Json.13.0.3\lib\netstandard2.0\Newtonsoft.Json.xml" />
+    <Resource Include="packages\Newtonsoft.Json.13.0.3\packageIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="packages\System.Text.Json.8.0.3\Icon.png" />
+    <Resource Include="packages\System.Text.Json.8.0.3\lib\net462\System.Text.Json.xml" />
+    <Resource Include="packages\System.Text.Json.8.0.3\lib\net6.0\System.Text.Json.xml" />
+    <Resource Include="packages\System.Text.Json.8.0.3\lib\net7.0\System.Text.Json.xml" />
+    <Resource Include="packages\System.Text.Json.8.0.3\lib\net8.0\System.Text.Json.xml" />
+    <Resource Include="packages\System.Text.Json.8.0.3\lib\netstandard2.0\System.Text.Json.xml" />
+    <Resource Include="packages\System.Text.Json.8.0.3\LICENSE.TXT" />
+    <Resource Include="packages\System.Text.Json.8.0.3\THIRD-PARTY-NOTICES.TXT" />
+    <Resource Include="packages\System.Text.Json.8.0.3\useSharedDesignerContext.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
