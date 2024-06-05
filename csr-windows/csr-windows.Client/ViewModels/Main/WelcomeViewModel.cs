@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.DependencyInjection;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using csr_windows.Client.Services.Base;
+using csr_windows.Common.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,10 +49,34 @@ namespace csr_windows.Client.ViewModels.Main
         #endregion
 
         #region Methods
+        private bool isFirstIn;
         private void OnUseCommand()
         {
-            WeakReferenceMessenger.Default.Send("", MessengerConstMessage.LoginSuccessToken);
-            _uiService.OpenCustomerView();
+            //这里首先有三个判断
+
+            //第一个判断是否启动了千牛
+            bool isRunning = FollowWindowHelper.IsProcessRunning(FollowWindowHelper.ProcessName);
+
+            if (isRunning)
+            {
+                //第二个判断是否是第一次进入
+                _uiService.OpenFirstSettingView();
+                if (isFirstIn)
+                {
+                    _uiService.OpenFirstSettingView();
+                }
+                else
+                {
+                    WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.FollowWindowToken);
+                    //然后最后进入聊天界面
+                    WeakReferenceMessenger.Default.Send("", MessengerConstMessage.LoginSuccessToken);
+                    _uiService.OpenCustomerView();
+                }
+            }
+            else
+            {
+                _uiService.OpenNoStartClientView();
+            }
         }
         #endregion
     }

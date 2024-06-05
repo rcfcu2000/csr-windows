@@ -9,6 +9,11 @@ namespace csr_windows.Client
     public static class MessengerConstMessage
     {
         /// <summary>
+        /// Follow千牛
+        /// </summary>
+        public const string FollowWindowToken = "FollowWindowToken";
+
+        /// <summary>
         /// 打开Main中的窗体
         /// </summary>
         public const string OpenMainUserControlToken = "OpenMainUserControlToken";
@@ -47,6 +52,8 @@ namespace csr_windows.Client
         /// 登录成功
         /// </summary>
         public const string LoginSuccessToken = "LoginSuccessToken";
+
+
 
     }
 }

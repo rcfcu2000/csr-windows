@@ -11,49 +11,53 @@
     d:DesignHeight="800"
     d:DesignWidth="400"
     mc:Ignorable="d">
-    <Grid Width="400" Height="800">
-        <Grid
-            Height="auto"
-            Margin="30,200,0,0"
-            VerticalAlignment="Top">
-            <Grid.Resources>
-                <Style TargetType="TextBlock">
-                    <Setter Property="VerticalAlignment" Value="Center" />
-                </Style>
-            </Grid.Resources>
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock
-                    Margin="0,0,0,5"
-                    FontSize="24"
-                    Text="欢迎使用会回AI客服助手" />
-                <Image
-                    Width="30"
-                    Height="30"
-                    Source="{StaticResource IMG_Main_Hello}" />
-            </StackPanel>
+    <Grid Width="400">
+        <StackPanel VerticalAlignment="Center">
+            <Grid
+                Height="auto"
+                Margin="30,0,0,0"
+                VerticalAlignment="Center">
+                <Grid.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                    </Style>
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock
+                        Margin="0,0,0,5"
+                        FontSize="24"
+                        Text="欢迎使用会回AI客服助手" />
+                    <Image
+                        Width="30"
+                        Height="30"
+                        Source="{StaticResource IMG_Main_Hello}" />
+                </StackPanel>
 
-            <TextBlock
-                Grid.Row="1"
-                FontSize="32"
+                <TextBlock
+                    Grid.Row="1"
+                    FontSize="32"
+                    FontWeight="Bold"
+                    Text="客服工作从未如此轻松" />
+            </Grid>
+            <Button
+                Width="340"
+                Height="50"
+                Margin="0,212,0,0"
+                hc:BorderElement.CornerRadius="5"
+                Background="#2335C5"
+                Command="{Binding UseCommand}"
+                Content="开始使用"
+                Cursor="Hand"
+                FontSize="18"
                 FontWeight="Bold"
-                Text="客服工作从未如此轻松" />
-        </Grid>
-        <Button
-            Width="340"
-            Height="50"
-            Margin="0,212,0,0"
-            hc:BorderElement.CornerRadius="5"
-            Background="#2335C5"
-            Command="{Binding UseCommand}"
-            Content="开始使用"
-            Cursor="Hand"
-            FontSize="18"
-            FontWeight="Bold"
-            Foreground="White" />
+                Foreground="White" />
+        </StackPanel>
+
+
         <StackPanel
             Margin="0,0,0,20"
             HorizontalAlignment="Center"

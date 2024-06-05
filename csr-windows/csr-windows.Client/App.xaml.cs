@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.DependencyInjection;
 using csr_windows.Client.Services.Base;
 using csr_windows.Client.Services.Impl;
+using csr_windows.Client.Services.WebService;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,8 @@ namespace csr_windows.Client
         public App()
         {
             Ioc.Default.ConfigureServices(new ServiceCollection().AddSingleton<IUiService, UISerivce>().BuildServiceProvider());
+            WebServiceClient.StartHttpsServer();
+            WebServiceClient.StartWebSocketServer();
         }
     }
 }

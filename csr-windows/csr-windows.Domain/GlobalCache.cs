@@ -16,7 +16,7 @@ namespace csr_windows.Domain
 
         #region Fields
         private static bool _isItPreSalesCustomerService = true;
-
+        public static bool IsFollowWindow;
 
         //静态事件处理属性更改
         public static event EventHandler<PropertyChangedEventArgs> StaticPropertyChanged;

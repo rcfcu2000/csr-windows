@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Interop;
 using System.Windows;
 using System.Drawing;
+using System.Windows.Media;
 
 namespace csr_windows.Resources.Helpers
 {
