@@ -64,6 +64,7 @@
     <Compile Include="Converters\IsNullConverter.cs" />
     <Compile Include="Enumeration\ChatEnum.cs" />
     <Compile Include="Enumeration\DPIConverterEnum.cs" />
+    <Compile Include="Extensions\ScrollViewerExtensions.cs" />
     <Compile Include="Helpers\ScreenManager.cs" />
     <Compile Include="Helpers\ValueBoxes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
