@@ -19,8 +19,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <TextBlock
-            Margin="0,0,0,15"
-            LineHeight="20"
+            Margin="0,0,0,10"
             Text="{Binding StartContent}"
             TextWrapping="Wrap" />
         <ItemsControl
@@ -29,7 +28,7 @@
             ItemsSource="{Binding ProductsList}">
             <ItemsControl.Resources>
                 <Style BasedOn="{StaticResource {x:Type controls:ProductControl}}" TargetType="controls:ProductControl">
-                    <Setter Property="Margin" Value="0,0,0,15" />
+                    <Setter Property="Margin" Value="0,0,0,10" />
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding DataContext.ChatIdentityEnum, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}" Value="Recipient">
                             <Setter Property="Background" Value="#192335c5" />
@@ -53,9 +52,12 @@
         <TextBlock
             Grid.Row="2"
             Margin="0,0,0,10"
-            LineHeight="20"
             Text="{Binding EndContent}"
             TextWrapping="Wrap"
             Visibility="{Binding IsShowEndContent, Converter={StaticResource Boolean2VisibilityConverter}}" />
+        <Grid
+            Grid.Row="2"
+            Margin="0, 0,0,5"
+            Visibility="{Binding IsShowEndContent, Converter={StaticResource Boolean2VisibilityReConverter}}" />
     </Grid>
 </UserControl>

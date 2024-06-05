@@ -25,10 +25,17 @@
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <TextBlock
-                Margin="0,0,0,5"
-                FontSize="24"
-                Text="使用绘绘AI客服助手🪄" />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock
+                    Margin="0,0,0,5"
+                    FontSize="24"
+                    Text="欢迎使用会回AI客服助手" />
+                <Image
+                    Width="30"
+                    Height="30"
+                    Source="{StaticResource IMG_Main_Hello}" />
+            </StackPanel>
+
             <TextBlock
                 Grid.Row="1"
                 FontSize="32"

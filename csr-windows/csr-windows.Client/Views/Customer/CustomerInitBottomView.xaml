@@ -22,14 +22,6 @@
     <StackPanel Margin="15">
         <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
             <Grid Margin="0,0,5,0">
-                <Border
-                    Background="Black"
-                    CornerRadius="2"
-                    Opacity="0.2">
-                    <Border.Effect>
-                        <BlurEffect KernelType="Box" RenderingBias="Quality" />
-                    </Border.Effect>
-                </Border>
                 <Button
                     Width="155"
                     Height="40"
@@ -50,14 +42,6 @@
 
 
             <Grid Margin="0,0,5,0">
-                <Border
-                    Background="Black"
-                    CornerRadius="2"
-                    Opacity="0.2">
-                    <Border.Effect>
-                        <BlurEffect KernelType="Box" RenderingBias="Quality" />
-                    </Border.Effect>
-                </Border>
                 <Button
                     Width="155"
                     Height="40"
@@ -75,14 +59,6 @@
                     Style="{StaticResource PrimaryImageContentButton}" />
             </Grid>
             <Grid>
-                <Border
-                    Background="Black"
-                    CornerRadius="2"
-                    Opacity="0.2">
-                    <Border.Effect>
-                        <BlurEffect KernelType="Box" RenderingBias="Quality" />
-                    </Border.Effect>
-                </Border>
                 <ToggleButton
                     x:Name="tb"
                     Width="50"
@@ -181,7 +157,7 @@
                 Grid.Column="1"
                 Width="70"
                 Height="15"
-                Margin="15,0,15,2"
+                Margin="15,0,0,2"
                 Padding="0"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom"

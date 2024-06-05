@@ -9,6 +9,9 @@
     <!--  关闭  -->
     <ImageSource x:Key="IMG_Main_Close">/csr-windows.Resources;component/Images/Main/close.png</ImageSource>
 
+    <!--  你好 图标  -->
+    <ImageSource x:Key="IMG_Main_Hello">/csr-windows.Resources;component/Images/Main/hello.png</ImageSource>
+
     <!--  背景  -->
     <ImageSource x:Key="IMG_Main_Background">/csr-windows.Resources;component/Images/Main/main_background.png</ImageSource>
 </ResourceDictionary>

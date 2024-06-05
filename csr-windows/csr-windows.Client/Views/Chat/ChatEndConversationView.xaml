@@ -11,12 +11,11 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <Grid Margin="0,0,0,10">
+    <Grid Margin="0,0,0,15">
         <StackPanel>
             <TextBlock
-                Margin="0,0,0,5"
+                Margin="0,0,0,10"
                 FontSize="14"
-                LineHeight="25"
                 Text="如果顾客已下单，或您已经判断顾客不会再有更多咨询，可选择结束对话，我将不再给您催单建议。"
                 TextWrapping="Wrap" />
             <Button

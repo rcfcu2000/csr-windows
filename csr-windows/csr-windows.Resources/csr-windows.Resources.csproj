@@ -232,5 +232,8 @@
   <ItemGroup>
     <Resource Include="Images\Customer\product_control_deep_icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Main\hello.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

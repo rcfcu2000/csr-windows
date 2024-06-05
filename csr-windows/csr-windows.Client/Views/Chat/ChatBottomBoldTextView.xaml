@@ -12,8 +12,10 @@
     mc:Ignorable="d">
     <Grid Margin="0,0,0,10">
         <StackPanel>
-            <TextBlock Text="帮我优化一下这句话：" />
+            <TextBlock Margin="0,0,0,10" Text="帮我优化一下这句话：" />
+
             <TextBlock FontWeight="Bold" Text="{Binding Content}" />
+
         </StackPanel>
     </Grid>
 </UserControl>
