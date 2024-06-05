@@ -14,9 +14,9 @@ namespace csr_windows.Client.ViewModels.Menu
     public class PersonalDataViewModel : ObservableRecipient
     {
         #region Fields
-        private string _userName;
+        private string _userName = "小玲";
 
-        private string _storeName;
+        private string _storeName = "蜡笔派家居旗舰店";
 
         private bool _isItPreSalesCustomerService = true;
         #endregion

@@ -20,7 +20,7 @@ namespace csr_windows.Client.ViewModels.Main
 
         private UserControl _mainUserControl;
         private IUiService _uiService;
-        private bool _isInIM = false;
+        private bool _isInIM;
 
         #endregion
 
@@ -44,7 +44,7 @@ namespace csr_windows.Client.ViewModels.Main
 
             OpenAICommand = new RelayCommand(OnOpenAICommand);
             PersonalDataCommand = new RelayCommand(OnPersonalDataCommand);
-            AboutCommand = new RelayCommand(OnAboutCommand);
+           AboutCommand = new RelayCommand(OnAboutCommand);
         }
 
         #endregion

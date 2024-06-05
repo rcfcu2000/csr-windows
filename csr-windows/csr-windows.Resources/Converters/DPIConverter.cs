@@ -20,8 +20,8 @@ namespace csr_windows.Resources.Converters
     /// </summary>
     public class DPIConverter : IValueConverter
     {
-        const int DesignWidth = 1920;
-        const int DesignHeight = 1080;
+        const int DesignWidth = 2560;
+        const int DesignHeight = 1440;
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (Enum.TryParse(parameter.ToString(), out DPIConverterEnum dpi))

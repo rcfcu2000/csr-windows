@@ -28,7 +28,7 @@ namespace csr_windows.Client
     public partial class MainWindow : Window
     {
         #region Fields
-        private static MainViewModel _mainViewModel;
+        private static MainViewModel _mainViewModel = new MainViewModel();
         private IUiService _uiService;
         #endregion
 
@@ -60,7 +60,6 @@ namespace csr_windows.Client
             });
 
             InitializeComponent();
-            _mainViewModel = new MainViewModel();
             this.DataContext = _mainViewModel;
             baseMenuView.DataContext = new BaseMenuViewModel();
 

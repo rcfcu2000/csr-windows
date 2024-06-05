@@ -16,11 +16,11 @@
     UseLayoutRounding="True"
     mc:Ignorable="d">
     <UserControl.Resources>
-        <system:Double x:Key="PopupMenuHorizontalOffset">-50</system:Double>
+        <system:Double x:Key="PopupMenuHorizontalOffset">-67</system:Double>
         <system:Double x:Key="PopupMenuVerticalOffset">0</system:Double>
     </UserControl.Resources>
-    <Grid>
-        <StackPanel Margin="15,10,0,40" Orientation="Horizontal">
+    <StackPanel Margin="15">
+        <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
             <Grid Margin="0,0,5,0">
                 <Border
                     Background="Black"
@@ -99,12 +99,12 @@
 
             <Popup
                 AllowsTransparency="True"
-                HorizontalOffset="{Binding ., Source={StaticResource PopupMenuHorizontalOffset}, Converter={StaticResource DPIConverter}, ConverterParameter={x:Static enum:DPIConverterEnum.X}}"
+                HorizontalOffset="{Binding Source={StaticResource PopupMenuHorizontalOffset}, Converter={StaticResource DpiOffsetConverter}}"
                 IsOpen="{Binding ElementName=tb, Path=IsChecked}"
                 Placement="Top"
                 PlacementTarget="{Binding ElementName=tb}"
                 StaysOpen="False"
-                VerticalOffset="{Binding ., Source={StaticResource PopupMenuVerticalOffset}, Converter={StaticResource DPIConverter}, ConverterParameter={x:Static enum:DPIConverterEnum.X}}">
+                VerticalOffset="{Binding Source={StaticResource PopupMenuVerticalOffset}, Converter={StaticResource DpiOffsetConverter}}">
                 <Grid>
                     <Border
                         Margin="5"
@@ -156,38 +156,46 @@
                 </Grid>
             </Popup>
         </StackPanel>
-        <Grid Margin="15" VerticalAlignment="Bottom">
-            <TextBlock
-                Foreground="{StaticResource 0.8OpacityBlackTheme}"
-                Text="暂无可供 AI 分析的商品"
-                Visibility="{Binding IsHaveProduct, Converter={StaticResource Boolean2VisibilityReConverter}}" />
-            <StackPanel Orientation="Horizontal" Visibility="{Binding IsHaveProduct, Converter={StaticResource Boolean2VisibilityConverter}}">
-                <StackPanel.Resources>
-                    <Style TargetType="TextBlock">
-                        <Setter Property="Foreground" Value="{StaticResource 0.8OpacityBlackTheme}" />
-                    </Style>
-                </StackPanel.Resources>
-                <TextBlock Text="后续内容将基于 " />
-                <TextBlock FontWeight="Bold" Text="{Binding ProductName}" />
-                <TextBlock Text=" 生成" />
-            </StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid VerticalAlignment="Bottom">
+                <TextBlock
+                    Foreground="{StaticResource 0.8OpacityBlackTheme}"
+                    Text="暂无可供 AI 分析的商品"
+                    Visibility="{Binding IsHaveProduct, Converter={StaticResource Boolean2VisibilityReConverter}}" />
+                <StackPanel Orientation="Horizontal" Visibility="{Binding IsHaveProduct, Converter={StaticResource Boolean2VisibilityConverter}}">
+                    <StackPanel.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Foreground" Value="{StaticResource 0.8OpacityBlackTheme}" />
+                        </Style>
+                    </StackPanel.Resources>
+                    <TextBlock Text="后续内容将基于 " />
+                    <TextBlock FontWeight="Bold" Text="{Binding ProductName}" />
+                    <TextBlock Text=" 生成" />
+                </StackPanel>
+            </Grid>
+            <Button
+                Grid.Column="1"
+                Width="70"
+                Height="15"
+                Margin="15,0,15,2"
+                Padding="0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                attach:IconProperties.IconHeight="16"
+                attach:IconProperties.IconThickness="0 3 5 0"
+                attach:IconProperties.IconUrl="{StaticResource IMG_Customer_ChooseProduct}"
+                attach:IconProperties.IconWidth="16"
+                Background="Transparent"
+                Command="{Binding ChooseProductCommand}"
+                Content="选择商品"
+                FontSize="12"
+                Foreground="{StaticResource ThemeColorBrush}"
+                Style="{StaticResource PrimaryImageContentButton}" />
         </Grid>
-        <Button
-            Width="70"
-            Height="15"
-            Margin="15"
-            Padding="0"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"
-            attach:IconProperties.IconHeight="16"
-            attach:IconProperties.IconThickness="0 3 5 0"
-            attach:IconProperties.IconUrl="{StaticResource IMG_Customer_ChooseProduct}"
-            attach:IconProperties.IconWidth="16"
-            Background="Transparent"
-            Command="{Binding ChooseProductCommand}"
-            Content="选择商品"
-            FontSize="12"
-            Foreground="{StaticResource ThemeColorBrush}"
-            Style="{StaticResource PrimaryImageContentButton}" />
-    </Grid>
+
+    </StackPanel>
 </UserControl>

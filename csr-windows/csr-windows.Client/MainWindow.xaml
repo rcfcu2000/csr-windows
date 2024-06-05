@@ -27,8 +27,8 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Window.Resources>
-        <system:Double x:Key="PopupMenuHorizontalOffset">0</system:Double>
-        <system:Double x:Key="PopupMenuVerticalOffset">0</system:Double>
+        <system:Double x:Key="PopupMenuHorizontalOffset">16</system:Double>
+        <system:Double x:Key="PopupMenuVerticalOffset">80</system:Double>
     </Window.Resources>
     <Grid Width="400" Height="800">
         <Image Source="{StaticResource IMG_Main_Background}" />
@@ -43,8 +43,7 @@
             <StackPanel
                 Margin="0,4,4,0"
                 HorizontalAlignment="Right"
-                Orientation="Horizontal"
-                WindowChrome.IsHitTestVisibleInChrome="True">
+                Orientation="Horizontal">
                 <!--  右侧按钮  -->
                 <ToggleButton
                     x:Name="tb"
@@ -54,7 +53,6 @@
                     attach:MouseDependencyProperty.OverBackColor="{DynamicResource MainNormalButtonOverTheme}"
                     attach:MouseDependencyProperty.PressedColor="{DynamicResource MainNormalButtonPressedTheme}"
                     hc:BorderElement.CornerRadius="4"
-                    DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
                     LostFocus="tb_LostFocus"
                     Style="{StaticResource MainToggleButton}"
                     ToolTip="更多"
@@ -63,12 +61,12 @@
 
                 <Popup
                     AllowsTransparency="True"
-                    HorizontalOffset="{Binding ., Source={StaticResource PopupMenuHorizontalOffset}, Converter={StaticResource DPIConverter}, ConverterParameter={x:Static resourcesEnums:DPIConverterEnum.X}}"
+                    HorizontalOffset="{Binding Source={StaticResource PopupMenuHorizontalOffset}, Converter={StaticResource DpiOffsetConverter}}"
                     IsOpen="{Binding ElementName=tb, Path=IsChecked}"
                     Placement="Center"
                     PlacementTarget="{Binding ElementName=tb}"
                     StaysOpen="False"
-                    VerticalOffset="{Binding VerticalOffset, Source={StaticResource PopupMenuVerticalOffset}, Converter={StaticResource DPIConverter}, ConverterParameter={x:Static resourcesEnums:DPIConverterEnum.Y}}">
+                    VerticalOffset="{Binding Source={StaticResource PopupMenuVerticalOffset}, Converter={StaticResource DpiOffsetConverter}}">
                     <Grid>
                         <Border
                             Margin="5"

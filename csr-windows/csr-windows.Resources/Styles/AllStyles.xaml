@@ -4,6 +4,7 @@
     xmlns:converter="clr-namespace:csr_windows.Resources.Converters">
 
     <converter:DPIConverter x:Key="DPIConverter" />
+    <converter:DpiOffsetConverter x:Key="DpiOffsetConverter" />
     <converter:ChatIdentityEnumConverter
         x:Key="ChatIdentityEnumConverter"
         EqualsVisibility="Visible"
