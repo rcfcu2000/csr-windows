@@ -8,10 +8,6 @@ namespace csr_windows.Client
 {
     public static class MessengerConstMessage
     {
-        /// <summary>
-        /// Follow千牛
-        /// </summary>
-        public const string FollowWindowToken = "FollowWindowToken";
 
         /// <summary>
         /// 打开Main中的窗体

@@ -45,7 +45,15 @@ namespace csr_windows.Client
 
 
         private Win32.RECT _lastRect = new Win32.RECT();
+        /// <summary>
+        /// 跟随窗口句柄
+        /// </summary>
+        public IntPtr FollowHandle;
 
+        /// <summary>
+        /// 是否找到句柄
+        /// </summary>
+        private bool _isFoundIntPrt;
 
 
         //检测边距距离
@@ -61,25 +69,26 @@ namespace csr_windows.Client
                 return;
             }
 
+            this.SourceInitialized += MainWindow_SourceInitialized;
+            
+
             this.Loaded += MainWindow_Loaded;
 
             _uiService = Ioc.Default.GetService<IUiService>();
 
-            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.FollowWindowToken, (r, m) => { FollowWindow(); });
-
             //提示~
-            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.OpenPromptMessageToken, (r, m) => 
-            { 
+            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.OpenPromptMessageToken, (r, m) =>
+            {
                 promptWindow.PromptContent = m;
-                promptWindow.Visibility = Visibility.Visible; 
+                promptWindow.Visibility = Visibility.Visible;
             });
 
             //打开菜单User控件
             WeakReferenceMessenger.Default.Register<UserControl, string>(this, MessengerConstMessage.OpenMenuUserControlToken, (r, m) => { baseMenuView.Visibility = Visibility.Visible; });
 
             //关闭菜单User控件
-            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.CloseMenuUserControlToken, (r, m) => 
-            { 
+            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.CloseMenuUserControlToken, (r, m) =>
+            {
                 baseMenuView.Visibility = Visibility.Collapsed;
             });
 
@@ -95,7 +104,7 @@ namespace csr_windows.Client
                 this.Close();
             });
 
-            
+
 
             InitializeComponent();
             this.DataContext = _mainViewModel;
@@ -106,6 +115,24 @@ namespace csr_windows.Client
             _uiService.OpenWelcomeView();
 
         }
+
+        private void MainWindow_SourceInitialized(object sender, EventArgs e)
+        {
+            _isFoundIntPrt = FollowWindowHelper.GetQianNiuIntPrt(ref FollowHandle);
+            if (!_isFoundIntPrt)
+            {
+                #region Init
+                this.SizeToContent = SizeToContent.Manual;
+                this.Width = 411 * GetDpiX();
+                this.Left = (ScreenManager.GetScreenWidth() - Width) / 2;
+                this.Height = 811 * GetDpiY();
+                this.Top = (ScreenManager.GetScreenHeight() - Height) / 2;
+                this.Visibility = Visibility.Visible;
+                this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                Visibility = Visibility.Visible;
+                #endregion
+            }
+        }
         #endregion
 
         #region Properties
@@ -113,10 +140,7 @@ namespace csr_windows.Client
 
         public IntPtr Handle { get; set; }
 
-        /// <summary>
-        /// 跟随窗口句柄
-        /// </summary>
-        public IntPtr FollowHandle;
+
 
         #endregion
 
@@ -136,188 +160,190 @@ namespace csr_windows.Client
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            this.Visibility = Visibility.Hidden;
             FollowWindow();
         }
+
 
         public void FollowWindow()
         {
             Handle = new WindowInteropHelper(this).Handle;
-            //TODO: 这里需要去模糊匹配包含接待中心
-            bool isFind = FollowWindowHelper.GetQianNiuIntPrt(ref FollowHandle);
-            if (!isFind)
+            Task.Factory.StartNew(() =>
             {
-                this.Width = 411 * GetDpiX();
-                this.Left = (ScreenManager.GetScreenWidth() - Width) / 2;
-                this.Height = 811 * GetDpiY();
-                this.Top = (ScreenManager.GetScreenHeight() - Height) / 2;
-                this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-                return;
-            }
-            GlobalCache.IsFollowWindow = true;
-            try
-            {
-                Win32.RECT rect = new Win32.RECT();
-                Win32.GetWindowRect(FollowHandle, ref rect);
-                if (rect.Bottom != 0 || rect.Top != 0 || rect.Left != 0 || rect.Right != 0)
+                do
                 {
-                    var hight = Math.Abs(rect.Bottom - rect.Top);
-                    var windowWith = Math.Abs(rect.Right - rect.Left);
-                    this.Height = hight + 15;
-                    this.Width = 411 * GetDpiX();
-                    //右边
-                    this.Left = rect.Right + _dockMargin;
-                    //左边
-                    //this.Left = rect.Left - this.Width;
-                    this.Top = rect.Top - 8;
-                }
-                else
+                    _isFoundIntPrt = FollowWindowHelper.GetQianNiuIntPrt(ref FollowHandle);
+                    System.Threading.Thread.Sleep(1000);
+                } while (!_isFoundIntPrt);
+                GlobalCache.IsFollowWindow = true;
+                Dispatcher.Invoke(() =>
                 {
-                    this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-                }
-            }
-            catch
-            {
-                this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            }
-
-
-            //TODO：需要去判断接待中心窗体是否找到了
-            UpdateWindowPos(true);
+                    try
+                    {
+                        Win32.RECT rect = new Win32.RECT();
+                        Win32.GetWindowRect(FollowHandle, ref rect);
+                        if (rect.Bottom != 0 || rect.Top != 0 || rect.Left != 0 || rect.Right != 0)
+                        {
+                            this.SizeToContent = SizeToContent.Manual;
+                            var hight = Math.Abs(rect.Bottom - rect.Top);
+                            var windowWith = Math.Abs(rect.Right - rect.Left);
+                            this.Height = hight + 15;
+                            this.Width = 411 * GetDpiX();
+                            //右边
+                            this.Left = rect.Right + _dockMargin;
+                            //左边
+                            //this.Left = rect.Left - this.Width;
+                            this.Top = rect.Top - 8;
+                        }
+                        else
+                        {
+                            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                        }
+                    }
+                    catch
+                    {
+                        this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                    }
+                    Visibility = Visibility.Visible;
+                    //TODO：需要去判断接待中心窗体是否找到了
+                    UpdateWindowPos(true);
+                });
+            });
         }
 
         /// <summary>
         /// 更新窗口位置
         /// </summary>
         private void UpdateWindowPos(bool isFirst)
+    {
+        if (_isUpdatePos)
         {
-            if (_isUpdatePos)
+            return;
+        }
+        _isUpdatePos = true;
+        this.Topmost = true;
+        if (FollowHandle != null && FollowHandle != IntPtr.Zero)
+        {
+            var cHandle = FollowHandle;
+            Task.Factory.StartNew(() =>
             {
-                return;
-            }
-            _isUpdatePos = true;
-            this.Topmost = true;
-            if (FollowHandle != null && FollowHandle != IntPtr.Zero)
-            {
-                var cHandle = FollowHandle;
-                Task.Factory.StartNew(() =>
+                try
                 {
-                    try
+                    do
                     {
-                        do
+                        Win32.RECT rect = new Win32.RECT();
+                        Win32.GetWindowRect(FollowHandle, ref rect);
+                        if (!(_lastRect.Bottom == rect.Bottom && _lastRect.Top == rect.Top && _lastRect.Left == rect.Left && _lastRect.Right == rect.Right))
                         {
-                            Win32.RECT rect = new Win32.RECT();
-                            Win32.GetWindowRect(FollowHandle, ref rect);
-                            if (!(_lastRect.Bottom == rect.Bottom && _lastRect.Top == rect.Top && _lastRect.Left == rect.Left && _lastRect.Right == rect.Right))
+                            if (isFirst)
                             {
-                                if (isFirst)
-                                {
-                                    isFirst = false;
-                                    _lastRect = rect;
-                                    continue;
-                                }
-                                _subTaskHandler();
+                                isFirst = false;
+                                _lastRect = rect;
+                                continue;
                             }
-                            System.Threading.Thread.Sleep(10);
-                        } while (_isUpdatePos);
-                    }
-                    catch (Exception)
-                    {
-                    }
-                    _isUpdatePos = false;
-                });
-            }
-            else
-            {
-                _isUpdatePos = false;
-            }
-        }
-
-        private void _subTaskHandler()
-        {
-
-            Win32.RECT rect = new Win32.RECT();
-            Win32.GetWindowRect(FollowHandle, ref rect);
-            if (rect.Bottom == 0 && rect.Top == 0 && rect.Left == 0 && rect.Right == 0)
-                return;
-            var hight = Math.Abs(rect.Bottom - rect.Top);
-            //var width = Math.Abs(rect.Right - rect.Left);
-            var width = 400;
-            double windowWith = 0, windowHeight = 0, left = 0, top = 0;
-            this.Dispatcher.Invoke(() =>
-            {
-                left = this.Left;
-                top = this.Top;
-                this.Height = hight + 15;
-                windowWith = this.Width;
-                windowHeight = this.Height;
-            });
-            Point sp = new Point(rect.Left - _lastRect.Left + left, rect.Top - _lastRect.Top + top);
-            Win32.SetWindowPos(Handle, FollowHandle, (int)sp.X, (int)sp.Y, (int)windowWith, (int)windowHeight, 0x0001 | 0x0004);
-            _lastRect = rect;
-        }
-
-
-        /// <summary>
-        /// 窗体变为最小化状态
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e">     </param>
-        public void Button_Min_Click(object sender, RoutedEventArgs e)
-        {
-            if (sender is DependencyObject win)
-            {
-                Window.GetWindow(win).WindowState = WindowState.Minimized;
-            }
-        }
-
-
-        public void Button_Close_Click(object sender, RoutedEventArgs e)
-        {
-            logoutView.Visibility = Visibility.Visible;
-
-        }
-
-        public void ToggleButton_More_LostFocus(object sender, RoutedEventArgs e)
-        {
-            var toggleButton = sender as ToggleButton;
-            if ((bool)toggleButton.IsChecked)
-                toggleButton.IsChecked = false;
-        }
-
-        private void tb_LostFocus(object sender, RoutedEventArgs e)
-        {
-            Task.Delay(50).ContinueWith(t =>
-            {
-                Application.Current.Dispatcher.Invoke(() =>
+                            _subTaskHandler();
+                        }
+                        System.Threading.Thread.Sleep(10);
+                    } while (_isUpdatePos);
+                }
+                catch (Exception)
                 {
-                    (sender as ToggleButton).IsChecked = false;
-
-                });
+                }
+                _isUpdatePos = false;
             });
         }
-
-        private double GetDpiX()
+        else
         {
-            const int DesignWidth = 1920;
-            Matrix m = PresentationSource.FromVisual(this).CompositionTarget.TransformToDevice;
-            double scaleX = 1 / m.M11;
-            double nWidth = ScreenManager.GetScreenWidth();
-            var dpiX = nWidth / DesignWidth * scaleX;
-            return dpiX;
+            _isUpdatePos = false;
         }
+    }
 
-        private double GetDpiY()
+    private void _subTaskHandler()
+    {
+
+        Win32.RECT rect = new Win32.RECT();
+        Win32.GetWindowRect(FollowHandle, ref rect);
+        if (rect.Bottom == 0 && rect.Top == 0 && rect.Left == 0 && rect.Right == 0)
+            return;
+        var hight = Math.Abs(rect.Bottom - rect.Top);
+        //var width = Math.Abs(rect.Right - rect.Left);
+        var width = 400;
+        double windowWith = 0, windowHeight = 0, left = 0, top = 0;
+        this.Dispatcher.Invoke(() =>
         {
-            const int DesignHeight = 1080;
-            Matrix m = PresentationSource.FromVisual(this).CompositionTarget.TransformToDevice;
-            double scaleY = 1 / m.M22;
-            double nHeight = ScreenManager.GetScreenHeight();
-            var dpiY = nHeight / DesignHeight * scaleY;
-            return dpiY;
+            left = this.Left;
+            top = this.Top;
+            this.Height = hight + 15;
+            windowWith = this.Width;
+            windowHeight = this.Height;
+        });
+        Point sp = new Point(rect.Left - _lastRect.Left + left, rect.Top - _lastRect.Top + top);
+        Win32.SetWindowPos(Handle, FollowHandle, (int)sp.X, (int)sp.Y, (int)windowWith, (int)windowHeight, 0x0001 | 0x0004);
+        _lastRect = rect;
+    }
+
+
+    /// <summary>
+    /// 窗体变为最小化状态
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e">     </param>
+    public void Button_Min_Click(object sender, RoutedEventArgs e)
+    {
+        if (sender is DependencyObject win)
+        {
+            Window.GetWindow(win).WindowState = WindowState.Minimized;
         }
-        #endregion
+    }
 
 
+    public void Button_Close_Click(object sender, RoutedEventArgs e)
+    {
+        logoutView.Visibility = Visibility.Visible;
 
     }
+
+    public void ToggleButton_More_LostFocus(object sender, RoutedEventArgs e)
+    {
+        var toggleButton = sender as ToggleButton;
+        if ((bool)toggleButton.IsChecked)
+            toggleButton.IsChecked = false;
+    }
+
+    private void tb_LostFocus(object sender, RoutedEventArgs e)
+    {
+        Task.Delay(50).ContinueWith(t =>
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                (sender as ToggleButton).IsChecked = false;
+
+            });
+        });
+    }
+
+    private double GetDpiX()
+    {
+        const int DesignWidth = 1920;
+        Matrix m = PresentationSource.FromVisual(this).CompositionTarget.TransformToDevice;
+        double scaleX = 1 / m.M11;
+        double nWidth = ScreenManager.GetScreenWidth();
+        var dpiX = nWidth / DesignWidth * scaleX;
+        return dpiX;
+    }
+
+    private double GetDpiY()
+    {
+        const int DesignHeight = 1080;
+        Matrix m = PresentationSource.FromVisual(this).CompositionTarget.TransformToDevice;
+        double scaleY = 1 / m.M22;
+        double nHeight = ScreenManager.GetScreenHeight();
+        var dpiY = nHeight / DesignHeight * scaleY;
+        return dpiY;
+    }
+    #endregion
+
+
+
+}
 }

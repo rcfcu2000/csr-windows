@@ -21,6 +21,7 @@
     MouseDown="Window_MouseDown"
     MouseLeftButtonDown="Window_MouseLeftButtonDown"
     ResizeMode="NoResize"
+    SizeToContent="WidthAndHeight"
     Style="{StaticResource MainWindowsStyle}"
     UseLayoutRounding="True"
     mc:Ignorable="d">

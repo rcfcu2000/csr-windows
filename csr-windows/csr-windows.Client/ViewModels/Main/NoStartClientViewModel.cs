@@ -51,7 +51,7 @@ namespace csr_windows.Client.ViewModels.Main
             {
                 try
                 {
-                    Process.Start(programPath + "\\AliWorkbench.exe");
+                    Process process = Process.Start(programPath + "\\AliWorkbench.exe");
                     Console.WriteLine($"{programDisplayName} started successfully from: {programPath}");
                 }
                 catch (Exception ex)
@@ -65,7 +65,6 @@ namespace csr_windows.Client.ViewModels.Main
             }
 
 
-            WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.FollowWindowToken);
             //然后最后进入聊天界面
             WeakReferenceMessenger.Default.Send("", MessengerConstMessage.LoginSuccessToken);
             _uiService.OpenCustomerView();

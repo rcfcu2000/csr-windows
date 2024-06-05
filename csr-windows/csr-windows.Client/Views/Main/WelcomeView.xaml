@@ -46,7 +46,7 @@
             <Button
                 Width="340"
                 Height="50"
-                Margin="0,212,0,0"
+                Margin="0,140,0,0"
                 hc:BorderElement.CornerRadius="5"
                 Background="#2335C5"
                 Command="{Binding UseCommand}"

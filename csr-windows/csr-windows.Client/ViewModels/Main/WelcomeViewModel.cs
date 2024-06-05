@@ -67,7 +67,6 @@ namespace csr_windows.Client.ViewModels.Main
                 }
                 else
                 {
-                    WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.FollowWindowToken);
                     //然后最后进入聊天界面
                     WeakReferenceMessenger.Default.Send("", MessengerConstMessage.LoginSuccessToken);
                     _uiService.OpenCustomerView();
