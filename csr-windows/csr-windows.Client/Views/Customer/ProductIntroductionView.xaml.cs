@@ -24,7 +24,6 @@ namespace csr_windows.Client.Views.Customer
         public ProductIntroductionView()
         {
             InitializeComponent();
-            this.DataContext = new ProductIntroductionViewModel();
         }
     }
 }

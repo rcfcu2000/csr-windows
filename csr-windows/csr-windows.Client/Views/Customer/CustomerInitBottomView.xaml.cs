@@ -30,7 +30,7 @@ namespace csr_windows.Client.Views.Customer
 
         private void tb_LostFocus(object sender, RoutedEventArgs e)
         {
-            Task.Delay(50).ContinueWith(t =>
+            Task.Delay(100).ContinueWith(t =>
             {
                 Application.Current.Dispatcher.Invoke(() =>
                 {

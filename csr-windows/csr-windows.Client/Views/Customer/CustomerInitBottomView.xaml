@@ -21,50 +21,81 @@
     </UserControl.Resources>
     <Grid>
         <StackPanel Margin="15,10,0,40" Orientation="Horizontal">
-            <Button
-                Width="155"
-                Height="40"
-                Margin="0,0,5,0"
-                attach:IconProperties.IconHeight="20"
-                attach:IconProperties.IconThickness="0 0 15 0"
-                attach:IconProperties.IconUrl="{StaticResource IMG_Customer_AskAI}"
-                attach:IconProperties.IconWidth="20"
-                hc:BorderElement.CornerRadius="5"
-                Background="{StaticResource ThemeColorBrush}"
-                Command="{Binding AskAICommand}"
-                Content="我该怎么回"
-                Cursor="Hand"
-                FontSize="14"
-                Foreground="White"
-                Style="{StaticResource PrimaryImageContentButton}" />
+            <Grid Margin="0,0,5,0">
+                <Border
+                    Background="Black"
+                    CornerRadius="2"
+                    Opacity="0.2">
+                    <Border.Effect>
+                        <BlurEffect KernelType="Box" RenderingBias="Quality" />
+                    </Border.Effect>
+                </Border>
+                <Button
+                    Width="155"
+                    Height="40"
+                    attach:IconProperties.IconHeight="20"
+                    attach:IconProperties.IconThickness="0 0 15 0"
+                    attach:IconProperties.IconUrl="{StaticResource IMG_Customer_AskAI}"
+                    attach:IconProperties.IconWidth="20"
+                    hc:BorderElement.CornerRadius="5"
+                    Background="{StaticResource ThemeColorBrush}"
+                    Command="{Binding AskAICommand}"
+                    Content="我该怎么回"
+                    Cursor="Hand"
+                    FontSize="14"
+                    Foreground="White"
+                    Style="{StaticResource PrimaryImageContentButton}" />
 
-            <Button
-                Width="155"
-                Height="40"
-                Margin="0,0,5,0"
-                attach:IconProperties.IconHeight="20"
-                attach:IconProperties.IconThickness="0 0 15 0"
-                attach:IconProperties.IconUrl="{StaticResource IMG_Customer_InputAI}"
-                attach:IconProperties.IconWidth="20"
-                hc:BorderElement.CornerRadius="5"
-                Background="{StaticResource ThemeColorBrush}"
-                Command="{Binding InputAICommand}"
-                Content="我想这样回"
-                Cursor="Hand"
-                FontSize="14"
-                Foreground="White"
-                Style="{StaticResource PrimaryImageContentButton}" />
-            <ToggleButton
-                x:Name="tb"
-                Width="50"
-                Height="40"
-                attach:IconProperties.CheckIconUrl="{StaticResource IMG_Customer_CheckMore}"
-                attach:IconProperties.IconHeight="16"
-                attach:IconProperties.IconUrl="{StaticResource IMG_Customer_More}"
-                attach:IconProperties.IconWidth="16"
-                hc:BorderElement.CornerRadius="5"
-                LostFocus="tb_LostFocus"
-                Style="{StaticResource CustomMoreTBStyle}" />
+            </Grid>
+
+
+            <Grid Margin="0,0,5,0">
+                <Border
+                    Background="Black"
+                    CornerRadius="2"
+                    Opacity="0.2">
+                    <Border.Effect>
+                        <BlurEffect KernelType="Box" RenderingBias="Quality" />
+                    </Border.Effect>
+                </Border>
+                <Button
+                    Width="155"
+                    Height="40"
+                    attach:IconProperties.IconHeight="20"
+                    attach:IconProperties.IconThickness="0 0 15 0"
+                    attach:IconProperties.IconUrl="{StaticResource IMG_Customer_InputAI}"
+                    attach:IconProperties.IconWidth="20"
+                    hc:BorderElement.CornerRadius="5"
+                    Background="{StaticResource ThemeColorBrush}"
+                    Command="{Binding InputAICommand}"
+                    Content="我想这样回"
+                    Cursor="Hand"
+                    FontSize="14"
+                    Foreground="White"
+                    Style="{StaticResource PrimaryImageContentButton}" />
+            </Grid>
+            <Grid>
+                <Border
+                    Background="Black"
+                    CornerRadius="2"
+                    Opacity="0.2">
+                    <Border.Effect>
+                        <BlurEffect KernelType="Box" RenderingBias="Quality" />
+                    </Border.Effect>
+                </Border>
+                <ToggleButton
+                    x:Name="tb"
+                    Width="50"
+                    Height="40"
+                    attach:IconProperties.CheckIconUrl="{StaticResource IMG_Customer_CheckMore}"
+                    attach:IconProperties.IconHeight="16"
+                    attach:IconProperties.IconUrl="{StaticResource IMG_Customer_More}"
+                    attach:IconProperties.IconWidth="16"
+                    hc:BorderElement.CornerRadius="5"
+                    LostFocus="tb_LostFocus"
+                    Style="{StaticResource CustomMoreTBStyle}" />
+            </Grid>
+
 
             <Popup
                 AllowsTransparency="True"

@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.DependencyInjection;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
+using csr_windows.Client.Services.Base;
 using csr_windows.Domain.Common;
 using System;
 using System.Collections.Generic;
@@ -20,7 +22,7 @@ namespace csr_windows.Client.ViewModels.Menu
     public class RecommendedPairingViewModel : ObservableRecipient
     {
         #region Fields
-
+        private IUiService _uiService;
         private bool _isSearch;
         private bool _isSearchNull;
         private string _searchContent;
@@ -63,17 +65,23 @@ namespace csr_windows.Client.ViewModels.Menu
         /// <summary>
         /// 下一步命令
         /// </summary>
-        public ICommand NextCommand { get; set; }
+        public RelayCommand NextCommand { get; set; }
         #endregion
 
         #region Constructor
         public RecommendedPairingViewModel()
         {
+            PropertyChanged += (s, e) =>
+            {
+                //通知命令能否执行
+                NextCommand?.NotifyCanExecuteChanged();
+            };
+            _uiService = Ioc.Default.GetService<IUiService>();
             CloseCommand = new RelayCommand(OnCloseCommand);
             SearchCommand = new RelayCommand(OnSearchCommand);
             ChooseCommand = new RelayCommand<MyProduct>(OnChooseCommand);
             DeleteChooseCommand = new RelayCommand<ChooseProduct>(OnDeleteChooseCommand);
-            NextCommand = new RelayCommand(OnNextCommand);
+            NextCommand = new RelayCommand(OnNextCommand,CanNextCommand);
             for (int i = 0; i < 3; i++)
             {
                 ChooseProducts.Add(new ChooseProduct());
@@ -106,6 +114,7 @@ namespace csr_windows.Client.ViewModels.Menu
             #endregion
 
         }
+
 
 
 
@@ -253,9 +262,18 @@ namespace csr_windows.Client.ViewModels.Menu
 
         private void OnNextCommand()
         {
+            var chooses = ChooseProducts.Where(p => p.IsChoose).Select(p => p.Product).ToList();
+            _uiService.OpenProductIntroductionView(chooses);
+            OnCloseCommand();
         }
 
-        
+
+        private bool CanNextCommand()
+        {
+            return ChooseNum > 0;
+        }
+
+
 
         #endregion
     }

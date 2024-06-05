@@ -63,10 +63,10 @@ namespace csr_windows.Client
             _mainViewModel = new MainViewModel();
             this.DataContext = _mainViewModel;
             baseMenuView.DataContext = new BaseMenuViewModel();
-            
 
-            _uiService.OpenCustomerView();
-            //_uiService.OpenWelcomeView();
+
+            //_uiService.OpenCustomerView();
+            _uiService.OpenNoStartClientView();
 
         }
         #endregion

@@ -1,5 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.DependencyInjection;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
+using csr_windows.Client.Services.Base;
 using csr_windows.Client.View.Chat;
 using csr_windows.Client.ViewModels.Chat;
 using csr_windows.Client.Views.Chat;
@@ -20,6 +23,7 @@ namespace csr_windows.Client.ViewModels.Customer
     {
 
         #region Fields
+        private IUiService _uiService;
         private string _storeName = "蜡笔派家居旗舰店";
         private string _userName = "小玲";
 
@@ -28,7 +32,7 @@ namespace csr_windows.Client.ViewModels.Customer
 
         private bool _haveCustomer = true;
 
-       
+        private UserControl _contentControl;
 
 
         #endregion
@@ -41,6 +45,9 @@ namespace csr_windows.Client.ViewModels.Customer
         public CustomerViewModel()
         {
             TestCommand = new RelayCommand(OnTestCommand);
+            _uiService = Ioc.Default.GetService<IUiService>();
+            WeakReferenceMessenger.Default.Register<UserControl, string>(this, MessengerConstMessage.OpenCustomerUserControlToken, (r, m) => { ContentControl = m; });
+            _uiService.OpenCustomerInitBottomView();
         }
 
 
@@ -82,6 +89,13 @@ namespace csr_windows.Client.ViewModels.Customer
         {
             get => _haveCustomer;
             set => SetProperty(ref _haveCustomer, value);
+        }
+
+
+        public UserControl ContentControl
+        {
+            get => _contentControl;
+            set => SetProperty(ref _contentControl, value);
         }
 
         #endregion

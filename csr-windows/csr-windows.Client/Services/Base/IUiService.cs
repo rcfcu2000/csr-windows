@@ -1,4 +1,5 @@
-﻿using csr_windows.Domain.Enumeration;
+﻿using csr_windows.Domain.Common;
+using csr_windows.Domain.Enumeration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,6 +51,16 @@ namespace csr_windows.Client.Services.Base
         /// </summary>
         void OpenChooseProductView(ChooseWindowType chooseWindowType);
 
+        /// <summary>
+        /// 打开产品介绍界面
+        /// </summary>
+        /// <param name="myProducts"></param>
+        void OpenProductIntroductionView(List<MyProduct> myProducts);
+
+        /// <summary>
+        /// 顾客初始化底部界面
+        /// </summary>
+        void OpenCustomerInitBottomView();
     }
 
     

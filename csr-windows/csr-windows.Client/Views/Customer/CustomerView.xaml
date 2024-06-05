@@ -16,7 +16,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="104" />
                 <RowDefinition />
-                <RowDefinition Height="94" />
+                <RowDefinition Height="AUTO" />
             </Grid.RowDefinitions>
             <Grid>
                 <StackPanel Margin="15,10,15,12">
@@ -71,8 +71,14 @@
                     VerticalAlignment="Top"
                     Fill="{StaticResource 0.1OpacityBlackTheme}"
                     Visibility="{Binding ElementName=sv, Path=ComputedVerticalScrollBarVisibility}" />
-                <local:CustomerInitBottomView />
-                <Button Command="{Binding TestCommand}" Content="点我点我" />
+                <!--<local:CustomerInitBottomView />-->
+                <!--<local:ProductIntroductionView VerticalAlignment="Bottom" />-->
+
+                <ContentControl Content="{Binding ContentControl}" />
+                <Button
+                    VerticalAlignment="Bottom"
+                    Command="{Binding TestCommand}"
+                    Content="点我点我" />
             </Grid>
         </Grid>
         <!--<local:CustomerBottomAskAIView VerticalAlignment="Bottom" />-->

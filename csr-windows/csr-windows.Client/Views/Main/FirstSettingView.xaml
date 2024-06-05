@@ -42,7 +42,6 @@
         </Grid>
         <Border
             Width="340"
-            Height="272"
             Margin="30,50"
             Background="White"
             CornerRadius="5">
@@ -80,10 +79,7 @@
                                 Height="16"
                                 Margin="0,0,15,0"
                                 Source="{StaticResource IMG_Common_Store}" />
-                            <TextBlock
-                                FontSize="14"
-                                FontWeight="Bold"
-                                Text="{Binding StoreName}" />
+                            <TextBlock FontSize="14" Text="{Binding StoreName}" />
 
                         </StackPanel>
                     </StackPanel>
@@ -114,7 +110,6 @@
                 <Button
                     Width="310"
                     Height="40"
-                    Margin="0,0,0,15"
                     hc:BorderElement.CornerRadius="5"
                     Background="#2335C5"
                     Command="{Binding ConfirmCommand}"
@@ -123,11 +118,6 @@
                     FontSize="18"
                     FontWeight="Bold"
                     Foreground="White" />
-                <TextBlock
-                    Foreground="{StaticResource 0.5OpacityBlackTheme}"
-                    LineHeight="20"
-                    Text="后续生成文案将使用上述信息，请务必填写与您千牛账号一致的信息；可在“设置-个人资料”中修改"
-                    TextWrapping="Wrap" />
 
             </StackPanel>
         </Border>

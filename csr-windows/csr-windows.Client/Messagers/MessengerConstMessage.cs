@@ -24,6 +24,11 @@ namespace csr_windows.Client
         public const string OpenMenuUserControlToken = "OpenMenuUserControlToken";
 
         /// <summary>
+        /// 打开顾客界面窗体
+        /// </summary>
+        public const string OpenCustomerUserControlToken  = "OpenCustomerUserControlToken";
+
+        /// <summary>
         /// 关闭菜单的窗体
         /// </summary>
         public const string CloseMenuUserControlToken = "CloseMenuUserControlToken";
@@ -37,6 +42,11 @@ namespace csr_windows.Client
         /// 退出程序
         /// </summary>
         public const string ExitToken= "ExitToken";
+
+        /// <summary>
+        /// 登录成功
+        /// </summary>
+        public const string LoginSuccessToken = "LoginSuccessToken";
 
     }
 }

@@ -6,6 +6,7 @@ using csr_windows.Client.ViewModels.Menu;
 using csr_windows.Client.Views.Customer;
 using csr_windows.Client.Views.Main;
 using csr_windows.Client.Views.Menu;
+using csr_windows.Domain.Common;
 using csr_windows.Domain.Enumeration;
 using System;
 using System.Collections.Generic;
@@ -123,6 +124,28 @@ namespace csr_windows.Client.Services.Impl
                 var view = new PersonalDataView();
                 view.DataContext = new PersonalDataViewModel();
                 WeakReferenceMessenger.Default.Send(view as UserControl, MessengerConstMessage.OpenMenuUserControlToken);
+            });
+            DoWork(ac);
+        }
+
+        public void OpenProductIntroductionView(List<MyProduct> myProducts)
+        {
+            Action ac = new Action(() =>
+            {
+                var view = new ProductIntroductionView();
+                view.DataContext = new ProductIntroductionViewModel(myProducts);
+                WeakReferenceMessenger.Default.Send(view as UserControl, MessengerConstMessage.OpenCustomerUserControlToken);
+            });
+            DoWork(ac);
+        }
+
+        public void OpenCustomerInitBottomView()
+        {
+            Action ac = new Action(() =>
+            {
+                var view = new CustomerInitBottomView();
+                view.DataContext = new CustomerInitBottomViewModel();
+                WeakReferenceMessenger.Default.Send(view as UserControl, MessengerConstMessage.OpenCustomerUserControlToken);
             });
             DoWork(ac);
         }

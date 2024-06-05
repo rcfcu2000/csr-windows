@@ -49,10 +49,7 @@
                                     Height="16"
                                     Margin="0,0,15,0"
                                     Source="{StaticResource IMG_Common_Store}" />
-                                <TextBlock
-                                    FontSize="14"
-                                    FontWeight="Bold"
-                                    Text="{Binding StoreName}" />
+                                <TextBlock FontSize="14" Text="{Binding StoreName}" />
 
                             </StackPanel>
                         </StackPanel>

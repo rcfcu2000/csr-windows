@@ -12,45 +12,27 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
     <Grid>
-        <Border
-            Background="Black"
-            CornerRadius="5"
-            Opacity="0.1">
-            <Border.Effect>
-                <BlurEffect KernelType="Box" RenderingBias="Quality" />
-            </Border.Effect>
-            <Border.Style>
-                <Style TargetType="Border">
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding ChatIdentityEnum}" Value="Recipient">
-                            <Setter Property="Margin" Value="5,5,25,5" />
-                            <Setter Property="HorizontalAlignment" Value="Left" />
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding ChatIdentityEnum}" Value="Sender">
-                            <Setter Property="Margin" Value="25,5,5,5" />
-                            <Setter Property="HorizontalAlignment" Value="Right" />
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </Border.Style>
-        </Border>
-        <Grid Margin="5">
+        <Grid Margin="15,7.5">
             <Border
-                BorderBrush="#87B0FF"
+                x:Name="border"
                 BorderThickness="1"
                 CornerRadius="5">
                 <Border.Style>
                     <Style TargetType="Border">
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding ChatIdentityEnum}" Value="Recipient">
+                                <Setter Property="BorderBrush" Value="#19000000" />
                                 <Setter Property="Background" Value="White" />
                                 <Setter Property="HorizontalAlignment" Value="Left" />
                                 <Setter Property="Margin" Value="0,0,20,0" />
+
                             </DataTrigger>
                             <DataTrigger Binding="{Binding ChatIdentityEnum}" Value="Sender">
-                                <Setter Property="Background" Value="#A8C5FF" />
+                                <Setter Property="BorderBrush" Value="#FF87B0FF" />
+                                <Setter Property="Background" Value="#FFA8C5FF" />
                                 <Setter Property="HorizontalAlignment" Value="Right" />
                                 <Setter Property="Margin" Value="20,0,0,0" />
+
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>
@@ -74,11 +56,6 @@
                     </ContentControl.Style>
                 </ContentControl>
             </Border>
-            <!--<Border
-                HorizontalAlignment="Right"
-                CornerRadius="5"
-                Visibility="{Binding ChatIdentityEnum, Converter={StaticResource ChatIdentityEnumConverter}, ConverterParameter={x:Static enum:ChatIdentityEnum.Sender}}" />-->
-
         </Grid>
     </Grid>
 </UserControl>

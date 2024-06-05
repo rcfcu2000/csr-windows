@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.DependencyInjection;
 using CommunityToolkit.Mvvm.Input;
+using csr_windows.Client.Services.Base;
 using csr_windows.Domain.Common;
 using System;
 using System.Collections.Generic;
@@ -14,6 +16,7 @@ namespace csr_windows.Client.ViewModels.Customer
     public class ProductIntroductionViewModel:ObservableRecipient
     {
         #region Fields
+        private IUiService _uiService;
         private const string _singleProductButtonContent = "帮我介绍一下这个商品";
         private const string _multipleProductButtonContent = "帮我推荐以上商品的搭配";
 
@@ -31,19 +34,11 @@ namespace csr_windows.Client.ViewModels.Customer
         #endregion
 
         #region Constructor
-        public ProductIntroductionViewModel()
+        public ProductIntroductionViewModel(List<MyProduct> myProducts)
         {
+            _uiService = Ioc.Default.GetService<IUiService>();
             ProductIntroductionCommand = new RelayCommand(OnProductIntroductionCommand);
 
-            List<MyProduct> myProducts = new List<MyProduct>();
-            for (int i = 0; i < 3; i++)
-            {
-                myProducts.Add(new MyProduct()
-                {
-                    ProductImage = "https://pic1.zhimg.com/v2-0dda71bc9ced142bf7bb2d6adbebe4f0_r.jpg?source=1940ef5c",
-                    ProductName = $"商品名称 Index:{i}"
-                });
-            }
             MyProductList = new ObservableCollection<MyProduct>(myProducts);
         }
 
@@ -100,6 +95,7 @@ namespace csr_windows.Client.ViewModels.Customer
         /// </summary>
         private void OnProductIntroductionCommand()
         {
+            _uiService.OpenCustomerInitBottomView();
         }
 
         #endregion

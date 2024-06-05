@@ -257,6 +257,7 @@
                                     Background="{StaticResource ThemeColorBrush}"
                                     Command="{Binding NextCommand}"
                                     Content="下一步"
+                                    Cursor="Hand"
                                     FontSize="14"
                                     FontWeight="Bold"
                                     Foreground="White" />

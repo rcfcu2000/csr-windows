@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.DependencyInjection;
 using CommunityToolkit.Mvvm.Input;
+using csr_windows.Client.Services.Base;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,9 +14,10 @@ namespace csr_windows.Client.ViewModels.Main
     public class FirstSettingViewModel : ObservableValidator
     {
         #region Fields
-        private string _userName;
+        private IUiService _uiService;
+        private string _userName = "小玲";
 
-        private string _storeName;
+        private string _storeName = "蜡笔派家居旗舰店";
 
         private bool _isItPreSalesCustomerService = true;
 
@@ -31,6 +34,7 @@ namespace csr_windows.Client.ViewModels.Main
         #region Constructor
         public FirstSettingViewModel()
         {
+            _uiService = Ioc.Default.GetService<IUiService>();
             PropertyChanged += (s, e) =>
             {
                 //通知命令能否执行
@@ -79,7 +83,7 @@ namespace csr_windows.Client.ViewModels.Main
         /// </summary>
         private void OnConfirmCommand()
         {
-           
+           _uiService.OpenWelcomeView();
         }
         #endregion
     }

@@ -14,7 +14,7 @@
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Margin" Value="0,0,0,10" />
         <Setter Property="Background" Value="#192335c5" />
-        <Setter Property="Width" Value="320" />
+        <Setter Property="Width" Value="Auto" />
         <Setter Property="Foreground" Value="{StaticResource 0.8OpacityBlackTheme}" />
         <Setter Property="attach:IconProperties.IconUrl" Value="{StaticResource IMG_Customer_ProductControlIcon}" />
         <Setter Property="Template">
@@ -27,6 +27,7 @@
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="auto" />
                                         <ColumnDefinition />
+                                        <ColumnDefinition Width="82" />
                                     </Grid.ColumnDefinitions>
                                     <hc:Gravatar
                                         Width="50"

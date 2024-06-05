@@ -115,7 +115,7 @@
         </Grid>
         <Grid
             Grid.Row="2"
-            Margin="0,5,0,10"
+            Margin="0,0,0,10"
             VerticalAlignment="Bottom">
             <Grid VerticalAlignment="Center">
                 <TextBlock
@@ -151,10 +151,21 @@
                 attach:IconProperties.IconWidth="16"
                 Background="Transparent"
                 Command="{Binding ChooseProductCommand}"
-                Content="选择商品"
                 FontSize="12"
-                Foreground="{StaticResource ThemeColorBrush}"
-                Style="{StaticResource PrimaryImageContentButton}" />
+                Foreground="{StaticResource ThemeColorBrush}">
+                <Button.Style>
+                    <Style BasedOn="{StaticResource PrimaryImageContentButton}" TargetType="Button">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsHaveProduct}" Value="True">
+                                <Setter Property="Content" Value="切换商品" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IsHaveProduct}" Value="False">
+                                <Setter Property="Content" Value="选择商品" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
         </Grid>
     </Grid>
 </UserControl>

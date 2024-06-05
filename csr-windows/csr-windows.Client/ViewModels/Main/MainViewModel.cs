@@ -20,7 +20,7 @@ namespace csr_windows.Client.ViewModels.Main
 
         private UserControl _mainUserControl;
         private IUiService _uiService;
-        private bool _isInIM = true;
+        private bool _isInIM = false;
 
         #endregion
 
@@ -39,6 +39,7 @@ namespace csr_windows.Client.ViewModels.Main
         {
             _uiService = Ioc.Default.GetService<IUiService>();
             WeakReferenceMessenger.Default.Register<UserControl, string>(this, MessengerConstMessage.OpenMainUserControlToken, (r, m) => { ChangeContent(m); });
+            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.LoginSuccessToken, (r, m) => { IsInIM = true; });
             MainUserControl = new Views.Main.WelcomeView();
 
             OpenAICommand = new RelayCommand(OnOpenAICommand);
