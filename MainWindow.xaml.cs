@@ -201,6 +201,11 @@ namespace csr_new
                         }
                     }
 
+                    if (json.type == "currentCsr")
+                    {
+                        Console.WriteLine($"item get：{json}");
+                    }
+
                     if (json.type == "conv_change")
                     {
                         String nick_name = json.msg.nick;
@@ -337,7 +342,8 @@ namespace csr_new
             //StartWebSocketServer();
 
             dynamic root = new JObject();
-            root.act = "getGoodsList";
+            //root.act = "getGoodsList";
+            root.act = "getCurrentCsr";
 
             // 将对象转换成JSON字符串
             string jsonString = JsonConvert.SerializeObject(root, Formatting.Indented);
