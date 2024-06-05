@@ -1,9 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.DependencyInjection;
 using CommunityToolkit.Mvvm.Messaging;
+using csr_windows.Client.Helpers;
 using csr_windows.Client.Services.Base;
 using csr_windows.Client.ViewModels.Main;
 using csr_windows.Client.ViewModels.Menu;
 using csr_windows.Client.Views.Main;
+using csr_windows.Resources.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +37,11 @@ namespace csr_windows.Client
         #region Constructor
         public MainWindow()
         {
+            if (ProcessHelper.GetIsExistSameProgram())
+            {
+                Application.Current.Shutdown();
+                return;
+            }
             _uiService = Ioc.Default.GetService<IUiService>();
             WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.OpenPromptMessageToken, (r, m) => 
             { 

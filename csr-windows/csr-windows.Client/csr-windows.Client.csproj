@@ -110,6 +110,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helpers\ProcessHelper.cs" />
     <Compile Include="Messagers\MessengerConstMessage.cs" />
     <Compile Include="Services\Base\IUiService.cs" />
     <Compile Include="Services\Impl\UIService.cs" />
