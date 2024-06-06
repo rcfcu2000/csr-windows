@@ -6,7 +6,9 @@ using csr_windows.Client.Services.Base;
 using csr_windows.Client.View.Chat;
 using csr_windows.Client.ViewModels.Chat;
 using csr_windows.Client.Views.Chat;
+using csr_windows.Domain;
 using csr_windows.Domain.Common;
+using csr_windows.Domain.WebSocketModels;
 using csr_windows.Resources.Enumeration;
 using System;
 using System.Collections.Generic;
@@ -14,8 +16,10 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Threading;
 
 namespace csr_windows.Client.ViewModels.Customer
 {
@@ -24,13 +28,15 @@ namespace csr_windows.Client.ViewModels.Customer
 
         #region Fields
         private IUiService _uiService;
-        private string _storeName = "蜡笔派家居旗舰店";
-        private string _userName = "小玲";
+        private string _storeName ;
+        private string _userName;
 
-        private string _customerNickname = "章盼angela";
-        public IList<UserControl> UserControls { get; } = new ObservableCollection<UserControl>();
+        private ObservableCollection<UserControl> _userControls = new ObservableCollection<UserControl>();
 
-        private bool _haveCustomer = true;
+  
+
+        private CustomerModel _currentCustomer;
+
 
         private UserControl _contentControl;
 
@@ -47,6 +53,28 @@ namespace csr_windows.Client.ViewModels.Customer
             TestCommand = new RelayCommand(OnTestCommand);
             _uiService = Ioc.Default.GetService<IUiService>();
             WeakReferenceMessenger.Default.Register<UserControl, string>(this, MessengerConstMessage.OpenCustomerUserControlToken, (r, m) => { ContentControl = m; });
+            WeakReferenceMessenger.Default.Register<CustomerModel, string>(this,MessengerConstMessage.ChangeCurrentCustomerToken,(r,m) =>
+            {
+                //储存历史记录
+                if (!string.IsNullOrEmpty(CurrentCustomer?.UserDisplayName))
+                {
+                    GlobalCache.CustomerChatList[CurrentCustomer.UserNiceName] = new List<UserControl>(UserControls);
+                }
+                CurrentCustomer = m;
+                var isGetSuccess =  GlobalCache.CustomerChatList.TryGetValue(CurrentCustomer?.UserNiceName,out List<UserControl> _tempUserControls);
+                
+                if (!isGetSuccess || _tempUserControls.Count == 0)
+                {
+                    UserControls = new ObservableCollection<UserControl>();
+                    //添加一个欢迎UserControl
+                    AddTextControl( ChatIdentityEnum.Recipient, "您好，我是您的智能AI客服助手～\r\n我会实时跟进您和顾客之间的沟通信息，并且在合适的时间给您提供必要的帮助。\r\n在您和顾客沟通的过程中：\r\n1. 如果您不知不知道接下来应该怎么回复顾客的疑虑，可以点击页面下方的【我该怎么回】按钮，我们会立即帮你写出合理的回复文案，供您使用；\r\n2. 如果您已经有了自己的想法，但感觉文字本身并不太合适，可以点击页面下方的【我想这样回】按钮，我们会立即分析您已经输入的文字，并给出优化建议与优化后的文字，供您使用；\r\n我会尽我所能帮助您解决问题，我们开始吧！");
+                }
+                else
+                {
+                    UserControls = new ObservableCollection<UserControl>(_tempUserControls);
+                }
+
+            });
             _uiService.OpenCustomerInitBottomView();
         }
 
@@ -72,30 +100,30 @@ namespace csr_windows.Client.ViewModels.Customer
             get => _userName;
             set => SetProperty(ref _userName, value);
         }
-
-        /// <summary>
-        /// 顾客昵称
-        /// </summary>
-        public string CustomerNickname
-        {
-            get => _customerNickname;
-            set => SetProperty(ref _customerNickname, value);
-        }
-
-        /// <summary>
-        /// 是否有顾客
-        /// </summary>
-        public bool HaveCustomer
-        {
-            get => _haveCustomer;
-            set => SetProperty(ref _haveCustomer, value);
-        }
-
+        
 
         public UserControl ContentControl
         {
             get => _contentControl;
             set => SetProperty(ref _contentControl, value);
+        }
+
+        /// <summary>
+        /// 储存的聊天控件
+        /// </summary>
+        public ObservableCollection<UserControl> UserControls
+        {
+            get => _userControls;
+            set => SetProperty(ref _userControls, value);
+        }
+
+        /// <summary>
+        /// 当前客户
+        /// </summary>
+        public CustomerModel CurrentCustomer
+        {
+            get => _currentCustomer;
+            set => SetProperty(ref _currentCustomer, value);
         }
 
         #endregion
@@ -109,6 +137,7 @@ namespace csr_windows.Client.ViewModels.Customer
         private int _chooseProductCount = 1;
         private int _endConvertsationContent = 1;
         private ChatIdentityEnum LastEnum;
+        private int _num;
         private void OnTestCommand()
         {
 
@@ -252,9 +281,6 @@ namespace csr_windows.Client.ViewModels.Customer
                 _endConvertsationContent--;
                 goto AddFlag;
             }
-            
-
-
 
         AddFlag:
 
@@ -268,6 +294,29 @@ namespace csr_windows.Client.ViewModels.Customer
             }
             chatBaseView.DataContext = chatBaseViewModel;
             UserControls.Add(chatBaseView);
+        }
+
+        public void AddTextControl(ChatIdentityEnum identityEnum, string content)
+        {
+            // 切换到UI线程更新UI
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                ChatBaseView chatBaseView = new ChatBaseView();
+                ChatBaseViewModel chatBaseViewModel = new ChatBaseViewModel()
+                {
+                    ChatIdentityEnum = identityEnum
+                };
+
+
+                ChatTextView chatTextView = new ChatTextView()
+                {
+                    DataContext = new ChatTextViewModel(content)
+                };
+
+                chatBaseViewModel.ContentControl = chatTextView;
+                chatBaseView.DataContext = chatBaseViewModel;
+                UserControls.Add(chatBaseView);
+            });
         }
         #endregion
 

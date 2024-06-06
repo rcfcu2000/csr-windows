@@ -60,6 +60,14 @@ document.getElementsByTagName('head')[0].appendChild(scriptImSupport);
                         sendMessageOnEvent('currentCsr', rt);
                 });
             }
+            if(obj.act=="getCurrentConv"){
+                imsdk.invoke('im.uiutil.GetCurrentConversationID',{
+                }).then(
+                    res=>{
+                        var rt=res.result;
+                        sendMessageOnEvent('currentConv', rt);
+                });
+            }
         }
     }
     function reconnectWebSocket(){

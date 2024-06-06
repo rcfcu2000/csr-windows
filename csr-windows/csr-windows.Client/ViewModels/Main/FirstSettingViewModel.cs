@@ -1,7 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.DependencyInjection;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using csr_windows.Client.Services.Base;
+using csr_windows.Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -15,9 +17,6 @@ namespace csr_windows.Client.ViewModels.Main
     {
         #region Fields
         private IUiService _uiService;
-        private string _userName = "小玲";
-
-        private string _storeName = "蜡笔派家居旗舰店";
 
 
 
@@ -47,24 +46,6 @@ namespace csr_windows.Client.ViewModels.Main
         #endregion
 
         #region Properties
-
-        /// <summary>
-        /// 用户昵称
-        /// </summary>
-        public string UserName
-        {
-            get => _userName;
-            set => SetProperty(ref _userName, value);
-        }
-
-        /// <summary> 
-        /// 店铺名称
-        /// </summary>
-        public string StoreName
-        {
-            get => _storeName;
-            set => SetProperty(ref _storeName, value);
-        }
         #endregion
 
         #region Methods
@@ -73,7 +54,9 @@ namespace csr_windows.Client.ViewModels.Main
         /// </summary>
         private void OnConfirmCommand()
         {
-           _uiService.OpenWelcomeView();
+            //然后最后进入聊天界面
+            WeakReferenceMessenger.Default.Send("", MessengerConstMessage.LoginSuccessToken);
+            _uiService.OpenCustomerView();
         }
         #endregion
     }

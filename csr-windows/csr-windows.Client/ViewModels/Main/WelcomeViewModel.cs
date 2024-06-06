@@ -3,10 +3,14 @@ using CommunityToolkit.Mvvm.DependencyInjection;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using csr_windows.Client.Services.Base;
+using csr_windows.Client.Services.WebService;
+using csr_windows.Client.Services.WebService.Enums;
 using csr_windows.Common.Helper;
+using csr_windows.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.WebSockets;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -59,14 +63,16 @@ namespace csr_windows.Client.ViewModels.Main
 
             if (isRunning)
             {
+                WebServiceClient.SendJSFunc(JSFuncType.GetCurrentCsr);
+
                 //第二个判断是否是第一次进入
-                _uiService.OpenFirstSettingView();
                 if (isFirstIn)
                 {
                     _uiService.OpenFirstSettingView();
                 }
                 else
                 {
+
                     //然后最后进入聊天界面
                     WeakReferenceMessenger.Default.Send("", MessengerConstMessage.LoginSuccessToken);
                     _uiService.OpenCustomerView();

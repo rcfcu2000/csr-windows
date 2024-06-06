@@ -6,6 +6,7 @@ using csr_windows.Client.ViewModels.Menu;
 using csr_windows.Client.Views.Customer;
 using csr_windows.Client.Views.Main;
 using csr_windows.Client.Views.Menu;
+using csr_windows.Domain;
 using csr_windows.Domain.Common;
 using csr_windows.Domain.Enumeration;
 using System;

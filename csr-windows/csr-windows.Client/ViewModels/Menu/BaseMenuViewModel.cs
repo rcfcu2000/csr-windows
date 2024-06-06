@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
+using csr_windows.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -123,9 +123,11 @@ namespace csr_windows.Client
             {
                 #region Init
                 this.SizeToContent = SizeToContent.Manual;
-                this.Width = 411 * GetDpiX();
+                //this.Width = 411 * GetDpiX();
+                this.Width = 411;
                 this.Left = (ScreenManager.GetScreenWidth() - Width) / 2;
-                this.Height = 811 * GetDpiY();
+                //this.Height = 811 * GetDpiY();
+                this.Height = 811;
                 this.Top = (ScreenManager.GetScreenHeight() - Height) / 2;
                 this.Visibility = Visibility.Visible;
                 this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
@@ -188,7 +190,8 @@ namespace csr_windows.Client
                             var hight = Math.Abs(rect.Bottom - rect.Top);
                             var windowWith = Math.Abs(rect.Right - rect.Left);
                             this.Height = hight + 15;
-                            this.Width = 411 * GetDpiX();
+                            //this.Width = 411 * GetDpiX();
+                            this.Width = 411;
                             //右边
                             this.Left = rect.Right + _dockMargin;
                             //左边

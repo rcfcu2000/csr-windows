@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using csr_windows.Client.Services.Base;
 using csr_windows.Common.Helper;
+using csr_windows.Domain;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -37,6 +38,7 @@ namespace csr_windows.Client.ViewModels.Main
         #endregion
 
         #region Methods
+        private bool isFirstIn;
         /// <summary>
         /// 启动千牛客户端
         /// </summary>
@@ -65,9 +67,16 @@ namespace csr_windows.Client.ViewModels.Main
             }
 
 
-            //然后最后进入聊天界面
-            WeakReferenceMessenger.Default.Send("", MessengerConstMessage.LoginSuccessToken);
-            _uiService.OpenCustomerView();
+            if (isFirstIn)
+            {
+                _uiService.OpenFirstSettingView();
+            }
+            else
+            {
+                //然后最后进入聊天界面
+                WeakReferenceMessenger.Default.Send("", MessengerConstMessage.LoginSuccessToken);
+                _uiService.OpenCustomerView();
+            }
         }
         #endregion
     }

@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:extension="clr-namespace:csr_windows.Resources.Extensions;assembly=csr-windows.Resources"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:local="clr-namespace:csr_windows.Client.Views.Customer"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:csr_windows.Client.ViewModels.Customer"
@@ -32,9 +33,9 @@
                                 <Setter Property="FontSize" Value="14" />
                             </Style>
                         </StackPanel.Resources>
-                        <TextBlock Text="{Binding StoreName}" />
+                        <TextBlock Text="{Binding Source={StaticResource GlobalCache}, Path=StoreName}" />
                         <TextBlock Text="：" />
-                        <TextBlock Text="{Binding UserName}" />
+                        <TextBlock Text="{Binding Source={StaticResource GlobalCache}, Path=UserName}" />
                     </StackPanel>
                     <TextBlock
                         Margin="0,0,0,5"
@@ -45,13 +46,13 @@
                     <TextBlock
                         FontSize=" 12"
                         Foreground="{StaticResource 0.5OpacityBlackTheme}"
-                        Text="{Binding CustomerNickname, StringFormat={}当前服务：{0}}"
-                        Visibility="{Binding HaveCustomer, Converter={StaticResource Boolean2VisibilityConverter}}" />
+                        Text="{Binding CurrentCustomer.UserDisplayName, StringFormat={}当前服务：{0}}"
+                        Visibility="{Binding Source={StaticResource GlobalCache}, Path=HaveCustomer, Converter={StaticResource Boolean2VisibilityConverter}}" />
                     <TextBlock
                         FontSize=" 12"
                         Foreground="{StaticResource 0.5OpacityBlackTheme}"
                         Text="当前暂无接入的顾客"
-                        Visibility="{Binding HaveCustomer, Converter={StaticResource Boolean2VisibilityReConverter}}" />
+                        Visibility="{Binding Source={StaticResource GlobalCache}, Path=HaveCustomer, Converter={StaticResource Boolean2VisibilityReConverter}}" />
                 </StackPanel>
 
                 <Rectangle

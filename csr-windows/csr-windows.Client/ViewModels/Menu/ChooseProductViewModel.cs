@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
+using csr_windows.Domain;
 using csr_windows.Domain.Common;
 using csr_windows.Domain.Enumeration;
 using System;

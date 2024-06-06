@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace csr_windows.Client
+namespace csr_windows.Domain
 {
     public static class MessengerConstMessage
     {
@@ -49,6 +49,10 @@ namespace csr_windows.Client
         /// </summary>
         public const string LoginSuccessToken = "LoginSuccessToken";
 
+        /// <summary>
+        /// 改变当前客户
+        /// </summary>
+        public const string ChangeCurrentCustomerToken = "ChangeCurrentCustomerToken";
 
 
     }

@@ -327,6 +327,12 @@ namespace csr_windows.Client.Services.WebService
             }
         }
 
+        /// <summary>
+        /// 直接发送消息（一键发送）
+        /// </summary>
+        /// <param name="nick"></param>
+        /// <param name="msg"></param>
+        /// <returns></returns>
         public string QNSendMsgJS(string nick, string msg)
         {
 
@@ -343,6 +349,13 @@ namespace csr_windows.Client.Services.WebService
         }
         //淘宝-获取待发货订单列表
 
+        /// <summary>
+        /// 根据句柄计算按钮位置（一键复制）
+        /// </summary>
+        /// <param name="nick"></param>
+        /// <param name="msg"></param>
+        /// <param name="sleep"></param>
+        /// <returns></returns>
         public bool QNSendMsgVer912(string nick, string msg, int sleep = 200)
         {
             //bool isSuccess = OpenAliim(nick);

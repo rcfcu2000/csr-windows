@@ -1,4 +1,8 @@
-﻿using Fleck;
+﻿using csr_windows.Client.Services.WebService.Enums;
+using csr_windows.Domain;
+using csr_windows.Domain.BaseModels;
+using csr_windows.Domain.WebSocketModels;
+using Fleck;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -80,9 +84,35 @@ namespace csr_windows.Client.Services.WebService
                         }
                     }
 
-                    if (json.type == "conv_change")
+
+                    if (json.type == JSFuncType.ReceiveCurrentCst)
+                    {
+                        Console.WriteLine($"item get：{json}");
+                        MJSResult<CurrentCsrModel> mJSResult;
+                        //解析
+                        mJSResult = JsonConvert.DeserializeObject<MJSResult<CurrentCsrModel>>(JsonConvert.SerializeObject(json));
+                        //逗号分割
+                        var list = mJSResult.Msg.Nick.Split(':');
+                        GlobalCache.StoreName = list[0];
+                        GlobalCache.UserName = list[1];
+                        SendJSFunc(JSFuncType.GetCurrentConv);
+                    }
+
+                    if (json.type == JSFuncType.ReceiverCurrentConv)
                     {
                         String nick_name = json.msg.nick;
+                        String display_name = json.msg.display;
+                        GlobalCache.CurrentCustomer = new CustomerModel() { UserNiceName = nick_name, UserDisplayName = display_name };
+                        Console.WriteLine($"GetCurrentConv json:{json}");
+                        
+                    }
+
+
+                    if (json.type == JSFuncType.ReceiveConvChange)
+                    {
+                        String nick_name = json.msg.nick;
+                        String display_name = json.msg.display;
+                        GlobalCache.CurrentCustomer = new CustomerModel() { UserNiceName = nick_name,UserDisplayName = display_name };   
                         Console.WriteLine($"conversation changed：{nick_name}");
                     }
 
@@ -206,5 +236,21 @@ namespace csr_windows.Client.Services.WebService
 
             Console.WriteLine("WebSocket server started.");
         }
+
+        public static void SendJSFunc(string jsFuncType)
+        {
+            dynamic root = new JObject();
+            //root.act = "getGoodsList";
+            root.act = jsFuncType;
+
+            // 将对象转换成JSON字符串
+            string jsonString = JsonConvert.SerializeObject(root, Formatting.Indented);
+
+            foreach (var socket in allSockets.ToList())
+            {
+                socket.Send(jsonString);
+            }
+        }
+
     }
 }

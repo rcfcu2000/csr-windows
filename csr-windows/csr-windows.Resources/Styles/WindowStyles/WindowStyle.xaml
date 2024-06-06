@@ -56,45 +56,45 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Window}">
                     <AdornerDecorator>
-                        <controls:DpiDecorator>
-                            <Grid>
+                        <!--<controls:DpiDecorator>-->
+                        <Grid>
 
-                                <Border
-                                    Margin="5"
-                                    Background="Black"
-                                    CornerRadius="16"
-                                    Opacity="0.05">
-                                    <Border.Effect>
-                                        <BlurEffect KernelType="Box" RenderingBias="Quality" />
-                                    </Border.Effect>
-                                </Border>
+                            <Border
+                                Margin="5"
+                                Background="Black"
+                                CornerRadius="16"
+                                Opacity="0.05">
+                                <Border.Effect>
+                                    <BlurEffect KernelType="Box" RenderingBias="Quality" />
+                                </Border.Effect>
+                            </Border>
 
-                                <Border
-                                    x:Name="root"
-                                    Margin="5"
-                                    Padding="0"
-                                    Background="White"
-                                    BorderBrush="#19000000"
-                                    BorderThickness="1">
-                                    <Grid>
-                                        <TextBlock
-                                            Margin="24,21,0,0"
-                                            HorizontalAlignment="Left"
-                                            VerticalAlignment="Top"
-                                            FontSize="14"
-                                            Foreground="#818A92"
-                                            Text="{Binding VersionString, StringFormat={}V{0}}" />
+                            <Border
+                                x:Name="root"
+                                Margin="5"
+                                Padding="0"
+                                Background="White"
+                                BorderBrush="#19000000"
+                                BorderThickness="1">
+                                <Grid>
+                                    <TextBlock
+                                        Margin="24,21,0,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top"
+                                        FontSize="14"
+                                        Foreground="#818A92"
+                                        Text="{Binding VersionString, StringFormat={}V{0}}" />
 
-                                        <AdornerDecorator KeyboardNavigation.IsTabStop="False">
-                                            <ContentPresenter
-                                                Margin="0,0,-0.501,0"
-                                                Content="{TemplateBinding Content}"
-                                                KeyboardNavigation.TabNavigation="Cycle" />
-                                        </AdornerDecorator>
-                                    </Grid>
-                                </Border>
-                            </Grid>
-                        </controls:DpiDecorator>
+                                    <AdornerDecorator KeyboardNavigation.IsTabStop="False">
+                                        <ContentPresenter
+                                            Margin="0,0,-0.501,0"
+                                            Content="{TemplateBinding Content}"
+                                            KeyboardNavigation.TabNavigation="Cycle" />
+                                    </AdornerDecorator>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                        <!--</controls:DpiDecorator>-->
 
                     </AdornerDecorator>
                 </ControlTemplate>
