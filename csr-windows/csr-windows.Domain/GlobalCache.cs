@@ -18,6 +18,10 @@ namespace csr_windows.Domain
     {
 
         #region Fields
+        /// <summary>
+        /// 欢迎语
+        /// </summary>
+        public const string WelcomeConstString = "您好，我是您的智能AI客服助手～\r\n我会实时跟进您和顾客之间的沟通信息，并且在合适的时间给您提供必要的帮助。\r\n在您和顾客沟通的过程中：\r\n1. 如果您不知不知道接下来应该怎么回复顾客的疑虑，可以点击页面下方的【我该怎么回】按钮，我们会立即帮你写出合理的回复文案，供您使用；\r\n2. 如果您已经有了自己的想法，但感觉文字本身并不太合适，可以点击页面下方的【我想这样回】按钮，我们会立即分析您已经输入的文字，并给出优化建议与优化后的文字，供您使用；\r\n我会尽我所能帮助您解决问题，我们开始吧！";
         private static bool _isItPreSalesCustomerService = true;
         private static string _userName;
         private static string _storeName;

@@ -14,6 +14,7 @@ namespace csr_windows.Domain.WebSocketModels
 
         private string _userNiceName;
         private string _userDisplayName;
+        private string _ccode;
 
         #endregion
 
@@ -35,6 +36,14 @@ namespace csr_windows.Domain.WebSocketModels
         {
             get => _userDisplayName;
             set => SetProperty(ref _userDisplayName, value);
+        }
+
+
+
+        public string CCode
+        {
+            get => _ccode;
+            set => SetProperty(ref _ccode, value);
         }
 
         #endregion

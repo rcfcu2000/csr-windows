@@ -85,6 +85,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseModels\MChatApiResult.cs" />
     <Compile Include="BaseModels\MJSResult.cs" />
     <Compile Include="BaseModels\MResult.cs" />
     <Compile Include="Common\MyProduct.cs" />
@@ -104,8 +105,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="WebSocketModels\ChatApiParam.cs" />
     <Compile Include="WebSocketModels\CurrentCsrModel.cs" />
     <Compile Include="WebSocketModels\CustomerModel.cs" />
+    <Compile Include="WebSocketModels\ProductModel.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -103,7 +103,7 @@ namespace csr_windows.Client.Services.WebService
             return IntPtr.Zero;
         }
 
-        private IntPtr FindTopLevelWindowsTittle(uint processId, IntPtr hWndStart, string titleSubstring)
+        private static IntPtr FindTopLevelWindowsTittle(uint processId, IntPtr hWndStart, string titleSubstring)
         {
             hWndStart = FindWindowEx(IntPtr.Zero, hWndStart, null, null); // 开始遍历
 
@@ -129,7 +129,7 @@ namespace csr_windows.Client.Services.WebService
         }
 
         // 获取窗口标题的辅助方法
-        private string GetWindowTitle(IntPtr hWnd)
+        private static string GetWindowTitle(IntPtr hWnd)
         {
             int length = GetWindowTextLength(hWnd);
             if (length > 0)
@@ -143,7 +143,7 @@ namespace csr_windows.Client.Services.WebService
 
 
         // 方法：根据进程名和窗口标题子串查找窗口句柄
-        public IntPtr FindWindowByProcessAndTitle(string processName, string titleSubstring)
+        public static IntPtr FindWindowByProcessAndTitle(string processName, string titleSubstring)
         {
             Process[] processes = Process.GetProcessesByName(processName);
             if (processes.Length == 0)
@@ -333,7 +333,7 @@ namespace csr_windows.Client.Services.WebService
         /// <param name="nick"></param>
         /// <param name="msg"></param>
         /// <returns></returns>
-        public string QNSendMsgJS(string nick, string msg)
+        public static string QNSendMsgJS(string nick, string msg)
         {
 
             dynamic root = new JObject();
@@ -356,7 +356,7 @@ namespace csr_windows.Client.Services.WebService
         /// <param name="msg"></param>
         /// <param name="sleep"></param>
         /// <returns></returns>
-        public bool QNSendMsgVer912(string nick, string msg, int sleep = 200)
+        public static bool QNSendMsgVer912(string nick, string msg, int sleep = 200)
         {
             //bool isSuccess = OpenAliim(nick);
 
@@ -413,7 +413,18 @@ namespace csr_windows.Client.Services.WebService
 
                             Thread th = new Thread(new ThreadStart(delegate ()
                             {
-                                System.Windows.Clipboard.SetText(msg);
+                                for (int i = 0; i < 10; i++)
+                                {
+                                    try
+                                    {
+                                        System.Windows.Clipboard.SetText(msg);
+                                        break;
+                                    }
+                                    catch
+                                    {
+                                        System.Threading.Thread.Sleep(10);//这句加不加都没关系
+                                    }
+                                }
                                 //System.Windows.Clipboard.SetDataObject(msg);
                             }));
                             th.TrySetApartmentState(ApartmentState.STA);
@@ -422,7 +433,7 @@ namespace csr_windows.Client.Services.WebService
 
                             // 使用SendKeys类模拟输入文本消息
                             SendKeys.SendWait("^v");
-                            SendKeys.SendWait("{ENTER}");
+                            //SendKeys.SendWait("{ENTER}");
                             //SendTextToWindow(hwd,msg);
                             Console.WriteLine($"消息 '{msg}' 已发送至窗口 {hwd.ToInt64()}");
                             return true;

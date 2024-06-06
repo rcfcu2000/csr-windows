@@ -54,6 +54,19 @@ namespace csr_windows.Domain
         /// </summary>
         public const string ChangeCurrentCustomerToken = "ChangeCurrentCustomerToken";
 
+        #region 聊天内容的Toekn
+
+        /// <summary>
+        /// 我该怎么回
+        /// </summary>
+        public const string AskAIToken = "AskAIToken";
+
+        /// <summary>
+        /// 我该怎么回解析
+        /// </summary>
+        public const string AskAIResponseToken = "AskAIResponseToken";
+        #endregion
+
 
     }
 }

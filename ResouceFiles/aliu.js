@@ -52,6 +52,43 @@ document.getElementsByTagName('head')[0].appendChild(scriptImSupport);
                         sendMessageOnEvent('goodsList', obj);
                 });
             }
+            if (obj.act == "getRemoteHisMsg") {
+                ccidOrNick = obj.niceName
+                imsdk.invoke('im.singlemsg.GetRemoteHisMsg', {
+                    cid: { appkey: 'cntaobao', nick: ccidOrNick, ccode: ccidOrNick, type: 1 },
+                    count: 20,
+                    gohistory: 1,
+                    msgid: '-1',
+                    msgtime: '-1',
+                }
+                ).then(
+                    res => {
+                        var rt = res.result;
+                        if (rt.hasOwnProperty('hasMore')) {
+                            var msgs = rt.msgs;
+                            var tmsgs = msgs.map(msg => {
+                                return {
+                                    fromid: msg.fromid.nick, toid: msg.toid.nick, msg: msg.originalData,
+                                    msgid: msg.mcode.clientId, msgtime: msg.sendTime, svrtime: msg.sendTime,
+                                    ext: msg.ext, templateId: msg.templateId
+                                }
+                            });
+                            //console.log(JSON.stringify(tmsgs));
+                            sendMessageOnEvent('remote_his_message', tmsgs);
+                        } else if (rt.length > 0) {
+                            var tmsgs = rt.map(msg => {
+                                return {
+                                    fromid: msg.fromid.nick, toid: msg.toid.nick, msg: msg.msgbody,
+                                    msgid: msg.msgid, msgtime: msg.msgtime, svrtime: msg.svrtime,
+                                    ext: msg.ext, templateId: msg.templateId
+                                }
+                            });
+                            console.log('onReceiveNewMsg,' + JSON.stringify(tmsgs));
+                            sendMessageOnEvent('remote_his_message', tmsgs);
+                        }
+                    });
+                console.log('onReceiveNewMsg,' + ccidOrNick);
+            }
             if(obj.act=="getCurrentCsr"){
                 imsdk.invoke('im.login.GetCurrentLoginID',{
                 }).then(

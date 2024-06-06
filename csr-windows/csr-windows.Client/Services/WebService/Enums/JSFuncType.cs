@@ -24,6 +24,10 @@ namespace csr_windows.Client.Services.WebService.Enums
         /// </summary>
         public const string GetCurrentConv = "getCurrentConv";
 
+        /// <summary>
+        /// 获取历史记录
+        /// </summary>
+        public const string GetRemoteHisMsg = "getRemoteHisMsg";
         #region 接收
 
         /// <summary>
@@ -40,6 +44,12 @@ namespace csr_windows.Client.Services.WebService.Enums
         /// 接收客户改变
         /// </summary>
         public const string ReceiveConvChange = "conv_change";
+
+
+        /// <summary>
+        /// 主动接收历史消息
+        /// </summary>
+        public const string ActiveReceiveRemoteHisMsg = "remote_his_message";
         #endregion
 
     }

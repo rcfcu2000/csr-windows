@@ -3,19 +3,26 @@ using CommunityToolkit.Mvvm.DependencyInjection;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using csr_windows.Client.Services.Base;
+using csr_windows.Client.Services.WebService;
+using csr_windows.Client.Services.WebService.Enums;
 using csr_windows.Client.View.Chat;
 using csr_windows.Client.ViewModels.Chat;
 using csr_windows.Client.Views.Chat;
 using csr_windows.Domain;
+using csr_windows.Domain.BaseModels;
 using csr_windows.Domain.Common;
 using csr_windows.Domain.WebSocketModels;
 using csr_windows.Resources.Enumeration;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -28,17 +35,26 @@ namespace csr_windows.Client.ViewModels.Customer
 
         #region Fields
         private IUiService _uiService;
-        private string _storeName ;
+        private string _storeName;
         private string _userName;
 
         private ObservableCollection<UserControl> _userControls = new ObservableCollection<UserControl>();
 
-  
+
 
         private CustomerModel _currentCustomer;
 
 
         private UserControl _contentControl;
+        private ChatBaseView _loadingChatBaseView = new ChatBaseView()
+        {
+            DataContext = new ChatBaseViewModel()
+            {
+                ChatIdentityEnum = ChatIdentityEnum.Recipient,
+                ContentControl = new ChatLoadingView()
+            }
+        };
+
 
 
         #endregion
@@ -52,8 +68,10 @@ namespace csr_windows.Client.ViewModels.Customer
         {
             TestCommand = new RelayCommand(OnTestCommand);
             _uiService = Ioc.Default.GetService<IUiService>();
+            //打开顾客界面窗体
             WeakReferenceMessenger.Default.Register<UserControl, string>(this, MessengerConstMessage.OpenCustomerUserControlToken, (r, m) => { ContentControl = m; });
-            WeakReferenceMessenger.Default.Register<CustomerModel, string>(this,MessengerConstMessage.ChangeCurrentCustomerToken,(r,m) =>
+            //改变当前顾客
+            WeakReferenceMessenger.Default.Register<CustomerModel, string>(this, MessengerConstMessage.ChangeCurrentCustomerToken, (r, m) =>
             {
                 //储存历史记录
                 if (!string.IsNullOrEmpty(CurrentCustomer?.UserDisplayName))
@@ -61,13 +79,13 @@ namespace csr_windows.Client.ViewModels.Customer
                     GlobalCache.CustomerChatList[CurrentCustomer.UserNiceName] = new List<UserControl>(UserControls);
                 }
                 CurrentCustomer = m;
-                var isGetSuccess =  GlobalCache.CustomerChatList.TryGetValue(CurrentCustomer?.UserNiceName,out List<UserControl> _tempUserControls);
-                
+                var isGetSuccess = GlobalCache.CustomerChatList.TryGetValue(CurrentCustomer?.UserNiceName, out List<UserControl> _tempUserControls);
+
                 if (!isGetSuccess || _tempUserControls.Count == 0)
                 {
                     UserControls = new ObservableCollection<UserControl>();
                     //添加一个欢迎UserControl
-                    AddTextControl( ChatIdentityEnum.Recipient, "您好，我是您的智能AI客服助手～\r\n我会实时跟进您和顾客之间的沟通信息，并且在合适的时间给您提供必要的帮助。\r\n在您和顾客沟通的过程中：\r\n1. 如果您不知不知道接下来应该怎么回复顾客的疑虑，可以点击页面下方的【我该怎么回】按钮，我们会立即帮你写出合理的回复文案，供您使用；\r\n2. 如果您已经有了自己的想法，但感觉文字本身并不太合适，可以点击页面下方的【我想这样回】按钮，我们会立即分析您已经输入的文字，并给出优化建议与优化后的文字，供您使用；\r\n我会尽我所能帮助您解决问题，我们开始吧！");
+                    AddTextControl(ChatIdentityEnum.Recipient, GlobalCache.WelcomeConstString);
                 }
                 else
                 {
@@ -75,8 +93,38 @@ namespace csr_windows.Client.ViewModels.Customer
                 }
 
             });
+            //我该怎么回
+            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.AskAIToken, (r, m) =>
+            {
+                AddTextControl(ChatIdentityEnum.Sender, "现在我要怎么回答顾客？");
+
+                if (GlobalCache.CurrentCustomer == null)
+                {
+                    //发送一条消息
+                    AddLoadingControl();
+                    Task.Delay(500).ContinueWith(t => 
+                    {
+                        Application.Current.Dispatcher.Invoke(() => 
+                        {
+                            RemoveLoadingControl();
+                            AddTextControl(ChatIdentityEnum.Recipient, "您还没有选择任何顾客进行沟通，我没办法提供建议哦～");
+                        });
+                    });
+                }
+                else
+                {
+                    //发送一条消息
+                    AddLoadingControl();
+                    WebServiceClient.SendJSFunc(JSFuncType.GetRemoteHisMsg, GlobalCache.CurrentCustomer.CCode);
+                }
+            });
+
+            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.AskAIResponseToken, AnalysisAskAIReponse);
             _uiService.OpenCustomerInitBottomView();
+
         }
+
+
 
 
         #endregion
@@ -100,7 +148,7 @@ namespace csr_windows.Client.ViewModels.Customer
             get => _userName;
             set => SetProperty(ref _userName, value);
         }
-        
+
 
         public UserControl ContentControl
         {
@@ -149,7 +197,7 @@ namespace csr_windows.Client.ViewModels.Customer
 
             if (_textCount != 0)
             {
-                
+
                 ChatTextView chatTextView = new ChatTextView()
                 {
                     DataContext = new ChatTextViewModel("我是测试代码啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊")
@@ -198,8 +246,8 @@ namespace csr_windows.Client.ViewModels.Customer
                 {
                     DataContext = new ChatCopyTextViewModel(chatTestModels)
                     {
-                        IsHaveProduct = _copyTextCount == 1 ?  true :false,
-                        ProductName = _copyTextCount == 1 ?  "测试商品" : "" 
+                        IsHaveProduct = _copyTextCount == 1 ? true : false,
+                        ProductName = _copyTextCount == 1 ? "测试商品" : ""
                     }
                 };
                 chatBaseViewModel.ChatIdentityEnum = ChatIdentityEnum.Recipient;
@@ -257,7 +305,7 @@ namespace csr_windows.Client.ViewModels.Customer
                     };
                 }
 
-                
+
                 chatBaseViewModel.ContentControl = chatTextAndProductView;
                 _chatTextAndProductCount--;
                 goto AddFlag;
@@ -296,6 +344,67 @@ namespace csr_windows.Client.ViewModels.Customer
             UserControls.Add(chatBaseView);
         }
 
+        /// <summary>
+        /// 解析回答
+        /// </summary>
+        /// <param name="recipient"></param>
+        /// <param name="message"></param>
+        /// <exception cref="NotImplementedException"></exception>
+        private void AnalysisAskAIReponse(object recipient, string message)
+        {
+            Console.WriteLine(message);
+            //解析msg
+            // 切换到UI线程更新UI
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                var param = JsonConvert.DeserializeObject<MChatApiResult<ChatApiParam>>(message);
+                //
+                // 使用正则表达式分割字符串
+                string[] splitText = Regex.Split(param.Param.Msg, @"(?<=[。；？！～ ： ”])");
+
+                string[] filteredText = splitText
+                    .Where(s => !string.IsNullOrWhiteSpace(s))
+                    .ToArray();
+                List<ChatTestModel> chatTestModels = new List<ChatTestModel>();
+                for (int i = 1; i < filteredText.Length + 1; i++)
+                {
+
+                    var content = filteredText[i - 1].Trim(new char[] { ' ', '\n', '\r', '。' });
+
+                    chatTestModels.Add(new ChatTestModel()
+                    {
+                        Content = content,
+                        IsLast = i == filteredText.Length,
+                    });
+                }
+
+                //添加文本
+                ChatCopyTextView chatCopyTextView = new ChatCopyTextView()
+                {
+                    DataContext = new ChatCopyTextViewModel(chatTestModels)
+                    {
+                        IsHaveProduct = _copyTextCount == 1 ? true : false,
+                        ProductName = _copyTextCount == 1 ? "测试商品" : "",
+                        AllContent = param.Param.Msg
+                    }
+                };
+
+                ChatBaseView chatBaseView = new ChatBaseView()
+                {
+                    DataContext = new ChatBaseViewModel()
+                    {
+                        ChatIdentityEnum = ChatIdentityEnum.Recipient,
+                        ContentControl = chatCopyTextView
+                    }
+                };
+
+
+                RemoveLoadingControl();
+                UserControls.Add(chatBaseView);
+            });
+
+        }
+
         public void AddTextControl(ChatIdentityEnum identityEnum, string content)
         {
             // 切换到UI线程更新UI
@@ -318,6 +427,23 @@ namespace csr_windows.Client.ViewModels.Customer
                 UserControls.Add(chatBaseView);
             });
         }
+        /// <summary>
+        /// 添加loading控件
+        /// </summary>
+        public void AddLoadingControl()
+        {
+            UserControls.Add(_loadingChatBaseView);
+        }
+
+        /// <summary>
+        /// 移除loading控件
+        /// </summary>
+        public void RemoveLoadingControl()
+        {
+            UserControls.Remove(_loadingChatBaseView);
+        }
+
+
         #endregion
 
 

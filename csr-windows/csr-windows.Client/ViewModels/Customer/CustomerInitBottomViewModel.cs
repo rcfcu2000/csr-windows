@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.DependencyInjection;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using csr_windows.Client.Services.Base;
+using csr_windows.Domain;
 using csr_windows.Domain.Enumeration;
 using System;
 using System.Collections.Generic;
@@ -117,6 +118,7 @@ namespace csr_windows.Client.ViewModels.Customer
         /// </summary>
         private void OnAskAICommand()
         {
+            WeakReferenceMessenger.Default.Send<string, string>(string.Empty,MessengerConstMessage.AskAIToken);
         }
 
         /// <summary>
