@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using csr_windows.Client.Services.WebService;
 using csr_windows.Domain;
+using csr_windows.Domain.WeakReferenceMessengerModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -20,7 +21,7 @@ namespace csr_windows.Client.ViewModels.Chat
 
         private string _productName;
 
-        private const string CopyContentMessage = "复制成功";
+        private const string CopyContentMessage = "已复制粘贴到输入框";
         private const string SendContentMessage = "已发送给顾客";
 
         private string _allContent;
@@ -150,7 +151,7 @@ namespace csr_windows.Client.ViewModels.Chat
         private void CopyContent(string content)
         {
             //弹提示框
-          WeakReferenceMessenger.Default.Send(CopyContentMessage, MessengerConstMessage.OpenPromptMessageToken);
+            WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel(CopyContentMessage,true), MessengerConstMessage.OpenPromptMessageToken);
             //复制到剪切板
             TopHelp.QNSendMsgVer912(GlobalCache.CurrentCustomer.UserNiceName,content);
         }
@@ -158,7 +159,7 @@ namespace csr_windows.Client.ViewModels.Chat
         private void SendContent(string content)
         {
             //弹提示框
-            WeakReferenceMessenger.Default.Send(SendContentMessage, MessengerConstMessage.OpenPromptMessageToken);
+            WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel(SendContentMessage, true), MessengerConstMessage.OpenPromptMessageToken);
             //发送消息
             var msg = TopHelp.QNSendMsgJS(GlobalCache.CurrentCustomer.UserNiceName, content);
             WebServiceClient.SendSocket(msg);

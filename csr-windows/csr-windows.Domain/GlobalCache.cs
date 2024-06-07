@@ -31,6 +31,11 @@ namespace csr_windows.Domain
 
         public static Dictionary<string,List<UserControl>> CustomerChatList = new Dictionary<string, List<UserControl>>();
 
+        /// <summary>
+        /// 输入AI的内容
+        /// </summary>
+        public static string InputAIContent;
+
         public static bool IsFollowWindow;
 
         //静态事件处理属性更改

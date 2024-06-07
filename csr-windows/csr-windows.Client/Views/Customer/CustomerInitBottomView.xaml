@@ -63,7 +63,7 @@
                     x:Name="tb"
                     Width="50"
                     Height="40"
-                    attach:IconProperties.CheckIconUrl="{StaticResource IMG_Customer_CheckMore}"
+                    attach:IconProperties.CheckIconUrl="{StaticResource IMG_Customer_More}"
                     attach:IconProperties.IconHeight="16"
                     attach:IconProperties.IconUrl="{StaticResource IMG_Customer_More}"
                     attach:IconProperties.IconWidth="16"

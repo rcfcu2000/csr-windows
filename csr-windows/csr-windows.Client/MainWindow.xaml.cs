@@ -5,8 +5,10 @@ using csr_windows.Client.Services.Base;
 using csr_windows.Client.ViewModels.Main;
 using csr_windows.Client.ViewModels.Menu;
 using csr_windows.Client.Views.Main;
+using csr_windows.Client.Views.Public;
 using csr_windows.Common.Helper;
 using csr_windows.Domain;
+using csr_windows.Domain.WeakReferenceMessengerModels;
 using csr_windows.Resources.Helpers;
 using System;
 using System.Collections.Generic;
@@ -77,9 +79,10 @@ namespace csr_windows.Client
             _uiService = Ioc.Default.GetService<IUiService>();
 
             //提示~
-            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.OpenPromptMessageToken, (r, m) =>
+            WeakReferenceMessenger.Default.Register<PromptMessageTokenModel, string>(this, MessengerConstMessage.OpenPromptMessageToken, (r, m) =>
             {
-                promptWindow.PromptContent = m;
+                promptWindow.PromptContent = m.Msg;
+                promptWindow.IsShowIcon = m.IsShowIcon;
                 promptWindow.Visibility = Visibility.Visible;
             });
 

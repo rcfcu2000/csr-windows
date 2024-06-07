@@ -59,5 +59,19 @@ namespace csr_windows.Client.Views.Public
             DependencyProperty.Register("PromptContent", typeof(string), typeof(PromptWindow), new PropertyMetadata(""));
 
 
+
+        public bool IsShowIcon
+        {
+            get { return (bool)GetValue(IsShowIconProperty); }
+            set { SetValue(IsShowIconProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for IsShowIcon.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IsShowIconProperty =
+            DependencyProperty.Register("IsShowIcon", typeof(bool), typeof(PromptWindow), new PropertyMetadata(true));
+
+
+
+
     }
 }

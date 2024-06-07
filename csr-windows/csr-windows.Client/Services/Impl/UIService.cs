@@ -151,6 +151,17 @@ namespace csr_windows.Client.Services.Impl
             DoWork(ac);
         }
 
+        public void OpenCustomerBottomInputAIView()
+        {
+            Action ac = new Action(() =>
+            {
+                var view = new CustomerBottomInputAIView();
+                view.DataContext = new CustomerBottomInputAIViewModel();
+                WeakReferenceMessenger.Default.Send(view as UserControl, MessengerConstMessage.OpenCustomerUserControlToken);
+            });
+            DoWork(ac);
+        }
+
         #endregion
 
     }

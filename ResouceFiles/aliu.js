@@ -53,7 +53,8 @@ document.getElementsByTagName('head')[0].appendChild(scriptImSupport);
                 });
             }
             if (obj.act == "getRemoteHisMsg") {
-                ccidOrNick = obj.niceName
+                var ccidOrNick = obj.nickName;
+                var apiChatUri = obj.apiChatUri;
                 imsdk.invoke('im.singlemsg.GetRemoteHisMsg', {
                     cid: { appkey: 'cntaobao', nick: ccidOrNick, ccode: ccidOrNick, type: 1 },
                     count: 20,
@@ -80,14 +81,13 @@ document.getElementsByTagName('head')[0].appendChild(scriptImSupport);
                                 return {
                                     fromid: msg.fromid.nick, toid: msg.toid.nick, msg: msg.msgbody,
                                     msgid: msg.msgid, msgtime: msg.msgtime, svrtime: msg.svrtime,
-                                    ext: msg.ext, templateId: msg.templateId
+                                    ext: msg.ext, templateId: msg.templateId, apiChatUri:apiChatUri
                                 }
                             });
                             console.log('onReceiveNewMsg,' + JSON.stringify(tmsgs));
                             sendMessageOnEvent('remote_his_message', tmsgs);
                         }
                     });
-                console.log('onReceiveNewMsg,' + ccidOrNick);
             }
             if(obj.act=="getCurrentCsr"){
                 imsdk.invoke('im.login.GetCurrentLoginID',{

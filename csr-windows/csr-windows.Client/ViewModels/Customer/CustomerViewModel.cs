@@ -9,6 +9,7 @@ using csr_windows.Client.View.Chat;
 using csr_windows.Client.ViewModels.Chat;
 using csr_windows.Client.Views.Chat;
 using csr_windows.Domain;
+using csr_windows.Domain.AIChatApi;
 using csr_windows.Domain.BaseModels;
 using csr_windows.Domain.Common;
 using csr_windows.Domain.WebSocketModels;
@@ -74,12 +75,12 @@ namespace csr_windows.Client.ViewModels.Customer
             WeakReferenceMessenger.Default.Register<CustomerModel, string>(this, MessengerConstMessage.ChangeCurrentCustomerToken, (r, m) =>
             {
                 //储存历史记录
-                if (!string.IsNullOrEmpty(CurrentCustomer?.UserDisplayName))
+                if (!string.IsNullOrEmpty(CurrentCustomer?.CCode))
                 {
-                    GlobalCache.CustomerChatList[CurrentCustomer.UserNiceName] = new List<UserControl>(UserControls);
+                    GlobalCache.CustomerChatList[CurrentCustomer.CCode] = new List<UserControl>(UserControls);
                 }
                 CurrentCustomer = m;
-                var isGetSuccess = GlobalCache.CustomerChatList.TryGetValue(CurrentCustomer?.UserNiceName, out List<UserControl> _tempUserControls);
+                var isGetSuccess = GlobalCache.CustomerChatList.TryGetValue(CurrentCustomer?.CCode, out List<UserControl> _tempUserControls);
 
                 if (!isGetSuccess || _tempUserControls.Count == 0)
                 {
@@ -115,11 +116,19 @@ namespace csr_windows.Client.ViewModels.Customer
                 {
                     //发送一条消息
                     AddLoadingControl();
+                    //WebServiceClient.SendJSFunc(JSFuncType.GetRemoteHisMsg, GlobalCache.CurrentCustomer.CCode, AIChatApiModel.How2Replay);
                     WebServiceClient.SendJSFunc(JSFuncType.GetRemoteHisMsg, GlobalCache.CurrentCustomer.CCode);
                 }
             });
-
+            //我该怎么回 回调
             WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.AskAIResponseToken, AnalysisAskAIReponse);
+
+            //HTTPError回调
+            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.ApiChatHttpErrorToken, (r, m) => 
+            {
+                RemoveLoadingControl();
+                AddTextControl(ChatIdentityEnum.Recipient, "尴尬了，好像出了点问题，开发小哥哥正在紧急处理，抱歉麻烦等下再试试～");
+            });
             _uiService.OpenCustomerInitBottomView();
 
         }

@@ -63,7 +63,6 @@ namespace csr_windows.Client.ViewModels.Main
 
             if (isRunning)
             {
-                WebServiceClient.SendJSFunc(JSFuncType.GetCurrentCsr);
 
                 //第二个判断是否是第一次进入
                 if (isFirstIn)

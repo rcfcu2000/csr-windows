@@ -61,6 +61,11 @@ namespace csr_windows.Client.Services.Base
         /// 顾客初始化底部界面
         /// </summary>
         void OpenCustomerInitBottomView();
+
+        /// <summary>
+        /// 打开 我想这样回界面
+        /// </summary>
+        void OpenCustomerBottomInputAIView();
     }
 
     

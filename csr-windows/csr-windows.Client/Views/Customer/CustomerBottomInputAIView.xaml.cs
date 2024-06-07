@@ -18,9 +18,9 @@ namespace csr_windows.Client.Views.Customer
     /// <summary>
     /// CustomerBottomAskAIView.xaml 的交互逻辑
     /// </summary>
-    public partial class CustomerBottomAskAIView : UserControl
+    public partial class CustomerBottomInputAIView : UserControl
     {
-        public CustomerBottomAskAIView()
+        public CustomerBottomInputAIView()
         {
             InitializeComponent();
         }

@@ -126,6 +126,7 @@ namespace csr_windows.Client.ViewModels.Customer
         /// </summary>
         private void OnInputAICommand()
         {
+            _uIService.OpenCustomerBottomInputAIView();
         }
 
         /// <summary>

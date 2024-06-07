@@ -6,4 +6,7 @@
     <!--  注意图标  -->
     <ImageSource x:Key="IMG_Public_Note">/csr-windows.Resources;component/Images/Public/note.png</ImageSource>
 
+    <!--  关闭（白色）  -->
+    <ImageSource x:Key="IMG_Public_CloseWhite">/csr-windows.Resources;component/Images/Public/close_white.png</ImageSource>
+
 </ResourceDictionary>

@@ -85,6 +85,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AIChatApi\AIChatApiModel.cs" />
     <Compile Include="BaseModels\MChatApiResult.cs" />
     <Compile Include="BaseModels\MJSResult.cs" />
     <Compile Include="BaseModels\MResult.cs" />
@@ -105,6 +106,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="WeakReferenceMessengerModels\PromptMessageTokenModel.cs" />
     <Compile Include="WebSocketModels\ChatApiParam.cs" />
     <Compile Include="WebSocketModels\CurrentCsrModel.cs" />
     <Compile Include="WebSocketModels\CustomerModel.cs" />

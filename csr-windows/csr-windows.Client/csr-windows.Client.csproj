@@ -160,7 +160,7 @@
     </Compile>
     <Compile Include="ViewModels\Chat\ChatTextAndProductViewModel.cs" />
     <Compile Include="ViewModels\Chat\ChatTextViewModel.cs" />
-    <Compile Include="ViewModels\Customer\CustomerBottomAskAIViewModel.cs" />
+    <Compile Include="ViewModels\Customer\CustomerBottomInputAIViewModel.cs" />
     <Compile Include="ViewModels\Customer\CustomerInitBottomViewModel.cs" />
     <Compile Include="ViewModels\Customer\CustomerViewModel.cs" />
     <Compile Include="ViewModels\Customer\ProductIntroductionViewModel.cs" />
@@ -183,8 +183,8 @@
     <Compile Include="Views\Chat\ChatTextView.xaml.cs">
       <DependentUpon>ChatTextView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Customer\CustomerBottomAskAIView.xaml.cs">
-      <DependentUpon>CustomerBottomAskAIView.xaml</DependentUpon>
+    <Compile Include="Views\Customer\CustomerBottomInputAIView.xaml.cs">
+      <DependentUpon>CustomerBottomInputAIView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Customer\CustomerInitBottomView.xaml.cs">
       <DependentUpon>CustomerInitBottomView.xaml</DependentUpon>
@@ -269,7 +269,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Customer\CustomerBottomAskAIView.xaml">
+    <Page Include="Views\Customer\CustomerBottomInputAIView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

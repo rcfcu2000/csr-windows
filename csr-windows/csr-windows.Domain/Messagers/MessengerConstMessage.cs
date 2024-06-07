@@ -65,6 +65,14 @@ namespace csr_windows.Domain
         /// 我该怎么回解析
         /// </summary>
         public const string AskAIResponseToken = "AskAIResponseToken";
+
+        #endregion
+
+        #region 
+        /// <summary>
+        /// 大模型Http异常
+        /// </summary>
+        public const string ApiChatHttpErrorToken = "ApiChatHttpErrorToken";
         #endregion
 
 

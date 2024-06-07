@@ -53,9 +53,11 @@ namespace csr_windows.Client.Services.WebService
             else
             {
                 Console.WriteLine("启动失败" + syNet.取错误());
+                //错误处理
             }
 
             Console.WriteLine("HTTPS server started.");
+            
         }
 
         public static void StartWebSocketServer()
@@ -68,6 +70,8 @@ namespace csr_windows.Client.Services.WebService
                 {
                     Console.WriteLine("WebSocket connection opened.");
                     allSockets.Add(socket);
+                    //启动成功
+                    SendJSFunc(JSFuncType.GetCurrentCsr);
                 };
 
                 socket.OnClose = () =>
@@ -109,7 +113,6 @@ namespace csr_windows.Client.Services.WebService
                         string ccode = json.msg.ccode;
                         GlobalCache.CurrentCustomer = new CustomerModel() { UserNiceName = nick_name, UserDisplayName = display_name,CCode = ccode };
                         Console.WriteLine($"GetCurrentConv json:{json}");
-                        
                     }
 
 
@@ -117,7 +120,8 @@ namespace csr_windows.Client.Services.WebService
                     {
                         String nick_name = json.msg.nick;
                         String display_name = json.msg.display;
-                        GlobalCache.CurrentCustomer = new CustomerModel() { UserNiceName = nick_name,UserDisplayName = display_name };   
+                        string ccode = json.msg.ccode;
+                        GlobalCache.CurrentCustomer = new CustomerModel() { UserNiceName = nick_name,UserDisplayName = display_name, CCode = ccode };   
                         Console.WriteLine($"conversation changed：{nick_name}");
                     }
 
@@ -127,6 +131,7 @@ namespace csr_windows.Client.Services.WebService
                         String user_name = "";
                         String assistant_name = "";
                         String chat_link = null;
+                        string apiChatUri = string.Empty;
                         List<JObject> chats = new List<JObject>();
 
                         TopHelp tp = new TopHelp();
@@ -210,6 +215,8 @@ namespace csr_windows.Client.Services.WebService
 
                             }
 
+                            apiChatUri =  string.IsNullOrEmpty(msg.apiChatUri) ? string.Empty : msg.apiChatUri;
+
                             messages.Add(payload);
                             chats.Add(chat);
                         }
@@ -224,11 +231,17 @@ namespace csr_windows.Client.Services.WebService
                         //判断
                         if (chat_link != null)
                             aichat.link = chat_link;
+                        if (!string.IsNullOrEmpty(GlobalCache.InputAIContent))
+                            aichat.guide_content = GlobalCache.InputAIContent;
                         aichat.message_history = JArray.FromObject(chats);
 
                         string jsonMessage = JsonConvert.SerializeObject(aichat);
 
                         string aiURL = "https://www.zhihuige.cc/csrnew/api/chat";
+                        if (!string.IsNullOrEmpty(apiChatUri))
+                        {
+                            aiURL = aiURL + apiChatUri;
+                        }
                         HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Post, aiURL);
                         requestMessage.Content = new StringContent(jsonMessage, Encoding.UTF8, "application/json");
                         HttpResponseMessage response = _httpClient.SendAsync(requestMessage).Result;
@@ -250,7 +263,7 @@ namespace csr_windows.Client.Services.WebService
                         else
                         {
                             //发送错误消息提示
-
+                            WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.ApiChatHttpErrorToken);
                         }
                     }
 
@@ -384,7 +397,7 @@ namespace csr_windows.Client.Services.WebService
             Console.WriteLine("WebSocket server started.");
         }
 
-        public static void SendJSFunc(string jsFuncType,string nickName = "")
+        public static void SendJSFunc(string jsFuncType,string nickName = "",string apiChatUri = "")
         {
             dynamic root = new JObject();
             //root.act = "getGoodsList";
@@ -392,6 +405,10 @@ namespace csr_windows.Client.Services.WebService
             if (!string.IsNullOrEmpty(nickName))
             {
                 root.nickName = nickName;
+            }
+            if (!string.IsNullOrEmpty(apiChatUri))
+            {
+                root.apiChatUri = "";
             }
 
             // 将对象转换成JSON字符串

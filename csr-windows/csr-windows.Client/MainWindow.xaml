@@ -23,6 +23,7 @@
     ResizeMode="NoResize"
     SizeToContent="WidthAndHeight"
     Style="{StaticResource MainWindowsStyle}"
+    Topmost="True"
     UseLayoutRounding="True"
     mc:Ignorable="d">
     <!--  SizeToContent="WidthAndHeight"  -->
