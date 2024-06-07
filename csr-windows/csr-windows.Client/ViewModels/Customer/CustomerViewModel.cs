@@ -67,6 +67,7 @@ namespace csr_windows.Client.ViewModels.Customer
         #region Constructor
         public CustomerViewModel()
         {
+            WebServiceClient.SendJSFunc(JSFuncType.GetCurrentCsr);
             TestCommand = new RelayCommand(OnTestCommand);
             _uiService = Ioc.Default.GetService<IUiService>();
             //打开顾客界面窗体
@@ -126,8 +127,11 @@ namespace csr_windows.Client.ViewModels.Customer
             //HTTPError回调
             WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.ApiChatHttpErrorToken, (r, m) => 
             {
-                RemoveLoadingControl();
-                AddTextControl(ChatIdentityEnum.Recipient, "尴尬了，好像出了点问题，开发小哥哥正在紧急处理，抱歉麻烦等下再试试～");
+                Application.Current.Dispatcher.Invoke(() => 
+                {
+                    RemoveLoadingControl();
+                    AddTextControl(ChatIdentityEnum.Recipient, "尴尬了，好像出了点问题，开发小哥哥正在紧急处理，抱歉麻烦等下再试试～");
+                });
             });
             _uiService.OpenCustomerInitBottomView();
 
