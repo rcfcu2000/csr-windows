@@ -34,7 +34,7 @@
                             </Style>
                         </StackPanel.Resources>
                         <TextBlock Text="{Binding Source={StaticResource GlobalCache}, Path=StoreName}" />
-                        <TextBlock Text="：" />
+                        <TextBlock Text="：" Visibility="{Binding Source={StaticResource GlobalCache}, Path=HaveStoreName, Converter={StaticResource Boolean2VisibilityConverter}}" />
                         <TextBlock Text="{Binding Source={StaticResource GlobalCache}, Path=UserName}" />
                     </StackPanel>
                     <TextBlock

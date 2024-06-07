@@ -28,6 +28,7 @@ namespace csr_windows.Domain
         private static bool _haveCustomer;
         private static CustomerModel _currentCustomer;
 
+        private static bool _haveStoreName;
 
         public static Dictionary<string,List<UserControl>> CustomerChatList = new Dictionary<string, List<UserControl>>();
 
@@ -79,6 +80,7 @@ namespace csr_windows.Domain
             set 
             {
                 _storeName = value;
+                HaveStoreName = !string.IsNullOrEmpty(value);
                 //调用通知
                 SetStaticPropertyChanged();
             }
@@ -94,6 +96,19 @@ namespace csr_windows.Domain
             set
             {
                 _haveCustomer = value;
+                SetStaticPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// 是否获取到了店铺名称
+        /// </summary>
+        public static bool HaveStoreName
+        {
+            get { return _haveStoreName; }
+            set 
+            {
+                _haveStoreName = value;
                 SetStaticPropertyChanged();
             }
         }

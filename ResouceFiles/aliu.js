@@ -71,7 +71,7 @@ document.getElementsByTagName('head')[0].appendChild(scriptImSupport);
                                 return {
                                     fromid: msg.fromid.nick, toid: msg.toid.nick, msg: msg.originalData,
                                     msgid: msg.mcode.clientId, msgtime: msg.sendTime, svrtime: msg.sendTime,
-                                    ext: msg.ext, templateId: msg.templateId
+                                    ext: msg.ext, templateId: msg.templateId, apiChatUri:apiChatUri
                                 }
                             });
                             //console.log(JSON.stringify(tmsgs));

@@ -32,26 +32,34 @@ namespace csr_windows.Common.Helper
 
             foreach (AutomationElement window in windows)
             {
-                string windowTitle = window.Current.Name;
-                IntPtr windowHandle = new IntPtr(window.Current.NativeWindowHandle);
-
-                // Get the process ID of the window
-                Win32.GetWindowThreadProcessId(windowHandle, out uint processId);
-                var _intPtr = Win32.FindWindowEx(windowHandle, IntPtr.Zero, "pane", String.Empty);
-
-                // Get the process name using the process ID
-                Process process = Process.GetProcessById((int)processId);
-                string processName = process.ProcessName;
-
-                Console.WriteLine($"Window title: {windowTitle} {processName}");
-                if (processName == targetProcess && windowTitle.Contains(targetTitlePart))
+                try
                 {
-                    Console.WriteLine($"Window found with title containing '{targetTitlePart}': {windowTitle}");
-                    intPtr =  new IntPtr(window.Current.NativeWindowHandle);
-                    Console.WriteLine($"IntPtr:{intPtr}");
-                    found = true;
-                    break;
+                    string windowTitle = window.Current.Name;
+                    IntPtr windowHandle = new IntPtr(window.Current.NativeWindowHandle);
+
+                    // Get the process ID of the window
+                    Win32.GetWindowThreadProcessId(windowHandle, out uint processId);
+                    var _intPtr = Win32.FindWindowEx(windowHandle, IntPtr.Zero, "pane", String.Empty);
+
+                    // Get the process name using the process ID
+                    Process process = Process.GetProcessById((int)processId);
+                    string processName = process.ProcessName;
+
+                    Console.WriteLine($"Window title: {windowTitle} {processName}");
+                    if (processName == targetProcess && windowTitle.Contains(targetTitlePart))
+                    {
+                        Console.WriteLine($"Window found with title containing '{targetTitlePart}': {windowTitle}");
+                        intPtr = new IntPtr(window.Current.NativeWindowHandle);
+                        Console.WriteLine($"IntPtr:{intPtr}");
+                        found = true;
+                        break;
+                    }
                 }
+                catch (Exception)
+                {
+                    continue;
+                }
+              
             }
 
             if (!found)
