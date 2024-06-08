@@ -141,15 +141,15 @@
                 <TextBlock
                     Foreground="{StaticResource 0.8OpacityBlackTheme}"
                     Text="暂无可供 AI 分析的商品"
-                    Visibility="{Binding IsHaveProduct, Converter={StaticResource Boolean2VisibilityReConverter}}" />
-                <StackPanel Orientation="Horizontal" Visibility="{Binding IsHaveProduct, Converter={StaticResource Boolean2VisibilityConverter}}">
+                    Visibility="{Binding Source={StaticResource GlobalCache}, Path=IsHaveProduct, Converter={StaticResource Boolean2VisibilityReConverter}}" />
+                <StackPanel Orientation="Horizontal" Visibility="{Binding Source={StaticResource GlobalCache}, Path=IsHaveProduct, Converter={StaticResource Boolean2VisibilityConverter}}">
                     <StackPanel.Resources>
                         <Style TargetType="TextBlock">
                             <Setter Property="Foreground" Value="{StaticResource 0.8OpacityBlackTheme}" />
                         </Style>
                     </StackPanel.Resources>
                     <TextBlock Text="后续内容将基于 " />
-                    <TextBlock FontWeight="Bold" Text="{Binding ProductName}" />
+                    <TextBlock FontWeight="Bold" Text="{Binding Source={StaticResource GlobalCache}, Path=CurrentProduct.ProductName}" />
                     <TextBlock Text=" 生成" />
                 </StackPanel>
             </Grid>

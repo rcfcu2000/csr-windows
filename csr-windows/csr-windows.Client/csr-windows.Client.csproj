@@ -39,6 +39,9 @@
   <PropertyGroup>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>应用图标.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommunityToolkit.Mvvm, Version=8.2.0.0, Culture=neutral, PublicKeyToken=4aff67a105548ee2, processorArchitecture=MSIL">
       <HintPath>..\packages\CommunityToolkit.Mvvm.8.2.2\lib\netstandard2.0\CommunityToolkit.Mvvm.dll</HintPath>
@@ -354,11 +357,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="应用图标.ico" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\csr-windows.Common\csr-windows.Common.csproj">
       <Project>{DB753687-F9F5-4B14-88E3-08F2FFCA8489}</Project>
       <Name>csr-windows.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\csr-windows.Core\csr-windows.Core.csproj">
+      <Project>{4eb62226-78c2-4b84-9a9f-2848a7a91f3f}</Project>
+      <Name>csr-windows.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\csr-windows.Domain\csr-windows.Domain.csproj">
       <Project>{b4f1c45e-cafd-4ad4-b1f9-912866cbcad7}</Project>

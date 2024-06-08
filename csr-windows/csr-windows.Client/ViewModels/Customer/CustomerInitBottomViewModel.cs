@@ -20,9 +20,8 @@ namespace csr_windows.Client.ViewModels.Customer
     {
 
         #region Fields
-        private bool _isHaveProduct;
+     
 
-        private string _productName;
 
         private IUiService _uIService;
 
@@ -71,42 +70,8 @@ namespace csr_windows.Client.ViewModels.Customer
         #endregion
 
         #region Properties
-        /// <summary>
-        /// 是否有商品
-        /// </summary>
-        public bool IsHaveProduct
-        {
-            get => _isHaveProduct;
-            set => SetProperty(ref _isHaveProduct, value);
-        }
 
-        /// <summary>
-        /// 商品名称
-        /// </summary>
-        public string ProductName
-        {
-            get => _productName;
-            set 
-            {
-                SetProperty(ref _productName, value); 
-                if (string.IsNullOrEmpty(value.Trim()))
-                {
-                    IsHaveProduct = false;
-                }
-                else
-                {
-                    IsHaveProduct = true;
-                }
-            } 
-        }
 
-        private int myVar;
-
-        public int MyProperty
-        {
-            get { return myVar; }
-            set { myVar = value; }
-        }
 
 
         #endregion

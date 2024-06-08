@@ -66,14 +66,36 @@ namespace csr_windows.Domain
         /// </summary>
         public const string AskAIResponseToken = "AskAIResponseToken";
 
+        /// <summary>
+        /// 发送Msg单个商品
+        /// </summary>
+        public const string SendMsgSingleProductToken = "SendMsgSingleProductToken";
+
+        /// <summary>
+        /// 发送Msg多个商品
+        /// </summary>
+        public const string SendMsgMultipleProductToken = "SendMsgMultipleProductToken";
+
+        /// <summary>
+        /// 切换商品（客服的）
+        /// </summary>
+        public const string SendChangeProductCustomerServerToken = "SendChangeProductCustomerServerToken";
+
+        /// <summary>
+        /// 切换商品（客户的）
+        /// </summary>
+        public const string SendChangeProductCustomerToken = "SendChangeProductCustomerToken";
+
         #endregion
 
-        #region 
+        #region HTTPError
         /// <summary>
         /// 大模型Http异常
         /// </summary>
         public const string ApiChatHttpErrorToken = "ApiChatHttpErrorToken";
         #endregion
+
+      
 
 
     }

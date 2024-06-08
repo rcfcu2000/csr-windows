@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Messaging;
+using csr_windows.Domain.Common;
 using csr_windows.Domain.WebSocketModels;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,12 @@ namespace csr_windows.Domain
         private static string _storeName;
         private static bool _haveCustomer;
         private static CustomerModel _currentCustomer;
+        private static MyProduct _currentProduct;
+        private static bool _isHaveProduct;
+        private static string _customerServiceNickName;
+
+    
+
 
         private static bool _haveStoreName;
 
@@ -87,6 +94,7 @@ namespace csr_windows.Domain
         }
 
 
+
         /// <summary>
         /// 是否当前有客户
         /// </summary>
@@ -128,6 +136,47 @@ namespace csr_windows.Domain
             }
         }
 
+
+
+        /// <summary>
+        /// 当前产品
+        /// </summary>
+        public static MyProduct CurrentProduct
+        {
+            get => _currentProduct;
+            set
+            {
+                _currentProduct = value;
+                if (string.IsNullOrEmpty(value.ProductName))
+                {
+                    IsHaveProduct = false;
+                }
+                else
+                {
+                    IsHaveProduct = true;
+                }
+                SetStaticPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// 是否有商品
+        /// </summary>
+        public static bool IsHaveProduct
+        {
+            get => _isHaveProduct;
+            set
+            {
+                _isHaveProduct = value;
+                SetStaticPropertyChanged();
+            }
+        }
+
+        public static string CustomerServiceNickName
+        {
+            get { return $"{GlobalCache.StoreName}:{GlobalCache.UserName}"; }
+            set { _customerServiceNickName = value; }
+        }
 
 
 

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DB753687-F9F5-4B14-88E3-08F2FFCA8489}</ProjectGuid>
+    <ProjectGuid>{4EB62226-78C2-4B84-9A9F-2848A7A91F3F}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>csr_windows.Common</RootNamespace>
-    <AssemblyName>csr-windows.Common</AssemblyName>
+    <RootNamespace>csr_windows.Core</RootNamespace>
+    <AssemblyName>csr-windows.Core</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -49,16 +49,12 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="UIAutomationClient" />
-    <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helper\FollowWindowHelper.cs" />
-    <Compile Include="Helper\StringHelper.cs" />
-    <Compile Include="Helper\Win32.cs" />
+    <Compile Include="HttpClient\ApiClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace csr_windows.Domain.AIChatApi
+namespace csr_windows.Domain.Api
 {
-    public static class AIChatApiModel
+    public static class AIChatApiList
     {
         /// <summary>
         /// 我该怎么回

@@ -6,7 +6,6 @@ using csr_windows.Client.Services.Base;
 using csr_windows.Client.Services.WebService.Enums;
 using csr_windows.Client.Services.WebService;
 using csr_windows.Domain;
-using csr_windows.Domain.AIChatApi;
 using csr_windows.Domain.WeakReferenceMessengerModels;
 using System;
 using System.Collections.Generic;
@@ -14,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using csr_windows.Domain.Api;
 
 namespace csr_windows.Client.ViewModels.Customer
 {
@@ -83,7 +83,7 @@ namespace csr_windows.Client.ViewModels.Customer
 
             //todo:
             //AddLoadingControl();
-            WebServiceClient.SendJSFunc(JSFuncType.GetRemoteHisMsg, GlobalCache.CurrentCustomer.CCode, AIChatApiModel.Want2Reply);
+            WebServiceClient.SendJSFunc(JSFuncType.GetRemoteHisMsg, GlobalCache.CurrentCustomer.CCode, AIChatApiList.Want2Reply);
         }
         #endregion
 

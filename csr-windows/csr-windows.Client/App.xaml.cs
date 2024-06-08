@@ -2,6 +2,7 @@
 using csr_windows.Client.Services.Base;
 using csr_windows.Client.Services.Impl;
 using csr_windows.Client.Services.WebService;
+using csr_windows.Core;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,8 @@ namespace csr_windows.Client
             Ioc.Default.ConfigureServices(new ServiceCollection().AddSingleton<IUiService, UISerivce>().BuildServiceProvider());
             WebServiceClient.StartHttpsServer();
             WebServiceClient.StartWebSocketServer();
+
+            ApiClient.Instance.ServerUrl = $"{ConfigurationManager.AppSettings["Server"]}";
         }
     }
 }
