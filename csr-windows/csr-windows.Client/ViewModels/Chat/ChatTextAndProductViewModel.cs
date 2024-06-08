@@ -1,4 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
+using csr_windows.Domain;
 using csr_windows.Domain.Common;
 using csr_windows.Resources.Enumeration;
 using System;
@@ -7,6 +10,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace csr_windows.Client.ViewModels.Chat
 {
@@ -17,20 +21,23 @@ namespace csr_windows.Client.ViewModels.Chat
         private string _startContent;
         private string _endContent;
         private bool _isShowEndContent;
-        private ChatIdentityEnum _chatIdentityEnum;
+        private ChatTextAndProductIdentidyEnum _chatTextAndProductIdentidyEnum;
         #endregion
 
         #region Commands
-
+        public ICommand ChooseCommand { get; set; }
         #endregion
 
         #region Constructor
 
-        public ChatTextAndProductViewModel(List<MyProduct> myProducts, ChatIdentityEnum chatIdentityEnum)
+        public ChatTextAndProductViewModel(List<MyProduct> myProducts, ChatTextAndProductIdentidyEnum chatTextAndProductIdentidyEnum)
         {
             ProductsList=  new ObservableCollection<MyProduct>(myProducts);
-            ChatIdentityEnum = chatIdentityEnum;
+            ChatTextAndProductIdentidyEnum = chatTextAndProductIdentidyEnum;
+            ChooseCommand = new RelayCommand<MyProduct>(OnChooseCommand);
         }
+
+       
 
         #endregion
 
@@ -39,6 +46,12 @@ namespace csr_windows.Client.ViewModels.Chat
         /// 商品列表
         /// </summary>
         public IList<MyProduct> ProductsList { get; } = new ObservableCollection<MyProduct>();
+
+        /// <summary>
+        /// 商品数量
+        /// </summary>
+        public int ProductNum { get; set; }
+
 
         /// <summary>
         /// 开始内容
@@ -77,14 +90,34 @@ namespace csr_windows.Client.ViewModels.Chat
         /// <summary>
         /// 文本身份枚举
         /// </summary>
-        public ChatIdentityEnum ChatIdentityEnum
+        public ChatTextAndProductIdentidyEnum ChatTextAndProductIdentidyEnum
         {
-            get => _chatIdentityEnum;
-            set => SetProperty(ref _chatIdentityEnum, value);
+            get => _chatTextAndProductIdentidyEnum;
+            set => SetProperty(ref _chatTextAndProductIdentidyEnum, value);
         }
         #endregion
 
         #region Methods
+
+        private void OnChooseCommand(MyProduct product)
+        {
+            //发送切换商品
+            //客户
+            if (ChatTextAndProductIdentidyEnum == ChatTextAndProductIdentidyEnum.CustomerService)
+            {
+                if (ProductNum <= 1)
+                {
+                    return;
+                }
+                WeakReferenceMessenger.Default.Send(product, MessengerConstMessage.SendChangeProductCustomerToken);
+            }
+            else //客服
+            {
+                WeakReferenceMessenger.Default.Send(product, MessengerConstMessage.SendChangeProductCustomerServerToken);
+            }
+
+
+        }
 
         #endregion
 

@@ -8,9 +8,11 @@ using csr_windows.Client.Services.WebService.Enums;
 using csr_windows.Client.View.Chat;
 using csr_windows.Client.ViewModels.Chat;
 using csr_windows.Client.Views.Chat;
+using csr_windows.Core;
 using csr_windows.Domain;
-using csr_windows.Domain.AIChatApi;
+using csr_windows.Domain.Api;
 using csr_windows.Domain.BaseModels;
+using csr_windows.Domain.BaseModels.BackEnd.Base;
 using csr_windows.Domain.Common;
 using csr_windows.Domain.WebSocketModels;
 using csr_windows.Resources.Enumeration;
@@ -76,22 +78,34 @@ namespace csr_windows.Client.ViewModels.Customer
             WeakReferenceMessenger.Default.Register<CustomerModel, string>(this, MessengerConstMessage.ChangeCurrentCustomerToken, (r, m) =>
             {
                 //储存历史记录
-                if (!string.IsNullOrEmpty(CurrentCustomer?.CCode))
+                if (!string.IsNullOrEmpty(CurrentCustomer?.UserNiceName))
                 {
-                    GlobalCache.CustomerChatList[CurrentCustomer.CCode] = new List<UserControl>(UserControls);
+                    GlobalCache.CustomerChatList[CurrentCustomer.UserNiceName] = new List<UserControl>(UserControls);
+                    GlobalCache.CustomerCurrentProductList[CurrentCustomer.UserNiceName] = GlobalCache.CurrentProduct;
                 }
                 CurrentCustomer = m;
-                var isGetSuccess = GlobalCache.CustomerChatList.TryGetValue(CurrentCustomer?.CCode, out List<UserControl> _tempUserControls);
+                var isGetSuccess = GlobalCache.CustomerChatList.TryGetValue(CurrentCustomer?.UserNiceName, out List<UserControl> _tempUserControls);
 
                 if (!isGetSuccess || _tempUserControls.Count == 0)
                 {
                     UserControls = new ObservableCollection<UserControl>();
-                    //添加一个欢迎UserControl
-                    AddTextControl(ChatIdentityEnum.Recipient, GlobalCache.WelcomeConstString);
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        //添加一个欢迎UserControl
+                        AddTextControl(ChatIdentityEnum.Recipient, GlobalCache.WelcomeConstString);
+                    });
                 }
                 else
                 {
                     UserControls = new ObservableCollection<UserControl>(_tempUserControls);
+                    if (GlobalCache.CustomerCurrentProductList.ContainsKey(CurrentCustomer.UserNiceName))
+                    {
+                        GlobalCache.CurrentProduct = GlobalCache.CustomerCurrentProductList[CurrentCustomer.UserNiceName];
+                    }
+                    else
+                    {
+                        GlobalCache.CurrentProduct = null;
+                    }
                 }
 
             });
@@ -104,9 +118,9 @@ namespace csr_windows.Client.ViewModels.Customer
                 {
                     //发送一条消息
                     AddLoadingControl();
-                    Task.Delay(500).ContinueWith(t => 
+                    Task.Delay(500).ContinueWith(t =>
                     {
-                        Application.Current.Dispatcher.Invoke(() => 
+                        Application.Current.Dispatcher.Invoke(() =>
                         {
                             RemoveLoadingControl();
                             AddTextControl(ChatIdentityEnum.Recipient, "您还没有选择任何顾客进行沟通，我没办法提供建议哦～");
@@ -115,30 +129,45 @@ namespace csr_windows.Client.ViewModels.Customer
                 }
                 else
                 {
-                    //发送一条消息
-                    AddLoadingControl();
-                    //WebServiceClient.SendJSFunc(JSFuncType.GetRemoteHisMsg, GlobalCache.CurrentCustomer.CCode, AIChatApiModel.How2Replay);
-                    WebServiceClient.SendJSFunc(JSFuncType.GetRemoteHisMsg, GlobalCache.CurrentCustomer.CCode);
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        //发送一条消息
+                        AddLoadingControl();
+                    });
+                    WebServiceClient.SendJSFunc(JSFuncType.GetRemoteHisMsg, GlobalCache.CurrentCustomer.UserNiceName, AIChatApiList.How2Replay);
+                    //WebServiceClient.SendJSFunc(JSFuncType.GetRemoteHisMsg, GlobalCache.CurrentCustomer.UserNiceName);
                 }
             });
             //我该怎么回 回调
             WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.AskAIResponseToken, AnalysisAskAIReponse);
 
             //HTTPError回调
-            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.ApiChatHttpErrorToken, (r, m) => 
+            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.ApiChatHttpErrorToken, (r, m) =>
             {
-                Application.Current.Dispatcher.Invoke(() => 
+                Application.Current.Dispatcher.Invoke(() =>
                 {
                     RemoveLoadingControl();
-                    AddTextControl(ChatIdentityEnum.Recipient, "尴尬了，好像出了点问题，开发小哥哥正在紧急处理，抱歉麻烦等下再试试～");
+                    AddTextControl(ChatIdentityEnum.Recipient, "尴尬了，好像出了点问题，您的问题存在敏感信息，抱歉麻烦等下再试试～");
                 });
             });
+
+            //接收千牛Msg单个商品
+            WeakReferenceMessenger.Default.Register<SingleProductModel, string>(this, MessengerConstMessage.SendMsgSingleProductToken, OnSendMsgSingleProduct);
+            //接收千牛Msg多个商品
+            WeakReferenceMessenger.Default.Register<MultipleProductModel, string>(this, MessengerConstMessage.SendMsgMultipleProductToken, OnSendMsgMultipleProduct);
+
+            //点击客服的多个切换商品
+            WeakReferenceMessenger.Default.Register<MyProduct, string>(this, MessengerConstMessage.SendChangeProductCustomerServerToken,OnChangeCustomerMulipteProduct);
+
+            //点击客户的多个切换商品
+            WeakReferenceMessenger.Default.Register<MyProduct, string>(this, MessengerConstMessage.SendChangeProductCustomerToken, OnChangeCustomerMulipteProduct);
             _uiService.OpenCustomerInitBottomView();
 
         }
 
 
 
+        
 
         #endregion
 
@@ -190,6 +219,9 @@ namespace csr_windows.Client.ViewModels.Customer
         #endregion
 
         #region Methods
+
+        #region 测试代码
+
         private int _textCount = 3;
         private int _bottomBoldTextCount = 2;
         private int _copyTextCount = 2;
@@ -296,7 +328,7 @@ namespace csr_windows.Client.ViewModels.Customer
                             });
                         }
                     }
-                    chatTextAndProductView.DataContext = new ChatTextAndProductViewModel(myProducts, LastEnum)
+                    chatTextAndProductView.DataContext = new ChatTextAndProductViewModel(myProducts, ChatTextAndProductIdentidyEnum.Customer)
                     {
                         StartContent = "根据您和顾客的对话，我发现顾客发来了一个商品链接，包含如下商品：",
                         EndContent = "请向顾客确认后选择具体商品，用于后续回复。如不选择，我将默认为您选择第一款。",
@@ -312,7 +344,7 @@ namespace csr_windows.Client.ViewModels.Customer
                             ProductName = $"商品名称 Index:{"啊啊啊啊啊啊啊啊"}"
                         });
                     }
-                    chatTextAndProductView.DataContext = new ChatTextAndProductViewModel(myProducts, LastEnum)
+                    chatTextAndProductView.DataContext = new ChatTextAndProductViewModel(myProducts, ChatTextAndProductIdentidyEnum.CustomerService)
                     {
                         StartContent = "顾客咨询的是这一款：",
                     };
@@ -356,6 +388,9 @@ namespace csr_windows.Client.ViewModels.Customer
             chatBaseView.DataContext = chatBaseViewModel;
             UserControls.Add(chatBaseView);
         }
+
+        #endregion
+
 
         /// <summary>
         /// 解析回答
@@ -418,27 +453,29 @@ namespace csr_windows.Client.ViewModels.Customer
 
         }
 
-        public void AddTextControl(ChatIdentityEnum identityEnum, string content)
+        public ChatBaseView AddTextControl(ChatIdentityEnum identityEnum, string content, bool toAddCurrentUserControls = true)
         {
             // 切换到UI线程更新UI
-            Application.Current.Dispatcher.Invoke(() =>
+
+            ChatBaseView chatBaseView = new ChatBaseView();
+            ChatBaseViewModel chatBaseViewModel = new ChatBaseViewModel()
             {
-                ChatBaseView chatBaseView = new ChatBaseView();
-                ChatBaseViewModel chatBaseViewModel = new ChatBaseViewModel()
-                {
-                    ChatIdentityEnum = identityEnum
-                };
+                ChatIdentityEnum = identityEnum
+            };
 
 
-                ChatTextView chatTextView = new ChatTextView()
-                {
-                    DataContext = new ChatTextViewModel(content)
-                };
+            ChatTextView chatTextView = new ChatTextView()
+            {
+                DataContext = new ChatTextViewModel(content)
+            };
 
-                chatBaseViewModel.ContentControl = chatTextView;
-                chatBaseView.DataContext = chatBaseViewModel;
+            chatBaseViewModel.ContentControl = chatTextView;
+            chatBaseView.DataContext = chatBaseViewModel;
+            if (toAddCurrentUserControls)
+            {
                 UserControls.Add(chatBaseView);
-            });
+            }
+            return chatBaseView;
         }
         /// <summary>
         /// 添加loading控件
@@ -456,6 +493,185 @@ namespace csr_windows.Client.ViewModels.Customer
             UserControls.Remove(_loadingChatBaseView);
         }
 
+
+        /// <summary>
+        /// 接收Msg单个商品
+        /// </summary>
+        /// <param name="recipient"></param>
+        /// <param name="message"></param>
+        /// <exception cref="NotImplementedException"></exception>
+        private async void OnSendMsgSingleProduct(object recipient, SingleProductModel message)
+        {
+            //根据信息去请求接口
+            string msg = await ApiClient.Instance.GetAsync(string.Format($"{BackEndApiList.GetMerchantByTid}/{message.TaoBaoID}"));
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                AddTextAndProductChat(msg, message, message.Pic, string.IsNullOrEmpty(message.ActionUrl) ? message.E1ActionUrl : message.ActionUrl);
+            });
+        }
+
+        /// <summary>
+        /// 接收Msg多个商品
+        /// </summary>
+        /// <param name="recipient"></param>
+        /// <param name="message"></param>
+        /// <exception cref="NotImplementedException"></exception>
+        private async void OnSendMsgMultipleProduct(object recipient, MultipleProductModel message)
+        {
+            //根据信息去请求接口
+            string msg = await ApiClient.Instance.GetAsync($"{BackEndApiList.GetMerchantByTid}/{message.TaoBaoID}");
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                AddTextAndProductChat(msg, message, message.Pic, message.ActionUrl);
+            });
+        }
+
+        /// <summary>
+        /// 添加商品聊天控件
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="mBaseProduct"></param>
+        /// <param name="picUrl"></param>
+        /// <param name="actionUrl"></param>
+        private void AddTextAndProductChat(string msg, MBaseProduct mBaseProduct, string picUrl, string actionUrl)
+        {
+
+            string startContent, endContent;
+            BaseGetMerchantByTidModel model = JsonConvert.DeserializeObject<BaseGetMerchantByTidModel>(msg);
+            if (model.Data == null || model.Data.Count == 0)
+            {
+                if (mBaseProduct.SendUserNiceName == GlobalCache.CurrentCustomer.UserNiceName || mBaseProduct.ReceiveUserNiceName == GlobalCache.CurrentCustomer.UserNiceName)
+                {
+                    //发送一条消息
+                    AddTextControl(ChatIdentityEnum.Recipient, "尴尬了，我好像没见过顾客刚刚发来的商品，抱歉暂时帮不到您了哦～您可以在您的商品知识库中添加，我就会主动学习掌握这件商品的信息了！");
+                }
+                return;
+            }
+
+            ChatBaseView chatBaseView = new ChatBaseView();
+            ChatBaseViewModel chatBaseViewModel = new ChatBaseViewModel()
+            {
+                ChatIdentityEnum = ChatIdentityEnum.Recipient
+            };
+
+            ChatTextAndProductView chatTextAndProductView = new ChatTextAndProductView();
+            List<MyProduct> myProducts = new List<MyProduct>();
+            //判断当前发送人以及接收人是谁
+            //如果发送人是当前客服，就需要额外设置w
+            ChatTextAndProductIdentidyEnum _chatTextAndProductIdentidyEnum = ChatTextAndProductIdentidyEnum.CustomerService;
+            if (mBaseProduct.SendUserNiceName.Contains(GlobalCache.CustomerServiceNickName))
+            {
+                startContent = "您给顾客发送了一个商品链接，包含如下商品：";
+                endContent = "请选择您想要用于后续回复的商品。不选将保持之前所选商品。";
+                _chatTextAndProductIdentidyEnum = ChatTextAndProductIdentidyEnum.CustomerService;
+            }
+            else
+            {
+                _chatTextAndProductIdentidyEnum = ChatTextAndProductIdentidyEnum.Customer;
+                startContent = "顾客发来了一个商品链接，包含如下商品：";
+                if (model.Data.Count > 1)
+                {
+                    endContent = "请向顾客确认后选择具体商品，用于后续回复。如不选择，我将默认为您选择第一款。";
+                }
+                else
+                {
+                    endContent = "后续回答将基于该商品。";
+                }
+            }
+
+            foreach (var item in model.Data)
+            {
+                myProducts.Add(new MyProduct()
+                {
+
+                    MerchantId = item.MerchantId,
+                    ProductID = mBaseProduct.TaoBaoID,
+                    ProductImage = string.IsNullOrEmpty(item.PictureLink) ? picUrl : item.PictureLink,
+                    ProductName = item.Alias,
+                    ProductInfo = item.Info,
+                    ProductUrl = actionUrl
+                });
+            }
+
+            chatTextAndProductView.DataContext = new ChatTextAndProductViewModel(myProducts, _chatTextAndProductIdentidyEnum)
+            {
+                ProductNum = model.Data.Count,
+                StartContent = startContent,
+                EndContent = endContent,
+            };
+
+            //发送者不是当前客户 就去判断是否有第一条
+            if (mBaseProduct.SendUserNiceName != GlobalCache.CurrentCustomer.UserNiceName)
+            {
+                var isGetSuccess = GlobalCache.CustomerChatList.TryGetValue(mBaseProduct.SendUserNiceName, out List<UserControl> _tempUserControls);
+                if (!isGetSuccess || _tempUserControls.Count == 0)
+                {
+                    //添加一个欢迎UserControl
+                    var firstChat = AddTextControl(ChatIdentityEnum.Recipient, GlobalCache.WelcomeConstString, toAddCurrentUserControls: false);
+                    GlobalCache.CustomerChatList[mBaseProduct.SendUserNiceName] = new List<UserControl>() { firstChat };
+
+                }
+                chatBaseViewModel.ContentControl = chatTextAndProductView;
+                chatBaseView.DataContext = chatBaseViewModel;
+                GlobalCache.CustomerChatList[mBaseProduct.SendUserNiceName].Add(chatBaseView);
+                if (myProducts.Count == 1)
+                {
+                    GlobalCache.CustomerCurrentProductList[mBaseProduct.SendUserNiceName] = myProducts[0];
+                }
+            }
+            else
+            {
+                chatBaseViewModel.ContentControl = chatTextAndProductView;
+                chatBaseView.DataContext = chatBaseViewModel;
+                if (myProducts.Count == 1)
+                {
+                    if (GlobalCache.CurrentProduct?.ProductName != myProducts[0].ProductName)
+                    {
+                        GlobalCache.CurrentProduct = myProducts[0];
+                        UserControls.Add(chatBaseView);
+                    }
+                }
+                else
+                {
+                    UserControls.Add(chatBaseView);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 切换多个商品
+        /// </summary>
+        /// <param name="recipient"></param>
+        /// <param name="message"></param>
+        /// <exception cref="NotImplementedException"></exception>
+        private void OnChangeCustomerMulipteProduct(object recipient, MyProduct message)
+        {
+            ChatBaseView chatBaseView = new ChatBaseView() 
+            {
+               DataContext = new ChatBaseViewModel()
+               {
+                   ChatIdentityEnum = ChatIdentityEnum.Sender,
+                   ContentControl = new ChatTextAndProductView()
+                   {
+                       DataContext = new ChatTextAndProductViewModel(new List<MyProduct>() { message }, ChatTextAndProductIdentidyEnum.CustomerService)
+                       {
+                           StartContent = "换成这款商品：",
+                       }
+                   }
+               }
+            };
+
+            UserControls.Add(chatBaseView);
+
+            Task.Delay(500).ContinueWith(t => 
+            {
+                Application.Current.Dispatcher.Invoke(() => 
+                {
+                    AddTextControl(ChatIdentityEnum.Recipient, "明白了，后续回答将基于该商品。");
+                    GlobalCache.CurrentProduct = message;
+                });
+            });
+        }
 
         #endregion
 

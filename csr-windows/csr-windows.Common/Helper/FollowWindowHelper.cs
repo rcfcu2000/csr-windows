@@ -45,12 +45,11 @@ namespace csr_windows.Common.Helper
                     Process process = Process.GetProcessById((int)processId);
                     string processName = process.ProcessName;
 
-                    Console.WriteLine($"Window title: {windowTitle} {processName}");
                     if (processName == targetProcess && windowTitle.Contains(targetTitlePart))
                     {
                         Console.WriteLine($"Window found with title containing '{targetTitlePart}': {windowTitle}");
                         intPtr = new IntPtr(window.Current.NativeWindowHandle);
-                        Console.WriteLine($"IntPtr:{intPtr}");
+                        Console.WriteLine($"Find IntPtr:{intPtr}");
                         found = true;
                         break;
                     }

@@ -45,7 +45,7 @@
             </ItemsControl.Resources>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <controls:ProductControl />
+                    <controls:ProductControl Command="{Binding DataContext.ChooseCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}" CommandParameter="{Binding .}" />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
@@ -57,7 +57,7 @@
             Visibility="{Binding IsShowEndContent, Converter={StaticResource Boolean2VisibilityConverter}}" />
         <Grid
             Grid.Row="2"
-            Margin="0, 0,0,5"
+            Margin="0,0,0,5"
             Visibility="{Binding IsShowEndContent, Converter={StaticResource Boolean2VisibilityReConverter}}" />
     </Grid>
 </UserControl>

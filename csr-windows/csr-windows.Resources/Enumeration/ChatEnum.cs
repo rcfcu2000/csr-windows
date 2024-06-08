@@ -22,6 +22,21 @@ namespace csr_windows.Resources.Enumeration
     }
 
     /// <summary>
+    /// 文本跟商品的身份枚举
+    /// </summary>
+    public enum ChatTextAndProductIdentidyEnum
+    {
+        /// <summary>
+        /// 客服
+        /// </summary>
+        CustomerService,
+        /// <summary>
+        /// 客户
+        /// </summary>
+        Customer
+    }
+
+    /// <summary>
     /// 文本内容枚举
     /// </summary>
     public enum ChatTypeEnum
