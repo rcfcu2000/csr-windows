@@ -23,7 +23,10 @@ namespace csr_windows.Client.Services.Impl
         #region Fields
 
         private WelcomeView _welcomeView;
+        private CustomerInitBottomView _customerInitBottomView;
+
         #endregion
+
 
         #region Methods
 
@@ -34,7 +37,7 @@ namespace csr_windows.Client.Services.Impl
             //DispatcherHelper.CheckBeginInvokeOnUI(action);
         }
 
-        
+
         public void OpenWelcomeView()
         {
             Action ac = new Action(() =>
@@ -144,9 +147,12 @@ namespace csr_windows.Client.Services.Impl
         {
             Action ac = new Action(() =>
             {
-                var view = new CustomerInitBottomView();
-                view.DataContext = new CustomerInitBottomViewModel();
-                WeakReferenceMessenger.Default.Send(view as UserControl, MessengerConstMessage.OpenCustomerUserControlToken);
+                if (_customerInitBottomView == null)
+                {
+                    _customerInitBottomView = new CustomerInitBottomView();
+                    _customerInitBottomView.DataContext = new CustomerInitBottomViewModel();
+                }
+                WeakReferenceMessenger.Default.Send(_customerInitBottomView as UserControl, MessengerConstMessage.OpenCustomerUserControlToken);
             });
             DoWork(ac);
         }
@@ -165,5 +171,5 @@ namespace csr_windows.Client.Services.Impl
         #endregion
 
     }
-    
+
 }

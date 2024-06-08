@@ -134,12 +134,25 @@ namespace csr_windows.Client.ViewModels.Customer
                         //发送一条消息
                         AddLoadingControl();
                     });
-                    WebServiceClient.SendJSFunc(JSFuncType.GetRemoteHisMsg, GlobalCache.CurrentCustomer.UserNiceName, AIChatApiList.How2Replay);
+                    WebServiceClient.SendJSFunc(JSFuncType.GetRemoteHisMsg, GlobalCache.CurrentCustomer.CCode, AIChatApiList.How2Replay);
                     //WebServiceClient.SendJSFunc(JSFuncType.GetRemoteHisMsg, GlobalCache.CurrentCustomer.UserNiceName);
                 }
             });
             //我该怎么回 回调
             WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.AskAIResponseToken, AnalysisAskAIReponse);
+
+            //我想怎么回
+            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.Want2ReplyToken, (r, m) => 
+            {
+                AddBottomBoldControl(ChatIdentityEnum.Sender, m);
+                AddLoadingControl();
+                GlobalCache.CurrentProductWant2ReplyGuideContent = m;
+
+                WebServiceClient.SendJSFunc(JSFuncType.GetRemoteHisMsg, GlobalCache.CurrentCustomer.CCode, AIChatApiList.Want2Reply);
+            });
+
+            //我想怎么回 回调
+            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.Want2ReplyResponseToken, AnalysisAskAIReponse);
 
             //HTTPError回调
             WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.ApiChatHttpErrorToken, (r, m) =>
@@ -477,6 +490,27 @@ namespace csr_windows.Client.ViewModels.Customer
             }
             return chatBaseView;
         }
+
+        public void AddBottomBoldControl(ChatIdentityEnum identityEnum,string content)
+        {
+            ChatBaseView chatBaseView = new ChatBaseView() 
+            {
+                DataContext = new ChatBaseViewModel()
+                {
+                    ChatIdentityEnum = identityEnum,
+                    ContentControl = new ChatBottomBoldTextView()
+                    {
+                        DataContext = new ChatBottomBoldTextViewModel()
+                        {
+                            Content = content
+                        }
+                    }
+                }
+            };
+
+            UserControls.Add(chatBaseView);
+        }
+
         /// <summary>
         /// 添加loading控件
         /// </summary>

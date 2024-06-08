@@ -67,6 +67,16 @@ namespace csr_windows.Domain
         public const string AskAIResponseToken = "AskAIResponseToken";
 
         /// <summary>
+        /// 我想怎么回
+        /// </summary>
+        public const string Want2ReplyToken = "Want2ReplyToken";
+
+        /// <summary>
+        /// 我想怎么回 回调
+        /// </summary>
+        public const string Want2ReplyResponseToken = "Want2ReplyResponseToken";
+
+        /// <summary>
         /// 发送Msg单个商品
         /// </summary>
         public const string SendMsgSingleProductToken = "SendMsgSingleProductToken";

@@ -2,11 +2,14 @@
 using csr_windows.Client.Services.WebService.Enums;
 using csr_windows.Common.Helper;
 using csr_windows.Domain;
+using csr_windows.Domain.AIChat;
+using csr_windows.Domain.Api;
 using csr_windows.Domain.BaseModels;
 using csr_windows.Domain.WebSocketModels;
 using Fleck;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Sunny.UI.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +17,16 @@ using System.Net.Http;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Interop;
 
 namespace csr_windows.Client.Services.WebService
 {
     internal static class WebServiceClient
     {
+        /// <summary>
+        /// 商品聊天模板id列表
+        /// </summary>
+        private static List<int> ProductChatTemplateIdList = new List<int>() { 241005, 262002, 101, 200005, 129 };
         private static List<IWebSocketConnection> allSockets = new List<IWebSocketConnection>();
         private static SunnyNet syNet = new SunnyNet();
         private static readonly HttpClient _httpClient = new HttpClient();
@@ -209,33 +217,62 @@ namespace csr_windows.Client.Services.WebService
                             }
 
 
-                            apiChatUri = string.IsNullOrEmpty(msg.apiChatUri) ? string.Empty : msg.apiChatUri;
+                            apiChatUri = string.IsNullOrEmpty($"{msg.apiChatUri}") ? string.Empty : msg.apiChatUri;
 
                             messages.Add(payload);
                             chats.Add(chat);
                         }
-
                         tp.SaveMessage(_httpClient, messages);
 
                         dynamic aichat = new JObject();
 
-                        aichat.shop_name = "蜡笔派家居旗舰店";
-                        aichat.assistant_name = assistant_name;
-
                         //判断
-                        if (chat_link != null)
-                            aichat.link = chat_link;
-                        if (!string.IsNullOrEmpty(GlobalCache.InputAIContent))
-                            aichat.guide_content = GlobalCache.InputAIContent;
                         aichat.message_history = JArray.FromObject(chats);
 
-                        string jsonMessage = JsonConvert.SerializeObject(aichat);
 
-                        string aiURL = "https://www.zhihuige.cc/csrnew/api/how_2_reply";
+                        //string aiURL = "https://www.zhihuige.cc/csrnew/api/how_2_reply";
+                        string aiURL = "https://www.zhihuige.cc/csrnew/api";
                         if (!string.IsNullOrEmpty(apiChatUri))
                         {
-                            aiURL = aiURL + apiChatUri;
+                            aiURL = $"{aiURL}{apiChatUri}";
                         }
+                        else
+                        {
+                            //发送错误消息提示
+                            WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.ApiChatHttpErrorToken);
+                            return;
+                        }
+                        string jsonMessage = "";
+                        switch (apiChatUri)
+                        {
+                            case AIChatApiList.How2Replay:
+                                How2ReplyModel how2ReplyModel = new How2ReplyModel()
+                                {
+                                    ShopName = "蜡笔派家居旗舰店",
+                                    AssistantName = assistant_name,
+                                    MessageHistory = JArray.FromObject(chats),
+                                    GoodsName = GlobalCache.IsHaveProduct ? GlobalCache.CurrentProduct.ProductName : null,
+                                    GoodsKnowledge = GlobalCache.IsHaveProduct ? GlobalCache.CurrentProduct.ProductInfo : null,
+                                };
+                                jsonMessage = JsonConvert.SerializeObject(how2ReplyModel);
+                                break;
+                            case AIChatApiList.Want2Reply:
+                                Want2ReplyModel want2ReplyModel = new Want2ReplyModel()
+                                {
+                                    ShopName = "蜡笔派家居旗舰店",
+                                    AssistantName = assistant_name,
+                                    MessageHistory = JArray.FromObject(chats),
+                                    GoodsName = GlobalCache.IsHaveProduct ? GlobalCache.CurrentProduct.ProductName : null,
+                                    GoodsKnowledge = GlobalCache.IsHaveProduct ? GlobalCache.CurrentProduct.ProductInfo : null,
+                                    GuideContent = string.IsNullOrEmpty(GlobalCache.CurrentProductWant2ReplyGuideContent) ? null : GlobalCache.CurrentProductWant2ReplyGuideContent
+                                };
+                                GlobalCache.CurrentProductWant2ReplyGuideContent = null;
+                                jsonMessage = JsonConvert.SerializeObject(want2ReplyModel);
+                                break;
+                            default:
+                                break;
+                        }
+
                         HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Post, aiURL);
                         requestMessage.Content = new StringContent(jsonMessage, Encoding.UTF8, "application/json");
                         HttpResponseMessage response = _httpClient.SendAsync(requestMessage).Result;
@@ -401,11 +438,20 @@ namespace csr_windows.Client.Services.WebService
 
                         //todo:后面改成服务器地址
                         tp.SaveMessage(_httpClient, messages);
-                        if (msgTemplateId != 0)
+
+                        int lastTemplateId = json.msg[chats.Count-1].templateId;
+                        bool lastTemplateIsProduct =  ProductChatTemplateIdList.Contains(lastTemplateId);
+
+                        if (lastTemplateIsProduct && msgTemplateId != 0)
                         {
                             //单个商品
                             if (msgTemplateId == 241005 || msgTemplateId == 262002 || msgTemplateId == 101)
                             {
+                                //文本
+                                if (msgTemplateId == 101 && json.msg[chats.Count - 1].msg.jsview[0].type == 0)
+                                {
+                                    return;
+                                }
                                 SingleProductModel singleModel = JsonConvert.DeserializeObject<SingleProductModel>(productMsg);
                                 singleModel.SendUserNiceName = sendUserNiceName.Replace("cntaobao", ""); ;
                                 singleModel.ReceiveUserNiceName = receiveUserNiceName.Replace("cntaobao", ""); ;
@@ -437,7 +483,6 @@ namespace csr_windows.Client.Services.WebService
                 };
             });
 
-            Console.WriteLine("WebSocket server started.");
         }
 
         public static void SendJSFunc(string jsFuncType, string nickName = "", string apiChatUri = "")
@@ -451,7 +496,7 @@ namespace csr_windows.Client.Services.WebService
             }
             if (!string.IsNullOrEmpty(apiChatUri))
             {
-                root.apiChatUri = "";
+                root.apiChatUri = apiChatUri;
             }
 
             // 将对象转换成JSON字符串

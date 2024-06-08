@@ -85,6 +85,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AIChat\How2ReplyModel.cs" />
+    <Compile Include="AIChat\Want2ReplyModel.cs" />
     <Compile Include="Api\AIChatApiList.cs" />
     <Compile Include="Api\BackEndApiList.cs" />
     <Compile Include="BaseModels\BackEnd\Base\BaseGetMerchantByTidModel.cs" />

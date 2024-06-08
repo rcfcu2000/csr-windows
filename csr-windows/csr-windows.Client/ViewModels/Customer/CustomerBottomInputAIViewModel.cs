@@ -77,14 +77,12 @@ namespace csr_windows.Client.ViewModels.Customer
 
                 return;
             }
-            GlobalCache.InputAIContent = Content;
             //调用接口(发送给大模型)
             _uiService.OpenCustomerInitBottomView();
-
-            //todo:
-            //AddLoadingControl();
-            WebServiceClient.SendJSFunc(JSFuncType.GetRemoteHisMsg, GlobalCache.CurrentCustomer.CCode, AIChatApiList.Want2Reply);
+            WeakReferenceMessenger.Default.Send(Content,MessengerConstMessage.Want2ReplyToken);
         }
+
+
         #endregion
 
 

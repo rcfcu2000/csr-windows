@@ -32,7 +32,11 @@ namespace csr_windows.Domain
         private static bool _isHaveProduct;
         private static string _customerServiceNickName;
 
-    
+        /// <summary>
+        /// 当前商品想要回复 的guide_content
+        /// </summary>
+        public static string CurrentProductWant2ReplyGuideContent;
+
 
 
         private static bool _haveStoreName;
@@ -47,10 +51,6 @@ namespace csr_windows.Domain
         /// </summary>
         public static Dictionary<string,MyProduct> CustomerCurrentProductList = new Dictionary<string,MyProduct>();
 
-        /// <summary>
-        /// 输入AI的内容
-        /// </summary>
-        public static string InputAIContent;
 
         public static bool IsFollowWindow;
 
