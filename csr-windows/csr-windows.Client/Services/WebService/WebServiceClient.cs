@@ -208,13 +208,6 @@ namespace csr_windows.Client.Services.WebService
                                 }
                             }
 
-                            //TODO ：商品
-                            //多个商品
-                            if (msg.templateId == 200005)
-                            {
-                                //遍历获取
-
-                            }
 
                             apiChatUri = string.IsNullOrEmpty(msg.apiChatUri) ? string.Empty : msg.apiChatUri;
 
@@ -253,13 +246,6 @@ namespace csr_windows.Client.Services.WebService
                             //tp.QNSendMsgVer912(user_name, (string) aijson.response);
                             string sendMsg = TopHelp.QNSendMsgJS(user_name, (string)aijson.response);
                             WeakReferenceMessenger.Default.Send(sendMsg, MessengerConstMessage.AskAIResponseToken);
-                            //给客户端发消息
-
-                            //Console.WriteLine(sendMsg);
-                            //socket.Send(sendMsg);
-
-                            // send message to dingding group chat using webhook
-                            //tp.SendDingdingMarkdownMessage((string)aijson.response, chat_link);
                         }
                         else
                         {

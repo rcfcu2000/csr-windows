@@ -482,7 +482,15 @@ namespace csr_windows.Client.ViewModels.Customer
         /// </summary>
         public void AddLoadingControl()
         {
-            UserControls.Add(_loadingChatBaseView);
+            try
+            {
+                UserControls.Add(_loadingChatBaseView);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                RemoveLoadingControl();
+            }
         }
 
         /// <summary>
@@ -583,7 +591,6 @@ namespace csr_windows.Client.ViewModels.Customer
             {
                 myProducts.Add(new MyProduct()
                 {
-
                     MerchantId = item.MerchantId,
                     ProductID = mBaseProduct.TaoBaoID,
                     ProductImage = string.IsNullOrEmpty(item.PictureLink) ? picUrl : item.PictureLink,
@@ -601,7 +608,7 @@ namespace csr_windows.Client.ViewModels.Customer
             };
 
             //发送者不是当前客户 就去判断是否有第一条
-            if (mBaseProduct.SendUserNiceName != GlobalCache.CurrentCustomer.UserNiceName)
+            if (mBaseProduct.SendUserNiceName != GlobalCache.CurrentCustomer.UserNiceName && mBaseProduct.SendUserNiceName != GlobalCache.CustomerServiceNickName)
             {
                 var isGetSuccess = GlobalCache.CustomerChatList.TryGetValue(mBaseProduct.SendUserNiceName, out List<UserControl> _tempUserControls);
                 if (!isGetSuccess || _tempUserControls.Count == 0)
