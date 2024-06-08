@@ -237,7 +237,7 @@ namespace csr_windows.Client.Services.WebService
 
                         string jsonMessage = JsonConvert.SerializeObject(aichat);
 
-                        string aiURL = "https://www.zhihuige.cc/csrnew/api/chat";
+                        string aiURL = "https://www.zhihuige.cc/csrnew/api/how_2_reply";
                         if (!string.IsNullOrEmpty(apiChatUri))
                         {
                             aiURL = aiURL + apiChatUri;
