@@ -395,8 +395,6 @@ namespace csr_windows.Client.Services.WebService
                                 }
                                 if (msg.msg.jsview[0].type == 5)
                                 {
-                                    //string testString = ;
-                                    //Single101ProductModel model1 = JObject.FromObject(msg.msg.jsview[0].value.urlinfo).ToObject<Single101ProductModel>();
                                     Single101ProductModel model = JsonConvert.DeserializeObject<Single101ProductModel>($"{msg.msg.jsview[0].value.urlinfo}");
                                     SingleProductModel singleProduct = new SingleProductModel()
                                     {
@@ -430,7 +428,6 @@ namespace csr_windows.Client.Services.WebService
                                 {
                                     singleModel.Pic = $"http:{singleModel.Pic}";
                                 }
-                                //todo:需要去处理单个
                                 WeakReferenceMessenger.Default.Send(singleModel, MessengerConstMessage.SendMsgSingleProductToken);
                             }
                             if (msgTemplateId == 200005 || msgTemplateId == 129)
@@ -446,7 +443,6 @@ namespace csr_windows.Client.Services.WebService
                                     {
                                         multipleModels[i].Pic = $"http:{multipleModels[i].Pic}";
                                     }
-                                    //todo:需要去处理多个
                                     WeakReferenceMessenger.Default.Send(multipleModels[i], MessengerConstMessage.SendMsgMultipleProductToken);
                                 }
                             }
