@@ -81,6 +81,7 @@ namespace csr_windows.Client.ViewModels.Customer
                 if (!string.IsNullOrEmpty(CurrentCustomer?.UserNiceName))
                 {
                     GlobalCache.CustomerChatList[CurrentCustomer.UserNiceName] = new List<UserControl>(UserControls);
+                    GlobalCache.CustomerCurrentProductList[CurrentCustomer.UserNiceName] = GlobalCache.CurrentProduct;
                 }
                 CurrentCustomer = m;
                 var isGetSuccess = GlobalCache.CustomerChatList.TryGetValue(CurrentCustomer?.UserNiceName, out List<UserControl> _tempUserControls);
@@ -97,6 +98,14 @@ namespace csr_windows.Client.ViewModels.Customer
                 else
                 {
                     UserControls = new ObservableCollection<UserControl>(_tempUserControls);
+                    if (GlobalCache.CustomerCurrentProductList.ContainsKey(CurrentCustomer.UserNiceName))
+                    {
+                        GlobalCache.CurrentProduct = GlobalCache.CustomerCurrentProductList[CurrentCustomer.UserNiceName];
+                    }
+                    else
+                    {
+                        GlobalCache.CurrentProduct = null;
+                    }
                 }
 
             });
@@ -531,8 +540,11 @@ namespace csr_windows.Client.ViewModels.Customer
             BaseGetMerchantByTidModel model = JsonConvert.DeserializeObject<BaseGetMerchantByTidModel>(msg);
             if (model.Data == null || model.Data.Count == 0)
             {
-                //发送一条消息
-                AddTextControl(ChatIdentityEnum.Recipient, "尴尬了，我好像没见过顾客刚刚发来的商品，抱歉暂时帮不到您了哦～您可以在您的商品知识库中添加，我就会主动学习掌握这件商品的信息了！");
+                if (mBaseProduct.SendUserNiceName == GlobalCache.CurrentCustomer.UserNiceName || mBaseProduct.ReceiveUserNiceName == GlobalCache.CurrentCustomer.UserNiceName)
+                {
+                    //发送一条消息
+                    AddTextControl(ChatIdentityEnum.Recipient, "尴尬了，我好像没见过顾客刚刚发来的商品，抱歉暂时帮不到您了哦～您可以在您的商品知识库中添加，我就会主动学习掌握这件商品的信息了！");
+                }
                 return;
             }
 
@@ -602,6 +614,10 @@ namespace csr_windows.Client.ViewModels.Customer
                 chatBaseViewModel.ContentControl = chatTextAndProductView;
                 chatBaseView.DataContext = chatBaseViewModel;
                 GlobalCache.CustomerChatList[mBaseProduct.SendUserNiceName].Add(chatBaseView);
+                if (myProducts.Count == 1)
+                {
+                    GlobalCache.CustomerCurrentProductList[mBaseProduct.SendUserNiceName] = myProducts[0];
+                }
             }
             else
             {

@@ -37,7 +37,15 @@ namespace csr_windows.Domain
 
         private static bool _haveStoreName;
 
+        /// <summary>
+        /// 每个客户的聊天记录
+        /// </summary>
         public static Dictionary<string,List<UserControl>> CustomerChatList = new Dictionary<string, List<UserControl>>();
+
+        /// <summary>
+        /// 每个客户的当前
+        /// </summary>
+        public static Dictionary<string,MyProduct> CustomerCurrentProductList = new Dictionary<string,MyProduct>();
 
         /// <summary>
         /// 输入AI的内容
@@ -147,7 +155,7 @@ namespace csr_windows.Domain
             set
             {
                 _currentProduct = value;
-                if (string.IsNullOrEmpty(value.ProductName))
+                if (value == null || string.IsNullOrEmpty(value.ProductName))
                 {
                     IsHaveProduct = false;
                 }
