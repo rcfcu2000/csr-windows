@@ -113,6 +113,7 @@ namespace csr_windows.Client.ViewModels.Customer
             //我该怎么回
             WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.AskAIToken, (r, m) =>
             {
+                // 切换到UI线程更新UI
                 AddTextControl(ChatIdentityEnum.Sender, "现在我要怎么回答顾客？");
 
                 if (GlobalCache.CurrentCustomer == null)
@@ -145,7 +146,7 @@ namespace csr_windows.Client.ViewModels.Customer
             //我想这样回
             WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.Want2ReplyToken, (r, m) => 
             {
-                AddBottomBoldControl(ChatIdentityEnum.Sender, m);
+                AddWant2ReplyControl(ChatIdentityEnum.Sender,m);
                 AddLoadingControl();
                 GlobalCache.CurrentProductWant2ReplyGuideContent = m;
 
@@ -519,6 +520,25 @@ namespace csr_windows.Client.ViewModels.Customer
             UserControls.Add(chatBaseView);
         }
             
+        public void AddWant2ReplyControl(ChatIdentityEnum identityEnum,string content)
+        {
+            ChatBaseView chatBaseView = new ChatBaseView()
+            {
+                DataContext = new ChatBaseViewModel()
+                {
+                    ChatIdentityEnum = identityEnum,
+                    ContentControl = new ChatWant2ReplyView()
+                    {
+                        DataContext = new ChatWant2ReplyViewModel()
+                        {
+                            Content = content
+                        }
+                    }
+                }
+            };
+
+            UserControls.Add(chatBaseView);
+        }
         /// <summary>
         /// 添加loading控件
         /// </summary>

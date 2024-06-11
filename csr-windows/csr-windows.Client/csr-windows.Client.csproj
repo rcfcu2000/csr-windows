@@ -147,6 +147,7 @@
     <Compile Include="ViewModels\Chat\ChatCopyTextViewModel.cs" />
     <Compile Include="ViewModels\Chat\ChatEndConversationViewModel.cs" />
     <Compile Include="ViewModels\Chat\ChatSwitchProductsViewModel.cs" />
+    <Compile Include="ViewModels\Chat\ChatWant2ReplyViewModel.cs" />
     <Compile Include="ViewModels\Customer\CustomerViewModelPartial.cs" />
     <Compile Include="ViewModels\Menu\AboutViewModel.cs" />
     <Compile Include="ViewModels\Menu\BaseMenuViewModel.cs" />
@@ -187,6 +188,9 @@
     </Compile>
     <Compile Include="Views\Chat\ChatTextView.xaml.cs">
       <DependentUpon>ChatTextView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Chat\ChatWant2ReplyView.xaml.cs">
+      <DependentUpon>ChatWant2ReplyView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Customer\CustomerBottomInputAIView.xaml.cs">
       <DependentUpon>CustomerBottomInputAIView.xaml</DependentUpon>
@@ -271,6 +275,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Chat\ChatTextView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Chat\ChatWant2ReplyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
