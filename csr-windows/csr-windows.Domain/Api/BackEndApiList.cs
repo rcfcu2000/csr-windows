@@ -22,11 +22,11 @@ namespace csr_windows.Domain.Api
         /// <summary>
         /// SSO登录注册
         /// </summary>
-        public const string SSOLogin = "/user/ssoLogin";
+        public const string SSOLogin = "/base/ssoLogin";
 
         /// <summary>
         /// 设置用户信息
         /// </summary>
-        public const string SetSelfInfo = "/user/setUserInfo";
+        public const string SetSelfInfo = "/base/setSelfInfo";
     }
 }

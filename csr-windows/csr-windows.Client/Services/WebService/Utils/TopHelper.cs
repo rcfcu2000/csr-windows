@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Management;
 using System.Net.Http;
 using System.Runtime.InteropServices;
 using System.Text;

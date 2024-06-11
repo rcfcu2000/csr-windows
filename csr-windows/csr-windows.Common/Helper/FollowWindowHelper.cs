@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Automation;
@@ -48,6 +49,9 @@ namespace csr_windows.Common.Helper
 
                     if (processName == targetProcess && windowTitle.Contains(targetTitlePart))
                     {
+
+                        CheckVersion();
+
                         Console.WriteLine($"Window found with title containing '{targetTitlePart}': {windowTitle}");
                         intPtr = new IntPtr(window.Current.NativeWindowHandle);
                         Console.WriteLine($"Find IntPtr:{intPtr}");
@@ -150,6 +154,36 @@ namespace csr_windows.Common.Helper
                 }
             }
             return null;
+        }
+
+        public static bool CheckVersion()
+        {
+            // 创建WMI查询对象
+            string query = "SELECT * FROM Win32_Process WHERE Name LIKE '%" + ProcessName + "%'";
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher(query);
+
+            foreach (ManagementObject process in searcher.Get())
+            {
+                try
+                {
+                    // 获取进程ID
+                    int processId = Convert.ToInt32(process["ProcessId"]);
+                    // 获取进程路径
+                    string executablePath = process["ExecutablePath"]?.ToString();
+
+                    if (!string.IsNullOrEmpty(executablePath))
+                    {
+                        // 读取文件版本信息
+                        var versionInfo = System.Diagnostics.FileVersionInfo.GetVersionInfo(executablePath);
+                        Console.WriteLine($"Process ID: {processId}, Version: {versionInfo.FileVersion}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error retrieving version info: {ex.Message}");
+                }
+            }
+            return true;
         }
     }
 }

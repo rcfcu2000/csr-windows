@@ -61,9 +61,9 @@ namespace csr_windows.Client.ViewModels.Main
         {
             int saleType = (int)(GlobalCache.IsItPreSalesCustomerService ? SalesRepType.PreSale : SalesRepType.AfterSale);
             //调用接口
-            Dictionary<string, string> keyValuePairs = new Dictionary<string, string>()
+            Dictionary<string, dynamic> keyValuePairs = new Dictionary<string, dynamic>()
             {
-                { "salesRepType",$"{saleType}" }
+                { "salesRepType",saleType }
             };
 
             string content = await ApiClient.Instance.PutAsync(BackEndApiList.SetSelfInfo, keyValuePairs);

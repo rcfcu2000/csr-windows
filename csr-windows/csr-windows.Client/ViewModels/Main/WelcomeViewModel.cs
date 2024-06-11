@@ -99,27 +99,29 @@ namespace csr_windows.Client.ViewModels.Main
                 }
                 BackendBase<object> model = JsonConvert.DeserializeObject<BackendBase<object>>(content);
                 isFirstIn = string.IsNullOrEmpty(content) ? false : model.Code != 0;
+
                 //todo:这里可能会 请求错误
                 //第二个判断是否是第一次进入
+                keyValuePairs = new Dictionary<string, string>()
+                {
+                    {"password","123456" },
+                    {"ssoUsername",$"{GlobalCache.CustomerServiceNickName}" },
+                    {"username","admin"}
+                };
+                content = await ApiClient.Instance.PostAsync(BackEndApiList.SSOLogin, keyValuePairs);
+                if (content == string.Empty)
+                {
+                    return;
+                }
+                BackendBase<SSOLoginModel> loginModel = JsonConvert.DeserializeObject<BackendBase<SSOLoginModel>>(content);
+                if (model.Code == 0)
+                {
+                    ApiClient.Instance.SetToken(loginModel.Data.Token);
+                    GlobalCache.IsItPreSalesCustomerService = loginModel.Data.User.SalesRepType == (int)SalesRepType.PreSale;
+                }
+
                 if (isFirstIn)
                 {
-                    keyValuePairs = new Dictionary<string, string>()
-                    {
-                        {"password","123456" },
-                        {"ssoUsername",$"{GlobalCache.CustomerServiceNickName}" },
-                        {"username","admin"}
-                    };
-                    content = await ApiClient.Instance.PostAsync(BackEndApiList.SSOLogin, keyValuePairs);
-                    if (content == string.Empty)
-                    {
-                        return;
-                    }
-                    BackendBase<SSOLoginModel> loginModel = JsonConvert.DeserializeObject<BackendBase<SSOLoginModel>>(content);
-                    if (model.Code == 0)
-                    {
-                        ApiClient.Instance.SetToken(loginModel.Data.Token);
-                        GlobalCache.IsItPreSalesCustomerService = loginModel.Data.User.SalesRepType == (int)SalesRepType.PreSale;
-                    }
                     _uiService.OpenFirstSettingView();
                 }
                 else

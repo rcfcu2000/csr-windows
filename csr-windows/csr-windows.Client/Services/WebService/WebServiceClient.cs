@@ -404,7 +404,7 @@ namespace csr_windows.Client.Services.WebService
 
                             if (msg.templateId == 101)
                             {
-                                //todo:这个时候只拿得到ActionUrl
+                                //这个时候只拿得到ActionUrl
                                 if (msg.msg.jsview[0].type == 1)
                                 {
                                     SingleProductModel singleProduct = new SingleProductModel()
