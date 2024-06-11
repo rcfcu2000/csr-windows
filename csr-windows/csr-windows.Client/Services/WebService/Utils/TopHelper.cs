@@ -14,6 +14,56 @@ using System.Windows.Forms;
 
 namespace csr_windows.Client.Services.WebService
 {
+    public class WindowHandleInfo
+    {
+        private delegate bool EnumWindowProc(IntPtr hwnd, IntPtr lParam);
+
+        [DllImport("user32")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool EnumChildWindows(IntPtr window, EnumWindowProc callback, IntPtr lParam);
+
+        private IntPtr _MainHandle;
+
+        public WindowHandleInfo(IntPtr handle)
+        {
+            this._MainHandle = handle;
+        }
+
+        public List<IntPtr> GetAllChildHandles()
+        {
+            List<IntPtr> childHandles = new List<IntPtr>();
+
+            GCHandle gcChildhandlesList = GCHandle.Alloc(childHandles);
+            IntPtr pointerChildHandlesList = GCHandle.ToIntPtr(gcChildhandlesList);
+
+            try
+            {
+                EnumWindowProc childProc = new EnumWindowProc(EnumWindow);
+                EnumChildWindows(this._MainHandle, childProc, pointerChildHandlesList);
+            }
+            finally
+            {
+                gcChildhandlesList.Free();
+            }
+
+            return childHandles;
+        }
+
+        private bool EnumWindow(IntPtr hWnd, IntPtr lParam)
+        {
+            GCHandle gcChildhandlesList = GCHandle.FromIntPtr(lParam);
+
+            if (gcChildhandlesList == null || gcChildhandlesList.Target == null)
+            {
+                return false;
+            }
+
+            List<IntPtr> childHandles = gcChildhandlesList.Target as List<IntPtr>;
+            childHandles.Add(hWnd);
+
+            return true;
+        }
+    }
     public class TopHelp
     {
         // 导入用户32库中的函数
@@ -66,6 +116,13 @@ namespace csr_windows.Client.Services.WebService
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool GetWindowRect(IntPtr hWnd, ref RECT rect);
 
+
+        private delegate bool EnumWindowProc(IntPtr hwnd, IntPtr lParam);
+        [DllImport("user32")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool EnumChildWindows(IntPtr window, EnumWindowProc callback, IntPtr lParam);
+
+
         [StructLayout(LayoutKind.Sequential)]
         public struct RECT
         {
@@ -79,6 +136,52 @@ namespace csr_windows.Client.Services.WebService
         private const int MOUSEEVENTF_LEFTUP = 0x04;
 
         // 辅助方法：遍历顶层窗口并查找匹配的窗口标题
+
+        //private static IEnumerable<IntPtr> EnumerateProcessWindowHandles(Process process)
+        //{
+        //    List<IntPtr> handles = new List<IntPtr>();
+
+        //    ProcessThreadCollection threads = null;
+        //    try
+        //    {
+        //        threads = process.Threads;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.WriteLine(e.StackTrace);
+        //        return handles;
+        //    }
+
+        //    foreach (ProcessThread thread in threads)
+        //    {
+        //        if (thread == null)
+        //        {
+        //            continue;
+        //        }
+
+        //        int threadId = 0;
+        //        try
+        //        {
+        //            threadId = thread.Id;
+        //        }
+        //        catch (Exception e)
+        //        {
+        //            Console.WriteLine(e.StackTrace);
+        //            continue;
+        //        }
+        //        try
+        //        {
+        //            EnumThreadWindows(threadId, (hWnd, lParam) => { handles.Add(hWnd); return true; }, IntPtr.Zero);
+        //        }
+        //        catch (Exception e)
+        //        {
+        //            Console.WriteLine(e.StackTrace);
+        //            continue;
+        //        }
+        //    }
+        //    return handles;
+        //}
+
         private IntPtr FindTopLevelWindowsClassName(uint processId, IntPtr hWndStart, string className)
         {
             hWndStart = FindWindowEx(IntPtr.Zero, hWndStart, null, null); // 开始遍历
@@ -370,7 +473,28 @@ namespace csr_windows.Client.Services.WebService
             bool isSuccess = true;
             if (isSuccess)
             {
+
                 IntPtr hwd = FindWindowByProcessAndTitle("AliWorkbench", "-接待中心");
+
+                var allChildWindows = new WindowHandleInfo(hwd).GetAllChildHandles();
+                RECT chatRect = new RECT();
+                chatRect.Left = 10000;
+                foreach (var handle in allChildWindows)
+                {
+                    string windowTitle = GetWindowTitle(handle);
+                    //Console.WriteLine(windowTitle);
+                    if(windowTitle.Contains("Chrome Legacy Window")) {
+                        RECT rect = new RECT();
+                        GetWindowRect(handle, ref rect);
+                        if(chatRect.Left > rect.Left) {
+                            chatRect = rect;
+                        }
+
+                        //Console.WriteLine($"window rect: {handle} {rect.Left}, {rect.Top}, {rect.Right}, {rect.Bottom}");
+                    }
+                }
+
+                IntPtr chatHwd = FindWindowByProcessAndTitle("AliWorkbench", "Chrome Legacy Window");
 
                 if (hwd == IntPtr.Zero)
                 {
@@ -394,8 +518,9 @@ namespace csr_windows.Client.Services.WebService
                         GetWindowRect(hwd, ref rect);
 
                         Console.WriteLine($"window rect: {rect.Left}, {rect.Top}, {rect.Right}, {rect.Bottom}");
+                        Console.WriteLine($"window rect: {chatRect.Left}, {chatRect.Top}, {chatRect.Right}, {chatRect.Bottom}");
 
-                        Point clientPoint = new Point((rect.Right + rect.Left) / 2, rect.Top + (rect.Bottom - rect.Top) * 0.7);
+                        Point clientPoint = new Point((chatRect.Right + chatRect.Left) / 2, chatRect.Bottom + (rect.Bottom - chatRect.Bottom) * 0.5);
                         ClientToScreen(hwd, ref clientPoint);
 
                         for (int i = 0; i < 2; i++)
