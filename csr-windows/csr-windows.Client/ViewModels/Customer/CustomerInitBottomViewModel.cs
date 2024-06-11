@@ -7,6 +7,7 @@ using csr_windows.Domain;
 using csr_windows.Domain.Enumeration;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,6 +54,11 @@ namespace csr_windows.Client.ViewModels.Customer
         /// 选择商品
         /// </summary>
         public ICommand ChooseProductCommand { get; set; }
+
+        /// <summary>
+        /// 打开商品
+        /// </summary>
+        public ICommand OpenProductUrlCommand { get; set; } 
         #endregion
 
         #region Constructro
@@ -64,8 +70,11 @@ namespace csr_windows.Client.ViewModels.Customer
             ProductIntroductionCommand = new RelayCommand(OnProductIntroductionCommand);
             RecommendedPairingCommand = new RelayCommand(OnRecommendedPairingCommand);
             ChooseProductCommand = new RelayCommand(OnChooseProductCommand);
+            OpenProductUrlCommand = new RelayCommand(OnOpenProductUrlCommand);
         }
-        
+
+
+
 
         #endregion
 
@@ -116,6 +125,19 @@ namespace csr_windows.Client.ViewModels.Customer
         private void OnChooseProductCommand()
         {
             _uIService.OpenChooseProductView(ChooseWindowType.ChooseProduct);
+        }
+
+        /// <summary>
+        /// 打开商品链接
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
+        private void OnOpenProductUrlCommand()
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = GlobalCache.CurrentProduct.ProductUrl, // 在这里替换为你想要打开的网页 URL
+                UseShellExecute = true
+            });
         }
         #endregion
     }
