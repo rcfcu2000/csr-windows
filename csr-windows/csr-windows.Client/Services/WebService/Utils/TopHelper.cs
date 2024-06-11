@@ -488,7 +488,7 @@ namespace csr_windows.Client.Services.WebService
                     //Console.WriteLine(windowTitle);
                     if(windowTitle.Contains("Chrome Legacy Window")) {
                         RECT rect = new RECT();
-                        GetWindowRect(handle, ref rect);
+                        GetWindowRect(handle, out rect);
                         if(chatRect.Left > rect.Left) {
                             chatRect = rect;
                         }
