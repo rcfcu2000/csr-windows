@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.Messaging;
 using csr_windows.Core;
 using csr_windows.Domain;
 using csr_windows.Domain.Api;
+using csr_windows.Domain.WeakReferenceMessengerModels;
 using csr_windows.Resources.Enumeration;
 using System;
 using System.Collections.Generic;
@@ -48,6 +49,8 @@ namespace csr_windows.Client.ViewModels.Menu
                 {
                     return;
                 }
+                string promptString = GlobalCache.IsItPreSalesCustomerService ? "已切换至售前客服" : "已切换至售后客服";
+                WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel($"{promptString}"), MessengerConstMessage.OpenPromptMessageToken);
                 WeakReferenceMessenger.Default.Send("", MessengerConstMessage.CloseMenuUserControlToken);
             });
         }
