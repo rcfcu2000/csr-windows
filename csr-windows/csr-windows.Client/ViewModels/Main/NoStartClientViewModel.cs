@@ -3,12 +3,14 @@ using CommunityToolkit.Mvvm.DependencyInjection;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using csr_windows.Client.Services.Base;
+using csr_windows.Client.Services.WebService;
 using csr_windows.Common.Helper;
 using csr_windows.Core;
 using csr_windows.Domain;
 using csr_windows.Domain.Api;
 using csr_windows.Domain.BaseModels.BackEnd;
 using csr_windows.Domain.BaseModels.BackEnd.Base;
+using csr_windows.Domain.WeakReferenceMessengerModels;
 using csr_windows.Resources.Enumeration;
 using Newtonsoft.Json;
 using System;
@@ -50,29 +52,51 @@ namespace csr_windows.Client.ViewModels.Main
         /// </summary>
         private async void OnStartClientCommand()
         {
-            //打开千牛
-            string programDisplayName = "千牛工作台"; 
-
-            string programPath = FollowWindowHelper.FindProgramPath(programDisplayName);
-
-            if (!string.IsNullOrEmpty(programPath))
+            //第一个判断是否启动了千牛
+            bool isRunning = FollowWindowHelper.IsProcessRunning(FollowWindowHelper.ProcessName);
+            if (!isRunning)
             {
-                try
+                //打开千牛
+                string programDisplayName = "千牛工作台";
+
+                string programPath = FollowWindowHelper.FindProgramPath(programDisplayName);
+
+                if (!string.IsNullOrEmpty(programPath))
                 {
-                    Process process = Process.Start(programPath + "\\AliWorkbench.exe");
-                    Console.WriteLine($"{programDisplayName} started successfully from: {programPath}");
+                    try
+                    {
+                        Process process = Process.Start(programPath + "\\AliWorkbench.exe");
+                        Console.WriteLine($"{programDisplayName} started successfully from: {programPath}");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Failed to start {programDisplayName}: {ex.Message}");
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    Console.WriteLine($"Failed to start {programDisplayName}: {ex.Message}");
+                    Console.WriteLine($"Program {programDisplayName} not found in the registry.");
                 }
+                return;
             }
+            //启动了千牛判断是否启动了窗口
             else
             {
-                Console.WriteLine($"Program {programDisplayName} not found in the registry.");
-            }
+                //没启动接待窗口就去启动接待窗口
+                if (!GlobalCache.IsFollowWindow)
+                {
+                    WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel("请打开千牛接待中心", promptEnum: PromptEnum.Note), MessengerConstMessage.OpenPromptMessageToken);
+                    return;
+                }
 
-            //todo：去判断
+                //有千牛的客服窗口 但是没有websocket连接
+                if (!WebServiceClient.Socket.IsAvailable || !GlobalCache.HaveStoreName)
+                {
+                    WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel("出了点问题，请重启千牛客户端", promptEnum: PromptEnum.Note), MessengerConstMessage.OpenPromptMessageToken);
+                    return;
+                }
+            }
+           
 
 
 

@@ -40,6 +40,7 @@ namespace csr_windows.Common.Helper
                     // Get the process ID of the window
                     Win32.GetWindowThreadProcessId(windowHandle, out uint processId);
                     var _intPtr = Win32.FindWindowEx(windowHandle, IntPtr.Zero, "pane", String.Empty);
+                    
 
                     // Get the process name using the process ID
                     Process process = Process.GetProcessById((int)processId);

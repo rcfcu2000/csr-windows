@@ -84,5 +84,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\csr-windows.Domain\csr-windows.Domain.csproj">
+      <Project>{b4f1c45e-cafd-4ad4-b1f9-912866cbcad7}</Project>
+      <Name>csr-windows.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

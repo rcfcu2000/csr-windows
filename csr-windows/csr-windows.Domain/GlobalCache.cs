@@ -51,7 +51,9 @@ namespace csr_windows.Domain
         /// </summary>
         public static Dictionary<string,MyProduct> CustomerCurrentProductList = new Dictionary<string,MyProduct>();
 
-
+        /// <summary>
+        /// 是否跟随了千牛的Window
+        /// </summary>
         public static bool IsFollowWindow;
 
         //静态事件处理属性更改

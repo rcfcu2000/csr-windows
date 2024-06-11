@@ -1,4 +1,5 @@
-﻿using System;
+﻿using csr_windows.Resources.Enumeration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,10 +12,13 @@ namespace csr_windows.Domain.WeakReferenceMessengerModels
         public string Msg { get; set; }
         public bool IsShowIcon { get; set; }
 
-        public PromptMessageTokenModel(string msg,bool isShowIcon)
+        public PromptEnum PromptEnum { get; set; }
+
+        public PromptMessageTokenModel(string msg,bool isShowIcon = true, PromptEnum promptEnum = PromptEnum.Success)
         {
             Msg = msg;
             IsShowIcon = isShowIcon;
+            PromptEnum = promptEnum;
         }
     }
 }

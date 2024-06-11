@@ -83,8 +83,10 @@ namespace csr_windows.Client
             {
                 promptWindow.PromptContent = m.Msg;
                 promptWindow.IsShowIcon = m.IsShowIcon;
+                promptWindow.PromptEnum = m.PromptEnum;
                 promptWindow.Visibility = Visibility.Visible;
             });
+
 
             //打开菜单User控件
             WeakReferenceMessenger.Default.Register<UserControl, string>(this, MessengerConstMessage.OpenMenuUserControlToken, (r, m) => { baseMenuView.Visibility = Visibility.Visible; });

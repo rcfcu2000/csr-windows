@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.Messaging;
 using csr_windows.Domain;
+using csr_windows.Domain.WeakReferenceMessengerModels;
+using csr_windows.Resources.Enumeration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,7 +59,7 @@ namespace csr_windows.Core
             }
             catch (Exception)
             {
-                WeakReferenceMessenger.Default.Send(NoteMessage, MessengerConstMessage.OpenPromptNoteMessageToken);
+                WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel(NoteMessage, promptEnum: PromptEnum.Note), MessengerConstMessage.OpenPromptMessageToken);
                 return string.Empty;
             }
             return await response.Content.ReadAsStringAsync();
@@ -75,7 +77,7 @@ namespace csr_windows.Core
             }
             catch (Exception)
             {
-                WeakReferenceMessenger.Default.Send(NoteMessage, MessengerConstMessage.OpenPromptNoteMessageToken);
+                WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel(NoteMessage, promptEnum: PromptEnum.Note), MessengerConstMessage.OpenPromptMessageToken);
                 return string.Empty;
             }
             return await response.Content.ReadAsStringAsync();
@@ -97,7 +99,7 @@ namespace csr_windows.Core
             }
             catch (Exception)
             {
-                WeakReferenceMessenger.Default.Send(NoteMessage, MessengerConstMessage.OpenPromptNoteMessageToken);
+                WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel(NoteMessage, promptEnum: PromptEnum.Note), MessengerConstMessage.OpenPromptMessageToken);
                 return string.Empty;
             }
             return await response.Content.ReadAsStringAsync();
@@ -115,7 +117,7 @@ namespace csr_windows.Core
             }
             catch (Exception)
             {
-                WeakReferenceMessenger.Default.Send(NoteMessage, MessengerConstMessage.OpenPromptNoteMessageToken);
+                WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel(NoteMessage, promptEnum: PromptEnum.Note), MessengerConstMessage.OpenPromptMessageToken);
                 return string.Empty;
             }
             return await response.Content.ReadAsStringAsync();
@@ -124,6 +126,7 @@ namespace csr_windows.Core
         // PUT请求方法
         public async Task<string> PutAsync(string url, IDictionary<string, string> parameters)
         {
+            url = ServerUrl + url;
             var content = new FormUrlEncodedContent(parameters);
             HttpResponseMessage response = await _httpClient.PutAsync(url, content);
             try
@@ -132,7 +135,7 @@ namespace csr_windows.Core
             }
             catch (Exception)
             {
-                WeakReferenceMessenger.Default.Send(NoteMessage, MessengerConstMessage.OpenPromptNoteMessageToken);
+                WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel(NoteMessage, promptEnum: PromptEnum.Note), MessengerConstMessage.OpenPromptMessageToken);
                 return string.Empty;
             }
             return await response.Content.ReadAsStringAsync();

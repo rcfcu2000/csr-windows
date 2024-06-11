@@ -11,6 +11,7 @@ using csr_windows.Domain;
 using csr_windows.Domain.Api;
 using csr_windows.Domain.BaseModels.BackEnd;
 using csr_windows.Domain.BaseModels.BackEnd.Base;
+using csr_windows.Domain.WeakReferenceMessengerModels;
 using csr_windows.Resources.Enumeration;
 using Newtonsoft.Json;
 using System;
@@ -69,9 +70,17 @@ namespace csr_windows.Client.ViewModels.Main
 
             if (isRunning)
             {
-                //还没有获取千牛的时候怎么处理？
-                //kill接待中心，重新打开
-                if (!GlobalCache.HaveStoreName)
+                //有千牛的客服窗口 但是没有websocket连接
+                if (GlobalCache.IsFollowWindow)
+                {
+                    if (!WebServiceClient.Socket.IsAvailable)
+                    {
+                        
+                        WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel("出了点问题，请重启千牛客户端", promptEnum: PromptEnum.Note), MessengerConstMessage.OpenPromptMessageToken);
+                        return;
+                    }
+                }
+                if (!GlobalCache.HaveStoreName)//启动了千牛，但是没打开千牛客服界面,就打开启动千牛未启动界面
                 {
                     _uiService.OpenNoStartClientView();
                     return;

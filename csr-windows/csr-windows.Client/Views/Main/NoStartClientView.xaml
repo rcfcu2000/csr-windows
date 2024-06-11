@@ -45,7 +45,7 @@
             hc:BorderElement.CornerRadius="5"
             Background="#2335C5"
             Command="{Binding StartClientCommand}"
-            Content="启动并登录千牛工作台"
+            Content="启动并打开千牛工作台接待中心"
             Cursor="Hand"
             FontSize="18"
             FontWeight="Bold"
