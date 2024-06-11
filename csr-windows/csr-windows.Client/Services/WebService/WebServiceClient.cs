@@ -253,6 +253,7 @@ namespace csr_windows.Client.Services.WebService
                                     MessageHistory = JArray.FromObject(chats),
                                     GoodsName = GlobalCache.IsHaveProduct ? GlobalCache.CurrentProduct.ProductName : null,
                                     GoodsKnowledge = GlobalCache.IsHaveProduct ? GlobalCache.CurrentProduct.ProductInfo : null,
+                                    SaleMode = GlobalCache.IsItPreSalesCustomerService ? "sale_pre" : "sale_post"
                                 };
                                 jsonMessage = JsonConvert.SerializeObject(how2ReplyModel);
                                 break;
@@ -264,7 +265,8 @@ namespace csr_windows.Client.Services.WebService
                                     MessageHistory = JArray.FromObject(chats),
                                     GoodsName = GlobalCache.IsHaveProduct ? GlobalCache.CurrentProduct.ProductName : null,
                                     GoodsKnowledge = GlobalCache.IsHaveProduct ? GlobalCache.CurrentProduct.ProductInfo : null,
-                                    GuideContent = string.IsNullOrEmpty(GlobalCache.CurrentProductWant2ReplyGuideContent) ? null : GlobalCache.CurrentProductWant2ReplyGuideContent
+                                    GuideContent = string.IsNullOrEmpty(GlobalCache.CurrentProductWant2ReplyGuideContent) ? null : GlobalCache.CurrentProductWant2ReplyGuideContent,
+                                    SaleMode = GlobalCache.IsItPreSalesCustomerService ? "sale_pre" : "sale_post"
                                 };
                                 GlobalCache.CurrentProductWant2ReplyGuideContent = null;
                                 jsonMessage = JsonConvert.SerializeObject(want2ReplyModel);
