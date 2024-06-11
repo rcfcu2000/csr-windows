@@ -73,7 +73,7 @@ namespace csr_windows.Client.ViewModels.Main
                 //有千牛的客服窗口 但是没有websocket连接
                 if (GlobalCache.IsFollowWindow)
                 {
-                    if (!WebServiceClient.Socket.IsAvailable)
+                    if ((WebServiceClient.Socket == null) || !WebServiceClient.Socket.IsAvailable)
                     {
                         
                         WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel("出了点问题，请重启千牛客户端", promptEnum: PromptEnum.Note), MessengerConstMessage.OpenPromptMessageToken);
