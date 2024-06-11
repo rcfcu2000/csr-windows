@@ -423,7 +423,9 @@ namespace csr_windows.Client.ViewModels.Customer
                 var param = JsonConvert.DeserializeObject<MChatApiResult<ChatApiParam>>(message);
                 //
                 // 使用正则表达式分割字符串
-                string[] splitText = Regex.Split(param.Param.Msg, @"(?<=[。；？！～ ： ”])");
+                //string[] splitText = Regex.Split(param.Param.Msg, @"(?<=[。；？！～ ： ”])");
+                string[] splitText = Regex.Split(param.Param.Msg, @"(?<=[。；？！～]|[，。；？！～]”|”[，。；？！～])");
+
 
                 string[] filteredText = splitText
                     .Where(s => !string.IsNullOrWhiteSpace(s))
