@@ -59,6 +59,7 @@
                             Cursor="Hand"
                             FontSize="14"
                             Foreground="White"
+                            IsDefault="True"
                             Style="{StaticResource PrimaryImageContentButton}" />
                         <Button
                             Grid.Column="1"

@@ -175,13 +175,14 @@ namespace csr_windows.Client.ViewModels.Customer
 
             //点击客户的多个切换商品
             WeakReferenceMessenger.Default.Register<MyProduct, string>(this, MessengerConstMessage.SendChangeProductCustomerToken, OnChangeCustomerMulipteProduct);
+
+            //点击单个商品的时候切换商品
+            WeakReferenceMessenger.Default.Register<MyProduct, string>(this, MessengerConstMessage.SendChangeSingleProductToken, OnChangeSingleProductToken);
+            //点击切换商品
+            WeakReferenceMessenger.Default.Register<MyProduct, string>(this, MessengerConstMessage.SendSwitchProductToken, OnSendSwitchProductToken);
             _uiService.OpenCustomerInitBottomView();
 
         }
-
-
-
-        
 
         #endregion
 
@@ -373,7 +374,7 @@ namespace csr_windows.Client.ViewModels.Customer
             if (_chooseProductCount != 0)
             {
                 ChatSwitchProductsView chatSwitchProductsView = new ChatSwitchProductsView();
-                chatSwitchProductsView.DataContext = new ChatSwitchProductsViewModel();
+                chatSwitchProductsView.DataContext = new ChatSwitchProductsViewModel(new MyProduct());
                 chatBaseViewModel.ContentControl = chatSwitchProductsView;
                 chatBaseViewModel.ChatIdentityEnum = ChatIdentityEnum.Recipient;
                 _chooseProductCount--;
@@ -669,7 +670,11 @@ namespace csr_windows.Client.ViewModels.Customer
                 {
                     if (GlobalCache.CurrentProduct?.ProductName != myProducts[0].ProductName)
                     {
-                        GlobalCache.CurrentProduct = myProducts[0];
+                        //客户发送的才切换
+                        if (_chatTextAndProductIdentidyEnum == ChatTextAndProductIdentidyEnum.Customer)
+                        {
+                            GlobalCache.CurrentProduct = myProducts[0];
+                        }
                         UserControls.Add(chatBaseView);
                     }
                 }
@@ -714,6 +719,62 @@ namespace csr_windows.Client.ViewModels.Customer
                 });
             });
         }
+
+        /// <summary>
+        /// 切换单个商品
+        /// </summary>
+        /// <param name="recipient"></param>
+        /// <param name="message"></param>
+        /// <exception cref="NotImplementedException"></exception>
+        private void OnChangeSingleProductToken(object recipient, MyProduct message)
+        {
+            ChatBaseView chatBaseView = new ChatBaseView()
+            {
+                DataContext = new ChatBaseViewModel()
+                {
+                    ChatIdentityEnum = ChatIdentityEnum.Sender,
+                    ContentControl = new ChatTextAndProductView()
+                    {
+                        DataContext = new ChatTextAndProductViewModel(new List<MyProduct>() { message }, ChatTextAndProductIdentidyEnum.CustomerService)
+                        {
+                            StartContent = "我想换到这个商品：",
+                        }
+                    }
+                }
+            };
+
+            UserControls.Add(chatBaseView);
+
+
+            ChatBaseView switchProductBaseView = new ChatBaseView()
+            {
+                DataContext = new ChatBaseViewModel()
+                {
+                    ChatIdentityEnum = ChatIdentityEnum.Recipient,
+                    ContentControl = new ChatSwitchProductsView()
+                    {
+                        DataContext = new ChatSwitchProductsViewModel(message)
+                    }
+                }
+            };
+
+            UserControls.Add(switchProductBaseView);
+
+        }
+
+        /// <summary>
+        /// 切换商品
+        /// </summary>
+        /// <param name="recipient"></param>
+        /// <param name="message"></param>
+        /// <exception cref="NotImplementedException"></exception>
+        private void OnSendSwitchProductToken(object recipient, MyProduct message)
+        {
+            GlobalCache.CurrentProduct = message;
+            AddTextControl(ChatIdentityEnum.Sender, "切换到该商品");
+            AddTextControl(ChatIdentityEnum.Recipient, "明白了，后续回答将基于该商品。");
+        }
+
 
         #endregion
 

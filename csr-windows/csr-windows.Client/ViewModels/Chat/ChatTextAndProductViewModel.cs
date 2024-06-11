@@ -101,6 +101,11 @@ namespace csr_windows.Client.ViewModels.Chat
 
         private void OnChooseCommand(MyProduct product)
         {
+            if (ProductNum == 1)
+            {
+                WeakReferenceMessenger.Default.Send(product, MessengerConstMessage.SendChangeSingleProductToken);
+                return;
+            }
             //发送切换商品
             //客户
             if (ChatTextAndProductIdentidyEnum == ChatTextAndProductIdentidyEnum.CustomerService)
@@ -109,11 +114,11 @@ namespace csr_windows.Client.ViewModels.Chat
                 {
                     return;
                 }
-                WeakReferenceMessenger.Default.Send(product, MessengerConstMessage.SendChangeProductCustomerToken);
+                WeakReferenceMessenger.Default.Send(product, MessengerConstMessage.SendChangeProductCustomerServerToken);
             }
             else //客服
             {
-                WeakReferenceMessenger.Default.Send(product, MessengerConstMessage.SendChangeProductCustomerServerToken);
+                WeakReferenceMessenger.Default.Send(product, MessengerConstMessage.SendChangeProductCustomerToken);
             }
 
 

@@ -43,18 +43,19 @@
                         Margin="0,0,15,0"
                         hc:BorderElement.CornerRadius="5"
                         Background="{StaticResource 0.1OpacityBlueTheme}"
-                        Command="{Binding ExitCommand}"
-                        Content="仍要退出"
+                        Command="{Binding ContinueToUseCommand}"
+                        Content="我再想想"
                         Cursor="Hand"
                         FontSize="14"
                         Foreground="#FF2335C5" />
+
                     <Button
                         Width="120"
                         Height="40"
                         hc:BorderElement.CornerRadius="5"
                         Background="{StaticResource ThemeColorBrush}"
-                        Command="{Binding ContinueToUseCommand}"
-                        Content="继续使用"
+                        Command="{Binding ExitCommand}"
+                        Content="确定退出"
                         Cursor="Hand"
                         FontSize="14"
                         FontWeight="Bold"

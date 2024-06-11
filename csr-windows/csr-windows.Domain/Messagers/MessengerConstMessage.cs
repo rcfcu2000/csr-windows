@@ -88,14 +88,24 @@ namespace csr_windows.Domain
         public const string SendMsgMultipleProductToken = "SendMsgMultipleProductToken";
 
         /// <summary>
-        /// 切换商品（客服的）
+        /// 切换商品（客服的）（多个商品）
         /// </summary>
         public const string SendChangeProductCustomerServerToken = "SendChangeProductCustomerServerToken";
 
         /// <summary>
-        /// 切换商品（客户的）
+        /// 切换商品（客户的）（多个商品）
         /// </summary>
         public const string SendChangeProductCustomerToken = "SendChangeProductCustomerToken";
+
+        /// <summary>
+        /// 切换单个商品
+        /// </summary>
+        public const string SendChangeSingleProductToken = "SendChangeSingleProductToken";
+
+        /// <summary>
+        /// 点击切换的时候切换商品
+        /// </summary>
+        public const string SendSwitchProductToken = "SendSwitchProductToken";
 
         #endregion
 
