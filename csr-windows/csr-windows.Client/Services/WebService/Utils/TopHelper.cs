@@ -64,7 +64,10 @@ namespace csr_windows.Client.Services.WebService
 
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
-        static extern bool GetWindowRect(IntPtr hWnd, ref RECT rect);
+        public static extern bool GetWindowRect(IntPtr hWnd, out RECT rect);
+
+        [DllImport("user32.dll")]
+        public static extern uint GetDpiForWindow(IntPtr hwnd);
 
         [StructLayout(LayoutKind.Sequential)]
         public struct RECT
@@ -391,7 +394,7 @@ namespace csr_windows.Client.Services.WebService
                         SetActiveWindow(hwd);
 
                         RECT rect = new RECT();
-                        GetWindowRect(hwd, ref rect);
+                        GetWindowRect(hwd, out rect);
 
                         Console.WriteLine($"window rect: {rect.Left}, {rect.Top}, {rect.Right}, {rect.Bottom}");
 

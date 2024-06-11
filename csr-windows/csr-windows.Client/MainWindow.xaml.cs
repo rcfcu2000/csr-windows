@@ -29,6 +29,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static csr_windows.Client.Services.WebService.TopHelp;
 
 namespace csr_windows.Client
 {
@@ -60,6 +61,10 @@ namespace csr_windows.Client
 
         //检测边距距离
         private const int _dockMargin = 0;
+
+        private double scaleY;
+        private double scaleX;
+
         #endregion
 
         #region Constructor
@@ -123,6 +128,10 @@ namespace csr_windows.Client
 
         private void MainWindow_SourceInitialized(object sender, EventArgs e)
         {
+            Matrix m = PresentationSource.FromVisual(this).CompositionTarget.TransformToDevice;
+            scaleY = (double)1 / m.M22;
+            scaleX = (double)1 / m.M11;
+
             _isFoundIntPrt = FollowWindowHelper.GetQianNiuIntPrt(ref FollowHandle);
             if (!_isFoundIntPrt)
             {
@@ -132,7 +141,7 @@ namespace csr_windows.Client
                 this.Width = 411;
                 this.Left = (ScreenManager.GetScreenWidth() - Width) / 2;
                 //this.Height = 811 * GetDpiY();
-                this.Height = 811;
+                this.Height = 811 * scaleY;
                 this.Top = (ScreenManager.GetScreenHeight() - Height) / 2;
                 this.Visibility = Visibility.Visible;
                 this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
@@ -185,23 +194,24 @@ namespace csr_windows.Client
                 GlobalCache.IsFollowWindow = true;
                 Dispatcher.Invoke(() =>
                 {
+
                     try
                     {
                         Win32.RECT rect = new Win32.RECT();
                         Win32.GetWindowRect(FollowHandle, ref rect);
                         if (rect.Bottom != 0 || rect.Top != 0 || rect.Left != 0 || rect.Right != 0)
                         {
+
                             this.SizeToContent = SizeToContent.Manual;
                             var hight = Math.Abs(rect.Bottom - rect.Top);
                             var windowWith = Math.Abs(rect.Right - rect.Left);
-                            this.Height = hight + 15;
-                            //this.Width = 411 * GetDpiX();
+                            this.Height = (hight + 15) * scaleY;
                             this.Width = 411;
                             //右边
-                            this.Left = rect.Right + _dockMargin;
+                            this.Left = (rect.Right + _dockMargin) * scaleX;
                             //左边
                             //this.Left = rect.Left - this.Width;
-                            this.Top = rect.Top - 8;
+                            this.Top = (rect.Top - 8) * scaleY;
                         }
                         else
                         {
@@ -254,7 +264,7 @@ namespace csr_windows.Client
                         System.Threading.Thread.Sleep(10);
                     } while (_isUpdatePos);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                 }
                 _isUpdatePos = false;
@@ -266,26 +276,26 @@ namespace csr_windows.Client
         }
     }
 
+    Win32.RECT rect = new Win32.RECT();
+    Win32.RECT thisRect = new Win32.RECT();
     private void _subTaskHandler()
     {
-
-        Win32.RECT rect = new Win32.RECT();
         Win32.GetWindowRect(FollowHandle, ref rect);
         if (rect.Bottom == 0 && rect.Top == 0 && rect.Left == 0 && rect.Right == 0)
             return;
         var hight = Math.Abs(rect.Bottom - rect.Top);
-        //var width = Math.Abs(rect.Right - rect.Left);
-        var width = 400;
         double windowWith = 0, windowHeight = 0, left = 0, top = 0;
         this.Dispatcher.Invoke(() =>
         {
+            var hwndSource = (HwndSource)PresentationSource.FromVisual(this);
+            Win32.GetWindowRect(hwndSource.Handle, ref thisRect);
             left = this.Left;
             top = this.Top;
-            this.Height = hight + 15;
+            this.Height = (hight + 15) * scaleY;
             windowWith = this.Width;
             windowHeight = this.Height;
         });
-        Point sp = new Point(rect.Left - _lastRect.Left + left, rect.Top - _lastRect.Top + top);
+        Point sp = new Point(rect.Right - _lastRect.Right + thisRect.Left, rect.Top - _lastRect.Top + thisRect.Top);
         Win32.SetWindowPos(Handle, FollowHandle, (int)sp.X, (int)sp.Y, (int)windowWith, (int)windowHeight, 0x0001 | 0x0004);
         _lastRect = rect;
     }
@@ -332,7 +342,7 @@ namespace csr_windows.Client
 
     private double GetDpiX()
     {
-        const int DesignWidth = 1920;
+        const int DesignWidth = 2560;
         Matrix m = PresentationSource.FromVisual(this).CompositionTarget.TransformToDevice;
         double scaleX = 1 / m.M11;
         double nWidth = ScreenManager.GetScreenWidth();
@@ -342,7 +352,7 @@ namespace csr_windows.Client
 
     private double GetDpiY()
     {
-        const int DesignHeight = 1080;
+        const int DesignHeight = 1440;
         Matrix m = PresentationSource.FromVisual(this).CompositionTarget.TransformToDevice;
         double scaleY = 1 / m.M22;
         double nHeight = ScreenManager.GetScreenHeight();
