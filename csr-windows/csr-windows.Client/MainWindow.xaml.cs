@@ -121,8 +121,14 @@ namespace csr_windows.Client
                 this.Close();
             });
 
+            //获取热销列表
             WeakReferenceMessenger.Default.Register<List<GetGoodProductModel>, string>(this, MessengerConstMessage.GetGoodsListToken, OnGetGoodsList);
 
+            //显示loading
+            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.ShowLoadingVisibilityChangeToken, (r, m) => { loading.Visibility = Visibility.Visible; });
+
+            //隐藏loading
+            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.HiddenLoadingVisibilityChangeToken, (r, m) => { loading.Visibility = Visibility.Collapsed; });
 
             InitializeComponent();
             this.DataContext = _mainViewModel;

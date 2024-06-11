@@ -105,7 +105,7 @@ namespace csr_windows.Client.ViewModels.Main
             {
                 { "name",$"{GlobalCache.CustomerServiceNickName}" }
             };
-
+            WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.ShowLoadingVisibilityChangeToken);
             string content = await ApiClient.Instance.PostAsync(BackEndApiList.GerUserInfo, keyValuePairs);
             if (content == string.Empty)
             {
@@ -113,7 +113,7 @@ namespace csr_windows.Client.ViewModels.Main
             }
             BackendBase<object> model = JsonConvert.DeserializeObject<BackendBase<object>>(content);
             isFirstIn = string.IsNullOrEmpty(content) ? false : model.Code != 0;
-
+            WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.HiddenLoadingVisibilityChangeToken);
 
             if (isFirstIn)
             {
@@ -125,11 +125,15 @@ namespace csr_windows.Client.ViewModels.Main
                         {"ssoUsername",$"{GlobalCache.CustomerServiceNickName}" },
                         {"username","admin"}
                     };
+
+                    WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.ShowLoadingVisibilityChangeToken);
                     content = await ApiClient.Instance.PostAsync(BackEndApiList.SSOLogin, keyValuePairs);
                     if (content == string.Empty)
                     {
                         return;
                     }
+                    WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.HiddenLoadingVisibilityChangeToken);
+
                     BackendBase<SSOLoginModel> loginModel = JsonConvert.DeserializeObject<BackendBase<SSOLoginModel>>(content);
                     if (loginModel.Code == 0)
                     {

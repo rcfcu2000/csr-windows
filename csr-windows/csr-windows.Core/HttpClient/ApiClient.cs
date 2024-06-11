@@ -120,6 +120,7 @@ namespace csr_windows.Core
             catch (Exception)
             {
                 WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel(NoteMessage, promptEnum: PromptEnum.Note), MessengerConstMessage.OpenPromptMessageToken);
+                WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.HiddenLoadingVisibilityChangeToken);
                 return string.Empty;
             }
             return await response.Content.ReadAsStringAsync();
@@ -138,6 +139,7 @@ namespace csr_windows.Core
             catch (Exception)
             {
                 WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel(NoteMessage, promptEnum: PromptEnum.Note), MessengerConstMessage.OpenPromptMessageToken);
+                WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.HiddenLoadingVisibilityChangeToken);
                 return string.Empty;
             }
             return await response.Content.ReadAsStringAsync();

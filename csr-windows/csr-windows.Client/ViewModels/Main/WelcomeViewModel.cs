@@ -91,7 +91,7 @@ namespace csr_windows.Client.ViewModels.Main
                 {
                     { "name",$"{GlobalCache.CustomerServiceNickName}" }
                 };
-
+                WeakReferenceMessenger.Default.Send(string.Empty,MessengerConstMessage.ShowLoadingVisibilityChangeToken);
                 string content = await ApiClient.Instance.PostAsync(BackEndApiList.GerUserInfo, keyValuePairs);
                 if (content == string.Empty)
                 {
@@ -113,6 +113,7 @@ namespace csr_windows.Client.ViewModels.Main
                 {
                     return;
                 }
+                WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.HiddenLoadingVisibilityChangeToken);
                 BackendBase<SSOLoginModel> loginModel = JsonConvert.DeserializeObject<BackendBase<SSOLoginModel>>(content);
                 if (model.Code == 0)
                 {

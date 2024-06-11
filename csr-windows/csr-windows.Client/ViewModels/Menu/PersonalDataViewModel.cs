@@ -44,13 +44,17 @@ namespace csr_windows.Client.ViewModels.Menu
                     { "salesRepType",saleType }
                 };
 
+                WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.ShowLoadingVisibilityChangeToken);
                 string content = await ApiClient.Instance.PutAsync(BackEndApiList.SetSelfInfo, keyValuePairs);
                 if (content == string.Empty)
                 {
                     return;
                 }
+                WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.HiddenLoadingVisibilityChangeToken);
+
                 string promptString = GlobalCache.IsItPreSalesCustomerService ? "已切换至售前客服" : "已切换至售后客服";
                 WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel($"{promptString}"), MessengerConstMessage.OpenPromptMessageToken);
+
                 WeakReferenceMessenger.Default.Send("", MessengerConstMessage.CloseMenuUserControlToken);
             });
         }

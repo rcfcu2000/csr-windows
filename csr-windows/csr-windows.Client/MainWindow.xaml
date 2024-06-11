@@ -146,5 +146,13 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             Visibility="Collapsed" />
+        <Border
+            x:Name="loading"
+            Width="64"
+            Height="64"
+            Background="#E6000000"
+            Visibility="Collapsed">
+            <hc:LoadingCircle Foreground="#FFFFFFFF" />
+        </Border>
     </Grid>
 </Window>

@@ -65,12 +65,14 @@ namespace csr_windows.Client.ViewModels.Main
             {
                 { "salesRepType",saleType }
             };
-
+            WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.ShowLoadingVisibilityChangeToken);
             string content = await ApiClient.Instance.PutAsync(BackEndApiList.SetSelfInfo, keyValuePairs);
             if (content == string.Empty)
             {
                 return;
             }
+            WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.HiddenLoadingVisibilityChangeToken);
+
             //然后最后进入聊天界面
             WeakReferenceMessenger.Default.Send("", MessengerConstMessage.LoginSuccessToken);
             _uiService.OpenCustomerView();

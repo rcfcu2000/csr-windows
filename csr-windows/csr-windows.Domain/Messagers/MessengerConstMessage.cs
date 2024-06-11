@@ -55,7 +55,15 @@ namespace csr_windows.Domain
         /// </summary>
         public const string ChangeCurrentCustomerToken = "ChangeCurrentCustomerToken";
 
+        /// <summary>
+        /// Loading显示
+        /// </summary>
+        public const string ShowLoadingVisibilityChangeToken = "ShowLoadingVisibilityChangeToken";
 
+        /// <summary>
+        /// Loading隐藏
+        /// </summary>
+        public const string HiddenLoadingVisibilityChangeToken = "HiddenLoadingVisibilityChangeToken";
 
         #region 聊天内容的Toekn
 
