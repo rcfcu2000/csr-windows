@@ -147,6 +147,7 @@
     <Compile Include="ViewModels\Chat\ChatCopyTextViewModel.cs" />
     <Compile Include="ViewModels\Chat\ChatEndConversationViewModel.cs" />
     <Compile Include="ViewModels\Chat\ChatSwitchProductsViewModel.cs" />
+    <Compile Include="ViewModels\Customer\CustomerViewModelPartial.cs" />
     <Compile Include="ViewModels\Menu\AboutViewModel.cs" />
     <Compile Include="ViewModels\Menu\BaseMenuViewModel.cs" />
     <Compile Include="ViewModels\Menu\ChooseProductViewModel.cs" />

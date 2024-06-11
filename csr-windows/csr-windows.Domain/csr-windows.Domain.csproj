@@ -121,6 +121,7 @@
     <Compile Include="WebSocketModels\ChatApiParam.cs" />
     <Compile Include="WebSocketModels\CurrentCsrModel.cs" />
     <Compile Include="WebSocketModels\CustomerModel.cs" />
+    <Compile Include="WebSocketModels\GetGoodProductModel.cs" />
     <Compile Include="WebSocketModels\MultipleProductModel.cs" />
     <Compile Include="WebSocketModels\ProductModel.cs" />
     <Compile Include="WebSocketModels\Single101ProductModel.cs" />

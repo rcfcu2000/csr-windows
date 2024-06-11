@@ -7,9 +7,16 @@ using csr_windows.Client.ViewModels.Menu;
 using csr_windows.Client.Views.Main;
 using csr_windows.Client.Views.Public;
 using csr_windows.Common.Helper;
+using csr_windows.Core;
 using csr_windows.Domain;
+using csr_windows.Domain.Api;
+using csr_windows.Domain.BaseModels.BackEnd.Base;
+using csr_windows.Domain.Common;
 using csr_windows.Domain.WeakReferenceMessengerModels;
+using csr_windows.Domain.WebSocketModels;
 using csr_windows.Resources.Helpers;
+using Newtonsoft.Json;
+using Sunny.UI;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -114,6 +121,7 @@ namespace csr_windows.Client
                 this.Close();
             });
 
+            WeakReferenceMessenger.Default.Register<List<GetGoodProductModel>, string>(this, MessengerConstMessage.GetGoodsListToken, OnGetGoodsList);
 
 
             InitializeComponent();
@@ -125,6 +133,8 @@ namespace csr_windows.Client
             _uiService.OpenWelcomeView();
 
         }
+
+
 
         private void MainWindow_SourceInitialized(object sender, EventArgs e)
         {
@@ -339,6 +349,37 @@ namespace csr_windows.Client
             });
         });
     }
+
+    private void OnGetGoodsList(object recipient, List<GetGoodProductModel> message)
+    {
+            Task.Factory.StartNew(async () => 
+            {
+                foreach (var item in message)
+                {
+                    //根据信息去请求接口
+                    string msg = await ApiClient.Instance.GetAsync(string.Format($"{BackEndApiList.GetMerchantByTid}/{item.ItemId}"));
+                    BaseGetMerchantByTidModel model = JsonConvert.DeserializeObject<BaseGetMerchantByTidModel>(msg);
+                    if (model.Data == null)
+                    {
+                        continue;
+                    }
+                    foreach (var value in model.Data)
+                    {
+                        MyProduct myProduct = new MyProduct()
+                        {
+                            MerchantId = value.MerchantId,
+                            ProductID = item.ItemId,
+                            ProductImage = string.IsNullOrEmpty(value.PictureLink) ? item.Pic : value.PictureLink,
+                            ProductInfo = value.Info,
+                            ProductName = value.Alias,
+                            ProductUrl = item.ActionUrl
+                        };
+                        GlobalCache.HotSellingProducts.Add(myProduct);
+                    }
+                }
+            });
+        
+     }
 
     private double GetDpiX()
     {

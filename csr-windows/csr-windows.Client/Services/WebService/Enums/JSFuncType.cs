@@ -28,6 +28,7 @@ namespace csr_windows.Client.Services.WebService.Enums
         /// 获取历史记录
         /// </summary>
         public const string GetRemoteHisMsg = "getRemoteHisMsg";
+
         #region 接收
 
         /// <summary>

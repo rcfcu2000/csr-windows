@@ -33,7 +33,7 @@ using System.Windows.Threading;
 
 namespace csr_windows.Client.ViewModels.Customer
 {
-    public class CustomerViewModel : ObservableRecipient
+    public partial class CustomerViewModel : ObservableRecipient
     {
 
         #region Fields
@@ -180,9 +180,13 @@ namespace csr_windows.Client.ViewModels.Customer
             WeakReferenceMessenger.Default.Register<MyProduct, string>(this, MessengerConstMessage.SendChangeSingleProductToken, OnChangeSingleProductToken);
             //点击切换商品
             WeakReferenceMessenger.Default.Register<MyProduct, string>(this, MessengerConstMessage.SendSwitchProductToken, OnSendSwitchProductToken);
+            //选择商品界面点击切换商品
+            WeakReferenceMessenger.Default.Register<MyProduct, string>(this, MessengerConstMessage.ChooseProductChangeToken, OnChooseProductChange);
             _uiService.OpenCustomerInitBottomView();
 
         }
+
+
 
         #endregion
 
@@ -514,7 +518,7 @@ namespace csr_windows.Client.ViewModels.Customer
 
             UserControls.Add(chatBaseView);
         }
-
+            
         /// <summary>
         /// 添加loading控件
         /// </summary>
@@ -654,7 +658,6 @@ namespace csr_windows.Client.ViewModels.Customer
                     //添加一个欢迎UserControl
                     var firstChat = AddTextControl(ChatIdentityEnum.Recipient, GlobalCache.WelcomeConstString, toAddCurrentUserControls: false);
                     GlobalCache.CustomerChatList[mBaseProduct.SendUserNiceName] = new List<UserControl>() { firstChat };
-
                 }
                 chatBaseViewModel.ContentControl = chatTextAndProductView;
                 chatBaseView.DataContext = chatBaseViewModel;
@@ -663,6 +666,7 @@ namespace csr_windows.Client.ViewModels.Customer
                 {
                     GlobalCache.CustomerCurrentProductList[mBaseProduct.SendUserNiceName] = myProducts[0];
                 }
+                AddCustomerDialogueProducts(mBaseProduct.SendUserNiceName, myProducts);
             }
             else
             {
@@ -684,8 +688,28 @@ namespace csr_windows.Client.ViewModels.Customer
                 {
                     UserControls.Add(chatBaseView);
                 }
+                AddCustomerDialogueProducts(GlobalCache.CurrentCustomer.UserNiceName, myProducts);
             }
         }
+
+        private void AddCustomerDialogueProducts(string userNickName,List<MyProduct> list)
+        {
+            var isGetSuccess = GlobalCache.CustomerDialogueProducts.TryGetValue(userNickName, out List<MyProduct> _tempMyProduct);
+            if (!isGetSuccess)
+            {
+                GlobalCache.CustomerDialogueProducts[userNickName] = list;
+                return;
+            }
+            foreach (var item in list)
+            {
+                var _list = GlobalCache.CustomerDialogueProducts[userNickName].Where(x => x.ProductName == item.ProductName);
+                if (_list.Count() == 0)//没有重复的
+                {
+                    GlobalCache.CustomerDialogueProducts[userNickName].Add(item);
+                }
+            }
+        }
+
 
         /// <summary>
         /// 切换多个商品
@@ -777,6 +801,32 @@ namespace csr_windows.Client.ViewModels.Customer
             AddTextControl(ChatIdentityEnum.Recipient, "明白了，后续回答将基于该商品。");
         }
 
+
+        /// <summary>
+        /// 选择商品界面切换商品
+        /// </summary>
+        /// <param name="recipient"></param>
+        /// <param name="message"></param>
+        /// <exception cref="NotImplementedException"></exception>
+        private void OnChooseProductChange(object recipient, MyProduct message)
+        {
+            ChatBaseView chatBaseView = new ChatBaseView()
+            {
+                DataContext = new ChatBaseViewModel()
+                {
+                    ChatIdentityEnum = ChatIdentityEnum.Sender,
+                    ContentControl = new ChatTextAndProductView()
+                    {
+                        DataContext = new ChatTextAndProductViewModel(new List<MyProduct>() { message }, ChatTextAndProductIdentidyEnum.CustomerService)
+                        {
+                            StartContent = "后续内容基于这款商品：",
+                        }
+                    }
+                }
+            };
+            UserControls.Add(chatBaseView);
+            GlobalCache.CurrentProduct = message;
+        }
 
         #endregion
 

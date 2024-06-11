@@ -64,24 +64,15 @@ namespace csr_windows.Client.ViewModels.Menu
 
             #region 测试代码
 
-            for (int i = 0; i < 5; i++)
+            if (GlobalCache.HaveCustomer && GlobalCache.CustomerDialogueProducts.ContainsKey(GlobalCache.CurrentCustomer.UserNiceName))
             {
-                DialogueProducts.Add(new MyProduct()
-                {
-                    ProductImage = "https://pic1.zhimg.com/v2-0dda71bc9ced142bf7bb2d6adbebe4f0_r.jpg?source=1940ef5c",
-                    ProductName = $"对话商品 Index:{i}"
-                });
+                HaveDialogueProduct = GlobalCache.CustomerDialogueProducts[GlobalCache.CurrentCustomer.UserNiceName].Count != 0;
+                DialogueProducts = GlobalCache.CustomerDialogueProducts[GlobalCache.CurrentCustomer.UserNiceName];
             }
+            
+           
 
-
-            for (int i = 0; i < 15; i++)
-            {
-                HotSellingProducts.Add(new MyProduct()
-                {
-                    ProductImage = "https://pic1.zhimg.com/v2-0dda71bc9ced142bf7bb2d6adbebe4f0_r.jpg?source=1940ef5c",
-                    ProductName = $"热销商品 Index:{i}"
-                });
-            }
+            HotSellingProducts = GlobalCache.HotSellingProducts;
 
             storeProducts.AddRange(DialogueProducts);
             storeProducts.AddRange(HotSellingProducts);
@@ -166,7 +157,7 @@ namespace csr_windows.Client.ViewModels.Menu
         /// <summary>
         /// 热销产品
         /// </summary>
-        public IList<MyProduct> HotSellingProducts { get; } = new ObservableCollection<MyProduct>();
+        public IList<MyProduct> HotSellingProducts { get; set; } = new ObservableCollection<MyProduct>();
 
         /// <summary>
         /// 搜索的商品
@@ -196,7 +187,14 @@ namespace csr_windows.Client.ViewModels.Menu
         private void OnSearchCommand()
         {
             IsSearch = string.IsNullOrEmpty(SearchContent.Trim()) ? false : true;
-            var matchingProducts = storeProducts.Where(p => p.ProductName.Contains(SearchContent)).ToList();
+
+            List<MyProduct> matchingProducts = storeProducts
+            .Where(p => p.ProductName.Contains(SearchContent))
+            .GroupBy(obj => obj.ProductName)
+            .Select(group => group.First())
+            .ToList();
+
+            //var matchingProducts = storeProducts.Where(p => p.ProductName.Contains(SearchContent)).ToList();
             IsSearchResult = matchingProducts.Count > 0;
             SearchProducts = new ObservableCollection<MyProduct>(matchingProducts);
             SearchProductNum = matchingProducts.Count;
@@ -209,7 +207,8 @@ namespace csr_windows.Client.ViewModels.Menu
         /// <exception cref="NotImplementedException"></exception>
         private void OnChooseCommand(MyProduct product)
         {
-            
+            OnCloseCommand();
+            WeakReferenceMessenger.Default.Send(product, MessengerConstMessage.ChooseProductChangeToken);
 
         }
 

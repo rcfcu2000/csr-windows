@@ -55,6 +55,8 @@ namespace csr_windows.Domain
         /// </summary>
         public const string ChangeCurrentCustomerToken = "ChangeCurrentCustomerToken";
 
+
+
         #region 聊天内容的Toekn
 
         /// <summary>
@@ -78,6 +80,11 @@ namespace csr_windows.Domain
         public const string Want2ReplyResponseToken = "Want2ReplyResponseToken";
 
         /// <summary>
+        /// 获取热销列表
+        /// </summary>
+        public const string GetGoodsListToken = "GetGoodsListToken";
+
+        /// <summary>
         /// 发送Msg单个商品
         /// </summary>
         public const string SendMsgSingleProductToken = "SendMsgSingleProductToken";
@@ -98,9 +105,14 @@ namespace csr_windows.Domain
         public const string SendChangeProductCustomerToken = "SendChangeProductCustomerToken";
 
         /// <summary>
-        /// 切换单个商品
+        /// 切换单个商品(点击聊天中的商品切换)
         /// </summary>
         public const string SendChangeSingleProductToken = "SendChangeSingleProductToken";
+
+        /// <summary>
+        /// 选择商品界面切换商品
+        /// </summary>
+        public const string ChooseProductChangeToken = "ChooseProductChangeToken";
 
         /// <summary>
         /// 点击切换的时候切换商品

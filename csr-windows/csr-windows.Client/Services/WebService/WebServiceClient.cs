@@ -81,6 +81,7 @@ namespace csr_windows.Client.Services.WebService
                     allSockets.Add(socket);
                     //启动成功
                     SendJSFunc(JSFuncType.GetCurrentCsr);
+                    SendJSFunc(JSFuncType.GetGoodsList);
                 };
 
                 socket.OnClose = () =>
@@ -95,10 +96,25 @@ namespace csr_windows.Client.Services.WebService
                     if (json.type == "goodsList")
                     {
                         JArray glist = json.msg.data.table.dataSource;
+                        Console.WriteLine(JsonConvert.SerializeObject(glist));
+                        List<GetGoodProductModel> list = new List<GetGoodProductModel>();
                         foreach (dynamic good in glist)
                         {
+                            string pic = good.itemDesc.img;
+                            if (!pic.StartsWith("http"))
+                            {
+                                pic = $"http:{pic}";
+                            }
+                            list.Add(new GetGoodProductModel()
+                            {
+                                ItemId = good.itemId,
+                                Pic = pic,
+                                ActionUrl = good.itemDesc.desc[0].href
+                            });
                             Console.WriteLine($"item get：{good.itemId}, {good.monthlySoldQuantity}, {good.itemDesc.desc[0].text}");
                         }
+                        list.OrderBy(s => s.MmonthlySoldQuantity);
+                        WeakReferenceMessenger.Default.Send(list,MessengerConstMessage.GetGoodsListToken);
                     }
 
 

@@ -3,6 +3,7 @@ using csr_windows.Domain.Common;
 using csr_windows.Domain.WebSocketModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -50,6 +51,18 @@ namespace csr_windows.Domain
         /// 每个客户的当前
         /// </summary>
         public static Dictionary<string,MyProduct> CustomerCurrentProductList = new Dictionary<string,MyProduct>();
+
+
+        /// <summary>
+        /// 对话中的列表
+        /// </summary>
+        public static Dictionary<string, List<MyProduct>> CustomerDialogueProducts = new Dictionary<string, List<MyProduct>>();
+
+        /// <summary>
+        /// 热销列表
+        /// </summary>
+        public static List<MyProduct> HotSellingProducts = new List<MyProduct>();
+
 
         /// <summary>
         /// 是否跟随了千牛的Window
@@ -188,6 +201,8 @@ namespace csr_windows.Domain
             set { _customerServiceNickName = value; }
         }
 
+
+ 
 
 
         #endregion
