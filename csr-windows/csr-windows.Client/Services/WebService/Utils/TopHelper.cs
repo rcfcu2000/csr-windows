@@ -333,11 +333,12 @@ namespace csr_windows.Client.Services.WebService
         /// <param name="nick"></param>
         /// <param name="msg"></param>
         /// <returns></returns>
-        public static string QNSendMsgJS(string nick, string msg)
+        public static string QNSendMsgJS(string nick, string msg,string productName)
         {
 
             dynamic root = new JObject();
             root.act = "sendMsg";
+            root.productName = productName;
             // 添加userid和msg值
             root.param = new JObject();
             root.param.userid = nick;

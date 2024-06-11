@@ -1,4 +1,5 @@
-﻿using System;
+﻿using csr_windows.Resources.Enumeration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -70,6 +71,16 @@ namespace csr_windows.Client.Views.Public
         public static readonly DependencyProperty IsShowIconProperty =
             DependencyProperty.Register("IsShowIcon", typeof(bool), typeof(PromptWindow), new PropertyMetadata(true));
 
+
+        public PromptEnum PromptEnum
+        {
+            get { return (PromptEnum)GetValue(PromptEnumProperty); }
+            set { SetValue(PromptEnumProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for PromptEnum.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty PromptEnumProperty =
+            DependencyProperty.Register("PromptEnum", typeof(PromptEnum), typeof(PromptWindow));
 
 
 

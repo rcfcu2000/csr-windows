@@ -3,7 +3,12 @@ using CommunityToolkit.Mvvm.DependencyInjection;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using csr_windows.Client.Services.Base;
+using csr_windows.Core;
 using csr_windows.Domain;
+using csr_windows.Domain.Api;
+using csr_windows.Domain.BaseModels.BackEnd.Base;
+using csr_windows.Resources.Enumeration;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -52,8 +57,20 @@ namespace csr_windows.Client.ViewModels.Main
         /// <summary>
         /// 确认
         /// </summary>
-        private void OnConfirmCommand()
+        private async void OnConfirmCommand()
         {
+            int saleType = (int)(GlobalCache.IsItPreSalesCustomerService ? SalesRepType.PreSale : SalesRepType.AfterSale);
+            //调用接口
+            Dictionary<string, string> keyValuePairs = new Dictionary<string, string>()
+            {
+                { "salesRepType",$"{saleType}" }
+            };
+
+            string content = await ApiClient.Instance.PutAsync(BackEndApiList.SetSelfInfo, keyValuePairs);
+            if (content == string.Empty)
+            {
+                return;
+            }
             //然后最后进入聊天界面
             WeakReferenceMessenger.Default.Send("", MessengerConstMessage.LoginSuccessToken);
             _uiService.OpenCustomerView();

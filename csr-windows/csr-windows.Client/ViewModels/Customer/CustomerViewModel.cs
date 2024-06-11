@@ -94,6 +94,7 @@ namespace csr_windows.Client.ViewModels.Customer
                         //添加一个欢迎UserControl
                         AddTextControl(ChatIdentityEnum.Recipient, GlobalCache.WelcomeConstString);
                     });
+                    GlobalCache.CurrentProduct = null;
                 }
                 else
                 {
@@ -141,7 +142,7 @@ namespace csr_windows.Client.ViewModels.Customer
             //我该怎么回 回调
             WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.AskAIResponseToken, AnalysisAskAIReponse);
 
-            //我想怎么回
+            //我想这样回
             WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.Want2ReplyToken, (r, m) => 
             {
                 AddBottomBoldControl(ChatIdentityEnum.Sender, m);
@@ -151,7 +152,7 @@ namespace csr_windows.Client.ViewModels.Customer
                 WebServiceClient.SendJSFunc(JSFuncType.GetRemoteHisMsg, GlobalCache.CurrentCustomer.CCode, AIChatApiList.Want2Reply);
             });
 
-            //我想怎么回 回调
+            //我想这样回 回调
             WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.Want2ReplyResponseToken, AnalysisAskAIReponse);
 
             //HTTPError回调
@@ -444,8 +445,8 @@ namespace csr_windows.Client.ViewModels.Customer
                 {
                     DataContext = new ChatCopyTextViewModel(chatTestModels)
                     {
-                        IsHaveProduct = _copyTextCount == 1 ? true : false,
-                        ProductName = _copyTextCount == 1 ? "测试商品" : "",
+                        IsHaveProduct = !string.IsNullOrEmpty(param.ProductName),
+                        ProductName = param.ProductName,
                         AllContent = param.Param.Msg
                     }
                 };

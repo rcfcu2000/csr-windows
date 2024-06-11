@@ -35,7 +35,20 @@
                     Height="20"
                     Margin="0,0,10,0"
                     Source="{StaticResource IMG_Public_Success}"
-                    Visibility="{Binding IsShowIcon, Converter={StaticResource Boolean2VisibilityConverter}}" />
+                    Visibility="{Binding IsShowIcon, Converter={StaticResource Boolean2VisibilityConverter}}">
+                    <Image.Style>
+                        <Style TargetType="Image">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding PromptEnum}" Value="Success">
+                                    <Setter Property="Source" Value="{StaticResource IMG_Public_Success}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding PromptEnum}" Value="Note">
+                                    <Setter Property="Source" Value="{StaticResource IMG_Public_PromotNote}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
                 <TextBlock
                     Grid.Column="1"
                     VerticalAlignment="Center"

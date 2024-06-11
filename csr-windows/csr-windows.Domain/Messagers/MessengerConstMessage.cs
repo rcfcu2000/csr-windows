@@ -20,6 +20,11 @@ namespace csr_windows.Domain
         public const string OpenPromptMessageToken = "OpenPromptMessageToken";
 
         /// <summary>
+        /// 打开 警示 PromptMessage
+        /// </summary>
+        public const string OpenPromptNoteMessageToken = "OpenPromptNoteMessageToken";
+
+        /// <summary>
         /// 打开菜单的窗体
         /// </summary>
         public const string OpenMenuUserControlToken = "OpenMenuUserControlToken";

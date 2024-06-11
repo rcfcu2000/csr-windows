@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,5 +13,20 @@ namespace csr_windows.Domain.Api
         /// 根据淘宝ID获取商品卡
         /// </summary>
         public const string GetMerchantByTid = "/merchant/getByTid";
+
+        /// <summary>
+        /// 获取用户信息
+        /// </summary>
+        public const string GerUserInfo = "/base/userinfo";
+
+        /// <summary>
+        /// SSO登录注册
+        /// </summary>
+        public const string SSOLogin = "/user/ssoLogin";
+
+        /// <summary>
+        /// 设置用户信息
+        /// </summary>
+        public const string SetSelfInfo = "/user/setUserInfo";
     }
 }

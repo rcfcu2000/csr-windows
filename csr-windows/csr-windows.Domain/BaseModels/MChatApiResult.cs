@@ -21,5 +21,11 @@ namespace csr_windows.Domain.BaseModels
         /// </summary>
         [JsonProperty("param")]
         public T Param { get; set; }
+
+        /// <summary>
+        /// 商品名称
+        /// </summary>
+        [JsonProperty("productName")]
+        public string ProductName { get; set; }
     }
 }

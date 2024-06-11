@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using csr_windows.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -10,6 +12,7 @@ namespace csr_windows.Core
 {
     public sealed class ApiClient
     {
+        private const string NoteMessage = "出了点问题，请再次点击";
         // 私有静态变量用于保存类的唯一实例
         private static readonly Lazy<ApiClient> lazyInstance = new Lazy<ApiClient>(() => new ApiClient());
         /// <summary>
@@ -35,6 +38,12 @@ namespace csr_windows.Core
         // 私有的HttpClient实例
         private readonly HttpClient _httpClient;
 
+        // 设置Token的方法
+        public void SetToken(string token)
+        {
+            _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("x-token", token);
+        }
+
         // GET请求方法
         public async Task<string> GetAsync(string url)
         {
@@ -46,10 +55,10 @@ namespace csr_windows.Core
             {
                 response.EnsureSuccessStatusCode();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex);
-                return "错误";
+                WeakReferenceMessenger.Default.Send(NoteMessage, MessengerConstMessage.OpenPromptNoteMessageToken);
+                return string.Empty;
             }
             return await response.Content.ReadAsStringAsync();
         }
@@ -59,7 +68,16 @@ namespace csr_windows.Core
         {
             url = ServerUrl + url;
             HttpResponseMessage response = await _httpClient.PostAsync(url, content);
-            response.EnsureSuccessStatusCode();
+            try
+            {
+                response.EnsureSuccessStatusCode();
+
+            }
+            catch (Exception)
+            {
+                WeakReferenceMessenger.Default.Send(NoteMessage, MessengerConstMessage.OpenPromptNoteMessageToken);
+                return string.Empty;
+            }
             return await response.Content.ReadAsStringAsync();
         }
 
@@ -73,19 +91,51 @@ namespace csr_windows.Core
             }
 
             HttpResponseMessage response = await _httpClient.GetAsync(url);
-            response.EnsureSuccessStatusCode();
+            try
+            {
+                response.EnsureSuccessStatusCode();
+            }
+            catch (Exception)
+            {
+                WeakReferenceMessenger.Default.Send(NoteMessage, MessengerConstMessage.OpenPromptNoteMessageToken);
+                return string.Empty;
+            }
             return await response.Content.ReadAsStringAsync();
         }
 
         // POST请求方法
         public async Task<string> PostAsync(string url, IDictionary<string, string> parameters)
         {
+            url = ServerUrl + url;
             var content = new FormUrlEncodedContent(parameters);
             HttpResponseMessage response = await _httpClient.PostAsync(url, content);
-            response.EnsureSuccessStatusCode();
+            try
+            {
+                response.EnsureSuccessStatusCode();
+            }
+            catch (Exception)
+            {
+                WeakReferenceMessenger.Default.Send(NoteMessage, MessengerConstMessage.OpenPromptNoteMessageToken);
+                return string.Empty;
+            }
             return await response.Content.ReadAsStringAsync();
         }
 
-
+        // PUT请求方法
+        public async Task<string> PutAsync(string url, IDictionary<string, string> parameters)
+        {
+            var content = new FormUrlEncodedContent(parameters);
+            HttpResponseMessage response = await _httpClient.PutAsync(url, content);
+            try
+            {
+                response.EnsureSuccessStatusCode();
+            }
+            catch (Exception)
+            {
+                WeakReferenceMessenger.Default.Send(NoteMessage, MessengerConstMessage.OpenPromptNoteMessageToken);
+                return string.Empty;
+            }
+            return await response.Content.ReadAsStringAsync();
+        }
     }
 }

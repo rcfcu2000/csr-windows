@@ -1,7 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
+using csr_windows.Core;
 using csr_windows.Domain;
+using csr_windows.Domain.Api;
+using csr_windows.Resources.Enumeration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,8 +34,20 @@ namespace csr_windows.Client.ViewModels.Menu
         #region Constructor
         public PersonalDataViewModel()
         {
-            CloseCommand = new RelayCommand(() =>
+            CloseCommand = new RelayCommand(async () =>
             {
+                int saleType = (int)(GlobalCache.IsItPreSalesCustomerService ? SalesRepType.PreSale : SalesRepType.AfterSale);
+                //调用接口
+                Dictionary<string, string> keyValuePairs = new Dictionary<string, string>()
+                {
+                    { "salesRepType",$"{saleType}" }
+                };
+
+                string content = await ApiClient.Instance.PutAsync(BackEndApiList.SetSelfInfo, keyValuePairs);
+                if (content == string.Empty)
+                {
+                    return;
+                }
                 WeakReferenceMessenger.Default.Send("", MessengerConstMessage.CloseMenuUserControlToken);
             });
         }

@@ -281,7 +281,7 @@ namespace csr_windows.Client.Services.WebService
                             var responseString = response.Content.ReadAsStringAsync().Result;
                             dynamic aijson = JsonConvert.DeserializeObject(responseString);
                             //tp.QNSendMsgVer912(user_name, (string) aijson.response);
-                            string sendMsg = TopHelp.QNSendMsgJS(user_name, (string)aijson.response);
+                            string sendMsg = TopHelp.QNSendMsgJS(user_name, (string)aijson.response, GlobalCache.CurrentProduct?.ProductName);
                             WeakReferenceMessenger.Default.Send(sendMsg, MessengerConstMessage.AskAIResponseToken);
                         }
                         else

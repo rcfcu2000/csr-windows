@@ -21,5 +21,7 @@ namespace csr_windows.Domain.WebSocketModels
         /// </summary>
         [JsonProperty("msg")]
         public string Msg { get; set; }
+
+
     }
 }

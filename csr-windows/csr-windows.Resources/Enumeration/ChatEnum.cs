@@ -67,4 +67,20 @@ namespace csr_windows.Resources.Enumeration
         Loading
 
     }
+
+    /// <summary>
+    /// 销售的类型
+    /// </summary>
+    public enum SalesRepType
+    {
+        /// <summary>
+        /// 售前
+        /// </summary>
+        PreSale = 1,
+
+        /// <summary>
+        /// 售后
+        /// </summary>
+        AfterSale,
+    }
 }

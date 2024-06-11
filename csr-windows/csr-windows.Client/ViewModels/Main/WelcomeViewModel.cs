@@ -6,7 +6,13 @@ using csr_windows.Client.Services.Base;
 using csr_windows.Client.Services.WebService;
 using csr_windows.Client.Services.WebService.Enums;
 using csr_windows.Common.Helper;
+using csr_windows.Core;
 using csr_windows.Domain;
+using csr_windows.Domain.Api;
+using csr_windows.Domain.BaseModels.BackEnd;
+using csr_windows.Domain.BaseModels.BackEnd.Base;
+using csr_windows.Resources.Enumeration;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,7 +60,7 @@ namespace csr_windows.Client.ViewModels.Main
 
         #region Methods
         private bool isFirstIn;
-        private void OnUseCommand()
+        private async void OnUseCommand()
         {
             //这里首先有三个判断
 
@@ -63,10 +69,48 @@ namespace csr_windows.Client.ViewModels.Main
 
             if (isRunning)
             {
+                //还没有获取千牛的时候怎么处理？
+                //kill接待中心，重新打开
+                if (!GlobalCache.HaveStoreName)
+                {
+                    _uiService.OpenNoStartClientView();
+                    return;
+                }
 
+                //调用接口
+                Dictionary<string, string> keyValuePairs = new Dictionary<string, string>()
+                {
+                    { "name",$"{GlobalCache.CustomerServiceNickName}" }
+                };
+
+                string content = await ApiClient.Instance.PostAsync(BackEndApiList.GerUserInfo, keyValuePairs);
+                if (content == string.Empty)
+                {
+                    return;
+                }
+                BackendBase<object> model = JsonConvert.DeserializeObject<BackendBase<object>>(content);
+                isFirstIn = string.IsNullOrEmpty(content) ? false : model.Code != 0;
+                //todo:这里可能会 请求错误
                 //第二个判断是否是第一次进入
                 if (isFirstIn)
                 {
+                    keyValuePairs = new Dictionary<string, string>()
+                    {
+                        {"password","123456" },
+                        {"ssoUsername",$"{GlobalCache.CustomerServiceNickName}" },
+                        {"username","admin"}
+                    };
+                    content = await ApiClient.Instance.PostAsync(BackEndApiList.SSOLogin, keyValuePairs);
+                    if (content == string.Empty)
+                    {
+                        return;
+                    }
+                    BackendBase<SSOLoginModel> loginModel = JsonConvert.DeserializeObject<BackendBase<SSOLoginModel>>(content);
+                    if (model.Code == 0)
+                    {
+                        ApiClient.Instance.SetToken(loginModel.Data.Token);
+                        GlobalCache.IsItPreSalesCustomerService = loginModel.Data.User.SalesRepType == (int)SalesRepType.PreSale;
+                    }
                     _uiService.OpenFirstSettingView();
                 }
                 else

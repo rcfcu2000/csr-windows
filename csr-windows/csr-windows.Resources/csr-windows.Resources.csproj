@@ -64,6 +64,7 @@
     <Compile Include="Converters\IsNullConverter.cs" />
     <Compile Include="Enumeration\ChatEnum.cs" />
     <Compile Include="Enumeration\DPIConverterEnum.cs" />
+    <Compile Include="Enumeration\PromptEnum.cs" />
     <Compile Include="Extensions\ScrollViewerExtensions.cs" />
     <Compile Include="Helpers\ScreenManager.cs" />
     <Compile Include="Helpers\ValueBoxes.cs" />
@@ -237,6 +238,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Public\close_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Public\prompt_note.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

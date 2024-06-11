@@ -120,7 +120,7 @@
                 <TextBlock
                     FontSize="12"
                     Foreground="#E84993"
-                    Text="未检测到具体商品，内容可能有误"
+                    Text="未检测到具体商品，内容可能有误，请点击右下角选择商品"
                     Visibility="{Binding IsHaveProduct, Converter={StaticResource Boolean2VisibilityReConverter}}" />
                 <StackPanel Orientation="Horizontal" Visibility="{Binding IsHaveProduct, Converter={StaticResource Boolean2VisibilityConverter}}">
                     <StackPanel.Resources>
@@ -136,35 +136,6 @@
                     <TextBlock FontSize="12" Text=" 生成" />
                 </StackPanel>
             </Grid>
-
-            <Button
-                Width="70"
-                Height="15"
-                Margin="0,0,0,2"
-                Padding="0"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Bottom"
-                attach:IconProperties.IconHeight="16"
-                attach:IconProperties.IconThickness="0 0 5 0"
-                attach:IconProperties.IconUrl="{StaticResource IMG_Customer_ChooseProduct}"
-                attach:IconProperties.IconWidth="16"
-                Background="Transparent"
-                Command="{Binding ChooseProductCommand}"
-                FontSize="12"
-                Foreground="{StaticResource ThemeColorBrush}">
-                <Button.Style>
-                    <Style BasedOn="{StaticResource PrimaryImageContentButton}" TargetType="Button">
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding IsHaveProduct}" Value="True">
-                                <Setter Property="Content" Value="切换商品" />
-                            </DataTrigger>
-                            <DataTrigger Binding="{Binding IsHaveProduct}" Value="False">
-                                <Setter Property="Content" Value="选择商品" />
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
         </Grid>
     </Grid>
 </UserControl>

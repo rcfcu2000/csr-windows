@@ -161,7 +161,7 @@ namespace csr_windows.Client.ViewModels.Chat
             //弹提示框
             WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel(SendContentMessage, true), MessengerConstMessage.OpenPromptMessageToken);
             //发送消息
-            var msg = TopHelp.QNSendMsgJS(GlobalCache.CurrentCustomer.UserNiceName, content);
+            var msg = TopHelp.QNSendMsgJS(GlobalCache.CurrentCustomer.UserNiceName, content, GlobalCache.CurrentProduct?.ProductName);
             WebServiceClient.SendSocket(msg);
 
         }

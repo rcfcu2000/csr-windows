@@ -89,8 +89,12 @@
     <Compile Include="AIChat\Want2ReplyModel.cs" />
     <Compile Include="Api\AIChatApiList.cs" />
     <Compile Include="Api\BackEndApiList.cs" />
+    <Compile Include="BaseModels\BackEnd\Base\BackendBase.cs" />
     <Compile Include="BaseModels\BackEnd\Base\BaseGetMerchantByTidModel.cs" />
     <Compile Include="BaseModels\BackEnd\GetMerchantByTidModel.cs" />
+    <Compile Include="BaseModels\BackEnd\SSOLogin\SSOLoginAuthorityModel.cs" />
+    <Compile Include="BaseModels\BackEnd\SSOLogin\SSOLoginModel.cs" />
+    <Compile Include="BaseModels\BackEnd\SSOLogin\SSOLoginUserModel.cs" />
     <Compile Include="BaseModels\MBaseProduct.cs" />
     <Compile Include="BaseModels\MChatApiResult.cs" />
     <Compile Include="BaseModels\MJSResult.cs" />
