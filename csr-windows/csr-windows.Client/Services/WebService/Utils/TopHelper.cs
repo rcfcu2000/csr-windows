@@ -368,7 +368,7 @@ namespace csr_windows.Client.Services.WebService
             bool isSuccess = true;
             if (isSuccess)
             {
-                IntPtr hwd = FindWindowByProcessAndTitle("AliWorkbench", "-接待中心");
+                IntPtr hwd = FindWindowByProcessAndTitle("AliWorkbench", "接待中心");
 
                 if (hwd == IntPtr.Zero)
                 {
@@ -477,7 +477,7 @@ namespace csr_windows.Client.Services.WebService
             if (isSuccess)
             {
 
-                IntPtr hwd = FindWindowByProcessAndTitle("AliWorkbench", "-接待中心");
+                IntPtr hwd = FindWindowByProcessAndTitle("AliWorkbench", "接待中心");
 
                 var allChildWindows = new WindowHandleInfo(hwd).GetAllChildHandles();
                 RECT chatRect = new RECT();
