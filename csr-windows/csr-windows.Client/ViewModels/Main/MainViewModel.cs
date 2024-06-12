@@ -6,6 +6,7 @@ using csr_windows.Client.Services.Base;
 using csr_windows.Domain;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,8 @@ namespace csr_windows.Client.ViewModels.Main
 {
     public class MainViewModel : ObservableRecipient
     {
+
+        private static string ZHGWebURL = "https://www.zhihuige.cc/lmr/";
 
         #region Fields
 
@@ -91,9 +94,14 @@ namespace csr_windows.Client.ViewModels.Main
         /// <summary>
         /// 打开ai界面
         /// </summary>
-        /// <exception cref="NotImplementedException"></exception>
         private void OnOpenAICommand()
         {
+            // Start the default browser with the URL
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = ZHGWebURL + "win?token=" + GlobalCache.UserToken,
+                UseShellExecute = true
+            });
         }
 
         /// <summary>

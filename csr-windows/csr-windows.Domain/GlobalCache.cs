@@ -59,6 +59,7 @@ namespace csr_windows.Domain
 
         private static bool _haveStoreName;
         private static ShopModel _store;
+        private static string _token;
 
         private static PersonaModel _currentPersonaModel;
 
@@ -151,6 +152,21 @@ namespace csr_windows.Domain
             }
         }
 
+
+
+        /// <summary>
+        /// 店铺
+        /// </summary>
+        public static string UserToken
+        {
+            get { return _token; }
+            set
+            {
+                _token = value;
+                //调用通知
+                SetStaticPropertyChanged();
+            }
+        }
 
 
         /// <summary>

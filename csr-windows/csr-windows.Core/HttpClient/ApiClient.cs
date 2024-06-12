@@ -45,6 +45,7 @@ namespace csr_windows.Core
         public void SetToken(string token)
         {
             _httpClient.DefaultRequestHeaders.Add("X-Token", token);
+            GlobalCache.UserToken = token;
         }
 
         // GET请求方法

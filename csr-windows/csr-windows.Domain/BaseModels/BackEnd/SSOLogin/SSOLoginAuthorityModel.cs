@@ -22,11 +22,6 @@ namespace csr_windows.Domain.BaseModels.BackEnd
         /// <summary>
         /// 
         /// </summary>
-        public string DeletedAt { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         [JsonProperty("authorityId")]
         public int AuthorityId { get; set; }
 
@@ -35,30 +30,6 @@ namespace csr_windows.Domain.BaseModels.BackEnd
         /// </summary>
         [JsonProperty("authorityName")]
         public string AuthorityName { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [JsonProperty("parentId")]
-        public string ParentId { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [JsonProperty("dataAuthorityId")]
-        public string DataAuthorityId { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [JsonProperty("children")]
-        public string Children { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [JsonProperty("menus")]
-        public string Menus { get; set; }
 
         /// <summary>
         /// 

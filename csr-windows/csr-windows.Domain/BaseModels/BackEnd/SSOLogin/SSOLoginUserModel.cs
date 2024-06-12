@@ -82,7 +82,7 @@ namespace csr_windows.Domain.BaseModels.BackEnd
         /// 
         /// </summary>
         [JsonProperty("authorities")]
-        public List<string> Authorities { get; set; }
+        public List<SSOLoginAuthorityModel> Authorities { get; set; }
 
         /// <summary>
         /// 
