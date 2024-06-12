@@ -58,7 +58,7 @@
     <Compile Include="Controls\ShopControl\ProductControl.cs" />
     <Compile Include="Controls\TooltipContol\Poptip.cs" />
     <Compile Include="Controls\WindowContorl\DpiDecorator.cs" />
-    <Compile Include="Converters\ChatIdentityEnumConverter.cs" />
+    <Compile Include="Converters\EnumToVisibilityConverter.cs" />
     <Compile Include="Converters\DPIConverter.cs" />
     <Compile Include="Converters\DpiOffsetConverter.cs" />
     <Compile Include="Converters\IsNullConverter.cs" />
@@ -241,6 +241,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Public\prompt_note.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Menu\person_price_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Menu\lele.png" />
+    <Resource Include="Images\Menu\linda.png" />
+    <Resource Include="Images\Menu\xiaoxiao.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Menu\lele.gif" />
+    <Resource Include="Images\Menu\linda.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Menu\xiaoxiao.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -61,19 +61,19 @@
                         <TextBlock
                             FontSize="14"
                             LineHeight="25"
-                            Text="我是您的智能 AI 客服助手，利用先进的 AI 人工智能技术，"
+                            Text="欢迎使用会回，您的智能 AI 客服助手。我们利用先进的 AI "
                             TextWrapping="Wrap" />
                         <TextBlock
                             FontSize="14"
                             LineHeight="25"
-                            Text="我能够实时帮助您更精准而高效地回复顾客咨询的问题，让"
+                            Text="人工智能技术，能够实时帮助您更精准而高效的回复顾客咨"
                             TextWrapping="Wrap" />
                         <StackPanel Margin="0,0,0,15" Orientation="Horizontal">
 
                             <TextBlock
                                 FontSize="14"
                                 LineHeight="25"
-                                Text="您的客服工作 "
+                                Text="询的问题，让您的客服工作 "
                                 TextWrapping="Wrap" />
                             <TextBlock
                                 FontSize="14"

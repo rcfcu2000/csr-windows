@@ -6,6 +6,7 @@
     xmlns:extension="clr-namespace:csr_windows.Resources.Extensions;assembly=csr-windows.Resources"
     xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:local="clr-namespace:csr_windows.Client.Views.Customer"
+    xmlns:lottie="clr-namespace:LottieSharp.WPF;assembly=LottieSharp"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:csr_windows.Client.ViewModels.Customer"
     d:DataContext="{d:DesignInstance vm:CustomerViewModel}"
@@ -37,22 +38,87 @@
                         <TextBlock Text="：" Visibility="{Binding Source={StaticResource GlobalCache}, Path=HaveStoreName, Converter={StaticResource Boolean2VisibilityConverter}}" />
                         <TextBlock Text="{Binding Source={StaticResource GlobalCache}, Path=UserName}" />
                     </StackPanel>
-                    <TextBlock
-                        Margin="0,0,0,5"
-                        FontSize="20"
-                        FontWeight="Bold"
-                        Opacity="0.9"
-                        Text="AI客服助手" />
-                    <TextBlock
-                        FontSize=" 12"
-                        Foreground="{StaticResource 0.5OpacityBlackTheme}"
-                        Text="{Binding CurrentCustomer.UserDisplayName, StringFormat={}当前服务：{0}}"
-                        Visibility="{Binding Source={StaticResource GlobalCache}, Path=HaveCustomer, Converter={StaticResource Boolean2VisibilityConverter}}" />
-                    <TextBlock
-                        FontSize=" 12"
-                        Foreground="{StaticResource 0.5OpacityBlackTheme}"
-                        Text="当前暂无接入的顾客"
-                        Visibility="{Binding Source={StaticResource GlobalCache}, Path=HaveCustomer, Converter={StaticResource Boolean2VisibilityReConverter}}" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <!--<lottie:LottieAnimationView
+                            Width="48"
+                            Height="48"
+                            Margin="0,0,10,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            AutoPlay="True"
+                            FileName="././LottieJsonResouce/99999.json"
+                            RepeatCount="-1" />-->
+                        <Button Margin="0,0,10,0" Command="{Binding OpenChangePersonaCommand}">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Cursor" Value="Hand" />
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Grid>
+                                                    <hc:GifImage
+                                                        Width="48"
+                                                        Height="48"
+                                                        Uri="{Binding Source={StaticResource GlobalCache}, Path=CurrentPersonaModel.GifFilePath}">
+                                                        <Image.Clip>
+                                                            <EllipseGeometry
+                                                                Center="24 24"
+                                                                RadiusX="24"
+                                                                RadiusY="24" />
+                                                        </Image.Clip>
+                                                    </hc:GifImage>
+                                                    <Border
+                                                        x:Name="border"
+                                                        Background="#66000000"
+                                                        CornerRadius="24"
+                                                        Visibility="Collapsed">
+                                                        <TextBlock
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"
+                                                            Foreground="#FFFFFFFF"
+                                                            Text="切换" />
+                                                    </Border>
+                                                </Grid>
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter TargetName="border" Property="Visibility" Value="Visible" />
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+
+                        <StackPanel Grid.Column="1">
+                            <TextBlock
+                                Margin="0,0,0,5"
+                                FontSize="20"
+                                FontWeight="Bold"
+                                Opacity="0.9"
+                                Text="{Binding Source={StaticResource GlobalCache}, Path=CurrentPersonaModel.Name, StringFormat={}您好，我是{0}}" />
+                            <Grid>
+                                <TextBlock
+                                    FontSize=" 12"
+                                    Foreground="{StaticResource 0.5OpacityBlackTheme}"
+                                    Text="{Binding CurrentCustomer.UserDisplayName, StringFormat={}当前服务：{0}}"
+                                    Visibility="{Binding Source={StaticResource GlobalCache}, Path=HaveCustomer, Converter={StaticResource Boolean2VisibilityConverter}}" />
+                                <TextBlock
+                                    FontSize=" 12"
+                                    Foreground="{StaticResource 0.5OpacityBlackTheme}"
+                                    Text="当前暂无接入的顾客"
+                                    Visibility="{Binding Source={StaticResource GlobalCache}, Path=HaveCustomer, Converter={StaticResource Boolean2VisibilityReConverter}}" />
+                            </Grid>
+                        </StackPanel>
+
+                    </Grid>
+
                 </StackPanel>
 
                 <Rectangle

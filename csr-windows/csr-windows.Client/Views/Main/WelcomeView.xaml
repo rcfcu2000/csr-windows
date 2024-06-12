@@ -30,7 +30,7 @@
                     <TextBlock
                         Margin="0,0,0,5"
                         FontSize="24"
-                        Text="欢迎使用会回AI客服助手" />
+                        Text="欢迎使用会回客服助手" />
                     <Image
                         Width="30"
                         Height="30"

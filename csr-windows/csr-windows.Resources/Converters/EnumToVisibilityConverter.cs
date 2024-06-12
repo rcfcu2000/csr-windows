@@ -9,7 +9,7 @@ using System.Windows.Data;
 
 namespace csr_windows.Resources.Converters
 {
-    public class ChatIdentityEnumConverter : IValueConverter
+    public class EnumToVisibilityConverter : IValueConverter
     {
         public Visibility EqualsVisibility { get; set; }
         public Visibility NotEqualsVisibility { get; set; }

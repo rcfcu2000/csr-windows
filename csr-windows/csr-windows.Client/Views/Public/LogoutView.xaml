@@ -35,7 +35,7 @@
                     HorizontalAlignment="Center"
                     FontSize="14"
                     Foreground="#99000000"
-                    Text="退出后将无法继续使用AI助手" />
+                    Text="退出后将我将无法继续帮助您" />
                 <StackPanel Orientation="Horizontal">
                     <Button
                         Width="120"

@@ -19,7 +19,8 @@ namespace csr_windows.Domain
     /// </summary>
     public class GlobalCache
     {
-
+        private static readonly Lazy<GlobalCache> instance = new Lazy<GlobalCache>(() => new GlobalCache());
+        public static GlobalCache Instance => instance.Value;
         #region Fields
         /// <summary>
         /// 欢迎语
@@ -39,10 +40,11 @@ namespace csr_windows.Domain
         /// </summary>
         public static string CurrentProductWant2ReplyGuideContent;
 
-
-
         private static bool _haveStoreName;
         private static ShopModel _store;
+
+        private static PersonaModel _currentPersonaModel;
+
 
         /// <summary>
         /// 每个客户的聊天记录
@@ -207,6 +209,19 @@ namespace csr_windows.Domain
             set
             {
                 _isHaveProduct = value;
+                SetStaticPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// 当前人设
+        /// </summary>
+        public static PersonaModel CurrentPersonaModel
+        {
+            get { return _currentPersonaModel; }
+            set 
+            { 
+                _currentPersonaModel = value;
                 SetStaticPropertyChanged();
             }
         }
