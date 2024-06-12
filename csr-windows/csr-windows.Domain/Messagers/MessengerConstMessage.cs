@@ -78,6 +78,11 @@ namespace csr_windows.Domain
         public const string AskAIResponseToken = "AskAIResponseToken";
 
         /// <summary>
+        /// 流式返回
+        /// </summary>
+        public const string SSESteamReponseToken = "SSESteamReponseToken";
+
+        /// <summary>
         /// 我想怎么回
         /// </summary>
         public const string Want2ReplyToken = "Want2ReplyToken";

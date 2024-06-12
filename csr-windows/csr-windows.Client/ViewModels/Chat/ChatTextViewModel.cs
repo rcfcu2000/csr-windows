@@ -28,6 +28,10 @@ namespace csr_windows.Client.ViewModels.Chat
         {
             _content = content;
         }
+        public ChatTextViewModel()
+        {
+            
+        }
         #endregion
 
         #region Properties

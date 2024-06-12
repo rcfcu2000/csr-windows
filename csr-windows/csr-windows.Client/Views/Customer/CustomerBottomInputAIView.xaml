@@ -27,6 +27,7 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <hc:TextBox
+                        x:Name="textBox"
                         Height="80"
                         Margin="0,0,0,10"
                         Padding="0"
@@ -36,6 +37,7 @@
                         BorderThickness="0"
                         FontSize="14"
                         Foreground="{StaticResource 0.8OpacityBlackTheme}"
+                        PreviewKeyDown="TextBox_PreviewKeyDown"
                         ScrollViewer.VerticalScrollBarVisibility="Visible"
                         Text="{Binding Content, UpdateSourceTrigger=PropertyChanged}"
                         TextWrapping="Wrap" />
@@ -45,6 +47,7 @@
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <Button
+                            x:Name="button"
                             Width="295"
                             Height="40"
                             Margin="0,0,5,0"
@@ -59,7 +62,6 @@
                             Cursor="Hand"
                             FontSize="14"
                             Foreground="White"
-                            IsDefault="True"
                             Style="{StaticResource PrimaryImageContentButton}" />
                         <Button
                             Grid.Column="1"

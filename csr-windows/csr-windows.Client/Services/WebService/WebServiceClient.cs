@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.Messaging;
 using csr_windows.Client.Services.WebService.Enums;
+using csr_windows.Client.ViewModels.Chat;
+using csr_windows.Client.Views.Chat;
 using csr_windows.Common.Helper;
 using csr_windows.Domain;
 using csr_windows.Domain.AIChat;
@@ -12,11 +14,13 @@ using Newtonsoft.Json.Linq;
 using Sunny.UI.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Interop;
 
 namespace csr_windows.Client.Services.WebService
@@ -293,20 +297,72 @@ namespace csr_windows.Client.Services.WebService
 
                         HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Post, aiURL);
                         requestMessage.Content = new StringContent(jsonMessage, Encoding.UTF8, "application/json");
-                        HttpResponseMessage response = _httpClient.SendAsync(requestMessage).Result;
-                        if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                        ChatTextViewModel chatTextViewModel = null;
+                        ChatBaseView chatBaseView = null;
+                        Application.Current.Dispatcher.Invoke(() => 
                         {
-                            var responseString = response.Content.ReadAsStringAsync().Result;
-                            dynamic aijson = JsonConvert.DeserializeObject(responseString);
-                            //tp.QNSendMsgVer912(user_name, (string) aijson.response);
-                            string sendMsg = TopHelp.QNSendMsgJS(user_name, (string)aijson.response, GlobalCache.CurrentProduct?.ProductName);
-                            WeakReferenceMessenger.Default.Send(sendMsg, MessengerConstMessage.AskAIResponseToken);
-                        }
-                        else
+                            chatTextViewModel = new ChatTextViewModel();
+                            chatBaseView = new ChatBaseView()
+                            {
+                                DataContext = new ChatBaseViewModel()
+                                {
+                                    ChatIdentityEnum = Resources.Enumeration.ChatIdentityEnum.Recipient,
+                                    ContentControl = new ChatTextView()
+                                    {
+                                        DataContext = chatTextViewModel
+                                    }
+                                }
+                            };
+                        });
+                        
+
+                        Task.Factory.StartNew(async () => 
                         {
-                            //发送错误消息提示
-                            WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.ApiChatHttpErrorToken);
-                        }
+                            HttpResponseMessage response = await _httpClient.SendAsync(requestMessage, HttpCompletionOption.ResponseHeadersRead);
+                            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                            {
+                                bool isFirst = true;
+                                using (var stream = await response.Content.ReadAsStreamAsync())
+                                using (var reader = new StreamReader(stream))
+                                {
+                                    while (!reader.EndOfStream)
+                                    {
+                                        string line = await reader.ReadLineAsync();
+                                        if (!string.IsNullOrWhiteSpace(line))
+                                        {
+                                            chatTextViewModel.Content += line;
+                                            Console.WriteLine(chatTextViewModel.Content);
+                                            if (isFirst)
+                                            {
+                                                isFirst = false;
+                                                Console.WriteLine(chatBaseView);
+                                                WeakReferenceMessenger.Default.Send(chatBaseView,MessengerConstMessage.SSESteamReponseToken);
+                                            }
+                                        }
+                                    }
+                                }
+
+                                string sendMsg = TopHelp.QNSendMsgJS(user_name, chatTextViewModel.Content, GlobalCache.CurrentProduct?.ProductName);
+                                string messengerToken = MessengerConstMessage.AskAIResponseToken;
+                                switch (apiChatUri)
+                                {
+                                    case AIChatApiList.How2Replay:
+                                        messengerToken = MessengerConstMessage.AskAIResponseToken;
+                                        break;
+                                    case AIChatApiList.Want2Reply:
+                                        messengerToken = MessengerConstMessage.Want2ReplyResponseToken;
+                                        break;
+                                    default:
+                                        break;
+                                }
+                                WeakReferenceMessenger.Default.Send(sendMsg, messengerToken);
+                            }
+                            else
+                            {
+                                //发送错误消息提示
+                                WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.ApiChatHttpErrorToken);
+                            }
+                        });
                     }
 
                     if (json.type == "message")

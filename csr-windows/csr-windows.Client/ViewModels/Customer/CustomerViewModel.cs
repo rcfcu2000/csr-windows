@@ -108,6 +108,9 @@ namespace csr_windows.Client.ViewModels.Customer
                 }
 
             });
+
+            WeakReferenceMessenger.Default.Register<ChatBaseView, string>(this, MessengerConstMessage.SSESteamReponseToken, OnSSESteamReponse);
+
             //我该怎么回
             WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.AskAIToken, (r, m) =>
             {
@@ -187,6 +190,7 @@ namespace csr_windows.Client.ViewModels.Customer
 
 
 
+
         #endregion
 
         #region Properties
@@ -238,7 +242,21 @@ namespace csr_windows.Client.ViewModels.Customer
 
         #region Methods
 
-
+        private UserControl sseUserControl;
+        /// <summary>
+        /// SSE流式返回
+        /// </summary>
+        /// <param name="recipient"></param>
+        /// <param name="message"></param>
+        private void OnSSESteamReponse(object recipient, ChatBaseView message)
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                sseUserControl = message;
+                RemoveLoadingControl();
+                UserControls.Add(message);
+            });
+        }
 
         /// <summary>
         /// 解析回答
@@ -253,6 +271,8 @@ namespace csr_windows.Client.ViewModels.Customer
             // 切换到UI线程更新UI
             Application.Current.Dispatcher.Invoke(() =>
             {
+                UserControls.Remove(sseUserControl);
+
                 var param = JsonConvert.DeserializeObject<MChatApiResult<ChatApiParam>>(message);
                 //
                 // 使用正则表达式分割字符串
@@ -374,6 +394,8 @@ namespace csr_windows.Client.ViewModels.Customer
         {
             try
             {
+                if (UserControls.Contains(_loadingChatBaseView))
+                    UserControls.Remove(_loadingChatBaseView);
                 UserControls.Add(_loadingChatBaseView);
             }
             catch (Exception ex)
