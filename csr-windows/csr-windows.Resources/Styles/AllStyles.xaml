@@ -5,8 +5,8 @@
 
     <converter:DPIConverter x:Key="DPIConverter" />
     <converter:DpiOffsetConverter x:Key="DpiOffsetConverter" />
-    <converter:ChatIdentityEnumConverter
-        x:Key="ChatIdentityEnumConverter"
+    <converter:EnumToVisibilityConverter
+        x:Key="EnumToVisibilityConverter"
         EqualsVisibility="Visible"
         NotEqualsVisibility="Collapsed" />
     <ResourceDictionary.MergedDictionaries>
