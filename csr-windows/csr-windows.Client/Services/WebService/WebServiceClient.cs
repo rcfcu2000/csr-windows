@@ -276,7 +276,8 @@ namespace csr_windows.Client.Services.WebService
                                     ShopName = GlobalCache.shop.Name,
                                     IndustryCategory = GlobalCache.shop.Category.Name,
                                     BrandInfo = GlobalCache.shop.BrandInfo,
-                                    ShopId = GlobalCache.shop.ID
+                                    ShopId = GlobalCache.shop.ID,
+                                    Persona = GlobalCache.CurrentPersonaModel.Persona
                                 };
                                 jsonMessage = JsonConvert.SerializeObject(how2ReplyModel);
                                 break;
@@ -292,7 +293,8 @@ namespace csr_windows.Client.Services.WebService
                                     ShopName = GlobalCache.shop.Name,
                                     IndustryCategory = GlobalCache.shop.Category.Name,
                                     BrandInfo = GlobalCache.shop.BrandInfo,
-                                    ShopId = GlobalCache.shop.ID
+                                    ShopId = GlobalCache.shop.ID,
+                                    Persona = GlobalCache.CurrentPersonaModel.Persona
                                 };
                                 GlobalCache.CurrentProductWant2ReplyGuideContent = null;
                                 jsonMessage = JsonConvert.SerializeObject(want2ReplyModel);

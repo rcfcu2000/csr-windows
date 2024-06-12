@@ -24,6 +24,7 @@ namespace csr_windows.Client.Services.Impl
 
         private WelcomeView _welcomeView;
         private CustomerInitBottomView _customerInitBottomView;
+        private ChangePersonaView _changePersonaView = new ChangePersonaView();
 
         #endregion
 
@@ -164,6 +165,15 @@ namespace csr_windows.Client.Services.Impl
                 var view = new CustomerBottomInputAIView();
                 view.DataContext = new CustomerBottomInputAIViewModel();
                 WeakReferenceMessenger.Default.Send(view as UserControl, MessengerConstMessage.OpenCustomerUserControlToken);
+            });
+            DoWork(ac);
+        }
+
+        public void OpenChangePersonaView()
+        {
+            Action ac = new Action(() =>
+            {
+                WeakReferenceMessenger.Default.Send(_changePersonaView as UserControl, MessengerConstMessage.OpenMenuUserControlToken);
             });
             DoWork(ac);
         }

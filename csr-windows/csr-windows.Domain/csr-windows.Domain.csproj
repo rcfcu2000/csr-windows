@@ -102,7 +102,9 @@
     <Compile Include="BaseModels\MJSResult.cs" />
     <Compile Include="BaseModels\MResult.cs" />
     <Compile Include="Common\MyProduct.cs" />
+    <Compile Include="Common\PersonaModel.cs" />
     <Compile Include="Enumeration\ChooseWindowType.cs" />
+    <Compile Include="Enumeration\PersonaEnum.cs" />
     <Compile Include="GlobalCache.cs" />
     <Compile Include="JsonConverters\MultiNamePropertyConverter.cs" />
     <Compile Include="Messagers\MessengerConstMessage.cs" />

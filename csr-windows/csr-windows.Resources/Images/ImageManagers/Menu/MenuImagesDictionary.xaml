@@ -10,4 +10,15 @@
     <!--  搜索结果缺省图  -->
     <ImageSource x:Key="IMG_Menu_SearchResultDefault">/csr-windows.Resources;component/Images/Menu/search_result_default.png</ImageSource>
 
+
+    <!--  人设价格Icon  -->
+    <ImageSource x:Key="IMG_Menu_PersonPriceIcon">/csr-windows.Resources;component/Images/Menu/person_price_icon.png</ImageSource>
+
+    <!--  晓晓  -->
+    <ImageSource x:Key="IMG_Menu_XiaoXiao">/csr-windows.Resources;component/Images/Menu/xiaoxiao.png</ImageSource>
+    <!--  乐乐  -->
+    <ImageSource x:Key="IMG_Menu_LeLe">/csr-windows.Resources;component/Images/Menu/lele.png</ImageSource>
+    <!--  琳达  -->
+    <ImageSource x:Key="IMG_Menu_LinDa">/csr-windows.Resources;component/Images/Menu/linda.png</ImageSource>
+
 </ResourceDictionary>

@@ -66,6 +66,11 @@ namespace csr_windows.Client.Services.Base
         /// 打开 我想这样回界面
         /// </summary>
         void OpenCustomerBottomInputAIView();
+
+        /// <summary>
+        /// 打开切换人设界面
+        /// </summary>
+        void OpenChangePersonaView();
     }
 
     
