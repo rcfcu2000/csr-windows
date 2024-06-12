@@ -272,12 +272,12 @@ namespace csr_windows.Client.Services.WebService
                                     MessageHistory = JArray.FromObject(chats),
                                     GoodsName = GlobalCache.IsHaveProduct ? GlobalCache.CurrentProduct.ProductName : null,
                                     GoodsKnowledge = GlobalCache.IsHaveProduct ? GlobalCache.CurrentProduct.ProductInfo : null,
-                                    SaleMode = GlobalCache.IsItPreSalesCustomerService ? "sale_pre" : "sale_post",
                                     ShopName = GlobalCache.shop.Name,
                                     IndustryCategory = GlobalCache.shop.Category.Name,
                                     BrandInfo = GlobalCache.shop.BrandInfo,
                                     ShopId = GlobalCache.shop.ID,
-                                    Persona = GlobalCache.CurrentPersonaModel.Persona
+                                    Persona = GlobalCache.CurrentPersonaModel.Persona,
+                                    SaleMode = GlobalCache.IsItPreSalesCustomerService ? "sale_pre" : "sale_post"
                                 };
                                 jsonMessage = JsonConvert.SerializeObject(how2ReplyModel);
                                 break;
