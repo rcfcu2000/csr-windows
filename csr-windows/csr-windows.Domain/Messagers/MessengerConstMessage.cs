@@ -92,6 +92,8 @@ namespace csr_windows.Domain
         /// </summary>
         public const string Want2ReplyResponseToken = "Want2ReplyResponseToken";
 
+        public const string ReMultiGoodToken = "ReMultiGoodToken";
+
         /// <summary>
         /// 获取热销列表
         /// </summary>
@@ -126,6 +128,21 @@ namespace csr_windows.Domain
         /// 选择商品界面切换商品
         /// </summary>
         public const string ChooseProductChangeToken = "ChooseProductChangeToken";
+
+        /// <summary>
+        /// 商品介绍 选择商品
+        /// </summary>
+        public const string ProductIntroductionToken = "ProductIntroductionToken";
+
+        /// <summary>
+        /// 推荐搭配
+        /// </summary>
+        public const string RecommendedPairingToken = "RecommendedPairing";
+
+        /// <summary>
+        /// 推荐搭配接口返回
+        /// </summary>
+        public const string ReMultiGoodReponseToken = "ReMultiGoodReponseToken";
 
         /// <summary>
         /// 点击切换的时候切换商品

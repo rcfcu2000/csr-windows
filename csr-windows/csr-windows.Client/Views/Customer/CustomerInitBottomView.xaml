@@ -126,7 +126,8 @@
                             <Button
                                 attach:IconProperties.IconUrl="{StaticResource IMG_Customer_ProductIntroduction}"
                                 Command="{Binding ProductIntroductionCommand}"
-                                Content="商品介绍" />
+                                Content="商品介绍"
+                                Visibility="Collapsed" />
                             <Button
                                 attach:IconProperties.IconUrl="{StaticResource IMG_Customer_RecommendedPairing}"
                                 Command="{Binding RecommendedPairingCommand}"

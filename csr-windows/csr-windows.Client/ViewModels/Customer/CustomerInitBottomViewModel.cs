@@ -5,6 +5,7 @@ using CommunityToolkit.Mvvm.Messaging;
 using csr_windows.Client.Services.Base;
 using csr_windows.Domain;
 using csr_windows.Domain.Enumeration;
+using csr_windows.Domain.WeakReferenceMessengerModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -116,6 +117,11 @@ namespace csr_windows.Client.ViewModels.Customer
         /// </summary>
         private void OnRecommendedPairingCommand()
         {
+            if (!GlobalCache.IsHaveProduct)
+            {
+                WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel("请选择您需要搭配的主商品", true,Resources.Enumeration.PromptEnum.Note), MessengerConstMessage.OpenPromptMessageToken);
+                return;
+            }
             _uIService.OpenRecommendedPairingView();
         }
 

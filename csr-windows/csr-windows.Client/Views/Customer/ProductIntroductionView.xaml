@@ -48,6 +48,7 @@
                         Foreground="{StaticResource 0.8OpacityBlackTheme}"
                         ScrollViewer.VerticalScrollBarVisibility="Visible"
                         Style="{StaticResource TextBoxExtendBaseStyle}"
+                        Text="{Binding CustomerScene}"
                         TextWrapping="Wrap" />
                     <ItemsControl Grid.Row="1" ItemsSource="{Binding MyProductList}">
                         <ItemsControl.ItemTemplate>

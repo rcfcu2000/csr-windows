@@ -40,6 +40,10 @@ namespace csr_windows.Domain
         private static bool _haveCustomer;
         private static CustomerModel _currentCustomer;
         private static MyProduct _currentProduct;
+        private static MyProduct _productIntroduction;
+        private static List<MyProduct> _recommendedPairingProduct;
+
+        
         private static bool _isHaveProduct;
         private static string _customerServiceNickName;
 
@@ -47,6 +51,11 @@ namespace csr_windows.Domain
         /// 当前商品想要回复 的guide_content
         /// </summary>
         public static string CurrentProductWant2ReplyGuideContent;
+
+        /// <summary>
+        /// 商品推荐的输入场景内容
+        /// </summary>
+        public static string ProductIntroductionCustomerScene;
 
         private static bool _haveStoreName;
         private static ShopModel _store;
@@ -207,6 +216,34 @@ namespace csr_windows.Domain
                 SetStaticPropertyChanged();
             }
         }
+
+        /// <summary>
+        /// 商品介绍的商品
+        /// </summary>
+        public static MyProduct ProductIntroduction
+        {
+            get 
+            {
+                var value = _productIntroduction;
+                ProductIntroduction = null;
+                return value;
+            }
+            set 
+            { 
+                _productIntroduction = value;
+                SetStaticPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// 商品推荐列表
+        /// </summary>
+        public static List<MyProduct> RecommendedPairing
+        {
+            get { return _recommendedPairingProduct; }
+            set { _recommendedPairingProduct = value; }
+        }
+
 
         /// <summary>
         /// 是否有商品

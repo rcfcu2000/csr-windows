@@ -53,7 +53,6 @@ namespace csr_windows.Core
             url = ServerUrl + url;
             HttpResponseMessage response = await _httpClient.GetAsync(url);
 
-            Console.WriteLine(response.StatusCode);
             try
             {
                 response.EnsureSuccessStatusCode();

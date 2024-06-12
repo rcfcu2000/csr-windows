@@ -1,7 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.DependencyInjection;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using csr_windows.Client.Services.Base;
+using csr_windows.Client.ViewModels.Menu;
+using csr_windows.Domain;
 using csr_windows.Domain.Common;
 using System;
 using System.Collections.Generic;
@@ -23,6 +26,8 @@ namespace csr_windows.Client.ViewModels.Customer
         private ObservableCollection<MyProduct> _myProductList;
         private bool _isMultipleProduct;
         private string _buttonContent;
+
+        private string _customerScene;
         #endregion
 
         #region Commands
@@ -90,16 +95,31 @@ namespace csr_windows.Client.ViewModels.Customer
             set => SetProperty(ref _buttonContent, value);
         }
 
+        public string CustomerScene
+        {
+            get => _customerScene;
+            set => SetProperty(ref _customerScene, value);
+        }
+
+
+
+
+        #endregion
+
+        #region Methods
+
         /// <summary>
         /// 商品推荐Command
         /// </summary>
         private void OnProductIntroductionCommand()
         {
+            GlobalCache.ProductIntroductionCustomerScene = CustomerScene;
+            WeakReferenceMessenger.Default.Send(MyProductList, MessengerConstMessage.RecommendedPairingToken);
             _uiService.OpenCustomerInitBottomView();
         }
 
         #endregion
     }
 
- 
+
 }

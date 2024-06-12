@@ -145,7 +145,18 @@ namespace csr_windows.Client.ViewModels.Customer
             WeakReferenceMessenger.Default.Register<MyProduct, string>(this, MessengerConstMessage.SendSwitchProductToken, OnSendSwitchProductToken);
             //选择商品界面点击切换商品
             WeakReferenceMessenger.Default.Register<MyProduct, string>(this, MessengerConstMessage.ChooseProductChangeToken, OnChooseProductChange);
+            //商品介绍选择
+            WeakReferenceMessenger.Default.Register<MyProduct, string>(this, MessengerConstMessage.ProductIntroductionToken, OnProductIntroduction);
+            //商品推荐
+            WeakReferenceMessenger.Default.Register<ObservableCollection<MyProduct>, string>(this, MessengerConstMessage.RecommendedPairingToken, OnRecommendedPairing);
+            //商品推荐 回调
+            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.ReMultiGoodReponseToken, OnReMultiGoodReponse);
         }
+
+
+
+
+
 
         #endregion
 
@@ -172,7 +183,6 @@ namespace csr_windows.Client.ViewModels.Customer
         /// <exception cref="NotImplementedException"></exception>
         private void AnalysisAskAIReponse(object recipient, string message)
         {
-            Console.WriteLine(message);
             //解析msg
             // 切换到UI线程更新UI
             Application.Current.Dispatcher.Invoke(() =>
@@ -602,6 +612,117 @@ namespace csr_windows.Client.ViewModels.Customer
             };
             UserControls.Add(chatBaseView);
             GlobalCache.CurrentProduct = message;
+        }
+
+        /// <summary>
+        /// 商品介绍
+        /// </summary>
+        /// <param name="recipient"></param>
+        /// <param name="message"></param>
+        private void OnProductIntroduction(object recipient, MyProduct message)
+        {
+            
+        }
+        
+        /// <summary>
+        /// 商品搭配
+        /// </summary>
+        /// <param name="recipient"></param>
+        /// <param name="message"></param>
+        /// <exception cref="NotImplementedException"></exception>
+        private void OnRecommendedPairing(object recipient, ObservableCollection<MyProduct> message)
+        {
+            GlobalCache.RecommendedPairing = new List<MyProduct>(message);
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                List<MyProduct> _myProducts = new List<MyProduct>(message);
+                var firstProduct = _myProducts.First((x => x.ProductName == GlobalCache.CurrentProduct.ProductName));
+                if (firstProduct == null)
+                {
+                    _myProducts.Add(GlobalCache.CurrentProduct);
+                }
+
+                ChatBaseView chatBaseView = new ChatBaseView()
+                {
+                    DataContext = new ChatBaseViewModel()
+                    {
+                        ChatIdentityEnum = ChatIdentityEnum.Sender,
+                        ContentControl = new ChatTextAndProductView()
+                        {
+                            DataContext = new ChatTextAndProductViewModel(_myProducts, ChatTextAndProductIdentidyEnum.CustomerService)
+                            {
+                                StartContent = $"帮我结合“{GlobalCache.ProductIntroductionCustomerScene}”推荐以下商品的搭配："
+                            }
+                        }
+                    }
+                };
+                UserControls.Add(chatBaseView);
+                //发送一条消息
+                AddLoadingControl();
+            });
+            WebServiceClient.SendJSFunc(JSFuncType.GetRemoteHisMsg, GlobalCache.CurrentCustomer.CCode, AIChatApiList.ReMultiGood);
+
+        }
+
+
+        private void OnReMultiGoodReponse(object recipient, string message)
+        {
+            GlobalCache.RecommendedPairing = null;
+
+            //您刚刚选择的商品
+
+            //解析msg
+            // 切换到UI线程更新UI
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                UserControls.Remove(sseUserControl);
+
+                var param = JsonConvert.DeserializeObject<MChatApiResult<ChatApiParam>>(message);
+                //
+                // 使用正则表达式分割字符串
+                //string[] splitText = Regex.Split(param.Param.Msg, @"(?<=[。；？！～ ： ”])");
+                string[] splitText = Regex.Split(param.Param.Msg, @"(?<=[。；？！～]|[，。；？！～]”|”[，。；？！～])");
+
+
+                string[] filteredText = splitText
+                    .Where(s => !string.IsNullOrWhiteSpace(s))
+                    .ToArray();
+                List<ChatTestModel> chatTestModels = new List<ChatTestModel>();
+                for (int i = 1; i < filteredText.Length + 1; i++)
+                {
+
+                    var content = filteredText[i - 1].Trim(new char[] { ' ', '\n', '\r', '。' });
+
+                    chatTestModels.Add(new ChatTestModel()
+                    {
+                        Content = content,
+                        IsLast = i == filteredText.Length,
+                    });
+                }
+
+                //添加文本
+                ChatCopyTextView chatCopyTextView = new ChatCopyTextView()
+                {
+                    DataContext = new ChatCopyTextViewModel(chatTestModels)
+                    {
+                        IsHaveProduct = !string.IsNullOrEmpty(param.ProductName),
+                        ProductName = "您刚刚选择的商品",
+                        AllContent = param.Param.Msg
+                    }
+                };
+
+                ChatBaseView chatBaseView = new ChatBaseView()
+                {
+                    DataContext = new ChatBaseViewModel()
+                    {
+                        ChatIdentityEnum = ChatIdentityEnum.Recipient,
+                        ContentControl = chatCopyTextView
+                    }
+                };
+
+                RemoveLoadingControl();
+                UserControls.Add(chatBaseView);
+            });
         }
         #endregion
 

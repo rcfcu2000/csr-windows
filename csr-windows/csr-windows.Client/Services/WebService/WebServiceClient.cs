@@ -7,6 +7,7 @@ using csr_windows.Domain;
 using csr_windows.Domain.AIChat;
 using csr_windows.Domain.Api;
 using csr_windows.Domain.BaseModels;
+using csr_windows.Domain.Common;
 using csr_windows.Domain.WebSocketModels;
 using Fleck;
 using Newtonsoft.Json;
@@ -252,6 +253,7 @@ namespace csr_windows.Client.Services.WebService
 
                         //string aiURL = "https://www.zhihuige.cc/csrnew/api/how_2_reply";
                         string aiURL = "https://www.zhihuige.cc/csrnew/api";
+                        //string aiURL = "http://192.168.2.133:5061/api";
                         if (!string.IsNullOrEmpty(apiChatUri))
                         {
                             aiURL = $"{aiURL}{apiChatUri}";
@@ -299,6 +301,29 @@ namespace csr_windows.Client.Services.WebService
                                 GlobalCache.CurrentProductWant2ReplyGuideContent = null;
                                 jsonMessage = JsonConvert.SerializeObject(want2ReplyModel);
                                 break;
+                            case AIChatApiList.ReMultiGood:
+                                Dictionary<string, string> goodsListKnowledge = new Dictionary<string, string>();
+                                foreach (var item in GlobalCache.RecommendedPairing)
+                                {
+                                    goodsListKnowledge.Add(item.ProductName,item.ProductInfo);
+                                }
+                                ReMultiGoodModel reMultiGoodModel = new ReMultiGoodModel()
+                                {
+                                    AssistantName = assistant_name,
+                                    ShopId = GlobalCache.shop.ID,
+                                    BrandInfo = GlobalCache.shop.BrandInfo,
+                                    MessageHistory = JArray.FromObject(chats),
+                                    CustomerScene = string.IsNullOrEmpty(GlobalCache.ProductIntroductionCustomerScene) ? null : GlobalCache.ProductIntroductionCustomerScene,
+                                    Persona = GlobalCache.CurrentPersonaModel.Persona,
+                                    GoodAName = GlobalCache.IsHaveProduct ? GlobalCache.CurrentProduct.ProductName : null,
+                                    GoodANameKnowledge = GlobalCache.IsHaveProduct ? GlobalCache.CurrentProduct.ProductInfo : null,
+                                    ShopName = GlobalCache.shop.Name,
+                                    GoodsListKnowledge = goodsListKnowledge,
+                                    IndustryCategory = GlobalCache.shop.Category.Name,
+                                };
+                                GlobalCache.ProductIntroductionCustomerScene = null;
+                                jsonMessage = JsonConvert.SerializeObject(reMultiGoodModel);
+                                break;
                             default:
                                 break;
                         }
@@ -326,7 +351,15 @@ namespace csr_windows.Client.Services.WebService
 
                         Task.Factory.StartNew(async () => 
                         {
-                            HttpResponseMessage response = await _httpClient.SendAsync(requestMessage, HttpCompletionOption.ResponseHeadersRead);
+                            HttpResponseMessage response = null;
+                            try
+                            {
+                                response = await _httpClient.SendAsync(requestMessage, HttpCompletionOption.ResponseHeadersRead);
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex);
+                            }
                             if (response.StatusCode == System.Net.HttpStatusCode.OK)
                             {
                                 bool isFirst = true;
@@ -339,11 +372,9 @@ namespace csr_windows.Client.Services.WebService
                                         if (!string.IsNullOrWhiteSpace(line))
                                         {
                                             chatTextViewModel.Content += line;
-                                            Console.WriteLine(chatTextViewModel.Content);
                                             if (isFirst)
                                             {
                                                 isFirst = false;
-                                                Console.WriteLine(chatBaseView);
                                                 WeakReferenceMessenger.Default.Send(chatBaseView,MessengerConstMessage.SSESteamReponseToken);
                                             }
                                         }
@@ -359,6 +390,9 @@ namespace csr_windows.Client.Services.WebService
                                         break;
                                     case AIChatApiList.Want2Reply:
                                         messengerToken = MessengerConstMessage.Want2ReplyResponseToken;
+                                        break;
+                                    case AIChatApiList.ReMultiGood:
+                                        messengerToken = MessengerConstMessage.ReMultiGoodReponseToken;
                                         break;
                                     default:
                                         break;

@@ -57,6 +57,7 @@ namespace csr_windows.Client.ViewModels.Menu
         #region Constructor
         public ChooseProductViewModel(ChooseWindowType chooseWindowType)
         {
+            ChooseWindowType = chooseWindowType;
             CloseCommand = new RelayCommand(OnCloseCommand);
             SearchCommand = new RelayCommand(OnSearchCommand);
             ChooseCommand = new RelayCommand<MyProduct>(OnChooseCommand);
@@ -212,7 +213,18 @@ namespace csr_windows.Client.ViewModels.Menu
         private void OnChooseCommand(MyProduct product)
         {
             OnCloseCommand();
-            WeakReferenceMessenger.Default.Send(product, MessengerConstMessage.ChooseProductChangeToken);
+            if (ChooseWindowType == ChooseWindowType.ChooseProduct)
+            {
+                WeakReferenceMessenger.Default.Send(product, MessengerConstMessage.ChooseProductChangeToken);
+            }
+            else
+            {
+
+                GlobalCache.ProductIntroduction = product;
+
+                WeakReferenceMessenger.Default.Send(product,MessengerConstMessage.ProductIntroductionToken);
+            }
+            
 
         }
 

@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AIChat\How2ReplyModel.cs" />
+    <Compile Include="AIChat\ReMultiGoodModel.cs" />
     <Compile Include="AIChat\Want2ReplyModel.cs" />
     <Compile Include="Api\AIChatApiList.cs" />
     <Compile Include="Api\BackEndApiList.cs" />

@@ -83,35 +83,25 @@ namespace csr_windows.Client.ViewModels.Menu
             ChooseCommand = new RelayCommand<MyProduct>(OnChooseCommand);
             DeleteChooseCommand = new RelayCommand<ChooseProduct>(OnDeleteChooseCommand);
             NextCommand = new RelayCommand(OnNextCommand,CanNextCommand);
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 2; i++)
             {
                 ChooseProducts.Add(new ChooseProduct());
             }
 
 
-            #region 测试代码
-            
-                for (int i = 0; i < 5; i++)
-                {
-                    DialogueProducts.Add(new MyProduct()
-                    {
-                        ProductImage = "https://pic1.zhimg.com/v2-0dda71bc9ced142bf7bb2d6adbebe4f0_r.jpg?source=1940ef5c",
-                        ProductName = $"对话商品 Index:{i}"
-                    });
-                }
+            #region 初始化
 
+            if (GlobalCache.HaveCustomer && GlobalCache.CustomerDialogueProducts.ContainsKey(GlobalCache.CurrentCustomer.UserNiceName))
+            {
+                HaveDialogueProduct = GlobalCache.CustomerDialogueProducts[GlobalCache.CurrentCustomer.UserNiceName].Count != 0;
+                DialogueProducts = GlobalCache.CustomerDialogueProducts[GlobalCache.CurrentCustomer.UserNiceName];
+            }
 
-                for (int i = 0; i < 15; i++)
-                {
-                    HotSellingProducts.Add(new MyProduct()
-                    {
-                        ProductImage = "https://pic1.zhimg.com/v2-0dda71bc9ced142bf7bb2d6adbebe4f0_r.jpg?source=1940ef5c",
-                        ProductName = $"热销商品 Index:{i}"
-                    });
-                }
+            HotSellingProducts = GlobalCache.HotSellingProducts;
 
             storeProducts.AddRange(DialogueProducts);
             storeProducts.AddRange(HotSellingProducts);
+
             #endregion
 
         }
