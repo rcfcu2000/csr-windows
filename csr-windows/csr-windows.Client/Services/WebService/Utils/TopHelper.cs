@@ -489,11 +489,18 @@ namespace csr_windows.Client.Services.WebService
                     if(windowTitle.Contains("Chrome Legacy Window")) {
                         RECT rect = new RECT();
                         GetWindowRect(handle, out rect);
-                        if(chatRect.Left > rect.Left) {
+                        if (chatRect.Left > rect.Left)
+                        {
                             chatRect = rect;
                         }
-
-                        //Console.WriteLine($"window rect: {handle} {rect.Left}, {rect.Top}, {rect.Right}, {rect.Bottom}");
+                        else if (chatRect.Left == rect.Left)
+                        {
+                            if (chatRect.Bottom < rect.Bottom)
+                            {
+                                chatRect = rect;
+                            }
+                        }
+                        Console.WriteLine($"window rect: {handle} {rect.Left}, {rect.Top}, {rect.Right}, {rect.Bottom}");
                     }
                 }
 
@@ -524,7 +531,7 @@ namespace csr_windows.Client.Services.WebService
                         Console.WriteLine($"window rect: {chatRect.Left}, {chatRect.Top}, {chatRect.Right}, {chatRect.Bottom}");
 
                         Point clientPoint = new Point((chatRect.Right + chatRect.Left) / 2, chatRect.Bottom + (rect.Bottom - chatRect.Bottom) * 0.5);
-                        ClientToScreen(hwd, ref clientPoint);
+                        //ClientToScreen(hwd, ref clientPoint);
 
                         for (int i = 0; i < 2; i++)
                         {
