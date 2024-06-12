@@ -31,7 +31,7 @@
                 Margin="0,0,0,5"
                 FontSize="24"
                 FontWeight="Bold"
-                Text="您好，我是会回" />
+                Text="还差一步！" />
             <TextBlock
                 Grid.Row="1"
                 FontSize="14"
