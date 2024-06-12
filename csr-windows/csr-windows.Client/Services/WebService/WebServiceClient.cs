@@ -268,25 +268,31 @@ namespace csr_windows.Client.Services.WebService
                             case AIChatApiList.How2Replay:
                                 How2ReplyModel how2ReplyModel = new How2ReplyModel()
                                 {
-                                    ShopName = "蜡笔派家居旗舰店",
                                     AssistantName = assistant_name,
                                     MessageHistory = JArray.FromObject(chats),
                                     GoodsName = GlobalCache.IsHaveProduct ? GlobalCache.CurrentProduct.ProductName : null,
                                     GoodsKnowledge = GlobalCache.IsHaveProduct ? GlobalCache.CurrentProduct.ProductInfo : null,
-                                    SaleMode = GlobalCache.IsItPreSalesCustomerService ? "sale_pre" : "sale_post"
+                                    SaleMode = GlobalCache.IsItPreSalesCustomerService ? "sale_pre" : "sale_post",
+                                    ShopName = GlobalCache.shop.Name,
+                                    IndustryCategory = GlobalCache.shop.Category.Name,
+                                    BrandInfo = GlobalCache.shop.BrandInfo,
+                                    ShopId = GlobalCache.shop.ID
                                 };
                                 jsonMessage = JsonConvert.SerializeObject(how2ReplyModel);
                                 break;
                             case AIChatApiList.Want2Reply:
                                 Want2ReplyModel want2ReplyModel = new Want2ReplyModel()
                                 {
-                                    ShopName = "蜡笔派家居旗舰店",
                                     AssistantName = assistant_name,
                                     MessageHistory = JArray.FromObject(chats),
                                     GoodsName = GlobalCache.IsHaveProduct ? GlobalCache.CurrentProduct.ProductName : null,
                                     GoodsKnowledge = GlobalCache.IsHaveProduct ? GlobalCache.CurrentProduct.ProductInfo : null,
                                     GuideContent = string.IsNullOrEmpty(GlobalCache.CurrentProductWant2ReplyGuideContent) ? null : GlobalCache.CurrentProductWant2ReplyGuideContent,
-                                    SaleMode = GlobalCache.IsItPreSalesCustomerService ? "sale_pre" : "sale_post"
+                                    SaleMode = GlobalCache.IsItPreSalesCustomerService ? "sale_pre" : "sale_post",
+                                    ShopName = GlobalCache.shop.Name,
+                                    IndustryCategory = GlobalCache.shop.Category.Name,
+                                    BrandInfo = GlobalCache.shop.BrandInfo,
+                                    ShopId = GlobalCache.shop.ID
                                 };
                                 GlobalCache.CurrentProductWant2ReplyGuideContent = null;
                                 jsonMessage = JsonConvert.SerializeObject(want2ReplyModel);

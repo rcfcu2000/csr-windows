@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Messaging;
+using csr_windows.Domain.BaseModels.BackEnd;
 using csr_windows.Domain.Common;
 using csr_windows.Domain.WebSocketModels;
 using System;
@@ -41,6 +42,7 @@ namespace csr_windows.Domain
 
 
         private static bool _haveStoreName;
+        private static ShopModel _store;
 
         /// <summary>
         /// 每个客户的聊天记录
@@ -111,6 +113,20 @@ namespace csr_windows.Domain
             {
                 _storeName = value;
                 HaveStoreName = !string.IsNullOrEmpty(value);
+                //调用通知
+                SetStaticPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// 店铺
+        /// </summary>
+        public static ShopModel shop
+        {
+            get { return _store; }
+            set
+            {
+                _store = value;
                 //调用通知
                 SetStaticPropertyChanged();
             }
@@ -201,8 +217,6 @@ namespace csr_windows.Domain
             set { _customerServiceNickName = value; }
         }
 
-
- 
 
 
         #endregion

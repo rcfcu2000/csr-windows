@@ -107,5 +107,12 @@ namespace csr_windows.Domain.BaseModels.BackEnd
         /// </summary>
         [JsonProperty("salesRepType")]
         public int SalesRepType { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonProperty("shopId")]
+        public int ShopId { get; set; }
+
     }
 }

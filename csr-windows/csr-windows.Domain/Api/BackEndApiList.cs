@@ -28,5 +28,11 @@ namespace csr_windows.Domain.Api
         /// 设置用户信息
         /// </summary>
         public const string SetSelfInfo = "/base/setSelfInfo";
+
+        /// <summary>
+        /// 获取店铺信息
+        /// </summary>
+        public const string GetShopInfo = "/shop/getbyid";
+
     }
 }

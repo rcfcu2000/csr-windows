@@ -58,5 +58,23 @@ namespace csr_windows.Domain.AIChat
         /// </summary>
         [JsonProperty("persona")]
         public string Persona { get; set; }
+
+        /// <summary>
+        /// 店铺 ID
+        /// </summary>
+        [JsonProperty("shop_id")]
+        public int ShopId { get; set; }
+
+        /// <summary>
+        /// 店铺类目
+        /// </summary>
+        [JsonProperty("industry_category")]
+        public string IndustryCategory { get; set; }
+
+        /// <summary>
+        /// 店铺信息
+        /// </summary>
+        [JsonProperty("brand_info")]
+        public string BrandInfo { get; set; }
     }
 }

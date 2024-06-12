@@ -121,6 +121,15 @@ namespace csr_windows.Client.ViewModels.Main
                     GlobalCache.IsItPreSalesCustomerService = loginModel.Data.User.SalesRepType == (int)SalesRepType.PreSale;
                 }
 
+                // Get Shop Info
+                content = await ApiClient.Instance.GetAsync(BackEndApiList.GetShopInfo + '/' + loginModel.Data.User.ShopId);
+                if (content == string.Empty)
+                {
+                    return;
+                }
+                ShopModel shopModel = JsonConvert.DeserializeObject<ShopModel>(content);
+                GlobalCache.shop = shopModel;
+
                 if (isFirstIn)
                 {
                     _uiService.OpenFirstSettingView();
