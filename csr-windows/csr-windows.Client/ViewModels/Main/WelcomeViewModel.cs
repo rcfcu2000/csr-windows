@@ -77,7 +77,7 @@ namespace csr_windows.Client.ViewModels.Main
                     if ((WebServiceClient.Socket == null) || !WebServiceClient.Socket.IsAvailable)
                     {
                         
-                        WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel("出了点问题，请重启千牛客户端", promptEnum: PromptEnum.Note), MessengerConstMessage.OpenPromptMessageToken);
+                        WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel("出了点问题，请重新打开千牛接待中心", promptEnum: PromptEnum.Note), MessengerConstMessage.OpenPromptMessageToken);
                         TopHelp tp = new TopHelp();
                         tp.QNCloseWindow();
                         return;
