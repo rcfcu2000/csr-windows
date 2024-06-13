@@ -611,6 +611,7 @@ namespace csr_windows.Client.ViewModels.Customer
                 }
             };
             UserControls.Add(chatBaseView);
+            AddTextControl(ChatIdentityEnum.Recipient, "明白了，后续回答将基于该商品。");
             GlobalCache.CurrentProduct = message;
         }
 
