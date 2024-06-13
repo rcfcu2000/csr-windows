@@ -36,7 +36,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Diagnostics;
 using static csr_windows.Client.Services.WebService.TopHelp;
 using csr_windows.Client.Services.WebService;
 
@@ -68,12 +67,9 @@ namespace csr_windows.Client
         #endregion
 
         #region Constructor
-        Stopwatch stopwatch = new Stopwatch();
 
         public MainWindow()
         {
-            Console.WriteLine( DateTime.Now.ToLongTimeString());
-            stopwatch.Start();
             if (ProcessHelper.GetIsExistSameProgram())
             {
                 Application.Current.Shutdown();
