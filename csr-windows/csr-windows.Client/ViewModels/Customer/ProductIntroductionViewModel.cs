@@ -6,12 +6,14 @@ using csr_windows.Client.Services.Base;
 using csr_windows.Client.ViewModels.Menu;
 using csr_windows.Domain;
 using csr_windows.Domain.Common;
+using csr_windows.Domain.WeakReferenceMessengerModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Input;
 
 namespace csr_windows.Client.ViewModels.Customer
@@ -113,6 +115,11 @@ namespace csr_windows.Client.ViewModels.Customer
         /// </summary>
         private void OnProductIntroductionCommand()
         {
+            if (string.IsNullOrWhiteSpace(CustomerScene))
+            {
+                WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel("请输入您想结合的风格", false), MessengerConstMessage.OpenPromptMessageToken);
+                return;
+            }
             GlobalCache.ProductIntroductionCustomerScene = CustomerScene;
             WeakReferenceMessenger.Default.Send(MyProductList, MessengerConstMessage.RecommendedPairingToken);
             _uiService.OpenCustomerInitBottomView();

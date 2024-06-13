@@ -41,7 +41,7 @@
                         Margin="0,0,0,10"
                         Padding="0"
                         VerticalContentAlignment="Top"
-                        hc:InfoElement.Placeholder="可输入想结合什么样的关键词进行介绍，如“北欧简约装修风格”等；不输入则按照默认情况介绍"
+                        hc:InfoElement.Placeholder="可输入想结合什么样的关键词进行介绍，如“北欧简约装修风格”等；"
                         AcceptsReturn="True"
                         BorderThickness="0"
                         FontSize="14"
