@@ -202,11 +202,6 @@ namespace csr_windows.Client
                 {
                     while (true)
                     {
-                        if (GlobalCache.IsFollowWindow)
-                        {
-                            System.Threading.Thread.Sleep(1000);
-                            continue;
-                        }
                         GlobalCache.FollowHandle = FindWindowByProcessAndTitle("AliWorkbench", "接待中心");
                         GlobalCache.IsFollowWindow = GlobalCache.FollowHandle != IntPtr.Zero;
                         //GlobalCache.IsFollowWindow = FollowWindowHelper.GetQianNiuIntPrt(ref GlobalCache.FollowHandle);
@@ -270,6 +265,11 @@ namespace csr_windows.Client
                     {
                         do
                         {
+                            if (!GlobalCache.IsFollowWindow)
+                            {
+                                System.Threading.Thread.Sleep(millisecondsTimeout: 1000);
+                                continue;
+                            }
                             Win32.RECT rect = new Win32.RECT();
                             Win32.GetWindowRect(GlobalCache.FollowHandle, ref rect);
                             if (!(_lastRect.Bottom == rect.Bottom && _lastRect.Top == rect.Top && _lastRect.Left == rect.Left && _lastRect.Right == rect.Right))
