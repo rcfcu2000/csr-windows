@@ -61,6 +61,9 @@ namespace csr_windows.Client.Services.WebService
             bool proxyRun = syNet.进程代理_加载驱动();
 
             Console.Write($"中间件启动结果：{proxyRun}");
+
+            Logger.WriteInfo($"中间件启动结果：{proxyRun}");
+
             if (sunnyNetIsRun)
             {
                 Console.WriteLine(sunnyNetIsRun);
@@ -69,10 +72,10 @@ namespace csr_windows.Client.Services.WebService
             {
                 Console.WriteLine("启动失败" + syNet.取错误());
                 //错误处理
+                Logger.WriteError("启动失败" + syNet.取错误());
             }
 
             Console.WriteLine("HTTPS server started.");
-
         }
 
         public static void StartWebSocketServer()
