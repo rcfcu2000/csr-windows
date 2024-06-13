@@ -95,6 +95,7 @@ namespace csr_windows.Client.Services.WebService
                     Console.WriteLine("WebSocket connection closed.");
                     allSockets.Remove(socket);
                     GlobalCache.IsFollowWindow = false;
+                    GlobalCache.FollowHandle = IntPtr.Zero;
                 };
 
                 socket.OnMessage = message =>
