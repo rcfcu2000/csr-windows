@@ -156,9 +156,14 @@ namespace csr_windows.Domain
         /// 大模型Http异常
         /// </summary>
         public const string ApiChatHttpErrorToken = "ApiChatHttpErrorToken";
+
+        /// <summary>
+        /// 主动接收远程历史消息为空
+        /// </summary>
+        public const string ActiveReceiveRemoteHisMsgHistoryNull = "ActiveReceiveRemoteHisMsgHistoryNull";
         #endregion
 
-      
+
 
 
     }
