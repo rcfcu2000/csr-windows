@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Diagnostics;
 
 namespace csr_windows.Client.Services.WebService
 {
@@ -45,7 +46,8 @@ namespace csr_windows.Client.Services.WebService
                 Request.response.修改或新增协议头("Content-Type: application/javascript");
                 Request.response.修改状态码();
 
-                string contents = File.ReadAllText(@"aliu.js");
+
+                string contents = File.ReadAllText($@"{Environment.CurrentDirectory}{Path.DirectorySeparatorChar}aliu.js");
                 Request.response.修改响应内容_字符串_UTF8(contents);
             }
 
