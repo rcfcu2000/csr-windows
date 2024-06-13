@@ -77,11 +77,11 @@
                             <RadioButton
                                 Margin="0,0,15,0"
                                 Content="我是售前客服"
-                                IsChecked="{Binding Source={StaticResource GlobalCache}, Path=IsItPreSalesCustomerService}" />
+                                IsChecked="{Binding IsItPreSalesCustomerService}" />
                             <RadioButton
                                 Margin="0,0,15,0"
                                 Content="我是售后客服"
-                                IsChecked="{Binding Source={StaticResource GlobalCache}, Path=IsItPreSalesCustomerService, Converter={StaticResource Boolean2BooleanReConverter}}" />
+                                IsChecked="{Binding IsItPreSalesCustomerService, Converter={StaticResource Boolean2BooleanReConverter}}" />
                         </StackPanel>
                     </StackPanel>
                 </Grid>

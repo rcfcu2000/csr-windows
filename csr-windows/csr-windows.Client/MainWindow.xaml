@@ -14,7 +14,7 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib"
     xmlns:view="clr-namespace:csr_windows.Client.Views.Main"
     xmlns:vm="clr-namespace:csr_windows.Client.ViewModels.Main"
-    Title="MainWindow"
+    Title="会回"
     d:DataContext="{d:DesignInstance vm:MainViewModel}"
     d:DesignHeight="800"
     d:DesignWidth="400"

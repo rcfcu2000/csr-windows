@@ -119,6 +119,7 @@ namespace csr_windows.Client
             WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.ExitToken, (r, m) =>
             {
                 this.Close();
+                App.Current.Shutdown();
             });
 
             //获取热销列表
@@ -139,7 +140,6 @@ namespace csr_windows.Client
             _uiService.OpenWelcomeView();
 
         }
-
 
 
         private void MainWindow_SourceInitialized(object sender, EventArgs e)
