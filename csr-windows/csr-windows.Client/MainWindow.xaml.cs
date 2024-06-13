@@ -36,7 +36,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Diagnostics;
 using static csr_windows.Client.Services.WebService.TopHelp;
+using csr_windows.Client.Services.WebService;
 
 namespace csr_windows.Client
 {
@@ -55,15 +57,6 @@ namespace csr_windows.Client
 
 
         private Win32.RECT _lastRect = new Win32.RECT();
-        /// <summary>
-        /// 跟随窗口句柄
-        /// </summary>
-        public IntPtr FollowHandle;
-
-        /// <summary>
-        /// 是否找到句柄
-        /// </summary>
-        private bool _isFoundIntPrt;
 
 
         //检测边距距离
@@ -75,8 +68,12 @@ namespace csr_windows.Client
         #endregion
 
         #region Constructor
+        Stopwatch stopwatch = new Stopwatch();
+
         public MainWindow()
         {
+            Console.WriteLine( DateTime.Now.ToLongTimeString());
+            stopwatch.Start();
             if (ProcessHelper.GetIsExistSameProgram())
             {
                 Application.Current.Shutdown();
@@ -118,8 +115,9 @@ namespace csr_windows.Client
             //退出
             WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.ExitToken, (r, m) =>
             {
+                _isUpdatePos = false;
                 this.Close();
-                App.Current.Shutdown();
+                Application.Current.Shutdown();
             });
 
             //获取热销列表
@@ -148,8 +146,10 @@ namespace csr_windows.Client
             scaleY = (double)1 / m.M22;
             scaleX = (double)1 / m.M11;
 
-            _isFoundIntPrt = FollowWindowHelper.GetQianNiuIntPrt(ref FollowHandle);
-            if (!_isFoundIntPrt)
+            GlobalCache.FollowHandle = FindWindowByProcessAndTitle("AliWorkbench", "接待中心");
+            GlobalCache.IsFollowWindow = GlobalCache.FollowHandle != IntPtr.Zero;
+            //GlobalCache.IsFollowWindow = FollowWindowHelper.GetQianNiuIntPrt(ref GlobalCache.FollowHandle);
+            if (!GlobalCache.IsFollowWindow)
             {
                 #region Init
                 this.SizeToContent = SizeToContent.Manual;
@@ -202,19 +202,28 @@ namespace csr_windows.Client
             Handle = new WindowInteropHelper(this).Handle;
             Task.Factory.StartNew(() =>
             {
-                do
+                Task.Factory.StartNew(() =>
                 {
-                    _isFoundIntPrt = FollowWindowHelper.GetQianNiuIntPrt(ref FollowHandle);
-                    System.Threading.Thread.Sleep(1000);
-                } while (!_isFoundIntPrt);
-                GlobalCache.IsFollowWindow = true;
+                    while (true)
+                    {
+                        if (GlobalCache.IsFollowWindow)
+                        {
+                            System.Threading.Thread.Sleep(1000);
+                            continue;
+                        }
+                        GlobalCache.FollowHandle = FindWindowByProcessAndTitle("AliWorkbench", "接待中心");
+                        GlobalCache.IsFollowWindow = GlobalCache.FollowHandle != IntPtr.Zero;
+                        //GlobalCache.IsFollowWindow = FollowWindowHelper.GetQianNiuIntPrt(ref GlobalCache.FollowHandle);
+                        System.Threading.Thread.Sleep(2000);
+                    };
+                });
                 Dispatcher.Invoke(() =>
                 {
 
                     try
                     {
                         Win32.RECT rect = new Win32.RECT();
-                        Win32.GetWindowRect(FollowHandle, ref rect);
+                        Win32.GetWindowRect(GlobalCache.FollowHandle, ref rect);
                         if (rect.Bottom != 0 || rect.Top != 0 || rect.Left != 0 || rect.Right != 0)
                         {
 
@@ -249,54 +258,54 @@ namespace csr_windows.Client
         /// 更新窗口位置
         /// </summary>
         private void UpdateWindowPos(bool isFirst)
-    {
-        if (_isUpdatePos)
         {
-            return;
-        }
-        _isUpdatePos = true;
-        this.Topmost = true;
-        if (FollowHandle != null && FollowHandle != IntPtr.Zero)
-        {
-            var cHandle = FollowHandle;
-            Task.Factory.StartNew(() =>
+            if (_isUpdatePos)
             {
-                try
+                return;
+            }
+            _isUpdatePos = true;
+            this.Topmost = true;
+            if (GlobalCache.FollowHandle != null && GlobalCache.FollowHandle != IntPtr.Zero)
+            {
+                var cHandle = GlobalCache.FollowHandle;
+                Task.Factory.StartNew(() =>
                 {
-                    do
+                    try
                     {
-                        Win32.RECT rect = new Win32.RECT();
-                        Win32.GetWindowRect(FollowHandle, ref rect);
-                        if (!(_lastRect.Bottom == rect.Bottom && _lastRect.Top == rect.Top && _lastRect.Left == rect.Left && _lastRect.Right == rect.Right))
+                        do
                         {
-                            if (isFirst)
+                            Win32.RECT rect = new Win32.RECT();
+                            Win32.GetWindowRect(GlobalCache.FollowHandle, ref rect);
+                            if (!(_lastRect.Bottom == rect.Bottom && _lastRect.Top == rect.Top && _lastRect.Left == rect.Left && _lastRect.Right == rect.Right))
                             {
-                                isFirst = false;
-                                _lastRect = rect;
-                                continue;
+                                if (isFirst)
+                                {
+                                    isFirst = false;
+                                    _lastRect = rect;
+                                    continue;
+                                }
+                                _subTaskHandler();
                             }
-                            _subTaskHandler();
-                        }
-                        System.Threading.Thread.Sleep(10);
-                    } while (_isUpdatePos);
-                }
-                catch (Exception ex)
-                {
-                }
+                            System.Threading.Thread.Sleep(10);
+                        } while (_isUpdatePos);
+                    }
+                    catch (Exception ex)
+                    {
+                    }
+                    _isUpdatePos = false;
+                });
+            }
+            else
+            {
                 _isUpdatePos = false;
-            });
+            }
         }
-        else
-        {
-            _isUpdatePos = false;
-        }
-    }
 
     Win32.RECT rect = new Win32.RECT();
     Win32.RECT thisRect = new Win32.RECT();
     private void _subTaskHandler()
     {
-        Win32.GetWindowRect(FollowHandle, ref rect);
+        Win32.GetWindowRect(GlobalCache.FollowHandle, ref rect);
         if (rect.Bottom == 0 && rect.Top == 0 && rect.Left == 0 && rect.Right == 0)
             return;
         var hight = Math.Abs(rect.Bottom - rect.Top);
@@ -304,6 +313,8 @@ namespace csr_windows.Client
         this.Dispatcher.Invoke(() =>
         {
             var hwndSource = (HwndSource)PresentationSource.FromVisual(this);
+            if (hwndSource == null)
+                return;
             Win32.GetWindowRect(hwndSource.Handle, ref thisRect);
             left = this.Left;
             top = this.Top;
@@ -312,7 +323,7 @@ namespace csr_windows.Client
             windowHeight = this.Height;
         });
         Point sp = new Point(rect.Right - _lastRect.Right + thisRect.Left, rect.Top - _lastRect.Top + thisRect.Top);
-        Win32.SetWindowPos(Handle, FollowHandle, (int)sp.X, (int)sp.Y, (int)windowWith, (int)windowHeight, 0x0001 | 0x0004);
+        Win32.SetWindowPos(Handle, GlobalCache.FollowHandle, (int)sp.X, (int)sp.Y, (int)windowWith, (int)windowHeight, 0x0001 | 0x0004);
         _lastRect = rect;
     }
 

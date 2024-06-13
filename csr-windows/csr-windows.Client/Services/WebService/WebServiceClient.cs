@@ -57,6 +57,7 @@ namespace csr_windows.Client.Services.WebService
             //syNet.进程代理_设置捕获任意进程(true);
             syNet.进程代理_添加进程名("AliRender.exe");
             syNet.进程代理_添加进程名("AliApp.exe");
+            //syNet.进程代理_添加进程名("Aliapp.exe");
             bool proxyRun = syNet.进程代理_加载驱动();
 
             Console.Write($"中间件启动结果：{proxyRun}");
@@ -93,6 +94,7 @@ namespace csr_windows.Client.Services.WebService
                 {
                     Console.WriteLine("WebSocket connection closed.");
                     allSockets.Remove(socket);
+                    GlobalCache.IsFollowWindow = false;
                 };
 
                 socket.OnMessage = message =>

@@ -68,7 +68,7 @@ namespace csr_windows.Common.Helper
 
             if (!found)
             {
-                Console.WriteLine($"No window found with title containing '{targetTitlePart}'.");
+                //Console.WriteLine($"No window found with title containing '{targetTitlePart}'.");
             }
             return found;
         }

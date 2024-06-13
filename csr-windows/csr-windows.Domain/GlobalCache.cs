@@ -91,6 +91,12 @@ namespace csr_windows.Domain
         /// </summary>
         public static bool IsFollowWindow;
 
+        /// <summary>
+        /// 跟随窗口的句柄
+        /// </summary>
+        public static IntPtr FollowHandle;
+
+
         //静态事件处理属性更改
         public static event EventHandler<PropertyChangedEventArgs> StaticPropertyChanged;
         #endregion
