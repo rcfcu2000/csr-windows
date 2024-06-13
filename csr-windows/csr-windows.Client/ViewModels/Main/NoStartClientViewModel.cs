@@ -93,7 +93,6 @@ namespace csr_windows.Client.ViewModels.Main
                 if (WebServiceClient.Socket == null || !WebServiceClient.Socket.IsAvailable || !GlobalCache.HaveStoreName)
                 {
                     WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel("出了点问题，请重启千牛客户端", promptEnum: PromptEnum.Note), MessengerConstMessage.OpenPromptMessageToken);
-                    return;
                 }
             }
            

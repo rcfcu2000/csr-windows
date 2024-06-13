@@ -16,6 +16,7 @@ using csr_windows.Resources.Enumeration;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.WebSockets;
 using System.Text;
@@ -77,6 +78,11 @@ namespace csr_windows.Client.ViewModels.Main
                     {
                         
                         WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel("出了点问题，请重启千牛客户端", promptEnum: PromptEnum.Note), MessengerConstMessage.OpenPromptMessageToken);
+
+                        foreach (var process in Process.GetProcessesByName("AliWorkbench"))
+                        {
+                            process.Kill();
+                        }
                         return;
                     }
                 }
