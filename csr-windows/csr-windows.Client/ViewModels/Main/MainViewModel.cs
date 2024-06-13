@@ -18,8 +18,8 @@ namespace csr_windows.Client.ViewModels.Main
     public class MainViewModel : ObservableRecipient
     {
 
-        //private static string ZHGWebURL = "https://www.zhihuige.cc/lmr/";
-        private static string ZHGWebURL = "http://192.168.2.36:8080/login";
+        private static string ZHGWebURL = "https://www.zhihuige.cc/lmr";
+        //private static string ZHGWebURL = "http://192.168.2.36:8080/login";
 
         #region Fields
 
@@ -100,7 +100,7 @@ namespace csr_windows.Client.ViewModels.Main
             // Start the default browser with the URL
             Process.Start(new ProcessStartInfo
             {
-                FileName = ZHGWebURL + "?token=" + GlobalCache.UserToken + "&shopId=" + GlobalCache.shop.ID,
+                FileName = ZHGWebURL + "?token=" + GlobalCache.UserToken + "&name=" + GlobalCache.CustomerServiceNickName,
                 UseShellExecute = true
             });
         }
