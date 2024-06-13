@@ -23,6 +23,8 @@ namespace csr_windows.Client.ViewModels.Menu
 
         private string _storeName = "蜡笔派家居旗舰店";
 
+        private bool _isItPreSalesCustomerService;
+
         #endregion
 
         #region Commands
@@ -35,25 +37,33 @@ namespace csr_windows.Client.ViewModels.Menu
         #region Constructor
         public PersonalDataViewModel()
         {
+            IsItPreSalesCustomerService = GlobalCache.IsItPreSalesCustomerService;
+
             CloseCommand = new RelayCommand(async () =>
             {
-                int saleType = (int)(GlobalCache.IsItPreSalesCustomerService ? SalesRepType.PreSale : SalesRepType.AfterSale);
-                //调用接口
-                Dictionary<string, dynamic> keyValuePairs = new Dictionary<string, dynamic>()
+                //如果不一样 再弹提示
+                if (IsItPreSalesCustomerService != GlobalCache.IsItPreSalesCustomerService)
                 {
-                    { "salesRepType",saleType }
-                };
+                    int saleType = (int)(IsItPreSalesCustomerService ? SalesRepType.PreSale : SalesRepType.AfterSale);
+                    //调用接口
+                    Dictionary<string, dynamic> keyValuePairs = new Dictionary<string, dynamic>()
+                    {
+                        { "salesRepType",saleType }
+                    };
 
-                WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.ShowLoadingVisibilityChangeToken);
-                string content = await ApiClient.Instance.PutAsync(BackEndApiList.SetSelfInfo, keyValuePairs);
-                if (content == string.Empty)
-                {
-                    return;
+                    WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.ShowLoadingVisibilityChangeToken);
+                    string content = await ApiClient.Instance.PutAsync(BackEndApiList.SetSelfInfo, keyValuePairs);
+                    if (content == string.Empty)
+                    {
+                        return;
+                    }
+                    WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.HiddenLoadingVisibilityChangeToken);
+
+              
+                    GlobalCache.IsItPreSalesCustomerService = IsItPreSalesCustomerService;
+                    string promptString = GlobalCache.IsItPreSalesCustomerService ? "已切换至售前客服" : "已切换至售后客服";
+                    WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel($"{promptString}"), MessengerConstMessage.OpenPromptMessageToken);
                 }
-                WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.HiddenLoadingVisibilityChangeToken);
-
-                string promptString = GlobalCache.IsItPreSalesCustomerService ? "已切换至售前客服" : "已切换至售后客服";
-                WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel($"{promptString}"), MessengerConstMessage.OpenPromptMessageToken);
 
                 WeakReferenceMessenger.Default.Send("", MessengerConstMessage.CloseMenuUserControlToken);
             });
@@ -77,6 +87,15 @@ namespace csr_windows.Client.ViewModels.Menu
         {
             get => _storeName;
             set => SetProperty(ref _storeName, value);
+        }
+
+        /// <summary>
+        /// 是否是售前
+        /// </summary>
+        public bool IsItPreSalesCustomerService
+        {
+            get => _isItPreSalesCustomerService;
+            set => SetProperty(ref _isItPreSalesCustomerService, value);
         }
         #endregion
 
