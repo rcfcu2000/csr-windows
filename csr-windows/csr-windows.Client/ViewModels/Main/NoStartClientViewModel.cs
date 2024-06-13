@@ -114,41 +114,43 @@ namespace csr_windows.Client.ViewModels.Main
             isFirstIn = string.IsNullOrEmpty(content) ? false : model.Code != 0;
             WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.HiddenLoadingVisibilityChangeToken);
 
-            if (isFirstIn)
+            if (GlobalCache.HaveStoreName)
             {
-                if (GlobalCache.HaveCustomer)
-                {
-                    keyValuePairs = new Dictionary<string, string>()
+                keyValuePairs = new Dictionary<string, string>()
                     {
                         {"password","123456" },
                         {"ssoUsername",$"{GlobalCache.CustomerServiceNickName}" },
                         {"username","admin"}
                     };
 
-                    WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.ShowLoadingVisibilityChangeToken);
-                    content = await ApiClient.Instance.PostAsync(BackEndApiList.SSOLogin, keyValuePairs);
-                    if (content == string.Empty)
-                    {
-                        return;
-                    }
-                    WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.HiddenLoadingVisibilityChangeToken);
-
-                    BackendBase<SSOLoginModel> loginModel = JsonConvert.DeserializeObject<BackendBase<SSOLoginModel>>(content);
-                    if (loginModel.Code == 0)
-                    {
-                        ApiClient.Instance.SetToken(loginModel.Data.Token);
-                        GlobalCache.IsItPreSalesCustomerService = loginModel.Data.User.SalesRepType == (int)SalesRepType.PreSale;
-                    }
-
-                    // Get Shop Info
-                    content = await ApiClient.Instance.GetAsync(BackEndApiList.GetShopInfo + '/' + loginModel.Data.User.ShopId);
-                    if (content == string.Empty)
-                    {
-                        return;
-                    }
-                    ShopModel shopModel = JsonConvert.DeserializeObject<ShopModel>(content);
-                    GlobalCache.shop = shopModel;
+                WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.ShowLoadingVisibilityChangeToken);
+                content = await ApiClient.Instance.PostAsync(BackEndApiList.SSOLogin, keyValuePairs);
+                if (content == string.Empty)
+                {
+                    return;
                 }
+                WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.HiddenLoadingVisibilityChangeToken);
+
+                BackendBase<SSOLoginModel> loginModel = JsonConvert.DeserializeObject<BackendBase<SSOLoginModel>>(content);
+                if (loginModel.Code == 0)
+                {
+                    ApiClient.Instance.SetToken(loginModel.Data.Token);
+                    GlobalCache.IsItPreSalesCustomerService = loginModel.Data.User.SalesRepType == (int)SalesRepType.PreSale;
+                }
+
+                // Get Shop Info
+                content = await ApiClient.Instance.GetAsync(BackEndApiList.GetShopInfo + '/' + loginModel.Data.User.ShopId);
+                if (content == string.Empty)
+                {
+                    return;
+                }
+                ShopModel shopModel = JsonConvert.DeserializeObject<ShopModel>(content);
+                GlobalCache.shop = shopModel;
+            }
+
+            if (isFirstIn)
+            {
+                
                 _uiService.OpenFirstSettingView();
             }
             else
