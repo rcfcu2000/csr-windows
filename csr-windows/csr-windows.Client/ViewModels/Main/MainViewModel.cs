@@ -18,7 +18,7 @@ namespace csr_windows.Client.ViewModels.Main
     public class MainViewModel : ObservableRecipient
     {
 
-        private static string ZHGWebURL = "https://www.zhihuige.cc/lmr";
+        private static string ZHGWebURL = "https://www.zhihuige.cc/lmr/login";
         //private static string ZHGWebURL = "http://192.168.2.36:8080/login";
 
         #region Fields
