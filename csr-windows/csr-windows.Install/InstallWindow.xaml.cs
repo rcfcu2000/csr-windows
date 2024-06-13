@@ -268,7 +268,7 @@ namespace csr_windows.Install
         }
 
         /// <summary>
-        /// 检查是否已存在小助手程序
+        /// 检查是否已存在会回程序
         /// </summary>
         private bool GetIsExistProgram()
         {
