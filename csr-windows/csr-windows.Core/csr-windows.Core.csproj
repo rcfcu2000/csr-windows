@@ -113,6 +113,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\csr-windows.Common\csr-windows.Common.csproj">
+      <Project>{db753687-f9f5-4b14-88e3-08f2ffca8489}</Project>
+      <Name>csr-windows.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\csr-windows.Domain\csr-windows.Domain.csproj">
       <Project>{B4F1C45E-CAFD-4AD4-B1F9-912866CBCAD7}</Project>
       <Name>csr-windows.Domain</Name>
