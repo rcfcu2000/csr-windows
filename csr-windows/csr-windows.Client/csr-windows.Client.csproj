@@ -183,11 +183,10 @@
     <Compile Include="Services\WebService\Utils\Tool.cs" />
     <Compile Include="Services\WebService\Utils\TopHelper.cs" />
     <Compile Include="Services\WebService\WebServiceClient.cs" />
-    <Compile Include="Utils\Logger.cs" />
-    <Compile Include="Utils\Queue.cs" />
-    <Compile Include="Utils\Redis.cs" />
     <Compile Include="Services\WebService\Utils\SunnyHttp.cs" />
     <Compile Include="Services\WebService\Utils\SunnyKeyValueTable.cs" />
+    <Compile Include="Utils\Queue.cs" />
+    <Compile Include="Utils\Redis.cs" />
     <Compile Include="Utils\TCPClient.cs" />
     <Compile Include="Utils\WSClient.cs" />
     <Compile Include="ViewModels\Chat\ChatBaseViewModel.cs" />
@@ -413,10 +412,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include=".editorconfig" />
-    <None Include="log4net.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
