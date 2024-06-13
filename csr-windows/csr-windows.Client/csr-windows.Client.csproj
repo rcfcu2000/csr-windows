@@ -168,6 +168,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helper\ProcessHelper.cs" />
     <Compile Include="Services\Base\IUiService.cs" />
     <Compile Include="Services\Impl\UIService.cs" />
     <Compile Include="Services\WebService\Callback.cs" />
