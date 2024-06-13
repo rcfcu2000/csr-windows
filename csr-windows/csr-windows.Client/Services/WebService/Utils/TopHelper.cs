@@ -126,6 +126,12 @@ namespace csr_windows.Client.Services.WebService
         private static extern bool EnumChildWindows(IntPtr window, EnumWindowProc callback, IntPtr lParam);
 
 
+        private const UInt32 WM_CLOSE = 0x0010;
+        public static void CloseWindow(IntPtr hwnd)
+        {
+            SendMessage(hwnd, WM_CLOSE, IntPtr.Zero, IntPtr.Zero);
+        }
+
         [StructLayout(LayoutKind.Sequential)]
         public struct RECT
         {
@@ -357,11 +363,27 @@ namespace csr_windows.Client.Services.WebService
             }
         }
 
+        public bool QNCloseWindow()
+        {
+            IntPtr hwd = FindWindowByProcessAndTitle("AliWorkbench", "接待中心");
+
+            if (hwd == IntPtr.Zero)
+            {
+                Console.WriteLine("窗口句柄无效。");
+                Logger.WriteError("没有找到 接待中心 窗口");
+                return false;
+            }
+            else
+            {
+                // 找到窗口后默认要延时200毫秒，否则会发失败(增加鼠标点击以后好像不延时也行)
+                CloseWindow(hwd);
+                return true;
+            }
+        }
 
 
 
-
-        //给指定买家发消息
+            //给指定买家发消息
         public bool QNSendMsg(string nick, string msg, int sleep = 200)
         {
             //bool isSuccess = OpenAliim(nick);

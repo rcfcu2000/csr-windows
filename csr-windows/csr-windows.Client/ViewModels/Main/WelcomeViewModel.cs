@@ -78,11 +78,8 @@ namespace csr_windows.Client.ViewModels.Main
                     {
                         
                         WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel("出了点问题，请重启千牛客户端", promptEnum: PromptEnum.Note), MessengerConstMessage.OpenPromptMessageToken);
-
-                        foreach (var process in Process.GetProcessesByName("AliWorkbench"))
-                        {
-                            process.Kill();
-                        }
+                        TopHelp tp = new TopHelp();
+                        tp.QNCloseWindow();
                         return;
                     }
                 }
@@ -91,6 +88,7 @@ namespace csr_windows.Client.ViewModels.Main
                     _uiService.OpenNoStartClientView();
                     return;
                 }
+
 
                 //调用接口
                 Dictionary<string, string> keyValuePairs = new Dictionary<string, string>()
