@@ -173,6 +173,14 @@ namespace csr_windows.Client.Services.WebService
                         TopHelp tp = new TopHelp();
                         List<JObject> messages = new List<JObject>();
 
+                        var msgList =  JsonConvert.DeserializeObject<List<dynamic>>(JsonConvert.SerializeObject(json.msg));
+                        if (msgList.Count == 0)
+                        {
+                            WeakReferenceMessenger.Default.Send(string.Empty,MessengerConstMessage.ActiveReceiveRemoteHisMsgHistoryNull);
+                            return;
+                        }
+
+
                         foreach (dynamic msg in json.msg)
                         {
                             dynamic chat = new JObject();
@@ -243,6 +251,14 @@ namespace csr_windows.Client.Services.WebService
                                 }
                             }
 
+                            //多个商品
+                            if (msg.templateId == 129)
+                            {
+                                chat.content = msg.ext.dynamic_msg_content[0].templateData.E2_items[0].actionUrl;
+                                chat.date = msg.msgtime;
+                                payload.content = chat.content;
+                            }
+
 
                             apiChatUri = string.IsNullOrEmpty($"{msg.apiChatUri}") ? string.Empty : msg.apiChatUri;
 
@@ -250,16 +266,13 @@ namespace csr_windows.Client.Services.WebService
                             chats.Add(chat);
                         }
                         tp.SaveMessage(_httpClient, messages);
-
                         dynamic aichat = new JObject();
 
                         //判断
                         aichat.message_history = JArray.FromObject(chats);
 
 
-                        //string aiURL = "https://www.zhihuige.cc/csrnew/api/how_2_reply";
                         string aiURL = "https://www.zhihuige.cc/csrnew/api";
-                        //string aiURL = "http://192.168.2.133:5061/api";
                         if (!string.IsNullOrEmpty(apiChatUri))
                         {
                             aiURL = $"{aiURL}{apiChatUri}";
@@ -570,7 +583,7 @@ namespace csr_windows.Client.Services.WebService
                             if (msgTemplateId == 241005 || msgTemplateId == 262002 || msgTemplateId == 101)
                             {
                                 //文本
-                                if (msgTemplateId == 101 && json.msg[chats.Count - 1].msg.jsview[0].type == 0)
+                                if (lastTemplateId == 101 && json.msg[chats.Count - 1].msg.jsview[0].type == 0)
                                 {
                                     return;
                                 }

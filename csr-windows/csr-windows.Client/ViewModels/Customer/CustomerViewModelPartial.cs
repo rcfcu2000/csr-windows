@@ -71,6 +71,15 @@ namespace csr_windows.Client.ViewModels.Customer
             });
 
             WeakReferenceMessenger.Default.Register<ChatBaseView, string>(this, MessengerConstMessage.SSESteamReponseToken, OnSSESteamReponse);
+            //主动接收历史消息为空
+            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.ActiveReceiveRemoteHisMsgHistoryNull, (r,m) =>
+            {
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    RemoveLoadingControl();
+                    AddTextControl(ChatIdentityEnum.Recipient, "好像您最近没有和这位顾客有过沟通呢～");
+                });
+            });
 
             //我该怎么回
             WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.AskAIToken, (r, m) =>
@@ -78,7 +87,7 @@ namespace csr_windows.Client.ViewModels.Customer
                 // 切换到UI线程更新UI
                 AddTextControl(ChatIdentityEnum.Sender, "现在我要怎么回答顾客？");
 
-                if (GlobalCache.CurrentCustomer == null)
+                if (GlobalCache.CurrentCustomer == null || string.IsNullOrEmpty(GlobalCache.CurrentCustomer.UserNiceName))
                 {
                     //发送一条消息
                     AddLoadingControl();
@@ -108,11 +117,30 @@ namespace csr_windows.Client.ViewModels.Customer
             //我想这样回
             WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.Want2ReplyToken, (r, m) =>
             {
-                AddWant2ReplyControl(ChatIdentityEnum.Sender, m);
-                AddLoadingControl();
-                GlobalCache.CurrentProductWant2ReplyGuideContent = m;
-
-                WebServiceClient.SendJSFunc(JSFuncType.GetRemoteHisMsg, GlobalCache.CurrentCustomer.CCode, AIChatApiList.Want2Reply);
+                if (GlobalCache.CurrentCustomer == null || string.IsNullOrEmpty(GlobalCache.CurrentCustomer.UserNiceName))
+                {
+                    //发送一条消息
+                    AddLoadingControl();
+                    Task.Delay(500).ContinueWith(t =>
+                    {
+                        Application.Current.Dispatcher.Invoke(() =>
+                        {
+                            RemoveLoadingControl();
+                            AddTextControl(ChatIdentityEnum.Recipient, "您还没有选择任何顾客进行沟通，我没办法提供建议哦～");
+                        });
+                    });
+                }
+                else
+                {
+                    AddWant2ReplyControl(ChatIdentityEnum.Sender, m);
+                    GlobalCache.CurrentProductWant2ReplyGuideContent = m;
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        //发送一条消息
+                        AddLoadingControl();
+                    });
+                    WebServiceClient.SendJSFunc(JSFuncType.GetRemoteHisMsg, GlobalCache.CurrentCustomer.CCode, AIChatApiList.Want2Reply);
+                }
             });
 
             //我想这样回 回调
@@ -151,6 +179,8 @@ namespace csr_windows.Client.ViewModels.Customer
             WeakReferenceMessenger.Default.Register<ObservableCollection<MyProduct>, string>(this, MessengerConstMessage.RecommendedPairingToken, OnRecommendedPairing);
             //商品推荐 回调
             WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.ReMultiGoodReponseToken, OnReMultiGoodReponse);
+
+
         }
 
 
@@ -633,36 +663,52 @@ namespace csr_windows.Client.ViewModels.Customer
         /// <exception cref="NotImplementedException"></exception>
         private void OnRecommendedPairing(object recipient, ObservableCollection<MyProduct> message)
         {
-            GlobalCache.RecommendedPairing = new List<MyProduct>(message);
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                List<MyProduct> _myProducts = new List<MyProduct>(message);
-                var firstProduct = _myProducts.First((x => x.ProductName == GlobalCache.CurrentProduct.ProductName));
-                if (firstProduct == null)
-                {
-                    _myProducts.Add(GlobalCache.CurrentProduct);
-                }
 
-                ChatBaseView chatBaseView = new ChatBaseView()
-                {
-                    DataContext = new ChatBaseViewModel()
-                    {
-                        ChatIdentityEnum = ChatIdentityEnum.Sender,
-                        ContentControl = new ChatTextAndProductView()
-                        {
-                            DataContext = new ChatTextAndProductViewModel(_myProducts, ChatTextAndProductIdentidyEnum.CustomerService)
-                            {
-                                StartContent = $"帮我结合“{GlobalCache.ProductIntroductionCustomerScene}”推荐以下商品的搭配："
-                            }
-                        }
-                    }
-                };
-                UserControls.Add(chatBaseView);
+            if (GlobalCache.CurrentCustomer == null || string.IsNullOrEmpty(GlobalCache.CurrentCustomer.UserNiceName))
+            {
                 //发送一条消息
                 AddLoadingControl();
-            });
-            WebServiceClient.SendJSFunc(JSFuncType.GetRemoteHisMsg, GlobalCache.CurrentCustomer.CCode, AIChatApiList.ReMultiGood);
+                Task.Delay(500).ContinueWith(t =>
+                {
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        RemoveLoadingControl();
+                        AddTextControl(ChatIdentityEnum.Recipient, "您还没有选择任何顾客进行沟通，我没办法提供建议哦～");
+                    });
+                });
+            }
+            else
+            {
+                GlobalCache.RecommendedPairing = new List<MyProduct>(message);
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    List<MyProduct> _myProducts = new List<MyProduct>(message);
+                    var firstProduct = _myProducts.First((x => x.ProductName == GlobalCache.CurrentProduct.ProductName));
+                    if (firstProduct == null)
+                    {
+                        _myProducts.Add(GlobalCache.CurrentProduct);
+                    }
 
+                    ChatBaseView chatBaseView = new ChatBaseView()
+                    {
+                        DataContext = new ChatBaseViewModel()
+                        {
+                            ChatIdentityEnum = ChatIdentityEnum.Sender,
+                            ContentControl = new ChatTextAndProductView()
+                            {
+                                DataContext = new ChatTextAndProductViewModel(_myProducts, ChatTextAndProductIdentidyEnum.CustomerService)
+                                {
+                                    StartContent = $"帮我结合“{GlobalCache.ProductIntroductionCustomerScene}”推荐以下商品的搭配："
+                                }
+                            }
+                        }
+                    };
+                    UserControls.Add(chatBaseView);
+                    //发送一条消息
+                    AddLoadingControl();
+                });
+                WebServiceClient.SendJSFunc(JSFuncType.GetRemoteHisMsg, GlobalCache.CurrentCustomer.CCode, AIChatApiList.ReMultiGood);
+            }
         }
 
 
