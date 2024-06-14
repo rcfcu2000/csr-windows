@@ -10,6 +10,11 @@ namespace csr_windows.Domain.BaseModels.BackEnd
     public class SSOLoginUserModel
     {
         /// <summary>
+        /// 启用
+        /// </summary>
+        public static int EnableTrue = 1;
+
+        /// <summary>
 		/// 
 		/// </summary>
 		public int ID { get; set; }
@@ -97,7 +102,7 @@ namespace csr_windows.Domain.BaseModels.BackEnd
         public string Email { get; set; }
 
         /// <summary>
-        /// 
+        /// 是否启用，1为启用户
         /// </summary>
         [JsonProperty("enable")]
         public int Enable { get; set; }

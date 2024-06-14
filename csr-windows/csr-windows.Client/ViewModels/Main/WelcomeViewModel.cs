@@ -119,6 +119,11 @@ namespace csr_windows.Client.ViewModels.Main
                 }
                 WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.HiddenLoadingVisibilityChangeToken);
                 BackendBase<SSOLoginModel> loginModel = JsonConvert.DeserializeObject<BackendBase<SSOLoginModel>>(content);
+                if (loginModel.Data.User.Enable != SSOLoginUserModel.EnableTrue)
+                {
+                    WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel("您的账号已被管理员停用", promptEnum: PromptEnum.Note), MessengerConstMessage.OpenPromptMessageToken);
+                    return;
+                }
                 if (model.Code == 0)
                 {
                     ApiClient.Instance.SetToken(loginModel.Data.Token);

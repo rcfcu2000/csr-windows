@@ -57,6 +57,7 @@ namespace csr_windows.Client.Services.WebService
             //syNet.进程代理_设置捕获任意进程(true);
             syNet.进程代理_添加进程名("AliRender.exe");
             syNet.进程代理_添加进程名("AliApp.exe");
+            //syNet.进程代理_添加进程名("aliapp.exe");
             //syNet.进程代理_添加进程名("Aliapp.exe");
             bool proxyRun = syNet.进程代理_加载驱动();
 
@@ -254,7 +255,13 @@ namespace csr_windows.Client.Services.WebService
                             //多个商品
                             if (msg.templateId == 129)
                             {
-                                chat.content = msg.ext.dynamic_msg_content[0].templateData.E2_items[0].actionUrl;
+                                if (msg.ext.dynamic_msg_content[0].templateData.templateId == 295001)
+                                    chat.content = msg.ext.dynamic_msg_content[0].templateData.E2_items[0].actionUrl;
+                                else if (msg.ext.dynamic_msg_content[0].templateData.templateId == 164002)
+                                    chat.content = msg.ext.dynamic_msg_content[0].templateData.E2_actionUrl;
+                                else
+                                    chat.content = $"未能解析：{msg.ext.dynamic_msg_content[0].templateData.templateId}的数据";
+                                
                                 chat.date = msg.msgtime;
                                 payload.content = chat.content;
                             }
@@ -521,20 +528,27 @@ namespace csr_windows.Client.Services.WebService
                             //多个商品
                             if (msg.templateId == 200005 || msg.templateId == 129)
                             {
+                                bool isAdd = true;
                                 switch ((Int32)msg.templateId)
                                 {
                                     case 200005:
                                         productMsg = JsonConvert.SerializeObject(msg.msg.E2_items);
                                         break;
                                     case 129:
-                                        productMsg = JsonConvert.SerializeObject(msg.ext.dynamic_msg_content[0].templateData.E2_items);
+                                        if (msg.ext.dynamic_msg_content[0].templateData.templateId == 295001)
+                                            productMsg = JsonConvert.SerializeObject(msg.ext.dynamic_msg_content[0].templateData.E2_items[0]);
+                                        else if (msg.ext.dynamic_msg_content[0].templateData.templateId == 164002)
+                                            isAdd = false;
                                         break;
                                     default:
                                         break;
                                 }
-                                msgTemplateId = msg.templateId;
-                                sendUserNiceName = msg.ext.sender_nick;
-                                receiveUserNiceName = msg.ext.receiver_nick;
+                                if (isAdd)
+                                {
+                                    msgTemplateId = msg.templateId;
+                                    sendUserNiceName = msg.ext.sender_nick;
+                                    receiveUserNiceName = msg.ext.receiver_nick;
+                                }
                             }
 
                             if (msg.templateId == 101)
