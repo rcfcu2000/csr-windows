@@ -365,6 +365,7 @@ namespace csr_windows.Client
     {
             Task.Factory.StartNew(async () => 
             {
+                GlobalCache.HotSellingProducts.Clear();
                 foreach (var item in message)
                 {
                     //根据信息去请求接口

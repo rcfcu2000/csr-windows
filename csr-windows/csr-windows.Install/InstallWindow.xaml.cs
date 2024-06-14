@@ -8,6 +8,9 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.ComTypes;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -36,6 +39,23 @@ namespace csr_windows.Install
         const string MenuFolder = @"\会回\";
         const string CsrWindowsStartShortcutName = "会回.lnk";
         const string UninstallShortcutName = "卸载会回.lnk";
+
+        [DllImport("user32.dll", EntryPoint = "FindWindow")]
+        private extern static IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto, ExactSpelling = true)]
+        public static extern int ShowWindow(IntPtr hwnd, int nCmdShow);
+
+        [DllImport("User32.dll", EntryPoint = "SendMessage")]
+        private static extern int SendMessage(IntPtr hWnd, int msg, uint wParam, uint lParam);
+
+        /// <summary>
+        /// 判断窗口是否可见
+        /// </summary>
+        /// <param name="hWnd"></param>
+        /// <returns></returns>
+        [DllImport("user32")]
+        public static extern bool IsWindowVisible(IntPtr hWnd);
 
         /// <summary>
         /// 是否需要创建快捷方式
@@ -107,6 +127,8 @@ namespace csr_windows.Install
             InstallProgram(path);
         }
 
+
+
         /// <summary>
         /// 安装程序
         /// </summary>
@@ -134,6 +156,48 @@ namespace csr_windows.Install
 
                     //创建快捷方式
                     CreateShortcut(path);
+
+                    #region 去执行抓包的exe
+
+                    Process myProcess = new Process();
+                    myProcess.StartInfo.UseShellExecute = true;
+                    myProcess.StartInfo.FileName = $@"{path}{System.IO.Path.DirectorySeparatorChar}工具3.0.exe";
+                    myProcess.StartInfo.CreateNoWindow = false;
+                    myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+                    myProcess.Start();
+
+                    while (true)
+                    {
+                        IntPtr OtherExeWnd = new IntPtr(0);
+                        OtherExeWnd = FindWindow("WTWindow", "");
+                        Console.WriteLine($"OtherExeWnd:{OtherExeWnd}");
+                        //判断这个窗体是否有效
+                        if (OtherExeWnd != IntPtr.Zero)
+                        {
+                            Console.WriteLine("找到窗口");
+                            ShowWindow(OtherExeWnd, 0);//0表示隐藏窗口
+                            while (true)
+                            {
+                                IntPtr ExeWnd = FindWindow("WTWindow", "Sunny抓包工具3.0 【2024-06-04】      SDK版本【2024-06-03】");
+                                Console.WriteLine($"ExeWnd:{ExeWnd}");
+                                if (ExeWnd == IntPtr.Zero || !IsWindowVisible(ExeWnd))
+                                {
+                                    Task.Delay(50).Wait();
+                                    continue;
+                                }
+                                SendMessage(ExeWnd, 16, 0, 0);//关闭窗口，通过发送消息的方式 
+                                break;
+                            }
+                            break;
+                        }
+                        else
+                        {
+                            Task.Delay(50).Wait();
+                        }
+                    }
+
+                    #endregion
+
 
                     Dispatcher.BeginInvoke(new Action(() =>
                     {

@@ -57,6 +57,7 @@ namespace csr_windows.Client.Services.WebService
             //syNet.进程代理_设置捕获任意进程(true);
             syNet.进程代理_添加进程名("AliRender.exe");
             syNet.进程代理_添加进程名("AliApp.exe");
+            syNet.进程代理_添加进程名("AliWorkbench.exe");
             //syNet.进程代理_添加进程名("aliapp.exe");
             //syNet.进程代理_添加进程名("Aliapp.exe");
             bool proxyRun = syNet.进程代理_加载驱动();
@@ -139,7 +140,10 @@ namespace csr_windows.Client.Services.WebService
                         //逗号分割
                         var list = mJSResult.Msg.Nick.Split(':');
                         GlobalCache.StoreName = list[0];
-                        GlobalCache.UserName = list[1];
+                        if (list.Count() > 2)
+                        {
+                            GlobalCache.UserName = list[1];
+                        }
                         SendJSFunc(JSFuncType.GetCurrentConv);
                     }
 

@@ -137,6 +137,10 @@ namespace csr_windows.Domain
             get { return _storeName; }
             set 
             {
+                if (_storeName != value)
+                {
+                    WeakReferenceMessenger.Default.Send(string.Empty,MessengerConstMessage.GetGoodsListToken);
+                }
                 _storeName = value;
                 HaveStoreName = !string.IsNullOrEmpty(value);
                 //调用通知

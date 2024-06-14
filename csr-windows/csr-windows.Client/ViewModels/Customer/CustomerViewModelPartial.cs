@@ -50,8 +50,11 @@ namespace csr_windows.Client.ViewModels.Customer
                     UserControls = new ObservableCollection<UserControl>();
                     Application.Current.Dispatcher.Invoke(() =>
                     {
-                        //添加一个欢迎UserControl
-                        AddTextControl(ChatIdentityEnum.Recipient, GlobalCache.WelcomeConstString);
+                        if (UserControls.Count == 0)
+                        {
+                            //添加一个欢迎UserControl
+                            AddTextControl(ChatIdentityEnum.Recipient, GlobalCache.WelcomeConstString);
+                        }
                     });
                     GlobalCache.CurrentProduct = null;
                 }

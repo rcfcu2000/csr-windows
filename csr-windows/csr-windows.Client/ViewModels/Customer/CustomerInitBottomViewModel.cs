@@ -3,9 +3,12 @@ using CommunityToolkit.Mvvm.DependencyInjection;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using csr_windows.Client.Services.Base;
+using csr_windows.Client.Services.WebService;
+using csr_windows.Client.Services.WebService.Enums;
 using csr_windows.Domain;
 using csr_windows.Domain.Enumeration;
 using csr_windows.Domain.WeakReferenceMessengerModels;
+using csr_windows.Domain.WebSocketModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -130,6 +133,7 @@ namespace csr_windows.Client.ViewModels.Customer
         /// </summary>
         private void OnChooseProductCommand()
         {
+            //WebServiceClient.SendJSFunc(JSFuncType.GetCurrentCsr);
             _uIService.OpenChooseProductView(ChooseWindowType.ChooseProduct);
         }
 
