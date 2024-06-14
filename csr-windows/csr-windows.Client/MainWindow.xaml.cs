@@ -52,7 +52,7 @@ namespace csr_windows.Client
         /// <summary>
         /// 是否更新位置中
         /// </summary>
-        private bool _isUpdatePos = false;
+        private bool _isUpdatePos = true;
 
 
         private Win32.RECT _lastRect = new Win32.RECT();
@@ -195,53 +195,65 @@ namespace csr_windows.Client
 
         public void FollowWindow()
         {
-            Handle = new WindowInteropHelper(this).Handle;
+            Application.Current.Dispatcher.Invoke(() => 
+            {
+                Handle = new WindowInteropHelper(this).Handle;
+            });
             Task.Factory.StartNew(() =>
             {
-                Task.Factory.StartNew(() =>
+                while (true)
                 {
-                    while (true)
-                    {
-                        GlobalCache.FollowHandle = FindWindowByProcessAndTitle("AliWorkbench", "接待中心");
-                        GlobalCache.IsFollowWindow = GlobalCache.FollowHandle != IntPtr.Zero;
-                        //GlobalCache.IsFollowWindow = FollowWindowHelper.GetQianNiuIntPrt(ref GlobalCache.FollowHandle);
-                        System.Threading.Thread.Sleep(2000);
-                    };
-                });
-                Dispatcher.Invoke(() =>
+                    var _tempIntprt = GlobalCache.FollowHandle;
+                    GlobalCache.FollowHandle = FindWindowByProcessAndTitle("AliWorkbench", "接待中心");
+                    if (GlobalCache.FollowHandle != _tempIntprt)
+                        SetThisFollowWindow();
+                    GlobalCache.IsFollowWindow = GlobalCache.FollowHandle != IntPtr.Zero;
+                    //GlobalCache.IsFollowWindow = FollowWindowHelper.GetQianNiuIntPrt(ref GlobalCache.FollowHandle);
+                    System.Threading.Thread.Sleep(2000);
+                };
+            });
+            Dispatcher.Invoke(() =>
+            {
+
+                try
+                {
+                    SetThisFollowWindow();
+                }
+                catch
+                {
+                    this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                }
+                Visibility = Visibility.Visible;
+                //TODO：需要去判断接待中心窗体是否找到了
+                UpdateWindowPos(true);
+            });
+        }
+
+        private void SetThisFollowWindow()
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+
+                Win32.RECT rect = new Win32.RECT();
+                Win32.GetWindowRect(GlobalCache.FollowHandle, ref rect);
+                if (rect.Bottom != 0 || rect.Top != 0 || rect.Left != 0 || rect.Right != 0)
                 {
 
-                    try
-                    {
-                        Win32.RECT rect = new Win32.RECT();
-                        Win32.GetWindowRect(GlobalCache.FollowHandle, ref rect);
-                        if (rect.Bottom != 0 || rect.Top != 0 || rect.Left != 0 || rect.Right != 0)
-                        {
-
-                            this.SizeToContent = SizeToContent.Manual;
-                            var hight = Math.Abs(rect.Bottom - rect.Top);
-                            var windowWith = Math.Abs(rect.Right - rect.Left);
-                            this.Height = (hight + 15) * scaleY;
-                            this.Width = 411;
-                            //右边
-                            this.Left = (rect.Right + _dockMargin) * scaleX;
-                            //左边
-                            //this.Left = rect.Left - this.Width;
-                            this.Top = (rect.Top - 8) * scaleY;
-                        }
-                        else
-                        {
-                            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-                        }
-                    }
-                    catch
-                    {
-                        this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-                    }
-                    Visibility = Visibility.Visible;
-                    //TODO：需要去判断接待中心窗体是否找到了
-                    UpdateWindowPos(true);
-                });
+                    this.SizeToContent = SizeToContent.Manual;
+                    var hight = Math.Abs(rect.Bottom - rect.Top);
+                    var windowWith = Math.Abs(rect.Right - rect.Left);
+                    this.Height = (hight + 15) * scaleY;
+                    this.Width = 411;
+                    //右边
+                    this.Left = (rect.Right + _dockMargin) * scaleX;
+                    //左边
+                    //this.Left = rect.Left - this.Width;
+                    this.Top = (rect.Top - 8) * scaleY;
+                }
+                else
+                {
+                    this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                }
             });
         }
 
@@ -250,51 +262,37 @@ namespace csr_windows.Client
         /// </summary>
         private void UpdateWindowPos(bool isFirst)
         {
-            if (_isUpdatePos)
-            {
-                return;
-            }
-            _isUpdatePos = true;
             this.Topmost = true;
-            if (GlobalCache.FollowHandle != null && GlobalCache.FollowHandle != IntPtr.Zero)
+            Task.Factory.StartNew(() =>
             {
-                var cHandle = GlobalCache.FollowHandle;
-                Task.Factory.StartNew(() =>
+                try
                 {
-                    try
+                    do
                     {
-                        do
+                        if (GlobalCache.FollowHandle == null || GlobalCache.FollowHandle == IntPtr.Zero)
                         {
-                            if (!GlobalCache.IsFollowWindow)
+                            System.Threading.Thread.Sleep(100);
+                            continue;
+                        }
+                        Win32.RECT rect = new Win32.RECT();
+                        Win32.GetWindowRect(GlobalCache.FollowHandle, ref rect);
+                        if (!(_lastRect.Bottom == rect.Bottom && _lastRect.Top == rect.Top && _lastRect.Left == rect.Left && _lastRect.Right == rect.Right))
+                        {
+                            if (isFirst)
                             {
-                                System.Threading.Thread.Sleep(millisecondsTimeout: 1000);
+                                isFirst = false;
+                                _lastRect = rect;
                                 continue;
                             }
-                            Win32.RECT rect = new Win32.RECT();
-                            Win32.GetWindowRect(GlobalCache.FollowHandle, ref rect);
-                            if (!(_lastRect.Bottom == rect.Bottom && _lastRect.Top == rect.Top && _lastRect.Left == rect.Left && _lastRect.Right == rect.Right))
-                            {
-                                if (isFirst)
-                                {
-                                    isFirst = false;
-                                    _lastRect = rect;
-                                    continue;
-                                }
-                                _subTaskHandler();
-                            }
-                            System.Threading.Thread.Sleep(10);
-                        } while (_isUpdatePos);
-                    }
-                    catch (Exception ex)
-                    {
-                    }
-                    _isUpdatePos = false;
-                });
-            }
-            else
-            {
-                _isUpdatePos = false;
-            }
+                            _subTaskHandler();
+                        }
+                        System.Threading.Thread.Sleep(10);
+                    } while (_isUpdatePos);
+                }
+                catch (Exception ex)
+                {
+                }
+            });
         }
 
     Win32.RECT rect = new Win32.RECT();
