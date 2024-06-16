@@ -92,6 +92,7 @@ namespace csr_windows.Client.Services.WebService
                     //启动成功
                     SendJSFunc(JSFuncType.GetCurrentCsr);
                     SendJSFunc(JSFuncType.GetGoodsList);
+                    Console.WriteLine(TopHelp.GetQNChatTitle());
                 };
 
                 socket.OnClose = () =>
@@ -171,7 +172,6 @@ namespace csr_windows.Client.Services.WebService
                         string apiChatUri = string.Empty;
                         List<JObject> chats = new List<JObject>();
 
-                        TopHelp tp = new TopHelp();
                         List<JObject> messages = new List<JObject>();
 
                         var msgList =  JsonConvert.DeserializeObject<List<dynamic>>(JsonConvert.SerializeObject(json.msg));
@@ -272,7 +272,7 @@ namespace csr_windows.Client.Services.WebService
                             messages.Add(payload);
                             chats.Add(chat);
                         }
-                        tp.SaveMessage(_httpClient, messages);
+                        TopHelp.SaveMessage(_httpClient, messages);
                         dynamic aichat = new JObject();
 
                         //判断
@@ -446,7 +446,6 @@ namespace csr_windows.Client.Services.WebService
 
                         List<JObject> chats = new List<JObject>();
 
-                        TopHelp tp = new TopHelp();
                         List<JObject> messages = new List<JObject>();
 
                         foreach (dynamic msg in json.msg)
@@ -586,7 +585,7 @@ namespace csr_windows.Client.Services.WebService
                         }
 
                         //todo:后面改成服务器地址
-                        tp.SaveMessage(_httpClient, messages);
+                        TopHelp.SaveMessage(_httpClient, messages);
 
                         int lastTemplateId = json.msg[chats.Count-1].templateId;
                         bool lastTemplateIsProduct =  ProductChatTemplateIdList.Contains(lastTemplateId);

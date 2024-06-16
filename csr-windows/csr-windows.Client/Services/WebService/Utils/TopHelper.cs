@@ -64,7 +64,7 @@ namespace csr_windows.Client.Services.WebService
             return true;
         }
     }
-    public class TopHelp
+    public static class TopHelp
     {
         // 导入用户32库中的函数
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
@@ -191,7 +191,7 @@ namespace csr_windows.Client.Services.WebService
         //    return handles;
         //}
 
-        private IntPtr FindTopLevelWindowsClassName(uint processId, IntPtr hWndStart, string className)
+        private static IntPtr FindTopLevelWindowsClassName(uint processId, IntPtr hWndStart, string className)
         {
             hWndStart = FindWindowEx(IntPtr.Zero, hWndStart, null, null); // 开始遍历
 
@@ -289,7 +289,7 @@ namespace csr_windows.Client.Services.WebService
         }
 
         /// <returns>找到的窗口句柄，未找到则返回IntPtr.Zero</returns>
-        public IntPtr FindWindowByProcessAndClassName(string processName, string className)
+        public static IntPtr FindWindowByProcessAndClassName(string processName, string className)
         {
             Process[] processes = Process.GetProcessesByName(processName);
             if (processes.Length == 0)
@@ -323,7 +323,7 @@ namespace csr_windows.Client.Services.WebService
         // 方法：关闭指定进程和窗口标题子串的窗口,窗口标题支持模糊查找
 
 
-        public bool CloseWindowByProcessAndTitle(string processName, string titleSubstring)
+        public static bool CloseWindowByProcessAndTitle(string processName, string titleSubstring)
         {
 
             IntPtr windowHandle = FindWindowByProcessAndTitle(processName, titleSubstring);
@@ -341,7 +341,7 @@ namespace csr_windows.Client.Services.WebService
 
 
         // 方法：唤起aliim聊天窗口，构造aliim协议的URL，其中nick为交谈对象
-        public bool OpenAliim(string nick)
+        public static bool OpenAliim(string nick)
         {
             string url = "aliim:sendmsg?uid=cntaobao&touid=cntaobao" + nick;
 
@@ -363,7 +363,7 @@ namespace csr_windows.Client.Services.WebService
             }
         }
 
-        public bool QNCloseWindow()
+        public static bool QNCloseWindow()
         {
             IntPtr hwd = FindWindowByProcessAndTitle("AliWorkbench", "接待中心");
 
@@ -382,9 +382,13 @@ namespace csr_windows.Client.Services.WebService
         }
 
 
+        public static string GetQNChatTitle()
+        {
+            return csr_windows.Common.Utils.AutomationUtil.findQNChatTitle();
+        }
 
-            //给指定买家发消息
-        public bool QNSendMsg(string nick, string msg, int sleep = 200)
+        //给指定买家发消息
+        public static bool QNSendMsg(string nick, string msg, int sleep = 200)
         {
             //bool isSuccess = OpenAliim(nick);
             bool isSuccess = true;
@@ -623,7 +627,7 @@ namespace csr_windows.Client.Services.WebService
                 return false;
             }
         }
-        public void SendDingdingMarkdownMessage(string aiMsg, string chat_link)
+        public static void SendDingdingMarkdownMessage(string aiMsg, string chat_link)
         {
             string webhookUrl = "https://connector.dingtalk.com/webhook/flow/102a9297ee950b523850000k";
             string markdownContent = "### AI消息 ####" + aiMsg + "![](" + chat_link + ")";
@@ -657,7 +661,7 @@ namespace csr_windows.Client.Services.WebService
             }
         }
 
-        public async void SaveMessage(HttpClient _httpClient, List<JObject> messages)
+        public async static void SaveMessage(HttpClient _httpClient, List<JObject> messages)
         {
             string webhookUrl = "http://192.168.2.8:8080/api/v1/message/biz_messages";
 
