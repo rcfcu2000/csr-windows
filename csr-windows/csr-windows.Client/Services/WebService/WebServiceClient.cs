@@ -95,6 +95,7 @@ namespace csr_windows.Client.Services.WebService
                     {
                         allSockets.Add(title, socket);
                     }
+
                     //启动成功
                     SendJSFunc(JSFuncType.GetCurrentCsr);
                     SendJSFunc(JSFuncType.GetGoodsList);

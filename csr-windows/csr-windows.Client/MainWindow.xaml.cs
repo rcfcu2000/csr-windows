@@ -43,6 +43,8 @@ using csr_windows.Domain.BaseModels.BackEnd;
 using csr_windows.Resources.Enumeration;
 using System.Web.UI.WebControls;
 using csr_windows.Core.RequestService;
+using System.Net.WebSockets;
+using csr_windows.Client.Services.WebService.Enums;
 
 namespace csr_windows.Client
 {
@@ -215,7 +217,7 @@ namespace csr_windows.Client
             {
                 Handle = new WindowInteropHelper(this).Handle;
             });
-            Task.Factory.StartNew(async () =>
+            Task.Factory.StartNew(() =>
             {
                 string title;
                 while (true)
@@ -228,14 +230,20 @@ namespace csr_windows.Client
                     //GlobalCache.IsFollowWindow = FollowWindowHelper.GetQianNiuIntPrt(ref GlobalCache.FollowHandle);
 
                     title = TopHelp.GetQNChatTitle();
+                    if (title == TopHelp.DefaultSocketTitle)
+                    {
+                        continue;
+                    }
                     if (title != null && title != GlobalCache.CustomerServiceNickName)
                     {
+                       
                         var list = title.Split(':');
                         GlobalCache.StoreName = list[0];
                         if (list.Count() >= 2)
                         {
                             GlobalCache.UserName = list[1];
                         }
+                        WebServiceClient.SendJSFunc(JSFuncType.GetCurrentConv);
 
                         #region 处理登录
                         if (!GlobalCache.StoreSSOLoginModel.ContainsKey(GlobalCache.StoreName))
@@ -247,7 +255,6 @@ namespace csr_windows.Client
 
                     }
                     System.Threading.Thread.Sleep(2000);
-
                 };
             });
             Dispatcher.Invoke(() =>

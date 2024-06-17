@@ -48,6 +48,8 @@ namespace csr_windows.Core.RequestService
 
             if (loginModel.Code == 0)
             {
+                Task.Delay(500).Wait();
+                //这里空指针了？为什么？加个延迟试试
                 GlobalCache.StoreSSOLoginModel[GlobalCache.StoreName] = loginModel.Data;
                 ApiClient.Instance.SetToken(loginModel.Data.Token);
                 GlobalCache.IsItPreSalesCustomerService = loginModel.Data.User.SalesRepType == (int)SalesRepType.PreSale;
