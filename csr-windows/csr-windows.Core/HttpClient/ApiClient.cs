@@ -113,7 +113,7 @@ namespace csr_windows.Core
         }
 
         // POST请求方法
-        public async Task<string> PostAsync(string url, IDictionary<string, string> parameters)
+        public async Task<string> PostAsync(string url, IDictionary<string, object> parameters)
         {
             url = ServerUrl + url;
             //var content = new FormUrlEncodedContent(parameters);

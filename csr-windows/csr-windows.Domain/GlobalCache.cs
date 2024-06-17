@@ -90,7 +90,10 @@ namespace csr_windows.Domain
         /// </summary>
         public static Dictionary<string, ShopModel> StoreShop = new Dictionary<string, ShopModel>();
 
-
+        /// <summary>
+        /// 店铺维度的 全部商品
+        /// </summary>
+        public static Dictionary<string, List<MyProduct>> StoreAllProducts = new Dictionary<string, List<MyProduct>>();
 
         /// <summary>
         /// 每个客户的聊天记录
@@ -111,8 +114,12 @@ namespace csr_windows.Domain
         /// <summary>
         /// 热销列表
         /// </summary>
-        public static List<MyProduct> HotSellingProducts = new List<MyProduct>();
+        //public static List<MyProduct> HotSellingProducts = new List<MyProduct>();
 
+        /// <summary>
+        /// 所有商品
+        /// </summary>
+        public static List<MyProduct> AllProducts = new List<MyProduct>();
 
         /// <summary>
         /// 是否跟随了千牛的Window
@@ -223,6 +230,11 @@ namespace csr_windows.Domain
                 Shop = StoreShop[oldStoreName];
             }
 
+            //切换
+            if (StoreAllProducts.ContainsKey(oldStoreName))
+            {
+                AllProducts = StoreAllProducts[oldStoreName];
+            }
 
             #endregion
 

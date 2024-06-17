@@ -34,5 +34,9 @@ namespace csr_windows.Domain.Api
         /// </summary>
         public const string GetShopInfo = "/shop/getbyid";
 
+        /// <summary>
+        /// 获取商品列表
+        /// </summary>
+        public const string GetMerchantList = "/merchant/getMerchantList";
     }
 }

@@ -11,6 +11,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using csr_windows.Domain.BaseModels;
+using csr_windows.Domain.Common;
 
 namespace csr_windows.Core.RequestService
 {
@@ -24,7 +26,7 @@ namespace csr_windows.Core.RequestService
         }
         public async void Login()
         {
-            Dictionary<string, string> keyValuePairs = new Dictionary<string, string>()
+            Dictionary<string, object> keyValuePairs = new Dictionary<string, object>()
             {
                 {"password","123456" },
                 {"ssoUsername",$"{GlobalCache.CustomerServiceNickName}" },
@@ -46,7 +48,7 @@ namespace csr_windows.Core.RequestService
                 return;
             }
 
-            if (loginModel.Code == 0)
+            if (loginModel.Code == BankendBaseCodeEnum.Success)
             {
                 Task.Delay(500).Wait();
                 //这里空指针了？为什么？加个延迟试试
@@ -64,6 +66,44 @@ namespace csr_windows.Core.RequestService
             ShopModel shopModel = JsonConvert.DeserializeObject<ShopModel>(content);
             GlobalCache.StoreShop[GlobalCache.StoreName] = shopModel;
             GlobalCache.Shop = shopModel;
+
+
+
+            keyValuePairs = new Dictionary<string, object>()
+            {
+                { "page",1 },
+                { "pageSize",1000 },
+                { "shopId",loginModel.Data.User.ShopId }
+            };
+            // Get All Merchant
+            content = await ApiClient.Instance.PostAsync(BackEndApiList.GetMerchantList, keyValuePairs);
+
+
+            var baseModel = JsonConvert.DeserializeObject<BackendBase<BaseGetMerchantList>>(content);
+            if (baseModel.Code == BankendBaseCodeEnum.Success)
+            {
+                //转化为
+                List<MyProduct> myProducts = new List<MyProduct>();
+                foreach (var item in baseModel.Data.List)
+                {
+                    myProducts.Add(new MyProduct()
+                    {
+                        MerchantId = item.MerchantId,
+                        ProductID = item.MerchantLinks.Count > 0 ? item.MerchantLinks[0].TaobaoId.ToString() : "",
+                        ProductImage = string.IsNullOrEmpty(item.PictureLink) ? "" : item.PictureLink,
+                        ProductName = item.Alias,
+                        ProductInfo = item.Info,
+                        ProductUrl = $"https://detail.tmall.com/item.htm?id={(item.MerchantLinks.Count > 0 ? item.MerchantLinks[0].TaobaoId : 0)}"
+                    });
+                }
+                GlobalCache.AllProducts = myProducts;
+                if (!GlobalCache.StoreAllProducts.ContainsKey(GlobalCache.StoreName))
+                {
+                    GlobalCache.StoreAllProducts[GlobalCache.StoreName] = myProducts;
+                }
+            }
+
+
         }
     }
 }
