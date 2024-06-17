@@ -66,6 +66,11 @@ namespace csr_windows.Client.Services.WebService
     }
     public static class TopHelp
     {
+        /// <summary>
+        /// 没拿到千牛title的时候储存socketDictionary的key
+        /// </summary>
+        public const string DefaultSocketTitle = "DefaultSocketTitle";
+
         // 导入用户32库中的函数
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern IntPtr FindWindowEx(IntPtr parentHandle, IntPtr childAfter, string className, string windowTitle);
@@ -384,7 +389,12 @@ namespace csr_windows.Client.Services.WebService
 
         public static string GetQNChatTitle()
         {
-            return csr_windows.Common.Utils.AutomationUtil.GetQNChatTitle();
+            string title = csr_windows.Common.Utils.AutomationUtil.GetQNChatTitle();
+            if (string.IsNullOrEmpty(title))
+            {
+                title = DefaultSocketTitle;
+            }
+            return title;
         }
 
         //给指定买家发消息
