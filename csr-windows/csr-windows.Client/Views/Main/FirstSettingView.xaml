@@ -13,10 +13,10 @@
     d:DesignHeight="800"
     d:DesignWidth="400"
     mc:Ignorable="d">
-    <StackPanel Width="400" Height="800">
+    <StackPanel Width="400" VerticalAlignment="Center">
         <Grid
             Height="auto"
-            Margin="30,180,30,0"
+            Margin="30,0"
             VerticalAlignment="Top">
             <Grid.Resources>
                 <Style TargetType="TextBlock">

@@ -11,45 +11,47 @@
     d:DesignHeight="800"
     d:DesignWidth="400"
     mc:Ignorable="d">
-    <Grid Width="400" Height="800">
-        <Grid
-            Height="auto"
-            Margin="30,200,30,0"
-            VerticalAlignment="Top">
-            <Grid.Resources>
-                <Style TargetType="TextBlock">
-                    <Setter Property="VerticalAlignment" Value="Center" />
-                </Style>
-            </Grid.Resources>
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <TextBlock
-                Margin="0,0,0,5"
-                FontSize="24"
+    <Grid Width="400">
+        <StackPanel
+            Margin="30,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <Grid Height="auto" VerticalAlignment="Top">
+                <Grid.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                    </Style>
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock
+                    Margin="0,0,0,5"
+                    FontSize="24"
+                    FontWeight="Bold"
+                    Text="似乎您还没进入千牛接待中心" />
+                <TextBlock
+                    Grid.Row="1"
+                    FontSize="14"
+                    LineHeight="25"
+                    Opacity="0.8"
+                    Text="我们需要与您的千牛工作台协作才能更好给您提供精准的服务哦～"
+                    TextWrapping="Wrap" />
+            </Grid>
+            <Button
+                Width="340"
+                Height="50"
+                Margin="0,203,0,0"
+                hc:BorderElement.CornerRadius="5"
+                Background="#2335C5"
+                Command="{Binding StartClientCommand}"
+                Content="启动并打开千牛工作台接待中心"
+                Cursor="Hand"
+                FontSize="18"
                 FontWeight="Bold"
-                Text="似乎您还没进入千牛接待中心" />
-            <TextBlock
-                Grid.Row="1"
-                FontSize="14"
-                LineHeight="25"
-                Opacity="0.8"
-                Text="我们需要与您的千牛工作台协作才能更好给您提供精准的服务哦～"
-                TextWrapping="Wrap" />
-        </Grid>
-        <Button
-            Width="340"
-            Height="50"
-            Margin="0,203,0,0"
-            hc:BorderElement.CornerRadius="5"
-            Background="#2335C5"
-            Command="{Binding StartClientCommand}"
-            Content="启动并打开千牛工作台接待中心"
-            Cursor="Hand"
-            FontSize="18"
-            FontWeight="Bold"
-            Foreground="White" />
+                Foreground="White" />
+        </StackPanel>
 
     </Grid>
 </UserControl>
