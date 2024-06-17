@@ -74,6 +74,18 @@ namespace csr_windows.Client.Services.WebService
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern IntPtr FindWindowEx(IntPtr parentHandle, IntPtr childAfter, string className, string windowTitle);
 
+        [StructLayout(LayoutKind.Sequential)]
+        public struct POINT
+        {
+            public int X;
+            public int Y;
+
+            public static implicit operator Point(POINT point)
+            {
+                return new Point(point.X, point.Y);
+            }
+        }
+
         [DllImport("user32.dll")]
         private static extern IntPtr GetWindow(IntPtr hWnd, uint uCmd);
 
@@ -102,10 +114,10 @@ namespace csr_windows.Client.Services.WebService
         public static extern bool SetCursorPos(int x, int y);
 
         [DllImport("user32.dll")]
-        public static extern IntPtr WindowFromPoint(Point pt);
+        public static extern IntPtr WindowFromPoint(POINT pt);
 
         [DllImport("user32.dll")]
-        public static extern bool ClientToScreen(IntPtr hWnd, ref Point lpPoint);
+        public static extern bool ClientToScreen(IntPtr hWnd, ref POINT lpPoint);
 
         [DllImport("user32.dll")]
         public static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint cButtons, uint dwExtraInfo);
@@ -114,7 +126,7 @@ namespace csr_windows.Client.Services.WebService
         private static extern IntPtr SetActiveWindow(IntPtr hwnd);
 
         [DllImport("user32.dll")]
-        public static extern bool GetCursorPos(out Point lpPoint);
+        public static extern bool GetCursorPos(out POINT lpPoint);
 
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
@@ -420,13 +432,13 @@ namespace csr_windows.Client.Services.WebService
                     //if (SetForegroundWindow(hwd))
                     //{
                     // 将相对坐标转换为屏幕坐标
-                    Point clientPoint = new Point(500, 500);
+                    POINT clientPoint = new POINT();
                     ClientToScreen(hwd, ref clientPoint);
 
                     for (int i = 0; i < 2; i++)
                     {
                         // 将鼠标光标移动到指定位置
-                        SetCursorPos((int)clientPoint.X, (int)clientPoint.Y);
+                        SetCursorPos(clientPoint.X, clientPoint.Y);
                         // 模拟鼠标左键按下和释放
                         mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
                         mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
@@ -503,7 +515,7 @@ namespace csr_windows.Client.Services.WebService
         {
             //bool isSuccess = OpenAliim(nick);
 
-            Point lpPoint = new Point();
+            POINT lpPoint = new POINT();
             GetCursorPos(out lpPoint);
 
             Console.WriteLine($"cursor: {lpPoint.X}, {lpPoint.Y}");
@@ -606,7 +618,7 @@ namespace csr_windows.Client.Services.WebService
                             // 使用SendKeys类模拟输入文本消息
                             SendKeys.SendWait("^{END}");
                             SendKeys.SendWait("^v");
-                            SetCursorPos((int)lpPoint.X, (int) lpPoint.Y);
+                            SetCursorPos(lpPoint.X, lpPoint.Y);
                             //SendKeys.SendWait("{ENTER}");
                             //SendTextToWindow(hwd,msg);
                             Console.WriteLine($"消息 '{msg}' 已发送至窗口 {hwd.ToInt64()}");
