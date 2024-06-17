@@ -97,9 +97,18 @@ namespace csr_windows.Common.Helper
             }
             else
             {
-                FileVersionInfo qnVersion = processes[0].MainModule.FileVersionInfo;
-                if (!(qnVersion != null && qnVersion.FileMajorPart == major && qnVersion.FileMinorPart == minor))
+                try
                 {
+                    FileVersionInfo qnVersion = processes[0].MainModule.FileVersionInfo;
+                    if (!(qnVersion != null && qnVersion.FileMajorPart == major && qnVersion.FileMinorPart == minor))
+                    {
+                        processes[0].Kill();
+                        restartQN = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Logger.WriteError(ex.Message);
                     processes[0].Kill();
                     restartQN = true;
                 }

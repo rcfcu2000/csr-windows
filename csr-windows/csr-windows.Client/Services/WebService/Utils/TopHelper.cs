@@ -11,7 +11,6 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Forms;
 
-
 namespace csr_windows.Client.Services.WebService
 {
     public class WindowHandleInfo
@@ -504,7 +503,7 @@ namespace csr_windows.Client.Services.WebService
         {
             //bool isSuccess = OpenAliim(nick);
 
-            Point lpPoint;
+            Point lpPoint = new Point();
             GetCursorPos(out lpPoint);
 
             Console.WriteLine($"cursor: {lpPoint.X}, {lpPoint.Y}");
@@ -605,7 +604,9 @@ namespace csr_windows.Client.Services.WebService
                             th.Join();
 
                             // 使用SendKeys类模拟输入文本消息
+                            SendKeys.SendWait("^{END}");
                             SendKeys.SendWait("^v");
+                            SetCursorPos((int)lpPoint.X, (int) lpPoint.Y);
                             //SendKeys.SendWait("{ENTER}");
                             //SendTextToWindow(hwd,msg);
                             Console.WriteLine($"消息 '{msg}' 已发送至窗口 {hwd.ToInt64()}");
