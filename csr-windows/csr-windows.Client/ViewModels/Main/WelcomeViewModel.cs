@@ -78,8 +78,7 @@ namespace csr_windows.Client.ViewModels.Main
                     {
                         
                         WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel("出了点问题，请重新打开千牛接待中心", promptEnum: PromptEnum.Note), MessengerConstMessage.OpenPromptMessageToken);
-                        TopHelp tp = new TopHelp();
-                        tp.QNCloseWindow();
+                        TopHelp.QNCloseWindow();
                         return;
                     }
                 }
