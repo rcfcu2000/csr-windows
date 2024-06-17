@@ -14,6 +14,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Sunny.UI.Win32;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -90,9 +91,9 @@ namespace csr_windows.Client.Services.WebService
                 {
                     Console.WriteLine("WebSocket connection opened.");
                     var title = TopHelp.GetQNChatTitle();
-                    if (!allSockets.ContainsKey(title))
+                    if (!string.IsNullOrEmpty(title) && !allSockets.ContainsKey(title))
                     {
-                        allSockets.Add(TopHelp.GetQNChatTitle(), socket);
+                        allSockets.Add(title, socket);
                     }
                     //启动成功
                     SendJSFunc(JSFuncType.GetCurrentCsr);
@@ -145,7 +146,7 @@ namespace csr_windows.Client.Services.WebService
                         //逗号分割
                         var list = mJSResult.Msg.Nick.Split(':');
                         GlobalCache.StoreName = list[0];
-                        if (list.Count() > 2)
+                        if (list.Count() >= 2)
                         {
                             GlobalCache.UserName = list[1];
                         }
@@ -308,10 +309,10 @@ namespace csr_windows.Client.Services.WebService
                                     MessageHistory = JArray.FromObject(chats),
                                     GoodsName = GlobalCache.IsHaveProduct ? GlobalCache.CurrentProduct.ProductName : null,
                                     GoodsKnowledge = GlobalCache.IsHaveProduct ? GlobalCache.CurrentProduct.ProductInfo : null,
-                                    ShopName = GlobalCache.shop.Name,
-                                    IndustryCategory = GlobalCache.shop.Category.Name,
-                                    BrandInfo = GlobalCache.shop.BrandInfo,
-                                    ShopId = GlobalCache.shop.ID,
+                                    ShopName = GlobalCache.Shop.Name,
+                                    IndustryCategory = GlobalCache.Shop.Category.Name,
+                                    BrandInfo = GlobalCache.Shop.BrandInfo,
+                                    ShopId = GlobalCache.Shop.ID,
                                     Persona = GlobalCache.CurrentPersonaModel.Persona,
                                     SaleMode = GlobalCache.IsItPreSalesCustomerService ? "sale_pre" : "sale_post"
                                 };
@@ -326,10 +327,10 @@ namespace csr_windows.Client.Services.WebService
                                     GoodsKnowledge = GlobalCache.IsHaveProduct ? GlobalCache.CurrentProduct.ProductInfo : null,
                                     GuideContent = string.IsNullOrEmpty(GlobalCache.CurrentProductWant2ReplyGuideContent) ? null : GlobalCache.CurrentProductWant2ReplyGuideContent,
                                     SaleMode = GlobalCache.IsItPreSalesCustomerService ? "sale_pre" : "sale_post",
-                                    ShopName = GlobalCache.shop.Name,
-                                    IndustryCategory = GlobalCache.shop.Category.Name,
-                                    BrandInfo = GlobalCache.shop.BrandInfo,
-                                    ShopId = GlobalCache.shop.ID,
+                                    ShopName = GlobalCache.Shop.Name,
+                                    IndustryCategory = GlobalCache.Shop.Category.Name,
+                                    BrandInfo = GlobalCache.Shop.BrandInfo,
+                                    ShopId = GlobalCache.Shop.ID,
                                     Persona = GlobalCache.CurrentPersonaModel.Persona
                                 };
                                 GlobalCache.CurrentProductWant2ReplyGuideContent = null;
@@ -344,16 +345,16 @@ namespace csr_windows.Client.Services.WebService
                                 ReMultiGoodModel reMultiGoodModel = new ReMultiGoodModel()
                                 {
                                     AssistantName = assistant_name,
-                                    ShopId = GlobalCache.shop.ID,
-                                    BrandInfo = GlobalCache.shop.BrandInfo,
+                                    ShopId = GlobalCache.Shop.ID,
+                                    BrandInfo = GlobalCache.Shop.BrandInfo,
                                     MessageHistory = JArray.FromObject(chats),
                                     CustomerScene = string.IsNullOrEmpty(GlobalCache.ProductIntroductionCustomerScene) ? null : GlobalCache.ProductIntroductionCustomerScene,
                                     Persona = GlobalCache.CurrentPersonaModel.Persona,
                                     GoodAName = GlobalCache.IsHaveProduct ? GlobalCache.CurrentProduct.ProductName : null,
                                     GoodANameKnowledge = GlobalCache.IsHaveProduct ? GlobalCache.CurrentProduct.ProductInfo : null,
-                                    ShopName = GlobalCache.shop.Name,
+                                    ShopName = GlobalCache.Shop.Name,
                                     GoodsListKnowledge = goodsListKnowledge,
-                                    IndustryCategory = GlobalCache.shop.Category.Name,
+                                    IndustryCategory = GlobalCache.Shop.Category.Name,
                                 };
                                 GlobalCache.ProductIntroductionCustomerScene = null;
                                 jsonMessage = JsonConvert.SerializeObject(reMultiGoodModel);
@@ -657,14 +658,14 @@ namespace csr_windows.Client.Services.WebService
             // 将对象转换成JSON字符串
             string jsonString = JsonConvert.SerializeObject(root, Formatting.Indented);
             string csrName = TopHelp.GetQNChatTitle();
-            if (allSockets[csrName] != null)
+            if (allSockets.ContainsKey(csrName) && allSockets[csrName] != null)
                 allSockets[csrName].Send(jsonString);
         }
 
         public static void SendSocket(string msg)
         {
             string csrName = TopHelp.GetQNChatTitle();
-            if (allSockets[csrName] != null)
+            if (allSockets.ContainsKey(csrName) && allSockets[csrName] != null)
                 allSockets[csrName].Send(msg);
         }
     }

@@ -7,6 +7,7 @@ using csr_windows.Client.Services.WebService;
 using csr_windows.Client.Services.WebService.Enums;
 using csr_windows.Common.Helper;
 using csr_windows.Core;
+using csr_windows.Core.RequestService;
 using csr_windows.Domain;
 using csr_windows.Domain.Api;
 using csr_windows.Domain.BaseModels.BackEnd;
@@ -103,40 +104,8 @@ namespace csr_windows.Client.ViewModels.Main
                 BackendBase<object> model = JsonConvert.DeserializeObject<BackendBase<object>>(content);
                 isFirstIn = string.IsNullOrEmpty(content) ? false : model.Code != 0;
 
-                //todo:这里可能会 请求错误
                 //第二个判断是否是第一次进入
-                keyValuePairs = new Dictionary<string, string>()
-                {
-                    {"password","123456" },
-                    {"ssoUsername",$"{GlobalCache.CustomerServiceNickName}" },
-                    {"username","admin"}
-                };
-                content = await ApiClient.Instance.PostAsync(BackEndApiList.SSOLogin, keyValuePairs);
-                if (content == string.Empty)
-                {
-                    return;
-                }
-                WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.HiddenLoadingVisibilityChangeToken);
-                BackendBase<SSOLoginModel> loginModel = JsonConvert.DeserializeObject<BackendBase<SSOLoginModel>>(content);
-                if (loginModel.Data.User.Enable != SSOLoginUserModel.EnableTrue)
-                {
-                    WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel("您的账号已被管理员停用", promptEnum: PromptEnum.Note), MessengerConstMessage.OpenPromptMessageToken);
-                    return;
-                }
-                if (model.Code == 0)
-                {
-                    ApiClient.Instance.SetToken(loginModel.Data.Token);
-                    GlobalCache.IsItPreSalesCustomerService = loginModel.Data.User.SalesRepType == (int)SalesRepType.PreSale;
-                }
-
-                // Get Shop Info
-                content = await ApiClient.Instance.GetAsync(BackEndApiList.GetShopInfo + '/' + loginModel.Data.User.ShopId);
-                if (content == string.Empty)
-                {
-                    return;
-                }
-                ShopModel shopModel = JsonConvert.DeserializeObject<ShopModel>(content);
-                GlobalCache.shop = shopModel;
+                LoginServer.Instance.Login();
 
                 if (isFirstIn)
                 {

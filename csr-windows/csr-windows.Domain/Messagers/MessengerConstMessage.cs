@@ -65,6 +65,15 @@ namespace csr_windows.Domain
         /// </summary>
         public const string HiddenLoadingVisibilityChangeToken = "HiddenLoadingVisibilityChangeToken";
 
+        #region 切换用户
+
+        /// <summary>
+        /// 切换登录用户的Token
+        /// </summary>
+        public const string ChangeLoginToken = "ChangeLoginToken";
+
+        #endregion
+
         #region 聊天内容的Toekn
 
         /// <summary>

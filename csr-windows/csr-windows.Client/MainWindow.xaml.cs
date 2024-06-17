@@ -38,6 +38,11 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static csr_windows.Client.Services.WebService.TopHelp;
 using csr_windows.Client.Services.WebService;
+using csr_windows.Domain.BaseModels;
+using csr_windows.Domain.BaseModels.BackEnd;
+using csr_windows.Resources.Enumeration;
+using System.Web.UI.WebControls;
+using csr_windows.Core.RequestService;
 
 namespace csr_windows.Client
 {
@@ -120,10 +125,21 @@ namespace csr_windows.Client
             WeakReferenceMessenger.Default.Register<List<GetGoodProductModel>, string>(this, MessengerConstMessage.GetGoodsListToken, OnGetGoodsList);
 
             //显示loading
-            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.ShowLoadingVisibilityChangeToken, (r, m) => { loading.Visibility = Visibility.Visible; });
+            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.ShowLoadingVisibilityChangeToken, (r, m) => {
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    loading.Visibility = Visibility.Visible;
+                });
+            });
 
             //隐藏loading
-            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.HiddenLoadingVisibilityChangeToken, (r, m) => { loading.Visibility = Visibility.Collapsed; });
+            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.HiddenLoadingVisibilityChangeToken, (r, m) => 
+            {
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    loading.Visibility = Visibility.Collapsed;
+                });
+            });
 
             InitializeComponent();
             this.DataContext = _mainViewModel;
@@ -199,8 +215,9 @@ namespace csr_windows.Client
             {
                 Handle = new WindowInteropHelper(this).Handle;
             });
-            Task.Factory.StartNew(() =>
+            Task.Factory.StartNew(async () =>
             {
+                string title;
                 while (true)
                 {
                     var _tempIntprt = GlobalCache.FollowHandle;
@@ -209,7 +226,28 @@ namespace csr_windows.Client
                         SetThisFollowWindow();
                     GlobalCache.IsFollowWindow = GlobalCache.FollowHandle != IntPtr.Zero;
                     //GlobalCache.IsFollowWindow = FollowWindowHelper.GetQianNiuIntPrt(ref GlobalCache.FollowHandle);
+
+                    title = TopHelp.GetQNChatTitle();
+                    if (title != null && title != GlobalCache.CustomerServiceNickName)
+                    {
+                        var list = title.Split(':');
+                        GlobalCache.StoreName = list[0];
+                        if (list.Count() >= 2)
+                        {
+                            GlobalCache.UserName = list[1];
+                        }
+
+                        #region 处理登录
+                        if (!GlobalCache.StoreSSOLoginModel.ContainsKey(GlobalCache.StoreName))
+                        {
+                            LoginServer.Instance.Login();
+                        }
+
+                        #endregion
+
+                    }
                     System.Threading.Thread.Sleep(2000);
+
                 };
             });
             Dispatcher.Invoke(() =>
