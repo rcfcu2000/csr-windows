@@ -5,6 +5,7 @@ using CommunityToolkit.Mvvm.Messaging;
 using csr_windows.Client.Services.Base;
 using csr_windows.Domain;
 using csr_windows.Domain.Common;
+using csr_windows.Domain.WeakReferenceMessengerModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -273,6 +274,19 @@ namespace csr_windows.Client.ViewModels.Menu
         /// <exception cref="NotImplementedException"></exception>
         private void OnChooseCommand(MyProduct product)
         {
+            //判断跟主推荐是不是一样的
+            if (product.ProductName == GlobalCache.CurrentProduct.ProductName)
+            {
+                WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel("不能选择跟推荐搭配的主商品一样噢~",promptEnum:Resources.Enumeration.PromptEnum.Note), MessengerConstMessage.OpenPromptMessageToken);
+                return;
+            }
+            var repetitionProduct = ChooseProducts.FirstOrDefault(x => x.Product?.ProductName == product.ProductName);
+            if (repetitionProduct != null)
+            {
+                WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel("已经有同样的商品了噢~", promptEnum: Resources.Enumeration.PromptEnum.Note), MessengerConstMessage.OpenPromptMessageToken);
+                return;
+            }
+
             var firstNotChosenProduct = ChooseProducts.FirstOrDefault(p => !p.IsChoose);
             if (firstNotChosenProduct != null)
             {

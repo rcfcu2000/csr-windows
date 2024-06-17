@@ -344,7 +344,10 @@ namespace csr_windows.Client.Services.WebService
                                 Dictionary<string, string> goodsListKnowledge = new Dictionary<string, string>();
                                 foreach (var item in GlobalCache.RecommendedPairing)
                                 {
-                                    goodsListKnowledge.Add(item.ProductName,item.ProductInfo);
+                                    if (!goodsListKnowledge.ContainsKey(item.ProductName))
+                                    {
+                                        goodsListKnowledge.Add(item.ProductName, item.ProductInfo);
+                                    }
                                 }
                                 ReMultiGoodModel reMultiGoodModel = new ReMultiGoodModel()
                                 {
