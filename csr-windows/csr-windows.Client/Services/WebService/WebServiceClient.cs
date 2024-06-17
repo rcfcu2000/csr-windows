@@ -32,7 +32,7 @@ namespace csr_windows.Client.Services.WebService
         /// 商品聊天模板id列表
         /// </summary>
         private static List<int> ProductChatTemplateIdList = new List<int>() { 241005, 262002, 101, 200005, 129 };
-        private static List<IWebSocketConnection> allSockets = new List<IWebSocketConnection>();
+        private static Dictionary<string, IWebSocketConnection> allSockets = new Dictionary<string, IWebSocketConnection>();
         private static SunnyNet syNet = new SunnyNet();
         private static readonly HttpClient _httpClient = new HttpClient();
         public static IWebSocketConnection Socket;
@@ -88,7 +88,7 @@ namespace csr_windows.Client.Services.WebService
                 socket.OnOpen = () =>
                 {
                     Console.WriteLine("WebSocket connection opened.");
-                    allSockets.Add(socket);
+                    allSockets.Add(TopHelp.GetQNChatTitle(), socket);
                     //启动成功
                     SendJSFunc(JSFuncType.GetCurrentCsr);
                     SendJSFunc(JSFuncType.GetGoodsList);
@@ -98,7 +98,7 @@ namespace csr_windows.Client.Services.WebService
                 socket.OnClose = () =>
                 {
                     Console.WriteLine("WebSocket connection closed.");
-                    allSockets.Remove(socket);
+                    allSockets.Remove(TopHelp.GetQNChatTitle());
                     GlobalCache.IsFollowWindow = false;
                     GlobalCache.FollowHandle = IntPtr.Zero;
                 };
@@ -584,7 +584,6 @@ namespace csr_windows.Client.Services.WebService
                             chats.Add(chat);
                         }
 
-                        //todo:后面改成服务器地址
                         TopHelp.SaveMessage(_httpClient, messages);
 
                         int lastTemplateId = json.msg[chats.Count-1].templateId;
@@ -649,16 +648,16 @@ namespace csr_windows.Client.Services.WebService
 
             // 将对象转换成JSON字符串
             string jsonString = JsonConvert.SerializeObject(root, Formatting.Indented);
-
-            foreach (var socket in allSockets.ToList())
-            {
-                socket.Send(jsonString);
-            }
+            string csrName = TopHelp.GetQNChatTitle();
+            if (allSockets[csrName] != null)
+                allSockets[csrName].Send(jsonString);
         }
 
         public static void SendSocket(string msg)
         {
-            Socket.Send(msg);
+            string csrName = TopHelp.GetQNChatTitle();
+            if (allSockets[csrName] != null)
+                allSockets[csrName].Send(msg);
         }
     }
 }

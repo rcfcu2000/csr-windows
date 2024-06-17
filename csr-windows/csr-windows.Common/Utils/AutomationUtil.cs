@@ -5,8 +5,6 @@ using System.Text;
 
 using System.Windows.Automation;
 using System.Windows.Automation.Text;
-using ManagedWinapi.Windows;
-using ManagedWinapi.Accessibility;
 
 namespace csr_windows.Common.Utils
 {
@@ -25,7 +23,7 @@ namespace csr_windows.Common.Utils
         [DllImport("user32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
 
-        public static string findQNChatTitle()
+        public static string GetQNChatTitle()
         {
 
             string targetProcess = "AliWorkbench";

@@ -384,7 +384,7 @@ namespace csr_windows.Client.Services.WebService
 
         public static string GetQNChatTitle()
         {
-            return csr_windows.Common.Utils.AutomationUtil.findQNChatTitle();
+            return csr_windows.Common.Utils.AutomationUtil.GetQNChatTitle();
         }
 
         //给指定买家发消息
@@ -663,7 +663,7 @@ namespace csr_windows.Client.Services.WebService
 
         public async static void SaveMessage(HttpClient _httpClient, List<JObject> messages)
         {
-            string webhookUrl = "http://192.168.2.8:8080/api/v1/message/biz_messages";
+            string webhookUrl = "https://www.zhihuige.cc/csrb/api/v1/message/biz_messages";
 
             var payload = new
             {
