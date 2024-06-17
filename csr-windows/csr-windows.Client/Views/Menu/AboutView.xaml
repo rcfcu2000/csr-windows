@@ -57,6 +57,7 @@
                             Background="Transparent"
                             Command="{Binding CheckVersionCommand}"
                             Content="检查更新"
+                            Cursor="Hand"
                             Foreground="#2335C5" />
                         <TextBlock
                             FontSize="14"

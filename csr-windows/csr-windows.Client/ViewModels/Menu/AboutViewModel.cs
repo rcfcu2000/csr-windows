@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using csr_windows.Domain;
+using csr_windows.Domain.WeakReferenceMessengerModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace csr_windows.Client.ViewModels.Menu
     {
 
         #region Fields
-        private string _version;
+        private string _version = "1.0.0";
 
         #endregion
 
@@ -64,7 +65,7 @@ namespace csr_windows.Client.ViewModels.Menu
         /// </summary>
         private void OnCheckVersionCommand()
         {
-        
+            WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel("当前是最新的版本"), MessengerConstMessage.OpenPromptMessageToken);
         }
 
         #endregion
