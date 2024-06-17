@@ -275,24 +275,30 @@ namespace csr_windows.Client.ViewModels.Customer
         public ChatBaseView AddTextControl(ChatIdentityEnum identityEnum, string content, bool toAddCurrentUserControls = true)
         {
             // 切换到UI线程更新UI
-
-            ChatBaseView chatBaseView = new ChatBaseView();
-            ChatBaseViewModel chatBaseViewModel = new ChatBaseViewModel()
+            ChatBaseView chatBaseView = new ChatBaseView()
             {
-                ChatIdentityEnum = identityEnum
+                DataContext = new ChatBaseViewModel()
+                {
+                    ChatIdentityEnum = identityEnum,
+                    ContentControl = new ChatTextView()
+                    {
+                        DataContext = new ChatTextViewModel(content)
+                    }
+                }
             };
 
-
-            ChatTextView chatTextView = new ChatTextView()
-            {
-                DataContext = new ChatTextViewModel(content)
-            };
-
-            chatBaseViewModel.ContentControl = chatTextView;
-            chatBaseView.DataContext = chatBaseViewModel;
             if (toAddCurrentUserControls)
             {
-                UserControls.Add(chatBaseView);
+                try
+                {
+                    UserControls.Add(chatBaseView);
+                }
+                catch (ArgumentOutOfRangeException ex)
+                {
+                    Logger.WriteError($"异常信息: {ex.Message}");
+                    Logger.WriteError($"参数名: {ex.ParamName}");
+                    Logger.WriteError($"堆栈跟踪: {ex.StackTrace}");
+                }
             }
             return chatBaseView;
         }
