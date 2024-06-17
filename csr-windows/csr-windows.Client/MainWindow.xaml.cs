@@ -233,7 +233,7 @@ namespace csr_windows.Client
 
                     if (GlobalCache.FollowHandle == IntPtr.Zero)
                     {
-                        Application.Current.Dispatcher.Invoke(() => 
+                        Application.Current?.Dispatcher.Invoke(() =>
                         {
                             if ((this.DataContext as MainViewModel).IsInIM)
                             {
