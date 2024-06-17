@@ -89,7 +89,11 @@ namespace csr_windows.Client.Services.WebService
                 socket.OnOpen = () =>
                 {
                     Console.WriteLine("WebSocket connection opened.");
-                    allSockets.Add(TopHelp.GetQNChatTitle(), socket);
+                    var title = TopHelp.GetQNChatTitle();
+                    if (!allSockets.ContainsKey(title))
+                    {
+                        allSockets.Add(TopHelp.GetQNChatTitle(), socket);
+                    }
                     //启动成功
                     SendJSFunc(JSFuncType.GetCurrentCsr);
                     SendJSFunc(JSFuncType.GetGoodsList);
