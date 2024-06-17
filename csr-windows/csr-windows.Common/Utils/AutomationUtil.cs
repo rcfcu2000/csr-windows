@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log4net.Repository.Hierarchy;
+using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -29,33 +30,42 @@ namespace csr_windows.Common.Utils
             string targetProcess = "AliWorkbench";
             string targetTitlePart = "接待中心";
 
-            // Get the desktop element
-            AutomationElement desktop = AutomationElement.RootElement;
-
-            // Get all top-level windows
-            Condition condition = new PropertyCondition(AutomationElement.ControlTypeProperty, ControlType.Window);
-
-            // Find all windows matching the condition
-            AutomationElementCollection windows = desktop.FindAll(TreeScope.Children, condition);
-
-            foreach (AutomationElement window in windows)
+            try
             {
-                string windowTitle = window.Current.Name;
-                IntPtr windowHandle = new IntPtr(window.Current.NativeWindowHandle);
+                // Get the desktop element
+                AutomationElement desktop = AutomationElement.RootElement;
 
-                // Get the process ID of the window
-                GetWindowThreadProcessId(windowHandle, out uint processId);
-                IntPtr w11 = FindWindowEx(windowHandle, IntPtr.Zero, "pane", String.Empty);
+                // Get all top-level windows
+                Condition condition = new PropertyCondition(AutomationElement.ControlTypeProperty, ControlType.Window);
 
-                // Get the process name using the process ID
-                Process process = Process.GetProcessById((int)processId);
-                string processName = process.ProcessName;
+                // Find all windows matching the condition
+                AutomationElementCollection windows = desktop.FindAll(TreeScope.Children, condition);
 
-                if (processName == targetProcess && windowTitle.Contains(targetTitlePart))
+
+                foreach (AutomationElement window in windows)
                 {
-                    return WalkControlElements(window);
+                    string windowTitle = window.Current.Name;
+                    IntPtr windowHandle = new IntPtr(window.Current.NativeWindowHandle);
+
+                    // Get the process ID of the window
+                    GetWindowThreadProcessId(windowHandle, out uint processId);
+                    IntPtr w11 = FindWindowEx(windowHandle, IntPtr.Zero, "pane", String.Empty);
+
+                    // Get the process name using the process ID
+                    Process process = Process.GetProcessById((int)processId);
+                    string processName = process.ProcessName;
+
+                    if (processName == targetProcess && windowTitle.Contains(targetTitlePart))
+                    {
+                        return WalkControlElements(window);
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                Logger.WriteError($"AutomationUtil GetQNChatTitle Error :{ex.Message}");
+            }
+
             return null;
         }
 

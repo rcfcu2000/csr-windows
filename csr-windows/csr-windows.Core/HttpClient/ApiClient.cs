@@ -28,6 +28,10 @@ namespace csr_windows.Core
         private ApiClient()
         {
             _httpClient = new HttpClient();
+            WeakReferenceMessenger.Default.Register<string,string>(this, MessengerConstMessage.ChangeLoginToken, (sender, message) =>
+            {
+                SetToken(message);
+            });
         }
 
         // 公共静态属性提供对类唯一实例的访问
@@ -45,6 +49,7 @@ namespace csr_windows.Core
         // 设置Token的方法
         public void SetToken(string token)
         {
+            _httpClient.DefaultRequestHeaders.Clear();
             _httpClient.DefaultRequestHeaders.Add("X-Token", token);
             GlobalCache.UserToken = token;
         }

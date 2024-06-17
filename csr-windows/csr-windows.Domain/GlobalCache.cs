@@ -2,6 +2,7 @@
 using csr_windows.Domain.BaseModels.BackEnd;
 using csr_windows.Domain.Common;
 using csr_windows.Domain.WebSocketModels;
+using csr_windows.Resources.Enumeration;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -58,10 +59,37 @@ namespace csr_windows.Domain
         public static string ProductIntroductionCustomerScene;
 
         private static bool _haveStoreName;
-        private static ShopModel _store;
+        private static SSOLoginModel _sSOLoginModel;
+        private static ShopModel _shop;
         private static string _token;
 
         private static PersonaModel _currentPersonaModel;
+
+        /// <summary>
+        /// 店铺维度的 每个客户的聊天记录
+        /// </summary>
+        public static Dictionary<string,Dictionary<string,List<UserControl>>> StoreCustomerChatList = new Dictionary<string, Dictionary<string, List<UserControl>>>();
+
+        /// <summary>
+        /// 店铺维度的 每个客户的当前商品
+        /// </summary>
+        public static Dictionary<string,Dictionary<string,MyProduct>> StoreCustomerCurrentProductList = new Dictionary<string, Dictionary<string, MyProduct>>();
+
+        /// <summary>
+        /// 店铺维度的 对话中的商品列表
+        /// </summary>
+        public static Dictionary<string,Dictionary<string,List<MyProduct>>> StoreCustomerDialogueProducts = new Dictionary<string, Dictionary<string, List<MyProduct>>>();
+
+        /// <summary>
+        /// 店铺维度的 SSOLogin
+        /// </summary>
+        public static Dictionary<string, SSOLoginModel> StoreSSOLoginModel = new Dictionary<string, SSOLoginModel>();
+
+        /// <summary>
+        /// 店铺维度的 商店
+        /// </summary>
+        public static Dictionary<string, ShopModel> StoreShop = new Dictionary<string, ShopModel>();
+
 
 
         /// <summary>
@@ -70,13 +98,13 @@ namespace csr_windows.Domain
         public static Dictionary<string,List<UserControl>> CustomerChatList = new Dictionary<string, List<UserControl>>();
 
         /// <summary>
-        /// 每个客户的当前
+        /// 每个客户的当前商品
         /// </summary>
         public static Dictionary<string,MyProduct> CustomerCurrentProductList = new Dictionary<string,MyProduct>();
 
 
         /// <summary>
-        /// 对话中的列表
+        /// 对话中的商品列表
         /// </summary>
         public static Dictionary<string, List<MyProduct>> CustomerDialogueProducts = new Dictionary<string, List<MyProduct>>();
 
@@ -141,6 +169,11 @@ namespace csr_windows.Domain
                 {
                     WeakReferenceMessenger.Default.Send(string.Empty,MessengerConstMessage.GetGoodsListToken);
                 }
+                if (!string.IsNullOrEmpty(_storeName))
+                {
+                    //初始化
+                    InitGlobalCacheUser(_storeName,value);
+                }
                 _storeName = value;
                 HaveStoreName = !string.IsNullOrEmpty(value);
                 //调用通知
@@ -149,15 +182,75 @@ namespace csr_windows.Domain
         }
 
         /// <summary>
+        /// 初始化全局缓存的User
+        /// </summary>
+        /// <param name="oldStoreName"></param>
+        /// <param name="newStoreName"></param>
+        private static void InitGlobalCacheUser(string oldStoreName,string newStoreName)
+        {
+            CurrentProductWant2ReplyGuideContent = string.Empty;
+            ProductIntroductionCustomerScene = string.Empty;
+
+            #region 去切换列表
+            StoreCustomerChatList[oldStoreName] = CustomerChatList;
+            StoreCustomerCurrentProductList[oldStoreName] = CustomerCurrentProductList;
+            StoreCustomerDialogueProducts[oldStoreName] = CustomerDialogueProducts;
+            CustomerChatList = new Dictionary<string, List<UserControl>>();
+            CustomerCurrentProductList = new Dictionary<string, MyProduct>();
+            CustomerDialogueProducts = new Dictionary<string, List<MyProduct>>();
+
+            if (StoreCustomerChatList.ContainsKey(newStoreName))
+                CustomerChatList = StoreCustomerChatList[newStoreName];
+            if (StoreCustomerCurrentProductList.ContainsKey(newStoreName))
+                CustomerCurrentProductList = StoreCustomerCurrentProductList[newStoreName];
+            if (StoreCustomerDialogueProducts.ContainsKey(newStoreName))
+                CustomerDialogueProducts = StoreCustomerDialogueProducts[newStoreName];
+            #endregion
+
+            #region 字段切换
+            //切换login
+            if (StoreSSOLoginModel.ContainsKey(oldStoreName))
+            {
+                SSOLoginModel = StoreSSOLoginModel[oldStoreName];
+                WeakReferenceMessenger.Default.Send(SSOLoginModel.Token, MessengerConstMessage.ChangeLoginToken);
+                IsItPreSalesCustomerService = SSOLoginModel.User.SalesRepType == (int)SalesRepType.PreSale;
+              
+            }
+
+            //切换店铺
+            if (StoreShop.ContainsKey(oldStoreName))
+            {
+                Shop = StoreShop[oldStoreName];
+            }
+
+
+            #endregion
+
+
+        }
+
+
+        /// <summary>
         /// 店铺
         /// </summary>
-        public static ShopModel shop
+        public static ShopModel Shop
         {
-            get { return _store; }
+            get { return _shop; }
             set
             {
-                _store = value;
+                _shop = value;
                 //调用通知
+                SetStaticPropertyChanged();
+            }
+        }
+
+
+        public static SSOLoginModel SSOLoginModel
+        {
+            get { return _sSOLoginModel; }
+            set 
+            {
+                _sSOLoginModel = value;
                 SetStaticPropertyChanged();
             }
         }
@@ -165,7 +258,7 @@ namespace csr_windows.Domain
 
 
         /// <summary>
-        /// 店铺
+        /// 用户Token
         /// </summary>
         public static string UserToken
         {
