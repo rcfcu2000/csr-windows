@@ -109,8 +109,12 @@ namespace csr_windows.Client.Services.WebService
                 {
                     Console.WriteLine("WebSocket connection closed.");
                     allSockets.Remove(TopHelp.GetQNChatTitle());
-                    GlobalCache.IsFollowWindow = false;
-                    GlobalCache.FollowHandle = IntPtr.Zero;
+
+                    if (allSockets.Count == 0)
+                    {
+                        GlobalCache.IsFollowWindow = false;
+                        GlobalCache.FollowHandle = IntPtr.Zero;
+                    }
                 };
 
                 socket.OnMessage = message =>
@@ -677,11 +681,15 @@ namespace csr_windows.Client.Services.WebService
         }
 
         public static void CloseAll() {
-            if (wsServer != null )
-                wsServer.Dispose();
-            if (syNet != null)
-                syNet = null;
-            allSockets.Clear(); 
+            foreach (var socket in allSockets.Values)
+            {
+                socket.Close();
+            }
+            allSockets.Clear();
+            //if (wsServer != null )
+            //    wsServer.Dispose();
+            //if (syNet != null)
+            //    syNet = null;
         }
     }
 }

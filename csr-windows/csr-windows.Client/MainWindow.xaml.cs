@@ -229,9 +229,24 @@ namespace csr_windows.Client
                 {
                     var _tempIntprt = GlobalCache.FollowHandle;
                     GlobalCache.FollowHandle = FindWindowByProcessAndTitle("AliWorkbench", "接待中心");
+                    GlobalCache.IsFollowWindow = GlobalCache.FollowHandle != IntPtr.Zero;
+
+                    if (GlobalCache.FollowHandle == IntPtr.Zero)
+                    {
+                        Application.Current.Dispatcher.Invoke(() => 
+                        {
+                            if ((this.DataContext as MainViewModel).IsInIM)
+                            {
+                                _uiService.OpenNoStartClientView();
+                                (this.DataContext as MainViewModel).IsInIM = false;
+                                WebServiceClient.CloseAll();
+                            }
+                        });
+                        continue;
+                    }
+
                     if (GlobalCache.FollowHandle != _tempIntprt)
                         SetThisFollowWindow();
-                    GlobalCache.IsFollowWindow = GlobalCache.FollowHandle != IntPtr.Zero;
                     //GlobalCache.IsFollowWindow = FollowWindowHelper.GetQianNiuIntPrt(ref GlobalCache.FollowHandle);
 
                     title = TopHelp.GetQNChatTitle();
