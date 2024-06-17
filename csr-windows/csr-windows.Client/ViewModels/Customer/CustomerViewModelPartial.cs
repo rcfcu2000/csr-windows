@@ -686,7 +686,7 @@ namespace csr_windows.Client.ViewModels.Customer
                 Application.Current.Dispatcher.Invoke(() =>
                 {
                     List<MyProduct> _myProducts = new List<MyProduct>(message);
-                    var firstProduct = _myProducts.First((x => x.ProductName == GlobalCache.CurrentProduct.ProductName));
+                    var firstProduct = _myProducts.FirstOrDefault((x => x.ProductName == GlobalCache.CurrentProduct.ProductName));
                     if (firstProduct == null)
                     {
                         _myProducts.Add(GlobalCache.CurrentProduct);
