@@ -90,8 +90,17 @@
                                         Margin="15,0,15,7"
                                         FontSize="14"
                                         FontWeight="Bold"
-                                        Text="店铺热销商品" />
-                                    <ItemsControl Margin="0,0,0,5" ItemsSource="{Binding HotSellingProducts}">
+                                        Text="店铺全部商品" />
+                                    <ItemsControl
+                                        Margin="0,0,0,5"
+                                        ItemsSource="{Binding AllProducts}"
+                                        VirtualizingStackPanel.IsVirtualizing="True"
+                                        VirtualizingStackPanel.VirtualizationMode="Recycling">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <VirtualizingStackPanel />
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
                                                 <controls:ProductControl
@@ -108,12 +117,35 @@
                             <Grid Visibility="{Binding IsSearchResult, Converter={StaticResource Boolean2VisibilityConverter}}">
                                 <hc:ScrollViewer Height="545">
                                     <StackPanel>
-                                        <TextBlock
-                                            Margin="15,0,15,7"
-                                            FontSize="14"
-                                            FontWeight="Bold"
-                                            Text="{Binding SearchProductNum, StringFormat={}搜索出 {0} 款商品}" />
-                                        <ItemsControl Margin="0,0,0,5" ItemsSource="{Binding SearchProducts}">
+                                        <Grid Margin="15,0,15,7">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto" />
+                                                <ColumnDefinition />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock
+                                                FontSize="14"
+                                                FontWeight="Bold"
+                                                Text="{Binding SearchProductNum, StringFormat={}搜索出 {0} 款商品}" />
+                                            <TextBlock
+                                                Grid.Column="1"
+                                                FontSize="14"
+                                                FontWeight="Bold"
+                                                Text="，仅展示前20条"
+                                                Visibility="{Binding SearchToMore, Converter={StaticResource Boolean2VisibilityConverter}}" />
+
+                                        </Grid>
+
+                                        <ItemsControl
+                                            Margin="0,0,0,5"
+                                            ItemsSource="{Binding SearchProducts}"
+                                            VirtualizingStackPanel.IsVirtualizing="True"
+                                            VirtualizingStackPanel.VirtualizationMode="Recycling"
+                                            Visibility="{Binding IsSearch, Converter={StaticResource Boolean2VisibilityConverter}}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <VirtualizingStackPanel />
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
                                             <ItemsControl.ItemTemplate>
                                                 <DataTemplate>
                                                     <controls:ProductControl

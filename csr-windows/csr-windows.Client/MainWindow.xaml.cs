@@ -94,10 +94,13 @@ namespace csr_windows.Client
             //提示~
             WeakReferenceMessenger.Default.Register<PromptMessageTokenModel, string>(this, MessengerConstMessage.OpenPromptMessageToken, (r, m) =>
             {
-                promptWindow.PromptContent = m.Msg;
-                promptWindow.IsShowIcon = m.IsShowIcon;
-                promptWindow.PromptEnum = m.PromptEnum;
-                promptWindow.Visibility = Visibility.Visible;
+                Application.Current.Dispatcher.Invoke(() => 
+                {
+                    promptWindow.PromptContent = m.Msg;
+                    promptWindow.IsShowIcon = m.IsShowIcon;
+                    promptWindow.PromptEnum = m.PromptEnum;
+                    promptWindow.Visibility = Visibility.Visible;
+                });
             });
 
 
@@ -410,33 +413,33 @@ namespace csr_windows.Client
 
     private void OnGetGoodsList(object recipient, List<GetGoodProductModel> message)
     {
-            Task.Factory.StartNew(async () => 
-            {
-                GlobalCache.HotSellingProducts.Clear();
-                foreach (var item in message)
-                {
-                    //根据信息去请求接口
-                    string msg = await ApiClient.Instance.GetAsync(string.Format($"{BackEndApiList.GetMerchantByTid}/{item.ItemId}"));
-                    BaseGetMerchantByTidModel model = JsonConvert.DeserializeObject<BaseGetMerchantByTidModel>(msg);
-                    if (model.Data == null)
-                    {
-                        continue;
-                    }
-                    foreach (var value in model.Data)
-                    {
-                        MyProduct myProduct = new MyProduct()
-                        {
-                            MerchantId = value.MerchantId,
-                            ProductID = item.ItemId,
-                            ProductImage = string.IsNullOrEmpty(value.PictureLink) ? item.Pic : value.PictureLink,
-                            ProductInfo = value.Info,
-                            ProductName = value.Alias,
-                            ProductUrl = item.ActionUrl
-                        };
-                        GlobalCache.HotSellingProducts.Add(myProduct);
-                    }
-                }
-            });
+            //Task.Factory.StartNew(async () => 
+            //{
+            //    GlobalCache.HotSellingProducts.Clear();
+            //    foreach (var item in message)
+            //    {
+            //        //根据信息去请求接口
+            //        string msg = await ApiClient.Instance.GetAsync(string.Format($"{BackEndApiList.GetMerchantByTid}/{item.ItemId}"));
+            //        BaseGetMerchantByTidModel model = JsonConvert.DeserializeObject<BaseGetMerchantByTidModel>(msg);
+            //        if (model.Data == null)
+            //        {
+            //            continue;
+            //        }
+            //        foreach (var value in model.Data)
+            //        {
+            //            MyProduct myProduct = new MyProduct()
+            //            {
+            //                MerchantId = value.MerchantId,
+            //                ProductID = item.ItemId,
+            //                ProductImage = string.IsNullOrEmpty(value.PictureLink) ? item.Pic : value.PictureLink,
+            //                ProductInfo = value.Info,
+            //                ProductName = value.Alias,
+            //                ProductUrl = item.ActionUrl
+            //            };
+            //            GlobalCache.HotSellingProducts.Add(myProduct);
+            //        }
+            //    }
+            //});
         
      }
 

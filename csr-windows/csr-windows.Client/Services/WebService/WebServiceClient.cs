@@ -101,7 +101,7 @@ namespace csr_windows.Client.Services.WebService
 
                     //启动成功
                     SendJSFunc(JSFuncType.GetCurrentCsr);
-                    SendJSFunc(JSFuncType.GetGoodsList);
+                    //SendJSFunc(JSFuncType.GetGoodsList);
                     Console.WriteLine(TopHelp.GetQNChatTitle());
                 };
 

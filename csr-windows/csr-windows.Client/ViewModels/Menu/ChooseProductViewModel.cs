@@ -10,6 +10,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace csr_windows.Client.ViewModels.Menu
@@ -24,10 +25,11 @@ namespace csr_windows.Client.ViewModels.Menu
 
         private bool _isSearchResult;
         private int _searchProductNum;
+        private bool _searchToMore;
 
         private bool _haveDialogueProduct;
 
-        private ObservableCollection<MyProduct> _searchProducts;
+        private ObservableCollection<MyProduct> _searchProducts = new ObservableCollection<MyProduct>();
         private List<MyProduct> storeProducts = new List<MyProduct>();
 
         private ChooseWindowType _chooseWindowType;
@@ -70,13 +72,14 @@ namespace csr_windows.Client.ViewModels.Menu
                 HaveDialogueProduct = GlobalCache.CustomerDialogueProducts[GlobalCache.CurrentCustomer.UserNiceName].Count != 0;
                 DialogueProducts = GlobalCache.CustomerDialogueProducts[GlobalCache.CurrentCustomer.UserNiceName];
             }
-            
-           
 
-            HotSellingProducts = GlobalCache.HotSellingProducts;
+
+
+            //HotSellingProducts = GlobalCache.HotSellingProducts;
+            AllProducts = GlobalCache.AllProducts.Take(20).ToList();
 
             storeProducts.AddRange(DialogueProducts);
-            storeProducts.AddRange(HotSellingProducts);
+            storeProducts.AddRange(GlobalCache.AllProducts);
             #endregion
 
         }
@@ -113,6 +116,10 @@ namespace csr_windows.Client.ViewModels.Menu
             set 
             {
                 SetProperty(ref _searchContent, value);
+                //if (string.IsNullOrEmpty(value))
+                //{
+                //    OnSearchCommand();
+                //}
                 OnSearchCommand();
             }
         }
@@ -133,6 +140,15 @@ namespace csr_windows.Client.ViewModels.Menu
         {
             get => _searchProductNum;
             set => SetProperty(ref _searchProductNum, value);
+        }
+
+        /// <summary>
+        /// 搜索过多
+        /// </summary>
+        public bool SearchToMore
+        {
+            get => _searchToMore;
+            set => SetProperty(ref _searchToMore, value);
         }
 
         /// <summary>
@@ -162,7 +178,12 @@ namespace csr_windows.Client.ViewModels.Menu
         /// <summary>
         /// 热销产品
         /// </summary>
-        public IList<MyProduct> HotSellingProducts { get; set; } = new ObservableCollection<MyProduct>();
+        //public IList<MyProduct> HotSellingProducts { get; set; } = new ObservableCollection<MyProduct>();
+
+        /// <summary>
+        /// 全部商品
+        /// </summary>
+        public IList<MyProduct> AllProducts { get; set; } = new ObservableCollection<MyProduct>();
 
         /// <summary>
         /// 搜索的商品
@@ -190,19 +211,35 @@ namespace csr_windows.Client.ViewModels.Menu
         /// 搜索命令
         /// </summary>
         private void OnSearchCommand()
-        {
+       {
             IsSearch = string.IsNullOrEmpty(SearchContent.Trim()) ? false : true;
+            if (IsSearch)
+            {
+                BindingOperations.EnableCollectionSynchronization(SearchProducts, new object());
+            }else
+            {
+                BindingOperations.DisableCollectionSynchronization(SearchProducts);
+            }
+            var indexedStoreProducts = storeProducts
+            .GroupBy(p => p.ProductName)
+            .Select(g => g.First())
+            .ToDictionary(p => p.ProductName);
 
-            List<MyProduct> matchingProducts = storeProducts
-            .Where(p => p.ProductName.Contains(SearchContent))
-            .GroupBy(obj => obj.ProductName)
-            .Select(group => group.First())
+
+            List<MyProduct> matchingProducts = indexedStoreProducts
+            .AsParallel()
+            .Where(pair => pair.Key.Contains(SearchContent))
+            .Select(pair => pair.Value)
             .ToList();
 
             //var matchingProducts = storeProducts.Where(p => p.ProductName.Contains(SearchContent)).ToList();
             IsSearchResult = matchingProducts.Count > 0;
-            SearchProducts = new ObservableCollection<MyProduct>(matchingProducts);
-            SearchProductNum = matchingProducts.Count;
+            if (IsSearch)
+            {
+                SearchToMore = matchingProducts.Count > 20;
+                SearchProducts = new ObservableCollection<MyProduct>(matchingProducts.Take(20).ToList());
+                SearchProductNum = matchingProducts.Count;
+            }
         }
 
         /// <summary>

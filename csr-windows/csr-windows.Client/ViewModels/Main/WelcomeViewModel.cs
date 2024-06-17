@@ -92,7 +92,7 @@ namespace csr_windows.Client.ViewModels.Main
 
 
                 //调用接口
-                Dictionary<string, string> keyValuePairs = new Dictionary<string, string>()
+                Dictionary<string, object> keyValuePairs = new Dictionary<string, object>()
                 {
                     { "name",$"{GlobalCache.CustomerServiceNickName}" }
                 };
@@ -103,7 +103,7 @@ namespace csr_windows.Client.ViewModels.Main
                     return;
                 }
                 BackendBase<object> model = JsonConvert.DeserializeObject<BackendBase<object>>(content);
-                isFirstIn = string.IsNullOrEmpty(content) ? false : model.Code != 0;
+                isFirstIn = string.IsNullOrEmpty(content) ? false : model.Code != BankendBaseCodeEnum.Success;
 
                 //第二个判断是否是第一次进入
                 LoginServer.Instance.Login();

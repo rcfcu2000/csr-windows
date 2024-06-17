@@ -44,7 +44,7 @@ namespace csr_windows.Domain.BaseModels.BackEnd
         /// 
         /// </summary>
         [JsonProperty("merchantLinks")]
-        public string MerchantLinks { get; set; }
+        public List<MerchantLink> MerchantLinks { get; set; }
 
         /// <summary>
         /// 

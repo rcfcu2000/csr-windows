@@ -92,8 +92,10 @@
     <Compile Include="Api\BackEndApiList.cs" />
     <Compile Include="BaseModels\BackEnd\Base\BackendBase.cs" />
     <Compile Include="BaseModels\BackEnd\Base\BaseGetMerchantByTidModel.cs" />
+    <Compile Include="BaseModels\BackEnd\Base\BaseGetMerchantList.cs" />
     <Compile Include="BaseModels\BackEnd\CategoryModel.cs" />
     <Compile Include="BaseModels\BackEnd\GetMerchantByTidModel.cs" />
+    <Compile Include="BaseModels\BackEnd\MerchantLink.cs" />
     <Compile Include="BaseModels\BackEnd\ShopModel.cs" />
     <Compile Include="BaseModels\BackEnd\SSOLogin\SSOLoginAuthorityModel.cs" />
     <Compile Include="BaseModels\BackEnd\SSOLogin\SSOLoginModel.cs" />

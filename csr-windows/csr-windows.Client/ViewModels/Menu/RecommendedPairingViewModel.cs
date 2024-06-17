@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Threading;
 
@@ -31,6 +32,7 @@ namespace csr_windows.Client.ViewModels.Menu
 
         private bool _isSearchResult;
         private int _searchProductNum;
+        private bool _searchToMore;
 
         private bool _haveDialogueProduct;
 
@@ -38,7 +40,7 @@ namespace csr_windows.Client.ViewModels.Menu
 
 
 
-        private ObservableCollection<MyProduct> _searchProducts;
+        private ObservableCollection<MyProduct> _searchProducts = new ObservableCollection<MyProduct>();
         private List<MyProduct> storeProducts = new List<MyProduct>();
 
         #endregion
@@ -97,10 +99,11 @@ namespace csr_windows.Client.ViewModels.Menu
                 DialogueProducts = GlobalCache.CustomerDialogueProducts[GlobalCache.CurrentCustomer.UserNiceName];
             }
 
-            HotSellingProducts = GlobalCache.HotSellingProducts;
+            //HotSellingProducts = GlobalCache.HotSellingProducts;
+            AllProducts = GlobalCache.AllProducts.Take(20).ToList();
 
             storeProducts.AddRange(DialogueProducts);
-            storeProducts.AddRange(HotSellingProducts);
+            storeProducts.AddRange(GlobalCache.AllProducts);
 
             #endregion
 
@@ -148,6 +151,16 @@ namespace csr_windows.Client.ViewModels.Menu
             set => SetProperty(ref _chooseNum, value);
         }
 
+
+        /// <summary>
+        /// 搜索过多
+        /// </summary>
+        public bool SearchToMore
+        {
+            get => _searchToMore;
+            set => SetProperty(ref _searchToMore, value);
+        }
+
         /// <summary>
         /// 是否有搜索结果
         /// </summary>
@@ -183,7 +196,12 @@ namespace csr_windows.Client.ViewModels.Menu
         /// <summary>
         /// 热销产品
         /// </summary>
-        public IList<MyProduct> HotSellingProducts { get; } = new ObservableCollection<MyProduct>();
+        //public IList<MyProduct> HotSellingProducts { get; } = new ObservableCollection<MyProduct>();
+
+        /// <summary>
+        /// 全部商品
+        /// </summary>
+        public IList<MyProduct> AllProducts { get; } = new ObservableCollection<MyProduct>();
 
         /// <summary>
         /// 搜索的商品
@@ -218,10 +236,34 @@ namespace csr_windows.Client.ViewModels.Menu
         private void OnSearchCommand()
         {
             IsSearch = string.IsNullOrEmpty(SearchContent.Trim()) ? false : true;
-            var matchingProducts = storeProducts.Where(p => p.ProductName.Contains(SearchContent)).ToList();
+            if (IsSearch)
+            {
+                BindingOperations.EnableCollectionSynchronization(SearchProducts, new object());
+            }
+            else
+            {
+                BindingOperations.DisableCollectionSynchronization(SearchProducts);
+            }
+            var indexedStoreProducts = storeProducts
+            .GroupBy(p => p.ProductName)
+            .Select(g => g.First())
+            .ToDictionary(p => p.ProductName);
+
+
+            List<MyProduct> matchingProducts = indexedStoreProducts
+            .AsParallel()
+            .Where(pair => pair.Key.Contains(SearchContent))
+            .Select(pair => pair.Value)
+            .ToList();
+
+            //var matchingProducts = storeProducts.Where(p => p.ProductName.Contains(SearchContent)).ToList();
             IsSearchResult = matchingProducts.Count > 0;
-            SearchProducts = new ObservableCollection<MyProduct>(matchingProducts);
-            SearchProductNum = matchingProducts.Count;
+            if (IsSearch)
+            {
+                SearchToMore = matchingProducts.Count > 20;
+                SearchProducts = new ObservableCollection<MyProduct>(matchingProducts.Take(20).ToList());
+                SearchProductNum = matchingProducts.Count;
+            }
         }
 
         /// <summary>

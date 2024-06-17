@@ -28,4 +28,14 @@ namespace csr_windows.Domain.BaseModels.BackEnd.Base
         [JsonProperty("msg")]
         public string Msg { get; set; }
     }
+
+    
+    public static class BankendBaseCodeEnum
+    {
+        /// <summary>
+        /// 成功
+        /// </summary>
+        public static int Success = 0;
+    }
+
 }
