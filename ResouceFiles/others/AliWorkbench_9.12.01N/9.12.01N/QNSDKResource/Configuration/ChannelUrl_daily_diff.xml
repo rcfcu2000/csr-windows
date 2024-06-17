@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<url>
+  <totalreplace id="RainbowAddress"><![CDATA[jdyrainbow.taobao.net:9999]]></totalreplace>
+  <domainreplace id="gw.api.taobao.com"><![CDATA[api.daily.taobao.net]]></domainreplace>
+  <domainreplace id="qnlogin.taobao.com"><![CDATA[qnlogin.daily.taobao.net]]></domainreplace>
+  <domainreplace id="yungw.taobao.com"><![CDATA[yungw.daily.taobao.net]]></domainreplace>
+  <domainreplace id="api.m.taobao.com"><![CDATA[api.waptest.taobao.com]]></domainreplace>
+  <domainreplace id="login.taobao.com"><![CDATA[login.daily.taobao.net]]></domainreplace>
+  <domainreplace id="eco.taobao.com"><![CDATA[gw.api.tbsandbox.com]]></domainreplace>
+  <domainreplace id="jdyservice.tmall.com"><![CDATA[jdyservice.daily.taobao.net]]></domainreplace>
+  <domainreplace id="iseiya.taobao.com"><![CDATA[iseiya.daily.taobao.net]]></domainreplace>
+  <domainreplace id="pc.work.taobao.com"><![CDATA[jdy.daily.tmall.net]]></domainreplace>
+  <totalreplace id="quanxianguanliAppkey"><![CDATA[60038294]]></totalreplace>
+  <totalreplace id="Login_v3"><![CDATA[http://qnlogin.daily.taobao.net/login]]></totalreplace>
+  <totalreplace id="Logout_v3"><![CDATA[http://qnlogin.daily.taobao.net/logout]]></totalreplace>
+  <totalreplace id="Login_saas"><![CDATA[http://qnlogin.daily.taobao.net/saas/login]]></totalreplace>
+  <totalreplace id="JingdouServerUrl"><![CDATA[http://jdy.daily.tmall.net]]></totalreplace>
+  <totalreplace id="JingdouServerGatewayUrl"><![CDATA[http://yungw.daily.taobao.net/gw/api]]></totalreplace>
+</url>

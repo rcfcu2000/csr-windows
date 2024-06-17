@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!---免打扰进程列表，当以下程序全屏运行时，即开启免打扰-->
+<process_name_list>
+	<Name>wmplayer.exe</Name>
+	<Name>ppstream.exe</Name>
+	<Name>pplive.exe</Name>
+	<Name>qqlive.exe</Name>
+	<Name>storm.exe</Name>
+</process_name_list>

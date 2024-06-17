@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sys_notify_size>
+	<System_cx>190</System_cx>
+	<System_cy>130</System_cy>
+	<IM_cx>260</IM_cx>
+	<IM_cy>94</IM_cy>
+	<Group_cx>210</Group_cx>
+	<Group_cy>111</Group_cy>
+	<SystemEx_cx>228</SystemEx_cx><!--浮出客户端化窗口默认大小-->
+	<SystemEx_cy>163</SystemEx_cy>
+	<Diff_cx>15</Diff_cx>
+	<Diff_cy>39</Diff_cy>
+</sys_notify_size>

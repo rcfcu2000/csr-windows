@@ -1,0 +1,489 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+  <!-- uac1  共计69项 -->
+  <!-- uac2  共计66项 -->
+  <!-- uac3  共计80项 -->
+<Keys>
+  <!--  主面板统计 -->
+  <Keys>main.contactlist.contextmenu.sendmsg</Keys>                  <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.sendfile</Keys>                 <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.invitegraffiti</Keys>           <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.av.audio</Keys>                 <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.av.video</Keys>                 <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.sms.sendsms</Keys>              <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.sms.msendsms</Keys>             <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.createchatroom</Keys>           <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.visittaospace</Keys>            <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.v_edit_contactinfo</Keys>       <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.v_webinfo.vcontactinfo</Keys>   <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.v_webinfo.vshopinfo</Keys>      <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.v_his.local</Keys>              <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.v_his.online</Keys>             <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.setimportance.normal</Keys>     <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.setimportance.1</Keys>          <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.setimportance.2</Keys>          <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.setimportance.3</Keys>          <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.setimportance.4</Keys>          <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.setimportance.5</Keys>          <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.copyuid</Keys>                  <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.changenick</Keys>               <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.movecontact</Keys>              <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.add2tribe</Keys>                <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.removecontact</Keys>            <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.block</Keys>                    <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.remove_block</Keys>             <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.portrait.big</Keys>             <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.portrait.small</Keys>           <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.onlineonly</Keys>               <!-- uac1 -->
+  <Keys>main.contactlist.contextmenu.alipay</Keys>                   <!-- uac3 -->
+  <Keys>main.openmsgmgr</Keys>                                       <!-- uac1 -->
+  <Keys>main.mainmenu</Keys>                                         <!-- uac1 -->
+  <Keys>main.sendto</Keys>                                           <!-- uac1 -->
+  <Keys>main.diagnosis_assist</Keys>
+			  
+  <Keys>main.contactlist.contextmenu</Keys>                      		 <!-- uac2 -->
+  <Keys>main.addcontact</Keys>                                   		 <!-- uac2 -->
+  <Keys>main.contactlist.contextmenu.invitegraffiti</Keys>       		 <!-- uac2 -->
+  <Keys>main.changeskin</Keys>                                   		 <!-- uac2 -->
+	<Keys>main.skin.color.choose</Keys>                            		 <!-- uac2 -->
+	<Keys>main.skin.bgcolor.choose</Keys>                          		 <!-- uac2 -->
+	<Keys>main.toppanel.eservice</Keys>                            		 <!-- uac2 -->
+	<!-- <Keys>main.toppanel.sendto</Keys>  同main.sendto-->       		 <!-- uac2 -->
+	<Keys>main.toppanel.sms</Keys>                                 		 <!-- uac2 -->
+	<Keys>main.toppanel.taospace</Keys>                            		 <!-- uac2 -->
+	<Keys>main.toppanel.dailyfouse</Keys>                          		 <!-- uac2 -->
+	<Keys>main.toppanel.mysoftware</Keys>                          		 <!-- uac2 -->
+	<Keys>main.lefttab.chooseitem</Keys>                           		 <!-- uac2 -->
+	<Keys>main.contactlist.opencontact</Keys>                      		 <!-- uac2 -->
+	<Keys>main.searchcontact.choosed</Keys>                        		 <!-- uac2 -->
+	<Keys>main.mainlisttab</Keys>                   									 <!-- uac3 -->
+	<Keys>main.dailynews.setting</Keys>                   						 <!-- uac3 -->
+	<Keys>main.lefttab.hideshow</Keys>                     		 				 <!-- uac3 -->
+	<Keys>main.feeds.taojianghu</Keys>                   							 <!-- uac3 -->
+	<Keys>main.feeds.next</Keys>                   										 <!-- uac3 -->
+	<Keys>main.feeds.previous</Keys>                        					 <!-- uac3 -->
+	<Keys>main.feeds.feed</Keys>                   										 <!-- uac3 -->
+	<Keys>main.clickprotrait</Keys>                     							 <!-- uac3 -->
+	<Keys>main.statue</Keys>                   												 <!-- uac3 -->
+	<Keys>main.statue.online</Keys>                   								 <!-- uac3 -->
+	<Keys>main.statue.busy</Keys>                   									 <!-- uac3 -->
+	<Keys>main.statue.away</Keys>                   									 <!-- uac3 -->
+	<Keys>main.statue.phone</Keys>                   									 <!-- uac3 -->
+	<Keys>main.statue.out</Keys>                   										 <!-- uac3 -->
+	<Keys>main.statue.wait</Keys>                   									 <!-- uac3 -->
+	<Keys>main.statue.hide</Keys>                   									 <!-- uac3 -->
+	<Keys>main.signature</Keys>                   										 <!-- uac3 -->
+	<Keys>main.signature.nosig</Keys>                   							 <!-- uac3 -->
+	<Keys>main.signature.loop</Keys>                   								 <!-- uac3 -->
+	<Keys>main.signature.setting</Keys>                  							 <!-- uac3 -->
+	<Keys>sysconfig.chatsetting.common.mergechatdlg</Keys>             <!-- uac3 -->
+  
+  <!-- 群列表 -->
+  <Keys>main.tribepopupmenu.addtribe</Keys>                  							 <!-- uac3 -->
+  <Keys>main.tribepopupmenu.enabletribe</Keys>                  							 <!-- uac3 -->
+
+  <!-- 好友列表 -->
+  <Keys>main.contactlist.popmenu.onlineonly</Keys>               <!-- uac1 -->
+  <Keys>main.contactlist.popmenu.portrait.big</Keys>             <!-- uac1 -->
+  <Keys>main.contactlist.popmenu.portrait.small</Keys>           <!-- uac1 -->
+  
+
+   <!--  任务栏统计 -->  
+  <Keys>taskbar.contextmenu.openmain</Keys>                      		 <!-- uac1 --> 
+  <Keys>taskbar.contextmenu.msgreminder.open</Keys>              		 <!-- uac1 -->
+  <Keys>taskbar.contextmenu.msgreminder.flash</Keys>             		 <!-- uac1 -->
+  <Keys>taskbar.contextmenu.msgreminder.unknown_flash</Keys>     		 <!-- uac1 -->
+  <Keys>taskbar.contextmenu.autoreply.autoifaway</Keys>          		 <!-- uac1 -->
+  <Keys>taskbar.contextmenu.autoreply.autoifbusy</Keys>          		 <!-- uac1 -->
+  <Keys>taskbar.contextmenu.autoreply.config</Keys>              		 <!-- uac1 -->
+  <Keys>taskbar.contextmenu.autoreply.enablesoon</Keys>          		 <!-- uac1 -->
+  <Keys>taskbar.contextmenu.free</Keys>                          		 <!-- uac1 -->
+  <Keys>taskbar.contextmenu.busy</Keys>                          		 <!-- uac1 -->
+  <Keys>taskbar.contextmenu.away</Keys>                          		 <!-- uac1 -->
+  <Keys>taskbar.contextmenu.incall</Keys>                        		 <!-- uac1 -->
+  <Keys>taskbar.contextmenu.out4dinner</Keys>                    		 <!-- uac1 -->
+  <Keys>taskbar.contextmenu.justamoment</Keys>                   		 <!-- uac1 -->
+  <Keys>taskbar.contextmenu.invisible</Keys>                     		 <!-- uac1 -->
+  <Keys>taskbar.contextmenu.logoff</Keys>                        		 <!-- uac1 -->
+  <Keys>taskbar.contextmenu.logout</Keys>                        		 <!-- uac1 -->
+  <Keys>taskbar.contextmenu.mytaobao</Keys>                      		 <!-- uac1 -->
+  <Keys>taskbar.contextmenu.sendto</Keys>                        		 <!-- uac1 -->
+  
+  <Keys>taskbar.leftbtnclick</Keys>																	 <!-- uac2 -->
+	<Keys>taskbar.contextmenu</Keys>                                	 <!-- uac2 -->
+  
+  
+   <!--  群成员列表 -->  
+  <Keys>tmemberlist.contextmenu.sendmsg</Keys>											 <!-- uac1 -->
+  <Keys>tmemberlist.contextmenu.add</Keys>                           <!-- uac1 -->
+  <Keys>tmemberlist.contextmenu.v_card</Keys>                        <!-- uac1 -->
+  <Keys>tmemberlist.contextmenu.v_info</Keys>                        <!-- uac1 -->
+  <Keys>tmemberlist.contextmenu.portraitmode.big</Keys>              <!-- uac1 -->
+  <Keys>tmemberlist.contextmenu.portraitmode.small</Keys>            <!-- uac1 -->
+  <Keys>tmemberlist.contextmenu.report</Keys>                        <!-- uac1 -->
+  
+  <Keys>tmemberlist.contextmenu</Keys>															 <!-- uac2 -->
+	<Keys>tmemberlist.contextmenu.sendmsg2</Keys>                      <!-- uac2 -->
+	<Keys>tmemberlist.contextmenu.add2</Keys>                          <!-- uac2 -->
+	<Keys>tmemberlist.contextmenu.v_card2</Keys>                       <!-- uac2 -->
+	<Keys>tmemberlist.contextmenu.v_info2</Keys>                       <!-- uac2 -->
+	<Keys>tmemberlist.contextmenu.portraitmode.big2</Keys>             <!-- uac2 -->
+	<Keys>tmemberlist.contextmenu.portraitmode.small2</Keys>           <!-- uac2 -->
+	<Keys>tmemberlist.contextmenu.report2</Keys>                       <!-- uac2 -->
+	<Keys>tmemberlist.opencontact</Keys>                               <!-- uac2 -->
+	
+	
+	<!-- 群列表统计 -->
+	<Keys>tlist.contextmenu.recvandnotify</Keys>                       <!-- uac2 -->
+	<Keys>tlist.contextmenu.receonly</Keys>                            <!-- uac2 -->
+	<Keys>tlist.contextmenu.ignoremsg</Keys>                           <!-- uac2 -->
+	<Keys>tlist.contextmenu.v_local</Keys> 		                         <!-- uac2 -->
+
+
+ 	<!--  主菜单统计 -->  
+  <Keys>mainmenu.his.v_all</Keys>																		 <!-- uac1 -->
+  <Keys>mainmenu.his.v_offline</Keys>                                <!-- uac1 -->
+  <Keys>mainmenu.his.v_sys</Keys>                                    <!-- uac1 -->
+  <Keys>main.mainmenu.systemset</Keys>                          <!-- uac1 -->
+  <Keys>main.mainmenu.logoff</Keys>                                <!-- uac1 -->
+  <Keys>main.mainmenu.close</Keys>                                <!-- uac1 -->
+
+  <Keys>main.mainmenu.personalinfomation.watchselfinfo</Keys>        <!-- uac1 -->
+  <Keys>main.mainmenu.personalinfomation.watchselfcard</Keys>        <!-- uac1 -->
+  
+  <Keys>main.mainmenu.onlinestate.online</Keys>                               <!-- uac1 -->
+  <Keys>main.mainmenu.onlinestate.busy</Keys>                                 <!-- uac1 -->
+  <Keys>main.mainmenu.onlinestate.outofcomputer</Keys>                 <!-- uac1 -->
+  <Keys>main.mainmenu.onlinestate.hidden</Keys>                              <!-- uac1 -->
+ 
+  <Keys> main.mainmenu.personalsignature.addmodifysignatures</Keys>      <!-- uac1 -->
+
+  <Keys>main.mainmenu.mainwindowset.watchcalldaily</Keys>                      <!-- uac1 -->
+  <Keys>main.mainmenu.mainwindowset.windowtopmost</Keys>                      <!-- uac1 -->
+  <Keys>main.mainmenu.mainwindowset.showlabel</Keys>                      <!-- uac1 -->
+  <Keys>main.mainmenu.mainwindowset.personalheadpicture</Keys>                      <!-- uac1 -->
+  <Keys>main.mainmenu.mainwindowset.showperonalsignature</Keys>                      <!-- uac1 -->
+  <Keys>main.mainmenu.mainwindowset.onlinefirst</Keys>                      <!-- uac1 -->
+  <Keys>main.mainmenu.mainwindowset.showfeeds</Keys>                      <!-- uac1 -->
+  <Keys>main.mainmenu.mainwindowset.onlinecontactlist</Keys>                      <!-- uac1 -->
+  
+  <Keys>main.mainmenu.help.robot</Keys>                      <!-- uac1 -->
+  <Keys>main.mainmenu.help.helpali</Keys>                     <!-- uac1 -->
+  <Keys>main.mainmenu.help.getnewim</Keys>                        <!-- uac1 -->
+  <Keys>main.mainmenu.help.provision</Keys>                         <!-- uac1 -->
+  <Keys>main.mainmenu.help.about</Keys>                              <!-- uac1 -->
+
+
+
+  <!--  群聊天对话框 -->  
+  <Keys>tchatdlg.setting.exit</Keys>    														 <!-- uac1 -->
+  <Keys>tchatdlg.his.v_local</Keys>                                  <!-- uac1 -->
+  <Keys>tchatdlg.invite</Keys>                                       <!-- uac1 -->
+  <Keys>tribe.recommendation.agree</Keys>                            <!-- uac1 -->
+  <Keys>tribe.recommendation.ignore</Keys>                           <!-- uac1 -->
+  
+  <Keys>tchatdlg.invite2</Keys>																			 <!-- uac2 -->
+	<Keys>tchatdlg.screencapture</Keys>                                <!-- uac2 -->
+	<Keys>tchatdlg.open</Keys>                                         <!-- uac2 -->
+	<Keys>tchatdlg.send</Keys>                               					 <!-- uac3 -->
+	
+	<Keys>tribe.recommendation.agree2</Keys>													 <!-- uac2 -->
+	<Keys>tribe.recommendation.ignore2</Keys>                          <!-- uac2 -->
+	
+	<Keys>tchatdlg.maintoolbar.openhis</Keys>                          <!-- uac3 -->
+	<Keys>tchatdlg.maintoolbar.sendsms</Keys>                          <!-- uac3 -->
+	<Keys>tchatdlg.maintoolbar.setting</Keys>                          <!-- uac3 -->
+	
+	<Keys>tchatdlg.edittoolbar.setfront</Keys>                         <!-- uac3 -->
+	<Keys>tchatdlg.edittoolbar.selectemotion</Keys>                    <!-- uac3 -->
+	<Keys>tchatdlg.edittoolbar.shortphase</Keys>                       <!-- uac3 -->
+	<Keys>tchatdlg.edittoolbar.sendpic</Keys>                          <!-- uac3 -->
+	<Keys>tchatdlg.edittoolbar.tools</Keys>                            <!-- uac3 -->
+	<Keys>tchatdlg.edittoolbar.openhis</Keys>                          <!-- uac3 -->
+  
+  <Keys>tchatdlg.hideinfoarea</Keys>                             <!-- uac3 -->
+	
+	
+  
+  <!--  聊天对话框 -->  
+  <Keys>chatdlg.his.v_local</Keys>																	 <!-- uac1 -->
+  
+  <Keys>chatdlg.motion.choose</Keys>                                 <!-- uac2 -->    
+	<Keys>chatdlg.screencapture</Keys>	                               <!-- uac2 -->
+	<Keys>chatdlg.changegrp</Keys>                                     <!-- uac2 -->
+	<Keys>chatdlg.choosefile2transfer</Keys>                           <!-- uac2 -->
+	<Keys>chatdlg.copyfile2transter</Keys>                             <!-- uac2 -->
+	<Keys>chatdlg.dropfile2transfer</Keys>                             <!-- uac2 -->
+	<Keys>chatdlg.usegraffiti</Keys>	                                 <!-- uac2 -->
+	<Keys>chatdlg.useuutranslation</Keys>                              <!-- uac2 -->
+	<Keys>chatdlg.send</Keys>                              						 <!-- uac3 -->
+	<Keys>chatdlg.hideselfportrait</Keys>                              <!-- uac3 -->
+	<Keys>chatdlg.clickselfportrait</Keys>                             <!-- uac3 -->
+	
+	<Keys>chatdlg.maintoolbar.sendfile</Keys>                          <!-- uac3 -->
+	<Keys>chatdlg.maintoolbar.audiochat</Keys>                         <!-- uac3 -->
+	<Keys>chatdlg.maintoolbar.vidiochat</Keys>                         <!-- uac3 -->
+	<Keys>chatdlg.maintoolbar.remote</Keys>                            <!-- uac3 -->
+	<Keys>chatdlg.maintoolbar.multichat</Keys>                         <!-- uac3 -->
+	<Keys>chatdlg.maintoolbar.sendsms</Keys>                           <!-- uac3 -->
+	<Keys>chatdlg.maintoolbar.report</Keys>                            <!-- uac3 -->
+	<Keys>chatdlg.maintoolbar.filemenu.sendfolder</Keys>               <!-- uac3 -->
+	<Keys>chatdlg.maintoolbar.filemenu.sendofflinefile</Keys>          <!-- uac3 -->
+	<Keys>chatdlg.maintoolbar.filemenu.trasfersetting</Keys>           <!-- uac3 -->
+	<Keys>chatdlg.maintoolbar.filemenu.opentrasferfolder</Keys>        <!-- uac3 -->
+	<Keys>chatdlg.maintoolbar.filemenu.viewtrasferrecord</Keys>        <!-- uac3 -->
+	<Keys>chatdlg.maintoolbar.reportmenu.report</Keys>                 <!-- uac3 -->
+	<Keys>chatdlg.maintoolbar.reportmenu.add2block</Keys>              <!-- uac3 -->
+	<Keys>chatdlg.maintoolbar.reportmenu.removeoutblock</Keys>         <!-- uac3 -->
+	<Keys>chatdlg.maintoolbar.reportmenu.deletecontact</Keys>          <!-- uac3 -->
+	<Keys>chatdlg.maintoolbar.reportmenu.norecieveblack</Keys>         <!-- uac3 -->
+	
+	<Keys>chatdlg.edittoolbar.setfront</Keys>                          <!-- uac3 -->
+	<Keys>chatdlg.edittoolbar.openemotion</Keys>                       <!-- uac3 -->
+	<Keys>chatdlg.edittoolbar.selectpicflash</Keys>                    <!-- uac3 -->
+	<Keys>chatdlg.edittoolbar.shortphase</Keys>                        <!-- uac3 -->
+	<Keys>chatdlg.edittoolbar.sendpic</Keys>                           <!-- uac3 -->
+	<Keys>chatdlg.edittoolbar.smalltool</Keys>                         <!-- uac3 -->
+	<Keys>chatdlg.edittoolbar.startscreencapture</Keys>                <!-- uac3 -->
+	<Keys>chatdlg.edittoolbar.hidescreencapture</Keys>                 <!-- uac3 -->
+	<Keys>chatdlg.edittoolbar.customscreencapture</Keys>               <!-- uac3 -->
+	<Keys>chatdlg.edittoolbar.tools.notepad</Keys>                     <!-- uac3 -->
+	<Keys>chatdlg.edittoolbar.tools.calc</Keys>                        <!-- uac3 -->
+	<Keys>chatdlg.edittoolbar.scolltobottom</Keys>                     <!-- uac3 -->
+	<Keys>chatdlg.edittoolbar.hismemu.viewonlinehis</Keys>             <!-- uac3 -->
+	<Keys>chatdlg.edittoolbar.hismemu.hissetting</Keys>                <!-- uac3 -->
+	<Keys>chatdlg.edittoolbar.sendpic.sendjhpic</Keys>                 <!-- uac3 -->
+	<Keys>chatdlg.edittoolbar.sendpic.sendloaclpic</Keys>              <!-- uac3 -->
+	<Keys>chatdlg.edittoolbar.shake</Keys>                     				 <!-- uac3 -->
+	<Keys>chatdlg.edittoolbar.viewmsg</Keys>                     			 <!-- uac3 -->
+	
+	<Keys>chatdlg.portraitmenu.viewnamecard</Keys>                     <!-- uac3 -->
+	<Keys>chatdlg.portraitmenu.viewcontactinfo</Keys>                  <!-- uac3 -->
+	<Keys>chatdlg.portraitmenu.locatecontact</Keys>                    <!-- uac3 -->
+	<Keys>chatdlg.portraitmenu.big</Keys>                              <!-- uac3 -->
+	<Keys>chatdlg.portraitmenu.middle</Keys>                           <!-- uac3 -->
+	<Keys>chatdlg.portraitmenu.small</Keys>                            <!-- uac3 -->
+	
+	<Keys>chatdlg.recievefile.recieve</Keys>                           <!-- uac3 -->
+	<Keys>chatdlg.recievefile.saveas</Keys>                            <!-- uac3 -->
+	<Keys>chatdlg.recievefile.reject</Keys>                            <!-- uac3 -->
+	<Keys>chatdlg.recievefile.recievenexttime</Keys>                   <!-- uac3 -->
+  
+  <Keys>chatdlg.hideinfoarea</Keys>                   <!-- uac3 -->
+	
+
+	<!--  图片浮动工具条 -->
+	<Keys>pictoolbar.addemotion</Keys>                     						 <!-- uac3 -->
+	<Keys>pictoolbar.saveas</Keys>                     								 <!-- uac3 -->
+	<Keys>pictoolbar.editpic</Keys>                     							 <!-- uac3 -->
+	<Keys>pictoolbar.add2ablum</Keys>                     						 <!-- uac3 -->
+
+	<!--  E客服聊天对话框 -->
+  <Keys>eservicedlg.motion.choose</Keys>                             <!-- uac2 -->    
+	<Keys>eservicedlg.screencapture</Keys>	                           <!-- uac2 -->
+	<Keys>eservicedlg.changegrp</Keys>                                 <!-- uac2 -->
+	<Keys>eservicedlg.choosefile2transfer</Keys>                       <!-- uac2 -->
+	<Keys>eservicedlg.copyfile2transter</Keys>                         <!-- uac2 -->
+	<Keys>eservicedlg.dropfile2transfer</Keys>                         <!-- uac2 -->
+	<Keys>eservicedlg.usegraffiti</Keys>	                             <!-- uac2 -->
+	<Keys>eservicedlg.useuutranslation</Keys>                          <!-- uac2 -->
+	<Keys>eservicedlg.maintoolbar.audiochat</Keys>                     <!-- uac2 -->
+	<Keys>eservicedlg.maintoolbar.vidiochat</Keys>                     <!-- uac2 -->
+	<Keys>eservicedlg.maintoolbar.remote</Keys>                        <!-- uac2 -->
+  
+ 	<!--  业务逻辑 -->
+	<Keys>biz.login.failure</Keys>                                     <!-- uac2 -->                    
+	<Keys>biz.filetransfer</Keys>                                      <!-- uac2 -->
+	<Keys>biz.filetransfer.falure</Keys>                               <!-- uac2 -->
+  <Keys>biz.msg.openchatdlg</Keys>                                   <!-- uac2 -->
+  
+	<!--  历史记录管理器 -->                                               
+	<Keys>hismgr.savecurpage</Keys>                                    <!-- uac2 -->
+	<Keys>hismgr.export</Keys>                                         <!-- uac2 -->
+  
+  <Keys>historymsgdlg.searchbutton</Keys>                                         <!-- uac2 -->
+  <Keys>historymsgdlg.reportbutton</Keys>                                         <!-- uac2 -->
+  <Keys>historymsgdlg.refreshbutton</Keys>                                         <!-- uac2 -->
+  <Keys>historymsgdlg.backubutton</Keys>                                         <!-- uac2 -->
+  <Keys>historymsgdlg.recoverybutton</Keys>                                      <!-- uac2 -->
+  
+  
+	<!-- 系统设置统计  -->
+	<Keys>sysconfig.chatsetting.autoreply.addnew</Keys>                <!-- uac2 -->
+	<Keys>sysconfig.chatsetting.autoreply.modify</Keys>                <!-- uac2 -->
+	<Keys>sysconfig.chatsetting.autoreply.remove</Keys>                <!-- uac2 -->
+	<Keys>sysconfig.chatsetting.qmsg.addnew</Keys>                     <!-- uac2 -->
+	<Keys>sysconfig.chatsetting.qmsg.modify</Keys>                     <!-- uac2 -->
+	<Keys>sysconfig.chatsetting.qmsg.remove</Keys>                     <!-- uac2 -->
+	<Keys>sysconfig.update.auto</Keys>                                 <!-- uac2 -->
+	<Keys>sysconfig.update.manual</Keys>                               <!-- uac2 -->
+	<Keys>sysconfig.update.update</Keys>															 <!-- uac2 -->
+	<Keys>sysconfig.left.chat.reset_never_remind</Keys>
+	
+	<!-- 用户系统统计 -->
+	<Keys>sysinfo.detail</Keys>																				 <!-- uac2 -->
+	
+	 
+	<!-- shell统计 -->
+	<Keys>shell.aliim:sendmsg</Keys>                                    <!-- uac2 -->
+	<Keys>shell.aliim:sendappcmd</Keys>                                 <!-- uac2 -->
+	<Keys>shell.aliim:send_file</Keys>                                  <!-- uac2 -->
+	<Keys>shell.aliim:addnewemotion</Keys>                              <!-- uac2 -->
+	<Keys>shell.aliim:login</Keys>                                      <!-- uac2 -->
+	
+	
+	<!-- 最近联系人列表统计 -->
+	<Keys>recentlist.opencontact</Keys>															   <!-- uac2 -->
+	<Keys>recentlist.contextmenu.sendmsg</Keys>                        <!-- uac2 -->
+		
+ 	<!--  主菜单统计 -->  
+	<Keys>mainmenu.help.getnewim</Keys>															   <!-- uac 特别增补 -->
+  
+  <!--  查找，添加联系人统计 -->
+ <Keys>searchdlg.base.name</Keys>                                <!-- uac2 -->    
+ <Keys>searchdlg.base.realname</Keys>                         <!-- uac2 -->    
+ <Keys>searchdlg.base.auto</Keys>                                 <!-- uac2 -->
+ <Keys>searchdlg.advanced</Keys>                                 <!-- uac2 -->
+ <Keys>searchdlg.tribe</Keys>                                         <!-- uac2 -->
+
+  <!-- 联系人资料窗口统计 -->
+  <Keys>selfcontactinfodlg.opencount</Keys>                                         <!-- uac2 -->
+  <Keys>selfcontactinfodlg.modifyheadimagebutton</Keys>                        <!-- uac2 -->
+  <Keys>selfcontactinfodlg.headimageclick</Keys>                                     <!-- uac2 -->
+  <Keys>selfcontactinfodlg.wangwangshowitem</Keys>                              <!-- uac2 -->
+  <Keys>selfcontactinfodlg.selfinfoitem</Keys>                                           <!-- uac2 -->
+  <Keys>selfcontactinfodlg.cancelbutton</Keys>                                         <!-- uac2 -->
+  <Keys>selfcontactinfodlg.okbutton</Keys>                                               <!-- uac2 -->
+  <Keys>selfcontactinfodlg.applybutton</Keys>                                           <!-- uac2 -->
+
+  <!-- 联系人帐号相关信息 -->
+    <Keys>main.user.name</Keys>                                                 <!-- uac2 -->
+    <Keys>main.user.msghissize</Keys>                                         <!-- uac2 -->
+    <Keys>main.user.emotions.count</Keys>                                 <!-- uac2 -->
+    <Keys>main.user.logincount</Keys>                                         <!-- uac2 -->
+
+  <!-- 启动入口相关信息 -->
+     <Keys>main.run.auto</Keys>                                         <!-- uac2 -->
+     <Keys>main.run.menu</Keys>                                       <!-- uac2 -->
+     <Keys>main.run.desktop</Keys>                                    <!-- uac2 -->
+     <!-- 消息盒子 -->
+     <Keys>main.msgsbox</Keys>                                    <!-- uac2 -->
+     
+     <!-- 工作台缓存命中率 -->
+     <Keys>CIECacheMgr.Access</Keys>                                    <!-- uac2 -->
+     <!-- 主界面_新-->
+	<Keys>seller.main.topbar.Eservice</Keys>          
+	<Keys>seller.main.topbar.pointsend</Keys>     
+	<Keys>seller.main.topbar.mobile</Keys>     
+	<Keys>seller.main.topbar.dailyfocus</Keys>     
+	<Keys>seller.main.topbar.myservice</Keys>     
+	<Keys>seller.main.sidebar.mytaobao</Keys>   
+	<Keys>seller.main.search.sendto</Keys>
+	<Keys>seller.main.tao.open</Keys>
+	<Keys>seller.main.tao.config</Keys>
+	<Keys>seller.main.combinetips</Keys>
+	<Keys>seller.main.dragtips</Keys>
+	
+	<!-- 主界面_淘应用盒子-->
+	<Keys>seller.main.taobao.app_28</Keys>
+	<Keys>seller.main.taobao.app_29</Keys>
+	<Keys>seller.main.taobao.app_30</Keys>
+	<Keys>seller.main.taobao.app_31</Keys>
+	<Keys>seller.main.taobao.app_32</Keys>
+	<Keys>seller.main.taobao.app_33</Keys>
+	<Keys>seller.main.taobao.app_34</Keys>
+	<Keys>seller.main.taobao.app_35</Keys>
+	<Keys>seller.main.taobao.app_36</Keys>
+	<Keys>seller.main.taobao.app_37</Keys>
+	<Keys>seller.main.taobao.app_38</Keys>
+	<Keys>seller.main.taobao.app_39</Keys>
+	<Keys>seller.main.taobao.app_40</Keys>
+	<Keys>seller.main.taobao.app_41</Keys>
+	<Keys>seller.main.taobao.app_42</Keys>
+	<Keys>seller.main.taobao.app_43</Keys>
+	<Keys>seller.main.taobao.app_48</Keys>
+	<Keys>seller.main.taobao.app_49</Keys>
+	
+	 <!-- 工作台_新-->
+	<Keys>seller.platform.search</Keys>     
+	<Keys>seller.platform.chat</Keys>    
+	<Keys>seller.platform.recentchat</Keys>    
+	<Keys>seller.platform.myteam</Keys>    
+	<Keys>seller.platform.quickentry</Keys>    
+	<Keys>seller.platform.sendto</Keys>    
+	<Keys>seller.platform.hangup</Keys>    
+	<Keys>seller.platform.chatbox</Keys>    
+	<Keys>seller.platform.recentchat.lastchatup</Keys>    
+	<Keys>seller.platform.recentchat.lastchatdown</Keys>    
+	<Keys>seller.platform.recentchat.waittimeup</Keys>  
+	<Keys>seller.platform.recentchat.waittimedown</Keys>   
+	<Keys>seller.platform.recentchat.noreplyup</Keys>    
+	<Keys>seller.platform.recentchat.noreplydown</Keys>    	
+	<Keys>seller.platform.isvtoolbar</Keys>
+	<Keys>seller.platform.expand.custom</Keys>
+	<Keys>seller.platform.search.sendto</Keys>
+	<Keys>seller.platform.nailed</Keys>
+	<!-- 快捷盒子_新-->
+	<Keys>seller.platform.quickentry.set</Keys>
+	<Keys>seller.platform.quickentry.hide</Keys>
+	<Keys>seller.platform.quickentry.set.add</Keys>
+	<Keys>seller.platform.quickentry.set.hide</Keys>
+	<Keys>seller.platform.quickentry.set.show</Keys>
+	<!-- 工作台-主工具栏_新-->
+	<Keys>seller.platform.maintoolbar.transferinfo</Keys>
+	<Keys>seller.platform.maintoolbar.sendfile.sendfile</Keys>
+	<Keys>seller.platform.maintoolbar.sendfile.sendfolder</Keys>
+	<Keys>seller.platform.maintoolbar.sendfile.sendofflinefile</Keys>
+	<Keys>seller.platform.maintoolbar.sendfile.openfolder</Keys>
+	<Keys>seller.platform.maintoolbar.sendfile.viewlog</Keys>
+	<Keys>seller.platform.maintoolbar.sendfile.set</Keys>
+	<Keys>seller.platform.maintoolbar.audiochat</Keys>
+	<Keys>seller.platform.maintoolbar.videochat</Keys>
+	<Keys>seller.platform.maintoolbar.videochat.disable</Keys>
+	<Keys>seller.platform.maintoolbar.invitemultichat</Keys>
+	<Keys>seller.platform.maintoolbar.remotehelp</Keys>
+	<Keys>seller.platform.maintoolbar.remotehelp.disable</Keys>
+	<Keys>seller.platform.maintoolbar.report</Keys>
+	<Keys>seller.platform.maintoolbar.report.toblacklist</Keys>
+	<Keys>seller.platform.maintoolbar.report.delete</Keys>
+	<!-- 工作台-聊天栏_新-->
+	<Keys>seller.platform.chattoolbar.setfont</Keys>
+	<Keys>seller.platform.chattoolbar.emotion</Keys>
+	<Keys>seller.platform.chattoolbar.sendanime</Keys>
+	<Keys>seller.platform.chattoolbar.sentpic</Keys>
+	<Keys>seller.platform.chattoolbar.printscreen</Keys>
+	<Keys>seller.platform.chattoolbar.sendshockwave</Keys>
+	<Keys>seller.platform.chattoolbar.sendevaluation</Keys>
+	<Keys>seller.platform.chattoolbar.setserviceevaluation</Keys>
+	<Keys>seller.platform.chattoolbar.quickPhrase</Keys>
+	<Keys>seller.platform.chattoolbar.viewchatlog</Keys>
+	<!-- 插件bar_新-->
+	<Keys>seller.isvtoolbar.windowshowoff</Keys>
+	<Keys>seller.isvtoolbar.toolset.autohide</Keys>
+	<Keys>seller.isvtoolbar.toolset.lestshow</Keys>
+	<Keys>seller.isvtoolbar.toolset.rightshow</Keys>
+	<Keys>seller.isvtoolbar.toolset.upsideshow</Keys>
+	<Keys>seller.isvtoolbar.buy</Keys>
+	<Keys>seller.isvtoolbar.pluginset.alreadybuy</Keys>
+	<Keys>seller.isvtoolbar.pluginset.stopuse</Keys>
+	<Keys>seller.isvtoolbar.pluginset.renew</Keys>
+	<Keys>seller.isvtoolbar.pluginset.uninstall</Keys>
+	<Keys>seller.isvtoolbar.pluginset.remmove</Keys>
+	<Keys>seller.isvtoolbar.show</Keys>
+	<Keys>seller.isvtoolbar.close</Keys>
+	<Keys>seller.isvtoolbar.closefocus</Keys>
+	<Keys>seller.isvtoolbar.pluginset.closefrombar</Keys>
+	<Keys>seller.isvtoolbar.pluginset.close</Keys>
+	<Keys>seller.isvtoolbar.rely.remind</Keys>
+	<!-- 插件订购_新-->
+	<Keys>seller.isvcontainer.show</Keys>
+	<Keys>seller.isvcontainer.combine</Keys>
+	<Keys>seller.isvcontainer.dispart</Keys>
+	
+	<!-- OEM包打点-->
+	<Keys>seller.lenovoversion</Keys>
+	
+	<!-- 沙箱 -->
+	<Keys>plugin.sandbox.setupfail</Keys>
+</Keys>
+

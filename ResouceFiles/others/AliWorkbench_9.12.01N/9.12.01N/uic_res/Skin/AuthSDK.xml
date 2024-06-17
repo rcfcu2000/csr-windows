@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window name="LoginWindow" sizebox="0,0,0,0" roundcorner="0,0">
+    <Font id="0" name="微软雅黑" size="13" />
+    <Font id="1" name="微软雅黑" size="12" />
+    <Font id="2" name="微软雅黑" size="14" />
+    <Font id="3" name="宋体" size="22" bold="true" />
+    <Font id="4" name="宋体" size="22" bold="true" italic="true"/>
+    <Font id="6" name="宋体" size="12" bold="false" italic="false" default="true"/>
+    <Default name="VScrollBar" value="width=&quot;6&quot; height=&quot;90&quot; showbutton1=&quot;false&quot; showbutton2=&quot;false&quot; thumbnormalimage=&quot;file='scroll_thumb.png' source='0,0,15,6' corner='2,2,2,2'&quot; thumbhotimage=&quot;file='scroll_thumb.png' source='0,6,15,12' corner='2,2,2,2'&quot; thumbpushedimage=&quot;file='scroll_thumb.png' source='0,12,15,18' corner='2,2,2,2'&quot; bknormalimage=&quot;file='scroll_background.png' source='0,0,17,15' corner='2,2,2,2'&quot;" />
+    <Container name="AuthSDKUI">
+    </Container>
+</Window>

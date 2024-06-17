@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<contentFormat><![CDATA[在 %s 搜索"%s"]]></contentFormat>
+	<SiteDefShowNums>6</SiteDefShowNums>
+	<KeySiteDefShowNums>5</KeySiteDefShowNums>
+	<SiteItemHeight>28</SiteItemHeight>
+	<SiteNormalTextColor>13067018</SiteNormalTextColor>
+	<SiteSearchTextColor>0</SiteSearchTextColor>
+	<SiteSearchKeyColor>3045963</SiteSearchKeyColor>
+	<SiteSearchNumColor>3045963</SiteSearchNumColor>
+	<KeyWordTextColor>14552</KeyWordTextColor>
+	<KeyWordBold>1</KeyWordBold>
+	<SearchWndDefShowNums>8</SearchWndDefShowNums>
+	<SearchWndItemHeight>38</SearchWndItemHeight>
+	<TaobaoContentNumFormat><![CDATA[约%ld件宝贝]]></TaobaoContentNumFormat>
+	<TaobaoSearchUrl><![CDATA[http://search.taobao.com/search?source=wangwang&q=%s]]></TaobaoSearchUrl>
+	<AliContentNumFormat><![CDATA[约%ld结果]]></AliContentNumFormat>
+	<AliSearchUrl><![CDATA[http://search.china.alibaba.com/search/offer_search.htm?tracelog=immyt_wwsuggestion_30924&asker=ATC&keywords=%s]]></AliSearchUrl>
+	<SearchSite>
+		<logo>taobaologo.png</logo>
+		<siteName>淘宝网</siteName>
+		<searchUrl><![CDATA[http://search.taobao.com/search?source=wangwang&q=%s]]></searchUrl>
+		<slEscapeKeyword>1</slEscapeKeyword>
+		<siteID>cntaobao</siteID>
+	</SearchSite>
+	
+	<SearchSite>
+		<logo>alilogo.png</logo>
+		<siteName>阿里巴巴中国站</siteName>
+		<searchUrl><![CDATA[http://search.china.alibaba.com/search/offer_search.htm?tracelog=wangwang&keywords=%s]]></searchUrl>
+		<slEscapeKeyword>1</slEscapeKeyword>
+		<siteID>cnalichn</siteID>
+	</SearchSite>	
+	
+	<SearchSite>
+		<logo>yahoologo.png</logo>
+		<siteName>中国雅虎</siteName>
+		<searchUrl><![CDATA[http://www.yahoo.com.cn/search?p=%s]]></searchUrl>
+		<slEscapeKeyword>1</slEscapeKeyword>
+		<siteID>chnyahoo</siteID>
+	</SearchSite>
+	
+	<SearchSite>
+		<logo>alisoft.png</logo>
+		<siteName>阿里软件</siteName>
+		<searchUrl><![CDATA[http://mall.alisoft.com/apps/shopwindow/showCategoryAppsAction!search.jspa?appSearchKeyword=%s]]></searchUrl>
+		<slEscapeKeyword>1</slEscapeKeyword>
+		<siteID>wangwang</siteID>
+	</SearchSite>
+	
+	<SearchSite>
+		<logo>mamalogo.png</logo>
+		<siteName>阿里妈妈</siteName>
+		<searchUrl><![CDATA[http://www.alimama.com/membersvc/exterface/exterAliWangWangSearch.htm?word=%s]]></searchUrl>
+		<slEscapeKeyword>1</slEscapeKeyword>
+		<siteID>cnalimam</siteID>
+	</SearchSite>
+
+	<SearchSite>
+		<logo>koubeilogo.png</logo>
+		<siteName>雅虎口碑</siteName>
+		<searchUrl><![CDATA[http://bendi.koubei.com/search/searchlocal.html?option.key=%s]]></searchUrl>
+		<slEscapeKeyword>1</slEscapeKeyword>
+		<siteID>cnkoubei</siteID>
+	</SearchSite>
+</root>

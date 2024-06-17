@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResRoot Version="1.0.0">
+  <Stylize Name="LightBlue"/>
+  <Style>
+    <!--企业版开始使用的较高标题栏的NC区域-->
+    <PropertyClass ID="ENT_HIGH_NCAREA_STYLE">
+      <Property Name="TitleHeight" Type="INT" Value="40"/>
+      <Property Name="FontHeight" Type="INT" Value="14"/>
+      <Property Name="Visible" Type="BOOL" Value="TRUE"/>
+      <Property Name="SysMenuIcon" Type="String" Value=""/>
+      <Property Name="MaskRenderID" Type="String" Value="ID_MASK_IMAGE_RENDER_12"/>
+      <Property Name="BackgroundRenderID" Type="String" Value="ID_WINDOW_BACKGROUND_IMAGE_RENDER_SWITCH_NORMAL"/>
+      <Property Name="MaximizeBoxIcon" Type="String" Value="NCButton\buttonmax_black.png"/>
+      <Property Name="RestoreBoxIcon" Type="String" Value="NCButton\buttonrestore_black.png"/>
+      <Property Name="MinimizeBoxIcon" Type="String" Value="NCButton\buttonmin_black.png"/>
+      <Property Name="CloseButtonIcon" Type="String" Value="NCButton\buttonclose_black.png"/>
+      <Property Name="NailButtonIcon" Type="String" Value="NCButton\buttonNail_black.png"/>
+      <Property Name="NailedButtonIcon" Type="String" Value="NCButton\buttonNailed_black.png"/>
+      <Property Name="TextColor" Type="UINT" Value="0xFF000000"/>
+    </PropertyClass>
+    <!--企业版开始使用的正常标题栏的NC区域-->
+    <PropertyClass ID="ENT_NORM_NCAREA_STYLE">
+      <Property Name="MaximizeBoxIcon" Type="String" Value="NCButton\buttonmax_black.png"/>
+      <Property Name="RestoreBoxIcon" Type="String" Value="NCButton\buttonrestore_black.png"/>
+      <Property Name="MinimizeBoxIcon" Type="String" Value="NCButton\buttonmin_black.png"/>
+      <Property Name="CloseButtonIcon" Type="String" Value="NCButton\buttonclose_black.png"/>
+      <Property Name="NailButtonIcon" Type="String" Value="NCButton\buttonNail_black.png"/>
+      <Property Name="NailedButtonIcon" Type="String" Value="NCButton\buttonNailed_black.png"/>
+      <Property Name="TextColor" Type="UINT" Value="0xFF000000"/>
+      <Property Name="BackgroundRenderID" Type="String" Value="ID_MAINFRM_BACKGROUND_IMAGE_RENDER"/>
+    </PropertyClass>
+      <!--企业版开始使用的正常标题栏的NC区域-->
+      <PropertyClass ID="ENT_NORM_NCAREA_STYLE_V9">
+          <Property Name="MaximizeBoxIcon" Type="String" Value="NCButton\buttonmax_black.png"/>
+          <Property Name="RestoreBoxIcon" Type="String" Value="NCButton\buttonrestore_black.png"/>
+          <Property Name="MinimizeBoxIcon" Type="String" Value="NCButton\buttonmin_black.png"/>
+          <Property Name="CloseButtonIcon" Type="String" Value="NCButton\buttonclose_black.png"/>
+          <Property Name="NailButtonIcon" Type="String" Value="NCButton\buttonNail_black.png"/>
+          <Property Name="NailedButtonIcon" Type="String" Value="NCButton\buttonNailed_black.png"/>
+          <Property Name="TextColor" Type="UINT" Value="0xFF000000"/>
+          <Property Name="UserDefineBackgroundImage" Type="String" Value="SkinMgr\normal_workbench.png"/>
+          <Property Name="UserDefineBackgroundBackColor" Type="UINT" Value="0xFFF0F2F5"/>
+      </PropertyClass>
+	
+	<!--千牛客服工作台正常标题栏的NC区域-->
+    <PropertyClass ID="ESERVICEV9_NORM_NCAREA_STYLE">
+      <Property Name="MaximizeBoxIcon" Type="String" Value="NCButton\buttonmax_black_9.png"/>
+      <Property Name="RestoreBoxIcon" Type="String" Value="NCButton\buttonrestore_black_9.png"/>
+      <Property Name="MinimizeBoxIcon" Type="String" Value="NCButton\buttonmin_black_9.png"/>
+      <Property Name="CloseButtonIcon" Type="String" Value="NCButton\buttonclose_black_9.png"/>
+      <Property Name="NailButtonIcon" Type="String" Value="NCButton\buttonNail_black_9.png"/>
+      <Property Name="NailedButtonIcon" Type="String" Value="NCButton\buttonNailed_black_9.png"/>
+      <Property Name="TextColor" Type="UINT" Value="0xFF000000"/>
+      <Property Name="BackgroundRenderID" Type="String" Value="ID_MAINFRM_BACKGROUND_IMAGE_RENDER"/>
+    </PropertyClass>
+    <!--企业版开始使用的新按钮风格：蓝色按钮-->
+    <PropertyClass ID="ENT_BLUE_BUTTON_STYLE">
+      <Property Name="Width" Type="INT" Value="64"/>
+      <Property Name="Height" Type="INT" Value="28"/>
+      <Property Name="Colorize" Type="BOOL" Value="FALSE"/>
+      <Property Name="TextColor" Type="UINT" Value="0xFFFFFFFF"/>
+      <Property Name="DisableTextColor" Type="UINT" Value="0x80FFFFFF"/>
+      <Property Name="BackgroundRenderID" Type="String" Value="ID_BLUE_BUTTON_BACKGROUND_IMAGE_RENDER"/>
+    </PropertyClass>
+    <!--企业版开始使用的新按钮风格：白色按钮-->
+    <PropertyClass ID="ENT_WHITE_BUTTON_STYLE">
+      <Property Name="Width" Type="INT" Value="64"/>
+      <Property Name="Height" Type="INT" Value="28"/>
+      <Property Name="Colorize" Type="BOOL" Value="FALSE"/>
+      <Property Name="TextColor" Type="UINT" Value="0xFF333333"/>
+      <Property Name="DisableTextColor" Type="UINT" Value="0x80333333"/>
+      <Property Name="PressTextColor" Type="UINT" Value="0xFF1170BC" />
+      <Property Name="PressTextEffect" Type="BOOL" Value="TRUE"/>
+      <Property Name="HotTextEffect" Type="BOOL" Value="TRUE"/>
+      <Property Name="HotTextColor" Type="UINT" Value="0xFF3089DC" />
+      <Property Name="BackgroundRenderID" Type="String" Value="ID_WHITE_BUTTON_BACKGROUND_IMAGE_RENDER"/>
+    </PropertyClass>
+    <!--开关风格的CheckBox：小尺寸版-->
+    <PropertyClass ID="SMALL_SWITCH_BUTTON_STYLE">
+      <Property Name="Width" Type="INT" Value="32"/>
+      <Property Name="Height" Type="INT" Value="14"/>
+      <Property Name="Enable" Type="BOOL" Value="TRUE"/>
+      <Property Name="Colorize" Type="BOOL" Value="FALSE"/>
+      <Property Name="WindowTransparent" Type="INT" Value="1"/>
+      <Property Name="CheckBoxImage" Type="String" Value="common/CheckBox/SmallSwitch.png"/>
+    </PropertyClass>
+    <!--开关风格的CheckBox：大尺寸版-->
+    <PropertyClass ID="BIG_SWITCH_BUTTON_STYLE">
+      <Property Name="Width" Type="INT" Value="50"/>
+      <Property Name="Height" Type="INT" Value="24"/>
+      <Property Name="Enable" Type="BOOL" Value="TRUE"/>
+      <Property Name="Colorize" Type="BOOL" Value="FALSE"/>
+      <Property Name="WindowTransparent" Type="INT" Value="1"/>
+      <Property Name="CheckBoxImage" Type="String" Value="common/CheckBox/BigSwitch.png"/>
+    </PropertyClass>
+    <!--蓝色风格的CheckBox-->
+    <PropertyClass ID="BLUE_CHECKBOX_STYLE">
+      <Property Name="Enable" Type="BOOL" Value="TRUE"/>
+      <Property Name="Colorize" Type="BOOL" Value="FALSE"/>
+      <Property Name="WindowTransparent" Type="INT" Value="1"/>
+      <Property Name="CheckBoxImage" Type="String" Value="common/CheckBox/DefaultBlueCheckBox.png"/>
+    </PropertyClass>
+    <!--企业版开始使用的垂直普通菜单风格 -->
+    <PropertyClass ID="ENT_NOMARL_VERTICAL_MENU_STYLE">
+      <Property Name="Width" Type="INT" Value="116"/>
+      <Property Name="Height" Type="INT" Value="400"/>
+      <Property Name="Cursor" Type="String" Value="NULL"/>
+      <Property Name="MenuMarginLeft" Type="INT" Value="7"/>
+      <Property Name="MenuMarginRight" Type="INT" Value="7"/>
+      <Property Name="MenuMarginTop" Type="INT" Value="7"/>
+      <Property Name="MenuMarginBottom" Type="INT" Value="7"/>
+      <Property Name="BackgroundRenderID" Type="String" Value="ID_NORMAL_BACKGROUND_IMAGE_RENDER_ENTP"/>
+    </PropertyClass>
+    <!--企业版开始使用的垂直普通菜单Item风格 -->
+    <PropertyClass ID="ENT_NOMARL_VERTICAL_MENU_ITEM_STYLE">
+      <Property Name="Vertical" Type="BOOL" Value="TRUE"/>
+      <Property Name="Cursor" Type="String" Value="NULL"/>
+      <Property Name="Height" Type="INT" Value="30"/>
+      <Property Name="FontHeight" Type="INT" Value="12"/>
+      <Property Name="TextColor" Type="UINT" Value="0xff333333"/>
+    </PropertyClass>
+    <!--企业版系统设置Item风格 -->
+    <PropertyClass ID="ENT_SYSTEM_SETTING_ITEM_STYLE">
+      <Property Name="Visible" Type="BOOL" Value="TRUE"/>
+      <Property Name="ResizeCtrlX" Type="INT" Value="2"/>
+      <Property Name="MarginLeft" Type="INT" Value="0"/>
+      <Property Name="MarginRight" Type="INT" Value="0"/>
+      <Property Name="MarginTop" Type="INT" Value="0"/>
+      <Property Name="MarginBottom" Type="INT" Value="0"/>
+      <Property Name="Height" Type="INT" Value="48"/>
+      <Property Name="WindowTransparent" Type="INT" Value="0"/>
+      <Property Name="IOFilter" Type="BOOL" Value="TRUE"/>
+    </PropertyClass>
+     <!--stack panel 水平布局 不居中 for 系统设置 -->
+    <PropertyClass ID="COMPONENT_STYLE_STACKPANEL_SYSTEMSETTING_NOTCENTER_HOR">
+        <Property Name="Class" Type="String" Value="StackPanel"/>
+        <Property Name="Visible" Type="BOOL" Value="TRUE"/>
+        <Property Name="MouseTransparent" Type="INT" Value="1"/>
+        <Property Name="ResizeCtrlX" Type="INT" Value="2"/>
+        <Property Name="Height" Type="INT" Value="200"/>
+        <Property Name="WindowTransparent" Type="INT" Value="0"/>
+        <Property Name="Orientation" Type="INT" Value="0"/>
+        <Property Name="CenterInOrientation" Type="BOOL" Value="FALSE"/>
+    </PropertyClass>
+     <!--stack panel 垂直布局 不居中 for 系统设置-->
+    <PropertyClass ID="COMPONENT_STYLE_STACKPANEL_SYSTEMSETTING_NOTCENTER_VEC">
+        <Property Name="Class" Type="String" Value="StackPanel"/>
+        <Property Name="Visible" Type="BOOL" Value="TRUE"/>
+        <Property Name="ResizeCtrlX" Type="INT" Value="2"/>
+        <Property Name="WindowTransparent" Type="INT" Value="0"/>
+        <Property Name="Orientation" Type="INT" Value="1"/>
+        <Property Name="CenterInOrientation" Type="BOOL" Value="FALSE"/>
+    </PropertyClass>
+     <!--stack panel 水平布局 不居中顶层 需要发送 createfinish for 系统设置 -->
+     <PropertyClass ID="COMPONENT_STYLE_STACKPANEL_TOPLEVEL_SYSTEMSETTING_NOTCENTER_HOR">
+        <Property Name="Class" Type="String" Value="StackPanel"/>
+        <Property Name="Visible" Type="BOOL" Value="TRUE"/>
+        <Property Name="MouseTransparent" Type="INT" Value="1"/>
+        <Property Name="ResizeCtrlX" Type="INT" Value="2"/>
+        <Property Name="Height" Type="INT" Value="200"/>
+        <Property Name="WindowTransparent" Type="INT" Value="0"/>
+        <Property Name="Orientation" Type="INT" Value="0"/>
+        <Property Name="CenterInOrientation" Type="BOOL" Value="FALSE"/>
+        <Property Name="SendCreateFinishMsg" Type="BOOL" Value="TRUE" />
+        <Property Name="SyncSendCreateFinishMsg" Type="BOOL" Value="TRUE" />
+    </PropertyClass>
+    <!--label 系统设置 左侧title label 样式 -->
+    <PropertyClass ID="COMPONENT_STYLE_LABEL_SYSTEMSETTING_TITLE">
+        <Property Name="Class" Type="String" Value="TextLabel"/>
+        <Property Name="MarginTop" Type="INT" Value="12"/>
+        <Property Name="MarginLeft" Type="INT" Value="23"/>
+        <Property Name="Width" Type="INT" Value="60"/>
+        <Property Name="Visible" Type="BOOL" Value="TRUE"/>
+        <Property Name="ResizeCtrlX" Type="INT" Value="0"/>
+        <Property Name="ResizeCtrlY" Type="INT" Value="2"/>
+        <Property Name="WindowTransparent" Type="INT" Value="1"/>
+        <Property Name="TextAlignY" Type="INT" Value="0"/> 
+        <Property Name="EndEllipsis" Type="BOOL" Value="TRUE"/> 
+        <Property Name="FontHeight" Type="INT"  Value="14"/>
+        <Property Name="LineSpacing" Type="INT"  Value="10"/>
+        
+    </PropertyClass>
+    <!--label 系统设置 supertab 样式 BorderLineStretch 伸缩因子 1：99 比例伸缩 0 或者大于等于100 全绘制 BorderLineFollowText 优先级高于伸缩因子 BorderLineFollowText 暂未实现-->
+    <PropertyClass ID="COMPONENT_STYLE_SUPERTABCTRL_SYSTEMSETTING_TITLE">
+        <Property Name="Class" Type="String" Value="SuperTabCtrl"/>
+        <Property Name="WindowTransparent" Type="INT" Value="1"/>
+        <Property Name="ItemHeight" Type="INT" Value="30"/>
+        <Property Name="ItemWidth" Type="INT" Value="120"/>
+        <Property Name="Visible" Type="BOOL" Value="TRUE"/>
+        <Property Name="TextAlignY" Type="INT" Value="1"/>
+        <Property Name="TextAlignX" Type="INT" Value="1"/>
+        <Property Name="Horizontal" Type="BOOL" Value="TRUE"/>
+        <Property Name="RightClickSel" Type="BOOL" Value="FALSE"/>
+        <Property Name="TransparentUnusedArea" Type="BOOL" Value="TRUE"/>
+        <Property Name="HotBkColor" Type="UINT" Value="0xffffffff"/>
+        <Property Name="FontHeight" Type="INT" Value="14"/>
+        <Property Name="SelectedTextColor" Type="UINT" Value="0xff3089DC"/>
+        <Property Name="HotTextColor" Type="UINT" Value="0xff000000"/>
+        <Property Name="UseMultiTextColor" Type="BOOL" Value="TRUE"/>
+        <Property Name="BorderLineType" Type="INT" Value="4"/>
+        <Property Name="BorderLineStretch" Type="INT" Value="0"/>
+        <Property Name="BorderLineFollowContent" Type="BOOL" Value="FALSE"/>
+        <Property Name="BorderLineColor" Type="UINT" Value="0xFFE6E6E6"/> 
+        <Property Name="Colorize" Type="BOOL" Value="TRUE"/>        
+    </PropertyClass>
+  </Style>
+  <!--Light Blue (浅蓝)风格组件主题开始 S:小;M:中;L:大-->
+  <Style Name="LightBlue">
+    <!--WLUpDownComponent-->
+    <PropertyClass ID="COMPONENT_STYLE_WLUPDOWN_M">
+      <Property Name="Class" Type="String" Value="WLUpDownComponent"/>
+      <Property Name="ID" Type="String" Value="COMPONENT_STYLE_WLUPDOWN_M"/>
+      <Property Name="Width" Type="INT" Value="50"/>
+      <Property Name="Height" Type="INT" Value="28"/>
+      <Property Name="Visible" Type="BOOL" Value="TRUE"/>
+      <Property Name="BorderShowFlag" Type="INT" Value="15"/>
+      <Property Name="UpLeftImage" Type="String" Value="componentStyles\LightBlue\Updown\upM.png"/>
+      <Property Name="DownRightImage" Type="String" Value="componentStyles\LightBlue\Updown\downM.png"/>
+      <Property Name="Step" Type="INT" Value="1"/>
+      <Property Name="LowRange" Type="INT" Value="1"/>
+      <Property Name="HighRange" Type="INT" Value="10"/>
+      <Property Name="SelectAble" Type="BOOL" Value="FALSE"/>
+    </PropertyClass>
+     <!--正常标题栏的NC区域-->
+    <PropertyClass ID="NORM_NCAREA_WHITESTYLE">
+      <Property Name="MaximizeBoxIcon" Type="String" Value="NCButton\buttonmax_white.png"/>
+      <Property Name="RestoreBoxIcon" Type="String" Value="NCButton\buttonrestore_white.png"/>
+      <Property Name="MinimizeBoxIcon" Type="String" Value="NCButton\buttonmin_white.png"/>
+      <Property Name="CloseButtonIcon" Type="String" Value="NCButton\buttonclose_white.png"/>
+      <Property Name="NailButtonIcon" Type="String" Value="NCButton\buttonNail_white.png"/>
+      <Property Name="NailedButtonIcon" Type="String" Value="NCButton\buttonNailed_white.png"/>
+      <Property Name="TextColor" Type="UINT" Value="0xFFFFFFFF"/>
+      <Property Name="NCAreaButtonOffsetX" Type="INT" Value="8"/>
+      <Property Name="NCAreaButtonOffsetY" Type="INT" Value="6"/>
+      <Property Name="NCAreaCaptionOffsetX" Type="INT" Value="20"/>
+      <Property Name="NCAreaCaptionOffsetY" Type="INT" Value="10"/>
+      <Property Name="TitleHeight" Type="INT" Value="40"/>
+      <Property Name="FontHeight" Type="INT" Value="14"/>
+      <Property Name="Visible" Type="BOOL" Value="TRUE"/>
+      <Property Name="SysMenuIcon" Type="String" Value=""/>
+      <Property Name="MaskRenderID" Type="String" Value="ID_MASK_IMAGE_RENDER_12"/>
+      <Property Name="BackgroundRenderID" Type="String" Value="ID_WINDOW_BACKGROUND_IMAGE_RENDER_SWITCH_NORMAL"/>
+    </PropertyClass>	
+     <!--正常标题栏的NC区域,36高度-->
+    <PropertyClass ID="NORM_NCAREA_WHITESTYLE_H36">
+      <Property Name="MaximizeBoxIcon" Type="String" Value="NCButton\buttonmax_white.png"/>
+      <Property Name="RestoreBoxIcon" Type="String" Value="NCButton\buttonrestore_white.png"/>
+      <Property Name="MinimizeBoxIcon" Type="String" Value="NCButton\buttonmin_white.png"/>
+      <Property Name="CloseButtonIcon" Type="String" Value="NCButton\buttonclose_white.png"/>
+      <Property Name="NailButtonIcon" Type="String" Value="NCButton\buttonNail_white.png"/>
+      <Property Name="NailedButtonIcon" Type="String" Value="NCButton\buttonNailed_white.png"/>
+      <Property Name="TextColor" Type="UINT" Value="0xFFFFFFFF"/>
+      <Property Name="NCAreaButtonOffsetX" Type="INT" Value="8"/>
+      <Property Name="NCAreaButtonOffsetY" Type="INT" Value="6"/>
+      <Property Name="NCAreaCaptionOffsetX" Type="INT" Value="20"/>
+      <Property Name="NCAreaCaptionOffsetY" Type="INT" Value="0"/>
+      <Property Name="TitleHeight" Type="INT" Value="36"/>
+      <Property Name="FontHeight" Type="INT" Value="12"/>
+      <Property Name="Visible" Type="BOOL" Value="TRUE"/>
+      <Property Name="SysMenuIcon" Type="String" Value=""/>
+      <Property Name="MaskRenderID" Type="String" Value="ID_MASK_IMAGE_RENDER_13"/>
+      <Property Name="BackgroundRenderID" Type="String" Value="ID_WINDOW_BACKGROUND_IMAGE_RENDER_SWITCH_NORMAL"/>
+    </PropertyClass>
+    <!--Checkbox-->
+    <PropertyClass ID="COMPONENT_STYLE_CHECKBOX_S">
+      <Property Name="Enable" Type="BOOL" Value="TRUE"/>
+      <Property Name="TextColor" Type="UINT" Value="0xFF101410"/>
+      <Property Name="Height" Type="INT" Value="14"/>
+      <Property Name="Width" Type="INT" Value="200" />
+      <Property Name="Colorize" Type="BOOL" Value="FALSE"/>
+      <Property Name="Visible" Type="BOOL" Value="TRUE"/>
+      <Property Name="WindowTransparent" Type="INT" Value="1"/>
+      <Property Name="CheckBoxImage" Type="String" Value="componentStyles/LightBlue/Checkbox/S.png"/>
+    </PropertyClass>
+    <PropertyClass ID="COMPONENT_STYLE_CHECKBOX_M">
+      <Property Name="Enable" Type="BOOL" Value="TRUE"/>
+      <Property Name="TextColor" Type="UINT" Value="0xFF101410"/>
+      <Property Name="Height" Type="INT" Value="14"/>
+      <Property Name="Width" Type="INT" Value="200" />
+      <Property Name="Colorize" Type="BOOL" Value="FALSE"/>
+      <Property Name="Visible" Type="BOOL" Value="TRUE"/>
+      <Property Name="WindowTransparent" Type="INT" Value="1"/>
+      <Property Name="ImageTextSpace" Type="INT" Value="10"/>
+      <Property Name="CheckBoxImage" Type="String" Value="componentStyles/LightBlue/Checkbox/M.png"/>
+    </PropertyClass>
+    <PropertyClass ID="COMPONENT_STYLE_CHECKBOX_L">
+      <Property Name="Enable" Type="BOOL" Value="TRUE"/>
+      <Property Name="TextColor" Type="UINT" Value="0xFF101410"/>
+      <Property Name="Height" Type="INT" Value="13"/>
+      <Property Name="Width" Type="INT" Value="200" />
+      <Property Name="Colorize" Type="BOOL" Value="FALSE"/>
+      <Property Name="Visible" Type="BOOL" Value="TRUE"/>
+      <Property Name="WindowTransparent" Type="INT" Value="1"/>
+      <Property Name="CheckBoxImage" Type="String" Value="componentStyles/LightBlue/Checkbox/L.png"/>
+    </PropertyClass>
+    <!--Checkbox switch-->
+    <PropertyClass ID="COMPONENT_STYLE_CHECKBOX_SWITCH_S">
+      <Property Name="Enable" Type="BOOL" Value="TRUE"/>
+      <Property Name="TextColor" Type="UINT" Value="0xFF101410"/>
+      <Property Name="Height" Type="INT" Value="14"/>
+      <Property Name="Width" Type="INT" Value="200" />
+      <Property Name="Colorize" Type="BOOL" Value="FALSE"/>
+      <Property Name="Visible" Type="BOOL" Value="TRUE"/>
+      <Property Name="WindowTransparent" Type="INT" Value="1"/>
+      <Property Name="CheckBoxImage" Type="String" Value="componentStyles/LightBlue/Checkbox/switchS.png"/>
+    </PropertyClass>
+    <PropertyClass ID="COMPONENT_STYLE_CHECKBOX_SWITCH_M">
+      <Property Name="Enable" Type="BOOL" Value="TRUE"/>
+      <Property Name="TextColor" Type="UINT" Value="0xFF101410"/>
+      <Property Name="Height" Type="INT" Value="14"/>
+      <Property Name="Width" Type="INT" Value="200" />
+      <Property Name="Colorize" Type="BOOL" Value="FALSE"/>
+      <Property Name="Visible" Type="BOOL" Value="TRUE"/>
+      <Property Name="WindowTransparent" Type="INT" Value="1"/>
+      <Property Name="CheckBoxImage" Type="String" Value="componentStyles/LightBlue/Checkbox/switchM.png"/>
+    </PropertyClass>
+    <PropertyClass ID="COMPONENT_STYLE_CHECKBOX_SWITCH_L">
+      <Property Name="Enable" Type="BOOL" Value="TRUE"/>
+      <Property Name="TextColor" Type="UINT" Value="0xFF101410"/>
+      <Property Name="Height" Type="INT" Value="13"/>
+      <Property Name="Width" Type="INT" Value="200" />
+      <Property Name="Colorize" Type="BOOL" Value="FALSE"/>
+      <Property Name="Visible" Type="BOOL" Value="TRUE"/>
+      <Property Name="WindowTransparent" Type="INT" Value="1"/>
+      <Property Name="CheckBoxImage" Type="String" Value="componentStyles/LightBlue/Checkbox/switchL.png"/>
+    </PropertyClass>
+    <!--Radiobox-->
+    <PropertyClass ID="COMPONENT_STYLE_RADIOBOX_S">
+      <Property Name="Enable" Type="BOOL" Value="TRUE"/>
+      <Property Name="TextColor" Type="UINT" Value="0xFF101410"/>
+      <Property Name="Height" Type="INT" Value="14"/>
+      <Property Name="Width" Type="INT" Value="200" />
+      <Property Name="Colorize" Type="BOOL" Value="FALSE"/>
+      <Property Name="Visible" Type="BOOL" Value="TRUE"/>
+      <Property Name="WindowTransparent" Type="INT" Value="1"/>
+      <Property Name="RadioBoxImage" Type="String" Value="componentStyles/LightBlue/Radiobox/S.png"/>
+    </PropertyClass>
+    <PropertyClass ID="COMPONENT_STYLE_RADIOBOX_M">
+      <Property Name="Enable" Type="BOOL" Value="TRUE"/>
+      <Property Name="TextColor" Type="UINT" Value="0xFF101410"/>
+      <Property Name="Height" Type="INT" Value="14"/>
+      <Property Name="Width" Type="INT" Value="200" />
+      <Property Name="Colorize" Type="BOOL" Value="FALSE"/>
+      <Property Name="Visible" Type="BOOL" Value="TRUE"/>
+      <Property Name="WindowTransparent" Type="INT" Value="1"/>
+      <Property Name="ImageTextSpace" Type="INT" Value="10"/>
+      <Property Name="RadioBoxImage" Type="String" Value="componentStyles/LightBlue/Radiobox/M.png"/>
+    </PropertyClass>
+    <PropertyClass ID="COMPONENT_STYLE_RADIOBOX_L">
+      <Property Name="Enable" Type="BOOL" Value="TRUE"/>
+      <Property Name="TextColor" Type="UINT" Value="0xFF101410"/>
+      <Property Name="Height" Type="INT" Value="14"/>
+      <Property Name="Width" Type="INT" Value="200" />
+      <Property Name="Colorize" Type="BOOL" Value="FALSE"/>
+      <Property Name="Visible" Type="BOOL" Value="TRUE"/>
+      <Property Name="WindowTransparent" Type="INT" Value="1"/>
+      <Property Name="RadioBoxImage" Type="String" Value="componentStyles/LightBlue/Radiobox/L.png"/>
+    </PropertyClass>
+    <!--WLEditComponent-->
+    <PropertyClass ID="COMPONENT_STYLE_WLEDIT_L">
+      <Property Name="Enable" Type="BOOL" Value="TRUE"/>
+      <Property Name="Visible" Type="BOOL" Value="TRUE"/>
+      <Property Name="Colorize" Type="BOOL" Value="FALSE"/>
+      <Property Name="Height" Type="INT" Value="32" />
+      <Property Name="Width" Type="INT" Value="200" />
+      <Property Name="FontHeight" Type="INT" Value="14"/>
+      <Property Name="WindowTransparent" Type="INT" Value="1"/>
+      <Property Name="BorderShowFlag" Type="INT" Value="15"/>
+      <Property Name="NormalBorderColor" Type="UINT" Value="0xffCCCCCC"/>
+      <Property Name="HoverBorderColor" Type="UINT" Value="0xff3089DC"/>
+      <Property Name="FocusBorderColor" Type="UINT" Value="0xff3089DC"/>
+    </PropertyClass>
+    <PropertyClass ID="COMPONENT_STYLE_WLEDIT_M">
+      <Property Name="Enable" Type="BOOL" Value="TRUE"/>
+      <Property Name="Visible" Type="BOOL" Value="TRUE"/>
+      <Property Name="Colorize" Type="BOOL" Value="FALSE"/>
+      <Property Name="Height" Type="INT" Value="28" />
+      <Property Name="Width" Type="INT" Value="200" />
+      <Property Name="FontHeight" Type="INT" Value="12"/>
+      <Property Name="WindowTransparent" Type="INT" Value="1"/>
+      <Property Name="BorderShowFlag" Type="INT" Value="15"/>
+      <Property Name="NormalBorderColor" Type="UINT" Value="0xffCCCCCC"/>
+      <Property Name="HoverBorderColor" Type="UINT" Value="0xff3089DC"/>
+      <Property Name="FocusBorderColor" Type="UINT" Value="0xff3089DC"/>
+    </PropertyClass>
+    <PropertyClass ID="COMPONENT_STYLE_WLEDIT_QUICK_SREACH">
+        <Property Name="Enable" Type="BOOL" Value="TRUE"/>
+        <Property Name="Visible" Type="BOOL" Value="TRUE"/>
+        <Property Name="Colorize" Type="BOOL" Value="FALSE"/>
+        <Property Name="Height" Type="INT" Value="28" />
+        <Property Name="Width" Type="INT" Value="200" />
+        <Property Name="FontHeight" Type="INT" Value="12"/>
+        <Property Name="WindowTransparent" Type="INT" Value="1"/>
+        <Property Name="BorderShowFlag" Type="INT" Value="15"/>
+        <Property Name="NormalBorderColor" Type="UINT" Value="0xffCCCCCC"/>
+        <Property Name="HoverBorderColor" Type="UINT" Value="0xff3089DC"/>
+        <Property Name="FocusBorderColor" Type="UINT" Value="0xff3089DC"/>
+   </PropertyClass>
+    <PropertyClass ID="COMPONENT_STYLE_WLEDIT_S">
+      <Property Name="Enable" Type="BOOL" Value="TRUE"/>
+      <Property Name="Visible" Type="BOOL" Value="TRUE"/>
+      <Property Name="Colorize" Type="BOOL" Value="FALSE"/>
+      <Property Name="Height" Type="INT" Value="20" />
+      <Property Name="Width" Type="INT" Value="200" />
+      <Property Name="FontHeight" Type="INT" Value="12"/>
+      <Property Name="WindowTransparent" Type="INT" Value="1"/>
+      <Property Name="BorderShowFlag" Type="INT" Value="15"/>
+      <Property Name="NormalBorderColor" Type="UINT" Value="0xffCCCCCC"/>
+      <Property Name="HoverBorderColor" Type="UINT" Value="0xff3089DC"/>
+      <Property Name="FocusBorderColor" Type="UINT" Value="0xff3089DC"/>
+    </PropertyClass>
+    <!--ComboBoxEx-->
+    <PropertyClass ID="COMPONENT_STYLE_COMBOBOXXEX_L">
+      <Property Name="Enable" Type="BOOL" Value="TRUE"/>
+      <Property Name="Visible" Type="BOOL" Value="TRUE"/>
+      <Property Name="Colorize" Type="BOOL" Value="FALSE"/>
+      <Property Name="Height" Type="INT" Value="32" />
+      <Property Name="Width" Type="INT" Value="200" />
+      <Property Name="FontHeight" Type="INT" Value="14"/>
+      <Property Name="WindowTransparent" Type="INT" Value="1"/>
+      <Property Name="CBEditImage" Type="String" Value="componentStyles\LightBlue\ComboBoxEx\edit_dropdown_L.png"/>
+      <Property Name="CBEditImageStateCount" Type="INT" Value="5"/>
+      <Property Name="CBEditBorderImage" Type="String" Value="componentStyles\LightBlue\ComboBoxEx\edit_bkgnd.png"/>
+      <Property Name="DropDown" Type="BOOL" Value="TRUE"/>
+      <Property Name="DropDownList" Type="BOOL" Value="TRUE"/>
+      <Property Name="MenuType" Type="String" Value="BookMarksMenu"/>
+    </PropertyClass>
+    <PropertyClass ID="COMPONENT_STYLE_COMBOBOXXEX_M">
+      <Property Name="Enable" Type="BOOL" Value="TRUE"/>
+      <Property Name="Visible" Type="BOOL" Value="TRUE"/>
+      <Property Name="Colorize" Type="BOOL" Value="FALSE"/>
+      <Property Name="Height" Type="INT" Value="28" />
+      <Property Name="Width" Type="INT" Value="200" />
+      <Property Name="FontHeight" Type="INT" Value="12"/>
+      <Property Name="WindowTransparent" Type="INT" Value="1"/>
+      <Property Name="CBEditImage" Type="String" Value="componentStyles\LightBlue\ComboBoxEx\edit_dropdown_M.png"/>
+      <Property Name="CBEditImageStateCount" Type="INT" Value="5"/>
+      <Property Name="CBEditBorderImage" Type="String" Value="componentStyles\LightBlue\ComboBoxEx\edit_bkgnd.png"/>
+      <Property Name="DropDown" Type="BOOL" Value="TRUE"/>
+      <Property Name="DropDownList" Type="BOOL" Value="TRUE"/>
+      <Property Name="MenuType" Type="String" Value="BookMarksMenu"/>
+    </PropertyClass>
+    <PropertyClass ID="COMPONENT_STYLE_COMBOBOXXEX_S">
+      <Property Name="Enable" Type="BOOL" Value="TRUE"/>
+      <Property Name="Visible" Type="BOOL" Value="TRUE"/>
+      <Property Name="Colorize" Type="BOOL" Value="FALSE"/>
+      <Property Name="Height" Type="INT" Value="20" />
+      <Property Name="Width" Type="INT" Value="200" />
+      <Property Name="FontHeight" Type="INT" Value="12"/>
+      <Property Name="WindowTransparent" Type="INT" Value="1"/>
+      <Property Name="CBEditImage" Type="String" Value="componentStyles\LightBlue\ComboBoxEx\edit_dropdown_S.png"/>
+      <Property Name="CBEditImageStateCount" Type="INT" Value="5"/>
+      <Property Name="CBEditBorderImage" Type="String" Value="componentStyles\LightBlue\ComboBoxEx\edit_bkgnd.png"/>
+      <Property Name="DropDown" Type="BOOL" Value="TRUE"/>
+      <Property Name="DropDownList" Type="BOOL" Value="TRUE"/>
+      <Property Name="MenuType" Type="String" Value="BookMarksMenu"/>
+    </PropertyClass>
+    <!--CoolButton-->
+    <PropertyClass ID="COMPONENT_STYLE_COOLBUTTON_SML">
+      <Property Name="Width" Type="INT" Value="200"/>
+      <Property Name="Height" Type="INT" Value="28"/>
+      <Property Name="Colorize" Type="BOOL" Value="FALSE"/>
+      <Property Name="TextColor" Type="UINT" Value="0xFF333333"/>
+      <Property Name="DisableTextColor" Type="UINT" Value="0x80333333"/>
+      <Property Name="PressTextColor" Type="UINT" Value="0xFF1170BC" />
+      <Property Name="PressTextEffect" Type="BOOL" Value="TRUE"/>
+      <Property Name="HotTextEffect" Type="BOOL" Value="TRUE"/>
+      <Property Name="HotTextColor" Type="UINT" Value="0xFF3089DC" />
+      <Property Name="BackgroundRenderID" Type="String" Value="ID_WHITE_BUTTON_BACKGROUND_IMAGE_RENDER"/>
+    </PropertyClass>
+    <!--CoolButton风格：蓝底按钮-->
+    <PropertyClass ID="COMPONENT_STYLE_COOLBUTTON_BLUESTYLE">
+      <Property Name="Width" Type="INT" Value="73" />
+      <Property Name="Height" Type="INT" Value="28"/>
+      <Property Name="Colorize" Type="BOOL" Value="FALSE"/>
+      <Property Name="TextColor" Type="UINT" Value="0xFFFFFFFF"/>
+      <Property Name="DisableTextColor" Type="UINT" Value="0x80FFFFFF"/>
+      <Property Name="BackgroundRenderID" Type="String" Value="ID_BLUE_BUTTON_BACKGROUND_IMAGE_RENDER"/>
+    </PropertyClass>
+	    <!--CoolButton风格：红底按钮-->
+    <PropertyClass ID="COMPONENT_STYLE_COOLBUTTON_REDSTYLE">
+      <Property Name="Width" Type="INT" Value="73" />
+      <Property Name="Height" Type="INT" Value="28"/>
+      <Property Name="Colorize" Type="BOOL" Value="FALSE"/>
+      <Property Name="TextColor" Type="UINT" Value="0xFFFFFFFF"/>
+      <Property Name="DisableTextColor" Type="UINT" Value="0x80FFFFFF"/>
+      <Property Name="BackgroundRenderID" Type="String" Value="ID_RED_BUTTON_BACKGROUND_IMAGE_RENDER"/>
+    </PropertyClass>
+    <!--TextLabel-->
+    <PropertyClass ID="COMPONENT_STYLE_TEXTLABEL_SML">
+      <Property Name="Width" Type="INT" Value="200"/>
+      <Property Name="Height" Type="INT" Value="20"/>
+      <Property Name="Visible" Type="BOOL" Value="TRUE"/>
+      <Property Name="TextAlignY" Type="INT" Value="1"/>
+      <Property Name="WindowTransparent" Type="INT" Value="1"/>
+    </PropertyClass>
+     <PropertyClass ID="COMPONENT_STYLE_COOLBUTTON_SEARCHKEYBUTTON">
+      <Property Name="Width" Type="INT" Value="200"/>
+      <Property Name="Height" Type="INT" Value="22"/>
+      <Property Name="Colorize" Type="BOOL" Value="FALSE"/>
+      <Property Name="TextColor" Type="UINT" Value="0xFF666666"/>
+      <Property Name="PressTextColor" Type="UINT" Value="0xFF333333" />
+      <Property Name="PressTextEffect" Type="BOOL" Value="TRUE"/>
+      <Property Name="HotTextEffect" Type="BOOL" Value="TRUE"/>
+      <Property Name="HotTextColor" Type="UINT" Value="0xFF333333" />
+      <Property Name="BackgroundRenderID" Type="String" Value="ID_WHITE_SEARCH_BUTTON_BACKGROUND_IMAGE_RENDER"/>
+    </PropertyClass>
+  </Style>
+  <!--Light Blue (浅蓝)风格组件主题结束-->
+</ResRoot>

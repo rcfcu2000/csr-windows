@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Management;
 using System.Text;
@@ -83,6 +84,43 @@ namespace csr_windows.Common.Helper
             // 获取所有运行中的进程
             Process[] processes = Process.GetProcessesByName(processName);
             return processes.Any();
+        }
+
+        public static void RunQNProcessAtVersion(int major, int minor)
+        {
+            // 获取所有运行中的进程
+            Process[] processes = Process.GetProcessesByName(ProcessName);
+            bool restartQN = false;
+            if (processes.Length <= 0)
+            {
+                restartQN = true;
+            }
+            else
+            {
+                FileVersionInfo qnVersion = processes[0].MainModule.FileVersionInfo;
+                if (!(qnVersion != null && qnVersion.FileMajorPart == major && qnVersion.FileMinorPart == minor))
+                {
+                    processes[0].Kill();
+                    restartQN = true;
+                }
+            }
+
+            if (restartQN) {
+                string programPath = $@"{Environment.CurrentDirectory}{Path.DirectorySeparatorChar}others{Path.DirectorySeparatorChar}AliWorkbench_9.12.01N{Path.DirectorySeparatorChar}AliWorkbench.exe";
+
+                string programDisplayName = "";
+
+
+                try
+                {
+                    Process process = Process.Start(programPath);
+                    Console.WriteLine($"{programDisplayName} started successfully from: {programPath}");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Failed to start {programDisplayName}: {ex.Message}");
+                }
+            }
         }
 
         /// <summary>

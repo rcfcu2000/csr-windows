@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ExcludeDir> 
+  <item> 
+    <filedir>back_up</filedir> 
+  </item>
+    <item> 
+    <filedir>backup2</filedir> 
+  </item>
+</ExcludeDir> 

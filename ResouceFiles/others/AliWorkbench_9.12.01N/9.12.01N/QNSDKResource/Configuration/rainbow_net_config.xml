@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xparam>
+  <httpVipList>203.119.205.100</httpVipList>
+  <httpVipList>203.119.216.209</httpVipList>
+  <portVipList>55555</portVipList>
+  <portVipList>8000</portVipList>
+</xparam>

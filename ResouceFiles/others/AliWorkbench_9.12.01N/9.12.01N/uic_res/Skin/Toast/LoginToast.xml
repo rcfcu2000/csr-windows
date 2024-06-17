@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+<Window sizebox="4,4,6,6" roundcorner="5,5">
+	 <WebBrowser name="ie" clsid="{8856F961-340A-11D0-A96B-00C04FD705A2}" homepage="about:blank" delaycreate="false"/>  
+</Window>
+-->
+<Window name="LoginToastWindow" sizebox="0,0,0,0" roundcorner="0,0">
+    <Font id="0" name="宋体" size="13" bold="true" />
+    <Font id="1" name="宋体" size="12" bold="true" />
+    <Font id="2" name="宋体" size="12" />
+    <Font id="3" name="宋体" size="22" bold="true" />
+    <Font id="4" name="宋体" size="22" bold="true" italic="true"/>
+    <Font id="5" name="宋体" size="12" />
+    <VerticalLayout bkcolor="#FFD1E8F5" bkcolor2="#FFC6E0F1" bordercolor="#FF768D9B" bordersize="1" borderround="0,0" inset="2,2,2,2">
+        <HorizontalLayout name="sys_btn" width="45" pos="253, 2, 298, 47" float="true">
+            <Button name="closebtn" maxwidth="45" maxheight="17" normalimage="file='./Toast/dlg_close.png' source='90,0,135,17'" hotimage="file='./Toast/dlg_close.png' source='45,0,90,17'" pushedimage="file='./Toast/dlg_close.png' source='0,0,45,17'"/>
+         </HorizontalLayout>
+        <HorizontalLayout name="LoginToast" width="45" pos="118, 100, 182, 164" float="true">
+            <Button name="toast_btn" align="center" maxwidth="64" maxheight="64"
+                    normalimage="file='./Toast/toast_0.png'" 
+                    enabled="false" borderround="5,5"/>
+        </HorizontalLayout>
+    </VerticalLayout>
+</Window>

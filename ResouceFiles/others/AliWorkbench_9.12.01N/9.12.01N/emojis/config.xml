@@ -1,0 +1,5750 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xparam>
+<Item>
+    <Utf8Code>😁</Utf8Code>
+    <Utf32Code>0x1F601</Utf32Code>
+    <ClientCode>/?1F601</ClientCode>
+    <Description>emoji</Description>
+    <File>1F601.png</File>
+</Item>
+<Item>
+    <Utf8Code>😂</Utf8Code>
+    <Utf32Code>0x1F602</Utf32Code>
+    <ClientCode>/?1F602</ClientCode>
+    <Description>emoji</Description>
+    <File>1F602.png</File>
+</Item>
+<Item>
+    <Utf8Code>😃</Utf8Code>
+    <Utf32Code>0x1F603</Utf32Code>
+    <ClientCode>/?1F603</ClientCode>
+    <Description>emoji</Description>
+    <File>1F603.png</File>
+</Item>
+<Item>
+    <Utf8Code>😄</Utf8Code>
+    <Utf32Code>0x1F604</Utf32Code>
+    <ClientCode>/?1F604</ClientCode>
+    <Description>emoji</Description>
+    <File>1F604.png</File>
+</Item>
+<Item>
+    <Utf8Code>😅</Utf8Code>
+    <Utf32Code>0x1F605</Utf32Code>
+    <ClientCode>/?1F605</ClientCode>
+    <Description>emoji</Description>
+    <File>1F605.png</File>
+</Item>
+<Item>
+    <Utf8Code>😆</Utf8Code>
+    <Utf32Code>0x1F606</Utf32Code>
+    <ClientCode>/?1F606</ClientCode>
+    <Description>emoji</Description>
+    <File>1F606.png</File>
+</Item>
+<Item>
+    <Utf8Code>😉</Utf8Code>
+    <Utf32Code>0x1F609</Utf32Code>
+    <ClientCode>/?1F609</ClientCode>
+    <Description>emoji</Description>
+    <File>1F609.png</File>
+</Item>
+<Item>
+    <Utf8Code>😊</Utf8Code>
+    <Utf32Code>0x1F60A</Utf32Code>
+    <ClientCode>/?1F60A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F60A.png</File>
+</Item>
+<Item>
+    <Utf8Code>😋</Utf8Code>
+    <Utf32Code>0x1F60B</Utf32Code>
+    <ClientCode>/?1F60B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F60B.png</File>
+</Item>
+<Item>
+    <Utf8Code>😌</Utf8Code>
+    <Utf32Code>0x1F60C</Utf32Code>
+    <ClientCode>/?1F60C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F60C.png</File>
+</Item>
+<Item>
+    <Utf8Code>😍</Utf8Code>
+    <Utf32Code>0x1F60D</Utf32Code>
+    <ClientCode>/?1F60D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F60D.png</File>
+</Item>
+<Item>
+    <Utf8Code>😏</Utf8Code>
+    <Utf32Code>0x1F60F</Utf32Code>
+    <ClientCode>/?1F60F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F60F.png</File>
+</Item>
+<Item>
+    <Utf8Code>😒</Utf8Code>
+    <Utf32Code>0x1F612</Utf32Code>
+    <ClientCode>/?1F612</ClientCode>
+    <Description>emoji</Description>
+    <File>1F612.png</File>
+</Item>
+<Item>
+    <Utf8Code>😓</Utf8Code>
+    <Utf32Code>0x1F613</Utf32Code>
+    <ClientCode>/?1F613</ClientCode>
+    <Description>emoji</Description>
+    <File>1F613.png</File>
+</Item>
+<Item>
+    <Utf8Code>😔</Utf8Code>
+    <Utf32Code>0x1F614</Utf32Code>
+    <ClientCode>/?1F614</ClientCode>
+    <Description>emoji</Description>
+    <File>1F614.png</File>
+</Item>
+<Item>
+    <Utf8Code>😖</Utf8Code>
+    <Utf32Code>0x1F616</Utf32Code>
+    <ClientCode>/?1F616</ClientCode>
+    <Description>emoji</Description>
+    <File>1F616.png</File>
+</Item>
+<Item>
+    <Utf8Code>😘</Utf8Code>
+    <Utf32Code>0x1F618</Utf32Code>
+    <ClientCode>/?1F618</ClientCode>
+    <Description>emoji</Description>
+    <File>1F618.png</File>
+</Item>
+<Item>
+    <Utf8Code>😚</Utf8Code>
+    <Utf32Code>0x1F61A</Utf32Code>
+    <ClientCode>/?1F61A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F61A.png</File>
+</Item>
+<Item>
+    <Utf8Code>😜</Utf8Code>
+    <Utf32Code>0x1F61C</Utf32Code>
+    <ClientCode>/?1F61C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F61C.png</File>
+</Item>
+<Item>
+    <Utf8Code>😝</Utf8Code>
+    <Utf32Code>0x1F61D</Utf32Code>
+    <ClientCode>/?1F61D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F61D.png</File>
+</Item>
+<Item>
+    <Utf8Code>😞</Utf8Code>
+    <Utf32Code>0x1F61E</Utf32Code>
+    <ClientCode>/?1F61E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F61E.png</File>
+</Item>
+<Item>
+    <Utf8Code>😠</Utf8Code>
+    <Utf32Code>0x1F620</Utf32Code>
+    <ClientCode>/?1F620</ClientCode>
+    <Description>emoji</Description>
+    <File>1F620.png</File>
+</Item>
+<Item>
+    <Utf8Code>😡</Utf8Code>
+    <Utf32Code>0x1F621</Utf32Code>
+    <ClientCode>/?1F621</ClientCode>
+    <Description>emoji</Description>
+    <File>1F621.png</File>
+</Item>
+<Item>
+    <Utf8Code>😢</Utf8Code>
+    <Utf32Code>0x1F622</Utf32Code>
+    <ClientCode>/?1F622</ClientCode>
+    <Description>emoji</Description>
+    <File>1F622.png</File>
+</Item>
+<Item>
+    <Utf8Code>😣</Utf8Code>
+    <Utf32Code>0x1F623</Utf32Code>
+    <ClientCode>/?1F623</ClientCode>
+    <Description>emoji</Description>
+    <File>1F623.png</File>
+</Item>
+<Item>
+    <Utf8Code>😤</Utf8Code>
+    <Utf32Code>0x1F624</Utf32Code>
+    <ClientCode>/?1F624</ClientCode>
+    <Description>emoji</Description>
+    <File>1F624.png</File>
+</Item>
+<Item>
+    <Utf8Code>😥</Utf8Code>
+    <Utf32Code>0x1F625</Utf32Code>
+    <ClientCode>/?1F625</ClientCode>
+    <Description>emoji</Description>
+    <File>1F625.png</File>
+</Item>
+<Item>
+    <Utf8Code>😨</Utf8Code>
+    <Utf32Code>0x1F628</Utf32Code>
+    <ClientCode>/?1F628</ClientCode>
+    <Description>emoji</Description>
+    <File>1F628.png</File>
+</Item>
+<Item>
+    <Utf8Code>😩</Utf8Code>
+    <Utf32Code>0x1F629</Utf32Code>
+    <ClientCode>/?1F629</ClientCode>
+    <Description>emoji</Description>
+    <File>1F629.png</File>
+</Item>
+<Item>
+    <Utf8Code>😪</Utf8Code>
+    <Utf32Code>0x1F62A</Utf32Code>
+    <ClientCode>/?1F62A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F62A.png</File>
+</Item>
+<Item>
+    <Utf8Code>😫</Utf8Code>
+    <Utf32Code>0x1F62B</Utf32Code>
+    <ClientCode>/?1F62B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F62B.png</File>
+</Item>
+<Item>
+    <Utf8Code>😭</Utf8Code>
+    <Utf32Code>0x1F62D</Utf32Code>
+    <ClientCode>/?1F62D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F62D.png</File>
+</Item>
+<Item>
+    <Utf8Code>😰</Utf8Code>
+    <Utf32Code>0x1F630</Utf32Code>
+    <ClientCode>/?1F630</ClientCode>
+    <Description>emoji</Description>
+    <File>1F630.png</File>
+</Item>
+<Item>
+    <Utf8Code>😱</Utf8Code>
+    <Utf32Code>0x1F631</Utf32Code>
+    <ClientCode>/?1F631</ClientCode>
+    <Description>emoji</Description>
+    <File>1F631.png</File>
+</Item>
+<Item>
+    <Utf8Code>😲</Utf8Code>
+    <Utf32Code>0x1F632</Utf32Code>
+    <ClientCode>/?1F632</ClientCode>
+    <Description>emoji</Description>
+    <File>1F632.png</File>
+</Item>
+<Item>
+    <Utf8Code>😳</Utf8Code>
+    <Utf32Code>0x1F633</Utf32Code>
+    <ClientCode>/?1F633</ClientCode>
+    <Description>emoji</Description>
+    <File>1F633.png</File>
+</Item>
+<Item>
+    <Utf8Code>😵</Utf8Code>
+    <Utf32Code>0x1F635</Utf32Code>
+    <ClientCode>/?1F635</ClientCode>
+    <Description>emoji</Description>
+    <File>1F635.png</File>
+</Item>
+<Item>
+    <Utf8Code>😷</Utf8Code>
+    <Utf32Code>0x1F637</Utf32Code>
+    <ClientCode>/?1F637</ClientCode>
+    <Description>emoji</Description>
+    <File>1F637.png</File>
+</Item>
+<Item>
+    <Utf8Code>😸</Utf8Code>
+    <Utf32Code>0x1F638</Utf32Code>
+    <ClientCode>/?1F638</ClientCode>
+    <Description>emoji</Description>
+    <File>1F638.png</File>
+</Item>
+<Item>
+    <Utf8Code>😹</Utf8Code>
+    <Utf32Code>0x1F639</Utf32Code>
+    <ClientCode>/?1F639</ClientCode>
+    <Description>emoji</Description>
+    <File>1F639.png</File>
+</Item>
+<Item>
+    <Utf8Code>😺</Utf8Code>
+    <Utf32Code>0x1F63A</Utf32Code>
+    <ClientCode>/?1F63A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F63A.png</File>
+</Item>
+<Item>
+    <Utf8Code>😻</Utf8Code>
+    <Utf32Code>0x1F63B</Utf32Code>
+    <ClientCode>/?1F63B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F63B.png</File>
+</Item>
+<Item>
+    <Utf8Code>😼</Utf8Code>
+    <Utf32Code>0x1F63C</Utf32Code>
+    <ClientCode>/?1F63C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F63C.png</File>
+</Item>
+<Item>
+    <Utf8Code>😽</Utf8Code>
+    <Utf32Code>0x1F63D</Utf32Code>
+    <ClientCode>/?1F63D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F63D.png</File>
+</Item>
+<Item>
+    <Utf8Code>😾</Utf8Code>
+    <Utf32Code>0x1F63E</Utf32Code>
+    <ClientCode>/?1F63E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F63E.png</File>
+</Item>
+<Item>
+    <Utf8Code>😿</Utf8Code>
+    <Utf32Code>0x1F63F</Utf32Code>
+    <ClientCode>/?1F63F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F63F.png</File>
+</Item>
+<Item>
+    <Utf8Code>🙀</Utf8Code>
+    <Utf32Code>0x1F640</Utf32Code>
+    <ClientCode>/?1F640</ClientCode>
+    <Description>emoji</Description>
+    <File>1F640.png</File>
+</Item>
+<Item>
+    <Utf8Code>🙅</Utf8Code>
+    <Utf32Code>0x1F645</Utf32Code>
+    <ClientCode>/?1F645</ClientCode>
+    <Description>emoji</Description>
+    <File>1F645.png</File>
+</Item>
+<Item>
+    <Utf8Code>🙆</Utf8Code>
+    <Utf32Code>0x1F646</Utf32Code>
+    <ClientCode>/?1F646</ClientCode>
+    <Description>emoji</Description>
+    <File>1F646.png</File>
+</Item>
+<Item>
+    <Utf8Code>🙇</Utf8Code>
+    <Utf32Code>0x1F647</Utf32Code>
+    <ClientCode>/?1F647</ClientCode>
+    <Description>emoji</Description>
+    <File>1F647.png</File>
+</Item>
+<Item>
+    <Utf8Code>🙈</Utf8Code>
+    <Utf32Code>0x1F648</Utf32Code>
+    <ClientCode>/?1F648</ClientCode>
+    <Description>emoji</Description>
+    <File>1F648.png</File>
+</Item>
+<Item>
+    <Utf8Code>🙉</Utf8Code>
+    <Utf32Code>0x1F649</Utf32Code>
+    <ClientCode>/?1F649</ClientCode>
+    <Description>emoji</Description>
+    <File>1F649.png</File>
+</Item>
+<Item>
+    <Utf8Code>🙊</Utf8Code>
+    <Utf32Code>0x1F64A</Utf32Code>
+    <ClientCode>/?1F64A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F64A.png</File>
+</Item>
+<Item>
+    <Utf8Code>🙋</Utf8Code>
+    <Utf32Code>0x1F64B</Utf32Code>
+    <ClientCode>/?1F64B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F64B.png</File>
+</Item>
+<Item>
+    <Utf8Code>🙌</Utf8Code>
+    <Utf32Code>0x1F64C</Utf32Code>
+    <ClientCode>/?1F64C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F64C.png</File>
+</Item>
+<Item>
+    <Utf8Code>🙍</Utf8Code>
+    <Utf32Code>0x1F64D</Utf32Code>
+    <ClientCode>/?1F64D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F64D.png</File>
+</Item>
+<Item>
+    <Utf8Code>🙎</Utf8Code>
+    <Utf32Code>0x1F64E</Utf32Code>
+    <ClientCode>/?1F64E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F64E.png</File>
+</Item>
+<Item>
+    <Utf8Code>🙏</Utf8Code>
+    <Utf32Code>0x1F64F</Utf32Code>
+    <ClientCode>/?1F64F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F64F.png</File>
+</Item>
+<Item>
+    <Utf8Code>✂</Utf8Code>
+    <Utf32Code>0x2702</Utf32Code>
+    <ClientCode>/?2702</ClientCode>
+    <Description>emoji</Description>
+    <File>2702.png</File>
+</Item>
+<Item>
+    <Utf8Code>✅</Utf8Code>
+    <Utf32Code>0x2705</Utf32Code>
+    <ClientCode>/?2705</ClientCode>
+    <Description>emoji</Description>
+    <File>2705.png</File>
+</Item>
+<Item>
+    <Utf8Code>✈</Utf8Code>
+    <Utf32Code>0x2708</Utf32Code>
+    <ClientCode>/?2708</ClientCode>
+    <Description>emoji</Description>
+    <File>2708.png</File>
+</Item>
+<Item>
+    <Utf8Code>✉</Utf8Code>
+    <Utf32Code>0x2709</Utf32Code>
+    <ClientCode>/?2709</ClientCode>
+    <Description>emoji</Description>
+    <File>2709.png</File>
+</Item>
+<Item>
+    <Utf8Code>✊</Utf8Code>
+    <Utf32Code>0x270A</Utf32Code>
+    <ClientCode>/?270A</ClientCode>
+    <Description>emoji</Description>
+    <File>270A.png</File>
+</Item>
+<Item>
+    <Utf8Code>✋</Utf8Code>
+    <Utf32Code>0x270B</Utf32Code>
+    <ClientCode>/?270B</ClientCode>
+    <Description>emoji</Description>
+    <File>270B.png</File>
+</Item>
+<Item>
+    <Utf8Code>✌</Utf8Code>
+    <Utf32Code>0x270C</Utf32Code>
+    <ClientCode>/?270C</ClientCode>
+    <Description>emoji</Description>
+    <File>270C.png</File>
+</Item>
+<Item>
+    <Utf8Code>✏</Utf8Code>
+    <Utf32Code>0x270F</Utf32Code>
+    <ClientCode>/?270F</ClientCode>
+    <Description>emoji</Description>
+    <File>270F.png</File>
+</Item>
+<Item>
+    <Utf8Code>✒</Utf8Code>
+    <Utf32Code>0x2712</Utf32Code>
+    <ClientCode>/?2712</ClientCode>
+    <Description>emoji</Description>
+    <File>2712.png</File>
+</Item>
+<Item>
+    <Utf8Code>✔</Utf8Code>
+    <Utf32Code>0x2714</Utf32Code>
+    <ClientCode>/?2714</ClientCode>
+    <Description>emoji</Description>
+    <File>2714.png</File>
+</Item>
+<Item>
+    <Utf8Code>✖</Utf8Code>
+    <Utf32Code>0x2716</Utf32Code>
+    <ClientCode>/?2716</ClientCode>
+    <Description>emoji</Description>
+    <File>2716.png</File>
+</Item>
+<Item>
+    <Utf8Code>✨</Utf8Code>
+    <Utf32Code>0x2728</Utf32Code>
+    <ClientCode>/?2728</ClientCode>
+    <Description>emoji</Description>
+    <File>2728.png</File>
+</Item>
+<Item>
+    <Utf8Code>✳</Utf8Code>
+    <Utf32Code>0x2733</Utf32Code>
+    <ClientCode>/?2733</ClientCode>
+    <Description>emoji</Description>
+    <File>2733.png</File>
+</Item>
+<Item>
+    <Utf8Code>✴</Utf8Code>
+    <Utf32Code>0x2734</Utf32Code>
+    <ClientCode>/?2734</ClientCode>
+    <Description>emoji</Description>
+    <File>2734.png</File>
+</Item>
+<Item>
+    <Utf8Code>❄</Utf8Code>
+    <Utf32Code>0x2744</Utf32Code>
+    <ClientCode>/?2744</ClientCode>
+    <Description>emoji</Description>
+    <File>2744.png</File>
+</Item>
+<Item>
+    <Utf8Code>❇</Utf8Code>
+    <Utf32Code>0x2747</Utf32Code>
+    <ClientCode>/?2747</ClientCode>
+    <Description>emoji</Description>
+    <File>2747.png</File>
+</Item>
+<Item>
+    <Utf8Code>❌</Utf8Code>
+    <Utf32Code>0x274C</Utf32Code>
+    <ClientCode>/?274C</ClientCode>
+    <Description>emoji</Description>
+    <File>274C.png</File>
+</Item>
+<Item>
+    <Utf8Code>❎</Utf8Code>
+    <Utf32Code>0x274E</Utf32Code>
+    <ClientCode>/?274E</ClientCode>
+    <Description>emoji</Description>
+    <File>274E.png</File>
+</Item>
+<Item>
+    <Utf8Code>❓</Utf8Code>
+    <Utf32Code>0x2753</Utf32Code>
+    <ClientCode>/?2753</ClientCode>
+    <Description>emoji</Description>
+    <File>2753.png</File>
+</Item>
+<Item>
+    <Utf8Code>❔</Utf8Code>
+    <Utf32Code>0x2754</Utf32Code>
+    <ClientCode>/?2754</ClientCode>
+    <Description>emoji</Description>
+    <File>2754.png</File>
+</Item>
+<Item>
+    <Utf8Code>❕</Utf8Code>
+    <Utf32Code>0x2755</Utf32Code>
+    <ClientCode>/?2755</ClientCode>
+    <Description>emoji</Description>
+    <File>2755.png</File>
+</Item>
+<Item>
+    <Utf8Code>❗</Utf8Code>
+    <Utf32Code>0x2757</Utf32Code>
+    <ClientCode>/?2757</ClientCode>
+    <Description>emoji</Description>
+    <File>2757.png</File>
+</Item>
+<Item>
+    <Utf8Code>❤</Utf8Code>
+    <Utf32Code>0x2764</Utf32Code>
+    <ClientCode>/?2764</ClientCode>
+    <Description>emoji</Description>
+    <File>2764.png</File>
+</Item>
+<Item>
+    <Utf8Code>➕</Utf8Code>
+    <Utf32Code>0x2795</Utf32Code>
+    <ClientCode>/?2795</ClientCode>
+    <Description>emoji</Description>
+    <File>2795.png</File>
+</Item>
+<Item>
+    <Utf8Code>➖</Utf8Code>
+    <Utf32Code>0x2796</Utf32Code>
+    <ClientCode>/?2796</ClientCode>
+    <Description>emoji</Description>
+    <File>2796.png</File>
+</Item>
+<Item>
+    <Utf8Code>➗</Utf8Code>
+    <Utf32Code>0x2797</Utf32Code>
+    <ClientCode>/?2797</ClientCode>
+    <Description>emoji</Description>
+    <File>2797.png</File>
+</Item>
+<Item>
+    <Utf8Code>➡</Utf8Code>
+    <Utf32Code>0x27A1</Utf32Code>
+    <ClientCode>/?27A1</ClientCode>
+    <Description>emoji</Description>
+    <File>27A1.png</File>
+</Item>
+<Item>
+    <Utf8Code>➰</Utf8Code>
+    <Utf32Code>0x27B0</Utf32Code>
+    <ClientCode>/?27B0</ClientCode>
+    <Description>emoji</Description>
+    <File>27B0.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚀</Utf8Code>
+    <Utf32Code>0x1F680</Utf32Code>
+    <ClientCode>/?1F680</ClientCode>
+    <Description>emoji</Description>
+    <File>1F680.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚃</Utf8Code>
+    <Utf32Code>0x1F683</Utf32Code>
+    <ClientCode>/?1F683</ClientCode>
+    <Description>emoji</Description>
+    <File>1F683.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚄</Utf8Code>
+    <Utf32Code>0x1F684</Utf32Code>
+    <ClientCode>/?1F684</ClientCode>
+    <Description>emoji</Description>
+    <File>1F684.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚅</Utf8Code>
+    <Utf32Code>0x1F685</Utf32Code>
+    <ClientCode>/?1F685</ClientCode>
+    <Description>emoji</Description>
+    <File>1F685.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚇</Utf8Code>
+    <Utf32Code>0x1F687</Utf32Code>
+    <ClientCode>/?1F687</ClientCode>
+    <Description>emoji</Description>
+    <File>1F687.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚉</Utf8Code>
+    <Utf32Code>0x1F689</Utf32Code>
+    <ClientCode>/?1F689</ClientCode>
+    <Description>emoji</Description>
+    <File>1F689.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚌</Utf8Code>
+    <Utf32Code>0x1F68C</Utf32Code>
+    <ClientCode>/?1F68C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F68C.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚏</Utf8Code>
+    <Utf32Code>0x1F68F</Utf32Code>
+    <ClientCode>/?1F68F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F68F.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚑</Utf8Code>
+    <Utf32Code>0x1F691</Utf32Code>
+    <ClientCode>/?1F691</ClientCode>
+    <Description>emoji</Description>
+    <File>1F691.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚒</Utf8Code>
+    <Utf32Code>0x1F692</Utf32Code>
+    <ClientCode>/?1F692</ClientCode>
+    <Description>emoji</Description>
+    <File>1F692.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚓</Utf8Code>
+    <Utf32Code>0x1F693</Utf32Code>
+    <ClientCode>/?1F693</ClientCode>
+    <Description>emoji</Description>
+    <File>1F693.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚕</Utf8Code>
+    <Utf32Code>0x1F695</Utf32Code>
+    <ClientCode>/?1F695</ClientCode>
+    <Description>emoji</Description>
+    <File>1F695.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚗</Utf8Code>
+    <Utf32Code>0x1F697</Utf32Code>
+    <ClientCode>/?1F697</ClientCode>
+    <Description>emoji</Description>
+    <File>1F697.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚙</Utf8Code>
+    <Utf32Code>0x1F699</Utf32Code>
+    <ClientCode>/?1F699</ClientCode>
+    <Description>emoji</Description>
+    <File>1F699.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚚</Utf8Code>
+    <Utf32Code>0x1F69A</Utf32Code>
+    <ClientCode>/?1F69A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F69A.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚢</Utf8Code>
+    <Utf32Code>0x1F6A2</Utf32Code>
+    <ClientCode>/?1F6A2</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6A2.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚤</Utf8Code>
+    <Utf32Code>0x1F6A4</Utf32Code>
+    <ClientCode>/?1F6A4</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6A4.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚥</Utf8Code>
+    <Utf32Code>0x1F6A5</Utf32Code>
+    <ClientCode>/?1F6A5</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6A5.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚧</Utf8Code>
+    <Utf32Code>0x1F6A7</Utf32Code>
+    <ClientCode>/?1F6A7</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6A7.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚨</Utf8Code>
+    <Utf32Code>0x1F6A8</Utf32Code>
+    <ClientCode>/?1F6A8</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6A8.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚩</Utf8Code>
+    <Utf32Code>0x1F6A9</Utf32Code>
+    <ClientCode>/?1F6A9</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6A9.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚪</Utf8Code>
+    <Utf32Code>0x1F6AA</Utf32Code>
+    <ClientCode>/?1F6AA</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6AA.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚫</Utf8Code>
+    <Utf32Code>0x1F6AB</Utf32Code>
+    <ClientCode>/?1F6AB</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6AB.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚬</Utf8Code>
+    <Utf32Code>0x1F6AC</Utf32Code>
+    <ClientCode>/?1F6AC</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6AC.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚭</Utf8Code>
+    <Utf32Code>0x1F6AD</Utf32Code>
+    <ClientCode>/?1F6AD</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6AD.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚲</Utf8Code>
+    <Utf32Code>0x1F6B2</Utf32Code>
+    <ClientCode>/?1F6B2</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6B2.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚶</Utf8Code>
+    <Utf32Code>0x1F6B6</Utf32Code>
+    <ClientCode>/?1F6B6</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6B6.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚹</Utf8Code>
+    <Utf32Code>0x1F6B9</Utf32Code>
+    <ClientCode>/?1F6B9</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6B9.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚺</Utf8Code>
+    <Utf32Code>0x1F6BA</Utf32Code>
+    <ClientCode>/?1F6BA</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6BA.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚻</Utf8Code>
+    <Utf32Code>0x1F6BB</Utf32Code>
+    <ClientCode>/?1F6BB</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6BB.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚼</Utf8Code>
+    <Utf32Code>0x1F6BC</Utf32Code>
+    <ClientCode>/?1F6BC</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6BC.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚽</Utf8Code>
+    <Utf32Code>0x1F6BD</Utf32Code>
+    <ClientCode>/?1F6BD</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6BD.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚾</Utf8Code>
+    <Utf32Code>0x1F6BE</Utf32Code>
+    <ClientCode>/?1F6BE</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6BE.png</File>
+</Item>
+<Item>
+    <Utf8Code>🛀</Utf8Code>
+    <Utf32Code>0x1F6C0</Utf32Code>
+    <ClientCode>/?1F6C0</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6C0.png</File>
+</Item>
+<Item>
+    <Utf8Code>Ⓜ</Utf8Code>
+    <Utf32Code>0x24C2</Utf32Code>
+    <ClientCode>/?24C2</ClientCode>
+    <Description>emoji</Description>
+    <File>24C2.png</File>
+</Item>
+<Item>
+    <Utf8Code>🅰</Utf8Code>
+    <Utf32Code>0x1F170</Utf32Code>
+    <ClientCode>/?1F170</ClientCode>
+    <Description>emoji</Description>
+    <File>1F170.png</File>
+</Item>
+<Item>
+    <Utf8Code>🅱</Utf8Code>
+    <Utf32Code>0x1F171</Utf32Code>
+    <ClientCode>/?1F171</ClientCode>
+    <Description>emoji</Description>
+    <File>1F171.png</File>
+</Item>
+<Item>
+    <Utf8Code>🅾</Utf8Code>
+    <Utf32Code>0x1F17E</Utf32Code>
+    <ClientCode>/?1F17E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F17E.png</File>
+</Item>
+<Item>
+    <Utf8Code>🅿</Utf8Code>
+    <Utf32Code>0x1F17F</Utf32Code>
+    <ClientCode>/?1F17F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F17F.png</File>
+</Item>
+<Item>
+    <Utf8Code>🆎</Utf8Code>
+    <Utf32Code>0x1F18E</Utf32Code>
+    <ClientCode>/?1F18E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F18E.png</File>
+</Item>
+<Item>
+    <Utf8Code>🆑</Utf8Code>
+    <Utf32Code>0x1F191</Utf32Code>
+    <ClientCode>/?1F191</ClientCode>
+    <Description>emoji</Description>
+    <File>1F191.png</File>
+</Item>
+<Item>
+    <Utf8Code>🆒</Utf8Code>
+    <Utf32Code>0x1F192</Utf32Code>
+    <ClientCode>/?1F192</ClientCode>
+    <Description>emoji</Description>
+    <File>1F192.png</File>
+</Item>
+<Item>
+    <Utf8Code>🆓</Utf8Code>
+    <Utf32Code>0x1F193</Utf32Code>
+    <ClientCode>/?1F193</ClientCode>
+    <Description>emoji</Description>
+    <File>1F193.png</File>
+</Item>
+<Item>
+    <Utf8Code>🆔</Utf8Code>
+    <Utf32Code>0x1F194</Utf32Code>
+    <ClientCode>/?1F194</ClientCode>
+    <Description>emoji</Description>
+    <File>1F194.png</File>
+</Item>
+<Item>
+    <Utf8Code>🆕</Utf8Code>
+    <Utf32Code>0x1F195</Utf32Code>
+    <ClientCode>/?1F195</ClientCode>
+    <Description>emoji</Description>
+    <File>1F195.png</File>
+</Item>
+<Item>
+    <Utf8Code>🆖</Utf8Code>
+    <Utf32Code>0x1F196</Utf32Code>
+    <ClientCode>/?1F196</ClientCode>
+    <Description>emoji</Description>
+    <File>1F196.png</File>
+</Item>
+<Item>
+    <Utf8Code>🆗</Utf8Code>
+    <Utf32Code>0x1F197</Utf32Code>
+    <ClientCode>/?1F197</ClientCode>
+    <Description>emoji</Description>
+    <File>1F197.png</File>
+</Item>
+<Item>
+    <Utf8Code>🆘</Utf8Code>
+    <Utf32Code>0x1F198</Utf32Code>
+    <ClientCode>/?1F198</ClientCode>
+    <Description>emoji</Description>
+    <File>1F198.png</File>
+</Item>
+<Item>
+    <Utf8Code>🆙</Utf8Code>
+    <Utf32Code>0x1F199</Utf32Code>
+    <ClientCode>/?1F199</ClientCode>
+    <Description>emoji</Description>
+    <File>1F199.png</File>
+</Item>
+<Item>
+    <Utf8Code>🆚</Utf8Code>
+    <Utf32Code>0x1F19A</Utf32Code>
+    <ClientCode>/?1F19A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F19A.png</File>
+</Item>
+<Item>
+    <Utf8Code>🈁</Utf8Code>
+    <Utf32Code>0x1F201</Utf32Code>
+    <ClientCode>/?1F201</ClientCode>
+    <Description>emoji</Description>
+    <File>1F201.png</File>
+</Item>
+<Item>
+    <Utf8Code>🈂</Utf8Code>
+    <Utf32Code>0x1F202</Utf32Code>
+    <ClientCode>/?1F202</ClientCode>
+    <Description>emoji</Description>
+    <File>1F202.png</File>
+</Item>
+<Item>
+    <Utf8Code>🈚</Utf8Code>
+    <Utf32Code>0x1F21A</Utf32Code>
+    <ClientCode>/?1F21A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F21A.png</File>
+</Item>
+<Item>
+    <Utf8Code>🈯</Utf8Code>
+    <Utf32Code>0x1F22F</Utf32Code>
+    <ClientCode>/?1F22F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F22F.png</File>
+</Item>
+<Item>
+    <Utf8Code>🈲</Utf8Code>
+    <Utf32Code>0x1F232</Utf32Code>
+    <ClientCode>/?1F232</ClientCode>
+    <Description>emoji</Description>
+    <File>1F232.png</File>
+</Item>
+<Item>
+    <Utf8Code>🈳</Utf8Code>
+    <Utf32Code>0x1F233</Utf32Code>
+    <ClientCode>/?1F233</ClientCode>
+    <Description>emoji</Description>
+    <File>1F233.png</File>
+</Item>
+<Item>
+    <Utf8Code>🈴</Utf8Code>
+    <Utf32Code>0x1F234</Utf32Code>
+    <ClientCode>/?1F234</ClientCode>
+    <Description>emoji</Description>
+    <File>1F234.png</File>
+</Item>
+<Item>
+    <Utf8Code>🈵</Utf8Code>
+    <Utf32Code>0x1F235</Utf32Code>
+    <ClientCode>/?1F235</ClientCode>
+    <Description>emoji</Description>
+    <File>1F235.png</File>
+</Item>
+<Item>
+    <Utf8Code>🈶</Utf8Code>
+    <Utf32Code>0x1F236</Utf32Code>
+    <ClientCode>/?1F236</ClientCode>
+    <Description>emoji</Description>
+    <File>1F236.png</File>
+</Item>
+<Item>
+    <Utf8Code>🈷</Utf8Code>
+    <Utf32Code>0x1F237</Utf32Code>
+    <ClientCode>/?1F237</ClientCode>
+    <Description>emoji</Description>
+    <File>1F237.png</File>
+</Item>
+<Item>
+    <Utf8Code>🈸</Utf8Code>
+    <Utf32Code>0x1F238</Utf32Code>
+    <ClientCode>/?1F238</ClientCode>
+    <Description>emoji</Description>
+    <File>1F238.png</File>
+</Item>
+<Item>
+    <Utf8Code>🈹</Utf8Code>
+    <Utf32Code>0x1F239</Utf32Code>
+    <ClientCode>/?1F239</ClientCode>
+    <Description>emoji</Description>
+    <File>1F239.png</File>
+</Item>
+<Item>
+    <Utf8Code>🈺</Utf8Code>
+    <Utf32Code>0x1F23A</Utf32Code>
+    <ClientCode>/?1F23A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F23A.png</File>
+</Item>
+<Item>
+    <Utf8Code>🉐</Utf8Code>
+    <Utf32Code>0x1F250</Utf32Code>
+    <ClientCode>/?1F250</ClientCode>
+    <Description>emoji</Description>
+    <File>1F250.png</File>
+</Item>
+<Item>
+    <Utf8Code>🉑</Utf8Code>
+    <Utf32Code>0x1F251</Utf32Code>
+    <ClientCode>/?1F251</ClientCode>
+    <Description>emoji</Description>
+    <File>1F251.png</File>
+</Item>
+<Item>
+    <Utf8Code>©</Utf8Code>
+    <Utf32Code>0x00A9</Utf32Code>
+    <ClientCode>/?00A9</ClientCode>
+    <Description>emoji</Description>
+    <File>00A9.png</File>
+</Item>
+<Item>
+    <Utf8Code>®</Utf8Code>
+    <Utf32Code>0x00AE</Utf32Code>
+    <ClientCode>/?00AE</ClientCode>
+    <Description>emoji</Description>
+    <File>00AE.png</File>
+</Item>
+<Item>
+    <Utf8Code>‼</Utf8Code>
+    <Utf32Code>0x203C</Utf32Code>
+    <ClientCode>/?203C</ClientCode>
+    <Description>emoji</Description>
+    <File>203C.png</File>
+</Item>
+<Item>
+    <Utf8Code>⁉</Utf8Code>
+    <Utf32Code>0x2049</Utf32Code>
+    <ClientCode>/?2049</ClientCode>
+    <Description>emoji</Description>
+    <File>2049.png</File>
+</Item>
+<Item>
+    <Utf8Code>™</Utf8Code>
+    <Utf32Code>0x2122</Utf32Code>
+    <ClientCode>/?2122</ClientCode>
+    <Description>emoji</Description>
+    <File>2122.png</File>
+</Item>
+<Item>
+    <Utf8Code>ℹ</Utf8Code>
+    <Utf32Code>0x2139</Utf32Code>
+    <ClientCode>/?2139</ClientCode>
+    <Description>emoji</Description>
+    <File>2139.png</File>
+</Item>
+<Item>
+    <Utf8Code>↔</Utf8Code>
+    <Utf32Code>0x2194</Utf32Code>
+    <ClientCode>/?2194</ClientCode>
+    <Description>emoji</Description>
+    <File>2194.png</File>
+</Item>
+<Item>
+    <Utf8Code>↕</Utf8Code>
+    <Utf32Code>0x2195</Utf32Code>
+    <ClientCode>/?2195</ClientCode>
+    <Description>emoji</Description>
+    <File>2195.png</File>
+</Item>
+<Item>
+    <Utf8Code>↖</Utf8Code>
+    <Utf32Code>0x2196</Utf32Code>
+    <ClientCode>/?2196</ClientCode>
+    <Description>emoji</Description>
+    <File>2196.png</File>
+</Item>
+<Item>
+    <Utf8Code>↗</Utf8Code>
+    <Utf32Code>0x2197</Utf32Code>
+    <ClientCode>/?2197</ClientCode>
+    <Description>emoji</Description>
+    <File>2197.png</File>
+</Item>
+<Item>
+    <Utf8Code>↘</Utf8Code>
+    <Utf32Code>0x2198</Utf32Code>
+    <ClientCode>/?2198</ClientCode>
+    <Description>emoji</Description>
+    <File>2198.png</File>
+</Item>
+<Item>
+    <Utf8Code>↙</Utf8Code>
+    <Utf32Code>0x2199</Utf32Code>
+    <ClientCode>/?2199</ClientCode>
+    <Description>emoji</Description>
+    <File>2199.png</File>
+</Item>
+<Item>
+    <Utf8Code>↩</Utf8Code>
+    <Utf32Code>0x21A9</Utf32Code>
+    <ClientCode>/?21A9</ClientCode>
+    <Description>emoji</Description>
+    <File>21A9.png</File>
+</Item>
+<Item>
+    <Utf8Code>↪</Utf8Code>
+    <Utf32Code>0x21AA</Utf32Code>
+    <ClientCode>/?21AA</ClientCode>
+    <Description>emoji</Description>
+    <File>21AA.png</File>
+</Item>
+<Item>
+    <Utf8Code>⌚</Utf8Code>
+    <Utf32Code>0x231A</Utf32Code>
+    <ClientCode>/?231A</ClientCode>
+    <Description>emoji</Description>
+    <File>231A.png</File>
+</Item>
+<Item>
+    <Utf8Code>⌛</Utf8Code>
+    <Utf32Code>0x231B</Utf32Code>
+    <ClientCode>/?231B</ClientCode>
+    <Description>emoji</Description>
+    <File>231B.png</File>
+</Item>
+<Item>
+    <Utf8Code>⏩</Utf8Code>
+    <Utf32Code>0x23E9</Utf32Code>
+    <ClientCode>/?23E9</ClientCode>
+    <Description>emoji</Description>
+    <File>23E9.png</File>
+</Item>
+<Item>
+    <Utf8Code>⏪</Utf8Code>
+    <Utf32Code>0x23EA</Utf32Code>
+    <ClientCode>/?23EA</ClientCode>
+    <Description>emoji</Description>
+    <File>23EA.png</File>
+</Item>
+<Item>
+    <Utf8Code>⏫</Utf8Code>
+    <Utf32Code>0x23EB</Utf32Code>
+    <ClientCode>/?23EB</ClientCode>
+    <Description>emoji</Description>
+    <File>23EB.png</File>
+</Item>
+<Item>
+    <Utf8Code>⏬</Utf8Code>
+    <Utf32Code>0x23EC</Utf32Code>
+    <ClientCode>/?23EC</ClientCode>
+    <Description>emoji</Description>
+    <File>23EC.png</File>
+</Item>
+<Item>
+    <Utf8Code>⏰</Utf8Code>
+    <Utf32Code>0x23F0</Utf32Code>
+    <ClientCode>/?23F0</ClientCode>
+    <Description>emoji</Description>
+    <File>23F0.png</File>
+</Item>
+<Item>
+    <Utf8Code>⏳</Utf8Code>
+    <Utf32Code>0x23F3</Utf32Code>
+    <ClientCode>/?23F3</ClientCode>
+    <Description>emoji</Description>
+    <File>23F3.png</File>
+</Item>
+<Item>
+    <Utf8Code>▪</Utf8Code>
+    <Utf32Code>0x25AA</Utf32Code>
+    <ClientCode>/?25AA</ClientCode>
+    <Description>emoji</Description>
+    <File>25AA.png</File>
+</Item>
+<Item>
+    <Utf8Code>▫</Utf8Code>
+    <Utf32Code>0x25AB</Utf32Code>
+    <ClientCode>/?25AB</ClientCode>
+    <Description>emoji</Description>
+    <File>25AB.png</File>
+</Item>
+<Item>
+    <Utf8Code>▶</Utf8Code>
+    <Utf32Code>0x25B6</Utf32Code>
+    <ClientCode>/?25B6</ClientCode>
+    <Description>emoji</Description>
+    <File>25B6.png</File>
+</Item>
+<Item>
+    <Utf8Code>◀</Utf8Code>
+    <Utf32Code>0x25C0</Utf32Code>
+    <ClientCode>/?25C0</ClientCode>
+    <Description>emoji</Description>
+    <File>25C0.png</File>
+</Item>
+<Item>
+    <Utf8Code>◻</Utf8Code>
+    <Utf32Code>0x25FB</Utf32Code>
+    <ClientCode>/?25FB</ClientCode>
+    <Description>emoji</Description>
+    <File>25FB.png</File>
+</Item>
+<Item>
+    <Utf8Code>◼</Utf8Code>
+    <Utf32Code>0x25FC</Utf32Code>
+    <ClientCode>/?25FC</ClientCode>
+    <Description>emoji</Description>
+    <File>25FC.png</File>
+</Item>
+<Item>
+    <Utf8Code>◽</Utf8Code>
+    <Utf32Code>0x25FD</Utf32Code>
+    <ClientCode>/?25FD</ClientCode>
+    <Description>emoji</Description>
+    <File>25FD.png</File>
+</Item>
+<Item>
+    <Utf8Code>◾</Utf8Code>
+    <Utf32Code>0x25FE</Utf32Code>
+    <ClientCode>/?25FE</ClientCode>
+    <Description>emoji</Description>
+    <File>25FE.png</File>
+</Item>
+<Item>
+    <Utf8Code>☀</Utf8Code>
+    <Utf32Code>0x2600</Utf32Code>
+    <ClientCode>/?2600</ClientCode>
+    <Description>emoji</Description>
+    <File>2600.png</File>
+</Item>
+<Item>
+    <Utf8Code>☁</Utf8Code>
+    <Utf32Code>0x2601</Utf32Code>
+    <ClientCode>/?2601</ClientCode>
+    <Description>emoji</Description>
+    <File>2601.png</File>
+</Item>
+<Item>
+    <Utf8Code>☎</Utf8Code>
+    <Utf32Code>0x260E</Utf32Code>
+    <ClientCode>/?260E</ClientCode>
+    <Description>emoji</Description>
+    <File>260E.png</File>
+</Item>
+<Item>
+    <Utf8Code>☑</Utf8Code>
+    <Utf32Code>0x2611</Utf32Code>
+    <ClientCode>/?2611</ClientCode>
+    <Description>emoji</Description>
+    <File>2611.png</File>
+</Item>
+<Item>
+    <Utf8Code>☔</Utf8Code>
+    <Utf32Code>0x2614</Utf32Code>
+    <ClientCode>/?2614</ClientCode>
+    <Description>emoji</Description>
+    <File>2614.png</File>
+</Item>
+<Item>
+    <Utf8Code>☕</Utf8Code>
+    <Utf32Code>0x2615</Utf32Code>
+    <ClientCode>/?2615</ClientCode>
+    <Description>emoji</Description>
+    <File>2615.png</File>
+</Item>
+<Item>
+    <Utf8Code>☝</Utf8Code>
+    <Utf32Code>0x261D</Utf32Code>
+    <ClientCode>/?261D</ClientCode>
+    <Description>emoji</Description>
+    <File>261D.png</File>
+</Item>
+<Item>
+    <Utf8Code>☺</Utf8Code>
+    <Utf32Code>0x263A</Utf32Code>
+    <ClientCode>/?263A</ClientCode>
+    <Description>emoji</Description>
+    <File>263A.png</File>
+</Item>
+<Item>
+    <Utf8Code>♈</Utf8Code>
+    <Utf32Code>0x2648</Utf32Code>
+    <ClientCode>/?2648</ClientCode>
+    <Description>emoji</Description>
+    <File>2648.png</File>
+</Item>
+<Item>
+    <Utf8Code>♉</Utf8Code>
+    <Utf32Code>0x2649</Utf32Code>
+    <ClientCode>/?2649</ClientCode>
+    <Description>emoji</Description>
+    <File>2649.png</File>
+</Item>
+<Item>
+    <Utf8Code>♊</Utf8Code>
+    <Utf32Code>0x264A</Utf32Code>
+    <ClientCode>/?264A</ClientCode>
+    <Description>emoji</Description>
+    <File>264A.png</File>
+</Item>
+<Item>
+    <Utf8Code>♋</Utf8Code>
+    <Utf32Code>0x264B</Utf32Code>
+    <ClientCode>/?264B</ClientCode>
+    <Description>emoji</Description>
+    <File>264B.png</File>
+</Item>
+<Item>
+    <Utf8Code>♌</Utf8Code>
+    <Utf32Code>0x264C</Utf32Code>
+    <ClientCode>/?264C</ClientCode>
+    <Description>emoji</Description>
+    <File>264C.png</File>
+</Item>
+<Item>
+    <Utf8Code>♍</Utf8Code>
+    <Utf32Code>0x264D</Utf32Code>
+    <ClientCode>/?264D</ClientCode>
+    <Description>emoji</Description>
+    <File>264D.png</File>
+</Item>
+<Item>
+    <Utf8Code>♎</Utf8Code>
+    <Utf32Code>0x264E</Utf32Code>
+    <ClientCode>/?264E</ClientCode>
+    <Description>emoji</Description>
+    <File>264E.png</File>
+</Item>
+<Item>
+    <Utf8Code>♏</Utf8Code>
+    <Utf32Code>0x264F</Utf32Code>
+    <ClientCode>/?264F</ClientCode>
+    <Description>emoji</Description>
+    <File>264F.png</File>
+</Item>
+<Item>
+    <Utf8Code>♐</Utf8Code>
+    <Utf32Code>0x2650</Utf32Code>
+    <ClientCode>/?2650</ClientCode>
+    <Description>emoji</Description>
+    <File>2650.png</File>
+</Item>
+<Item>
+    <Utf8Code>♑</Utf8Code>
+    <Utf32Code>0x2651</Utf32Code>
+    <ClientCode>/?2651</ClientCode>
+    <Description>emoji</Description>
+    <File>2651.png</File>
+</Item>
+<Item>
+    <Utf8Code>♒</Utf8Code>
+    <Utf32Code>0x2652</Utf32Code>
+    <ClientCode>/?2652</ClientCode>
+    <Description>emoji</Description>
+    <File>2652.png</File>
+</Item>
+<Item>
+    <Utf8Code>♓</Utf8Code>
+    <Utf32Code>0x2653</Utf32Code>
+    <ClientCode>/?2653</ClientCode>
+    <Description>emoji</Description>
+    <File>2653.png</File>
+</Item>
+<Item>
+    <Utf8Code>♠</Utf8Code>
+    <Utf32Code>0x2660</Utf32Code>
+    <ClientCode>/?2660</ClientCode>
+    <Description>emoji</Description>
+    <File>2660.png</File>
+</Item>
+<Item>
+    <Utf8Code>♣</Utf8Code>
+    <Utf32Code>0x2663</Utf32Code>
+    <ClientCode>/?2663</ClientCode>
+    <Description>emoji</Description>
+    <File>2663.png</File>
+</Item>
+<Item>
+    <Utf8Code>♥</Utf8Code>
+    <Utf32Code>0x2665</Utf32Code>
+    <ClientCode>/?2665</ClientCode>
+    <Description>emoji</Description>
+    <File>2665.png</File>
+</Item>
+<Item>
+    <Utf8Code>♦</Utf8Code>
+    <Utf32Code>0x2666</Utf32Code>
+    <ClientCode>/?2666</ClientCode>
+    <Description>emoji</Description>
+    <File>2666.png</File>
+</Item>
+<Item>
+    <Utf8Code>♨</Utf8Code>
+    <Utf32Code>0x2668</Utf32Code>
+    <ClientCode>/?2668</ClientCode>
+    <Description>emoji</Description>
+    <File>2668.png</File>
+</Item>
+<Item>
+    <Utf8Code>♻</Utf8Code>
+    <Utf32Code>0x267B</Utf32Code>
+    <ClientCode>/?267B</ClientCode>
+    <Description>emoji</Description>
+    <File>267B.png</File>
+</Item>
+<Item>
+    <Utf8Code>♿</Utf8Code>
+    <Utf32Code>0x267F</Utf32Code>
+    <ClientCode>/?267F</ClientCode>
+    <Description>emoji</Description>
+    <File>267F.png</File>
+</Item>
+<Item>
+    <Utf8Code>⚓</Utf8Code>
+    <Utf32Code>0x2693</Utf32Code>
+    <ClientCode>/?2693</ClientCode>
+    <Description>emoji</Description>
+    <File>2693.png</File>
+</Item>
+<Item>
+    <Utf8Code>⚠</Utf8Code>
+    <Utf32Code>0x26A0</Utf32Code>
+    <ClientCode>/?26A0</ClientCode>
+    <Description>emoji</Description>
+    <File>26A0.png</File>
+</Item>
+<Item>
+    <Utf8Code>⚡</Utf8Code>
+    <Utf32Code>0x26A1</Utf32Code>
+    <ClientCode>/?26A1</ClientCode>
+    <Description>emoji</Description>
+    <File>26A1.png</File>
+</Item>
+<Item>
+    <Utf8Code>⚪</Utf8Code>
+    <Utf32Code>0x26AA</Utf32Code>
+    <ClientCode>/?26AA</ClientCode>
+    <Description>emoji</Description>
+    <File>26AA.png</File>
+</Item>
+<Item>
+    <Utf8Code>⚫</Utf8Code>
+    <Utf32Code>0x26AB</Utf32Code>
+    <ClientCode>/?26AB</ClientCode>
+    <Description>emoji</Description>
+    <File>26AB.png</File>
+</Item>
+<Item>
+    <Utf8Code>⚽</Utf8Code>
+    <Utf32Code>0x26BD</Utf32Code>
+    <ClientCode>/?26BD</ClientCode>
+    <Description>emoji</Description>
+    <File>26BD.png</File>
+</Item>
+<Item>
+    <Utf8Code>⚾</Utf8Code>
+    <Utf32Code>0x26BE</Utf32Code>
+    <ClientCode>/?26BE</ClientCode>
+    <Description>emoji</Description>
+    <File>26BE.png</File>
+</Item>
+<Item>
+    <Utf8Code>⛄</Utf8Code>
+    <Utf32Code>0x26C4</Utf32Code>
+    <ClientCode>/?26C4</ClientCode>
+    <Description>emoji</Description>
+    <File>26C4.png</File>
+</Item>
+<Item>
+    <Utf8Code>⛅</Utf8Code>
+    <Utf32Code>0x26C5</Utf32Code>
+    <ClientCode>/?26C5</ClientCode>
+    <Description>emoji</Description>
+    <File>26C5.png</File>
+</Item>
+<Item>
+    <Utf8Code>⛎</Utf8Code>
+    <Utf32Code>0x26CE</Utf32Code>
+    <ClientCode>/?26CE</ClientCode>
+    <Description>emoji</Description>
+    <File>26CE.png</File>
+</Item>
+<Item>
+    <Utf8Code>⛔</Utf8Code>
+    <Utf32Code>0x26D4</Utf32Code>
+    <ClientCode>/?26D4</ClientCode>
+    <Description>emoji</Description>
+    <File>26D4.png</File>
+</Item>
+<Item>
+    <Utf8Code>⛪</Utf8Code>
+    <Utf32Code>0x26EA</Utf32Code>
+    <ClientCode>/?26EA</ClientCode>
+    <Description>emoji</Description>
+    <File>26EA.png</File>
+</Item>
+<Item>
+    <Utf8Code>⛲</Utf8Code>
+    <Utf32Code>0x26F2</Utf32Code>
+    <ClientCode>/?26F2</ClientCode>
+    <Description>emoji</Description>
+    <File>26F2.png</File>
+</Item>
+<Item>
+    <Utf8Code>⛳</Utf8Code>
+    <Utf32Code>0x26F3</Utf32Code>
+    <ClientCode>/?26F3</ClientCode>
+    <Description>emoji</Description>
+    <File>26F3.png</File>
+</Item>
+<Item>
+    <Utf8Code>⛵</Utf8Code>
+    <Utf32Code>0x26F5</Utf32Code>
+    <ClientCode>/?26F5</ClientCode>
+    <Description>emoji</Description>
+    <File>26F5.png</File>
+</Item>
+<Item>
+    <Utf8Code>⛺</Utf8Code>
+    <Utf32Code>0x26FA</Utf32Code>
+    <ClientCode>/?26FA</ClientCode>
+    <Description>emoji</Description>
+    <File>26FA.png</File>
+</Item>
+<Item>
+    <Utf8Code>⛽</Utf8Code>
+    <Utf32Code>0x26FD</Utf32Code>
+    <ClientCode>/?26FD</ClientCode>
+    <Description>emoji</Description>
+    <File>26FD.png</File>
+</Item>
+<Item>
+    <Utf8Code>⤴</Utf8Code>
+    <Utf32Code>0x2934</Utf32Code>
+    <ClientCode>/?2934</ClientCode>
+    <Description>emoji</Description>
+    <File>2934.png</File>
+</Item>
+<Item>
+    <Utf8Code>⤵</Utf8Code>
+    <Utf32Code>0x2935</Utf32Code>
+    <ClientCode>/?2935</ClientCode>
+    <Description>emoji</Description>
+    <File>2935.png</File>
+</Item>
+<Item>
+    <Utf8Code>⬅</Utf8Code>
+    <Utf32Code>0x2B05</Utf32Code>
+    <ClientCode>/?2B05</ClientCode>
+    <Description>emoji</Description>
+    <File>2B05.png</File>
+</Item>
+<Item>
+    <Utf8Code>⬆</Utf8Code>
+    <Utf32Code>0x2B06</Utf32Code>
+    <ClientCode>/?2B06</ClientCode>
+    <Description>emoji</Description>
+    <File>2B06.png</File>
+</Item>
+<Item>
+    <Utf8Code>⬇</Utf8Code>
+    <Utf32Code>0x2B07</Utf32Code>
+    <ClientCode>/?2B07</ClientCode>
+    <Description>emoji</Description>
+    <File>2B07.png</File>
+</Item>
+<Item>
+    <Utf8Code>⬛</Utf8Code>
+    <Utf32Code>0x2B1B</Utf32Code>
+    <ClientCode>/?2B1B</ClientCode>
+    <Description>emoji</Description>
+    <File>2B1B.png</File>
+</Item>
+<Item>
+    <Utf8Code>⬜</Utf8Code>
+    <Utf32Code>0x2B1C</Utf32Code>
+    <ClientCode>/?2B1C</ClientCode>
+    <Description>emoji</Description>
+    <File>2B1C.png</File>
+</Item>
+<Item>
+    <Utf8Code>⭐</Utf8Code>
+    <Utf32Code>0x2B50</Utf32Code>
+    <ClientCode>/?2B50</ClientCode>
+    <Description>emoji</Description>
+    <File>2B50.png</File>
+</Item>
+<Item>
+    <Utf8Code>⭕</Utf8Code>
+    <Utf32Code>0x2B55</Utf32Code>
+    <ClientCode>/?2B55</ClientCode>
+    <Description>emoji</Description>
+    <File>2B55.png</File>
+</Item>
+<Item>
+    <Utf8Code>〰</Utf8Code>
+    <Utf32Code>0x3030</Utf32Code>
+    <ClientCode>/?3030</ClientCode>
+    <Description>emoji</Description>
+    <File>3030.png</File>
+</Item>
+<Item>
+    <Utf8Code>〽</Utf8Code>
+    <Utf32Code>0x303D</Utf32Code>
+    <ClientCode>/?303D</ClientCode>
+    <Description>emoji</Description>
+    <File>303D.png</File>
+</Item>
+<Item>
+    <Utf8Code>㊗</Utf8Code>
+    <Utf32Code>0x3297</Utf32Code>
+    <ClientCode>/?3297</ClientCode>
+    <Description>emoji</Description>
+    <File>3297.png</File>
+</Item>
+<Item>
+    <Utf8Code>㊙</Utf8Code>
+    <Utf32Code>0x3299</Utf32Code>
+    <ClientCode>/?3299</ClientCode>
+    <Description>emoji</Description>
+    <File>3299.png</File>
+</Item>
+<Item>
+    <Utf8Code>🀄</Utf8Code>
+    <Utf32Code>0x1F004</Utf32Code>
+    <ClientCode>/?1F004</ClientCode>
+    <Description>emoji</Description>
+    <File>1F004.png</File>
+</Item>
+<Item>
+    <Utf8Code>🃏</Utf8Code>
+    <Utf32Code>0x1F0CF</Utf32Code>
+    <ClientCode>/?1F0CF</ClientCode>
+    <Description>emoji</Description>
+    <File>1F0CF.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌀</Utf8Code>
+    <Utf32Code>0x1F300</Utf32Code>
+    <ClientCode>/?1F300</ClientCode>
+    <Description>emoji</Description>
+    <File>1F300.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌁</Utf8Code>
+    <Utf32Code>0x1F301</Utf32Code>
+    <ClientCode>/?1F301</ClientCode>
+    <Description>emoji</Description>
+    <File>1F301.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌂</Utf8Code>
+    <Utf32Code>0x1F302</Utf32Code>
+    <ClientCode>/?1F302</ClientCode>
+    <Description>emoji</Description>
+    <File>1F302.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌃</Utf8Code>
+    <Utf32Code>0x1F303</Utf32Code>
+    <ClientCode>/?1F303</ClientCode>
+    <Description>emoji</Description>
+    <File>1F303.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌄</Utf8Code>
+    <Utf32Code>0x1F304</Utf32Code>
+    <ClientCode>/?1F304</ClientCode>
+    <Description>emoji</Description>
+    <File>1F304.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌅</Utf8Code>
+    <Utf32Code>0x1F305</Utf32Code>
+    <ClientCode>/?1F305</ClientCode>
+    <Description>emoji</Description>
+    <File>1F305.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌆</Utf8Code>
+    <Utf32Code>0x1F306</Utf32Code>
+    <ClientCode>/?1F306</ClientCode>
+    <Description>emoji</Description>
+    <File>1F306.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌇</Utf8Code>
+    <Utf32Code>0x1F307</Utf32Code>
+    <ClientCode>/?1F307</ClientCode>
+    <Description>emoji</Description>
+    <File>1F307.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌈</Utf8Code>
+    <Utf32Code>0x1F308</Utf32Code>
+    <ClientCode>/?1F308</ClientCode>
+    <Description>emoji</Description>
+    <File>1F308.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌉</Utf8Code>
+    <Utf32Code>0x1F309</Utf32Code>
+    <ClientCode>/?1F309</ClientCode>
+    <Description>emoji</Description>
+    <File>1F309.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌊</Utf8Code>
+    <Utf32Code>0x1F30A</Utf32Code>
+    <ClientCode>/?1F30A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F30A.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌋</Utf8Code>
+    <Utf32Code>0x1F30B</Utf32Code>
+    <ClientCode>/?1F30B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F30B.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌌</Utf8Code>
+    <Utf32Code>0x1F30C</Utf32Code>
+    <ClientCode>/?1F30C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F30C.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌏</Utf8Code>
+    <Utf32Code>0x1F30F</Utf32Code>
+    <ClientCode>/?1F30F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F30F.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌑</Utf8Code>
+    <Utf32Code>0x1F311</Utf32Code>
+    <ClientCode>/?1F311</ClientCode>
+    <Description>emoji</Description>
+    <File>1F311.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌓</Utf8Code>
+    <Utf32Code>0x1F313</Utf32Code>
+    <ClientCode>/?1F313</ClientCode>
+    <Description>emoji</Description>
+    <File>1F313.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌔</Utf8Code>
+    <Utf32Code>0x1F314</Utf32Code>
+    <ClientCode>/?1F314</ClientCode>
+    <Description>emoji</Description>
+    <File>1F314.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌕</Utf8Code>
+    <Utf32Code>0x1F315</Utf32Code>
+    <ClientCode>/?1F315</ClientCode>
+    <Description>emoji</Description>
+    <File>1F315.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌙</Utf8Code>
+    <Utf32Code>0x1F319</Utf32Code>
+    <ClientCode>/?1F319</ClientCode>
+    <Description>emoji</Description>
+    <File>1F319.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌛</Utf8Code>
+    <Utf32Code>0x1F31B</Utf32Code>
+    <ClientCode>/?1F31B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F31B.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌟</Utf8Code>
+    <Utf32Code>0x1F31F</Utf32Code>
+    <ClientCode>/?1F31F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F31F.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌠</Utf8Code>
+    <Utf32Code>0x1F320</Utf32Code>
+    <ClientCode>/?1F320</ClientCode>
+    <Description>emoji</Description>
+    <File>1F320.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌰</Utf8Code>
+    <Utf32Code>0x1F330</Utf32Code>
+    <ClientCode>/?1F330</ClientCode>
+    <Description>emoji</Description>
+    <File>1F330.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌱</Utf8Code>
+    <Utf32Code>0x1F331</Utf32Code>
+    <ClientCode>/?1F331</ClientCode>
+    <Description>emoji</Description>
+    <File>1F331.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌴</Utf8Code>
+    <Utf32Code>0x1F334</Utf32Code>
+    <ClientCode>/?1F334</ClientCode>
+    <Description>emoji</Description>
+    <File>1F334.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌵</Utf8Code>
+    <Utf32Code>0x1F335</Utf32Code>
+    <ClientCode>/?1F335</ClientCode>
+    <Description>emoji</Description>
+    <File>1F335.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌷</Utf8Code>
+    <Utf32Code>0x1F337</Utf32Code>
+    <ClientCode>/?1F337</ClientCode>
+    <Description>emoji</Description>
+    <File>1F337.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌸</Utf8Code>
+    <Utf32Code>0x1F338</Utf32Code>
+    <ClientCode>/?1F338</ClientCode>
+    <Description>emoji</Description>
+    <File>1F338.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌹</Utf8Code>
+    <Utf32Code>0x1F339</Utf32Code>
+    <ClientCode>/?1F339</ClientCode>
+    <Description>emoji</Description>
+    <File>1F339.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌺</Utf8Code>
+    <Utf32Code>0x1F33A</Utf32Code>
+    <ClientCode>/?1F33A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F33A.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌻</Utf8Code>
+    <Utf32Code>0x1F33B</Utf32Code>
+    <ClientCode>/?1F33B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F33B.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌼</Utf8Code>
+    <Utf32Code>0x1F33C</Utf32Code>
+    <ClientCode>/?1F33C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F33C.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌽</Utf8Code>
+    <Utf32Code>0x1F33D</Utf32Code>
+    <ClientCode>/?1F33D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F33D.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌾</Utf8Code>
+    <Utf32Code>0x1F33E</Utf32Code>
+    <ClientCode>/?1F33E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F33E.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌿</Utf8Code>
+    <Utf32Code>0x1F33F</Utf32Code>
+    <ClientCode>/?1F33F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F33F.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍀</Utf8Code>
+    <Utf32Code>0x1F340</Utf32Code>
+    <ClientCode>/?1F340</ClientCode>
+    <Description>emoji</Description>
+    <File>1F340.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍁</Utf8Code>
+    <Utf32Code>0x1F341</Utf32Code>
+    <ClientCode>/?1F341</ClientCode>
+    <Description>emoji</Description>
+    <File>1F341.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍂</Utf8Code>
+    <Utf32Code>0x1F342</Utf32Code>
+    <ClientCode>/?1F342</ClientCode>
+    <Description>emoji</Description>
+    <File>1F342.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍃</Utf8Code>
+    <Utf32Code>0x1F343</Utf32Code>
+    <ClientCode>/?1F343</ClientCode>
+    <Description>emoji</Description>
+    <File>1F343.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍄</Utf8Code>
+    <Utf32Code>0x1F344</Utf32Code>
+    <ClientCode>/?1F344</ClientCode>
+    <Description>emoji</Description>
+    <File>1F344.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍅</Utf8Code>
+    <Utf32Code>0x1F345</Utf32Code>
+    <ClientCode>/?1F345</ClientCode>
+    <Description>emoji</Description>
+    <File>1F345.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍆</Utf8Code>
+    <Utf32Code>0x1F346</Utf32Code>
+    <ClientCode>/?1F346</ClientCode>
+    <Description>emoji</Description>
+    <File>1F346.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍇</Utf8Code>
+    <Utf32Code>0x1F347</Utf32Code>
+    <ClientCode>/?1F347</ClientCode>
+    <Description>emoji</Description>
+    <File>1F347.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍈</Utf8Code>
+    <Utf32Code>0x1F348</Utf32Code>
+    <ClientCode>/?1F348</ClientCode>
+    <Description>emoji</Description>
+    <File>1F348.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍉</Utf8Code>
+    <Utf32Code>0x1F349</Utf32Code>
+    <ClientCode>/?1F349</ClientCode>
+    <Description>emoji</Description>
+    <File>1F349.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍊</Utf8Code>
+    <Utf32Code>0x1F34A</Utf32Code>
+    <ClientCode>/?1F34A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F34A.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍌</Utf8Code>
+    <Utf32Code>0x1F34C</Utf32Code>
+    <ClientCode>/?1F34C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F34C.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍍</Utf8Code>
+    <Utf32Code>0x1F34D</Utf32Code>
+    <ClientCode>/?1F34D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F34D.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍎</Utf8Code>
+    <Utf32Code>0x1F34E</Utf32Code>
+    <ClientCode>/?1F34E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F34E.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍏</Utf8Code>
+    <Utf32Code>0x1F34F</Utf32Code>
+    <ClientCode>/?1F34F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F34F.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍑</Utf8Code>
+    <Utf32Code>0x1F351</Utf32Code>
+    <ClientCode>/?1F351</ClientCode>
+    <Description>emoji</Description>
+    <File>1F351.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍒</Utf8Code>
+    <Utf32Code>0x1F352</Utf32Code>
+    <ClientCode>/?1F352</ClientCode>
+    <Description>emoji</Description>
+    <File>1F352.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍓</Utf8Code>
+    <Utf32Code>0x1F353</Utf32Code>
+    <ClientCode>/?1F353</ClientCode>
+    <Description>emoji</Description>
+    <File>1F353.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍔</Utf8Code>
+    <Utf32Code>0x1F354</Utf32Code>
+    <ClientCode>/?1F354</ClientCode>
+    <Description>emoji</Description>
+    <File>1F354.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍕</Utf8Code>
+    <Utf32Code>0x1F355</Utf32Code>
+    <ClientCode>/?1F355</ClientCode>
+    <Description>emoji</Description>
+    <File>1F355.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍖</Utf8Code>
+    <Utf32Code>0x1F356</Utf32Code>
+    <ClientCode>/?1F356</ClientCode>
+    <Description>emoji</Description>
+    <File>1F356.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍗</Utf8Code>
+    <Utf32Code>0x1F357</Utf32Code>
+    <ClientCode>/?1F357</ClientCode>
+    <Description>emoji</Description>
+    <File>1F357.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍘</Utf8Code>
+    <Utf32Code>0x1F358</Utf32Code>
+    <ClientCode>/?1F358</ClientCode>
+    <Description>emoji</Description>
+    <File>1F358.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍙</Utf8Code>
+    <Utf32Code>0x1F359</Utf32Code>
+    <ClientCode>/?1F359</ClientCode>
+    <Description>emoji</Description>
+    <File>1F359.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍚</Utf8Code>
+    <Utf32Code>0x1F35A</Utf32Code>
+    <ClientCode>/?1F35A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F35A.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍛</Utf8Code>
+    <Utf32Code>0x1F35B</Utf32Code>
+    <ClientCode>/?1F35B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F35B.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍜</Utf8Code>
+    <Utf32Code>0x1F35C</Utf32Code>
+    <ClientCode>/?1F35C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F35C.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍝</Utf8Code>
+    <Utf32Code>0x1F35D</Utf32Code>
+    <ClientCode>/?1F35D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F35D.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍞</Utf8Code>
+    <Utf32Code>0x1F35E</Utf32Code>
+    <ClientCode>/?1F35E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F35E.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍟</Utf8Code>
+    <Utf32Code>0x1F35F</Utf32Code>
+    <ClientCode>/?1F35F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F35F.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍠</Utf8Code>
+    <Utf32Code>0x1F360</Utf32Code>
+    <ClientCode>/?1F360</ClientCode>
+    <Description>emoji</Description>
+    <File>1F360.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍡</Utf8Code>
+    <Utf32Code>0x1F361</Utf32Code>
+    <ClientCode>/?1F361</ClientCode>
+    <Description>emoji</Description>
+    <File>1F361.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍢</Utf8Code>
+    <Utf32Code>0x1F362</Utf32Code>
+    <ClientCode>/?1F362</ClientCode>
+    <Description>emoji</Description>
+    <File>1F362.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍣</Utf8Code>
+    <Utf32Code>0x1F363</Utf32Code>
+    <ClientCode>/?1F363</ClientCode>
+    <Description>emoji</Description>
+    <File>1F363.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍤</Utf8Code>
+    <Utf32Code>0x1F364</Utf32Code>
+    <ClientCode>/?1F364</ClientCode>
+    <Description>emoji</Description>
+    <File>1F364.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍥</Utf8Code>
+    <Utf32Code>0x1F365</Utf32Code>
+    <ClientCode>/?1F365</ClientCode>
+    <Description>emoji</Description>
+    <File>1F365.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍦</Utf8Code>
+    <Utf32Code>0x1F366</Utf32Code>
+    <ClientCode>/?1F366</ClientCode>
+    <Description>emoji</Description>
+    <File>1F366.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍧</Utf8Code>
+    <Utf32Code>0x1F367</Utf32Code>
+    <ClientCode>/?1F367</ClientCode>
+    <Description>emoji</Description>
+    <File>1F367.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍨</Utf8Code>
+    <Utf32Code>0x1F368</Utf32Code>
+    <ClientCode>/?1F368</ClientCode>
+    <Description>emoji</Description>
+    <File>1F368.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍩</Utf8Code>
+    <Utf32Code>0x1F369</Utf32Code>
+    <ClientCode>/?1F369</ClientCode>
+    <Description>emoji</Description>
+    <File>1F369.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍪</Utf8Code>
+    <Utf32Code>0x1F36A</Utf32Code>
+    <ClientCode>/?1F36A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F36A.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍫</Utf8Code>
+    <Utf32Code>0x1F36B</Utf32Code>
+    <ClientCode>/?1F36B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F36B.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍬</Utf8Code>
+    <Utf32Code>0x1F36C</Utf32Code>
+    <ClientCode>/?1F36C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F36C.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍭</Utf8Code>
+    <Utf32Code>0x1F36D</Utf32Code>
+    <ClientCode>/?1F36D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F36D.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍮</Utf8Code>
+    <Utf32Code>0x1F36E</Utf32Code>
+    <ClientCode>/?1F36E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F36E.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍯</Utf8Code>
+    <Utf32Code>0x1F36F</Utf32Code>
+    <ClientCode>/?1F36F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F36F.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍰</Utf8Code>
+    <Utf32Code>0x1F370</Utf32Code>
+    <ClientCode>/?1F370</ClientCode>
+    <Description>emoji</Description>
+    <File>1F370.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍱</Utf8Code>
+    <Utf32Code>0x1F371</Utf32Code>
+    <ClientCode>/?1F371</ClientCode>
+    <Description>emoji</Description>
+    <File>1F371.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍲</Utf8Code>
+    <Utf32Code>0x1F372</Utf32Code>
+    <ClientCode>/?1F372</ClientCode>
+    <Description>emoji</Description>
+    <File>1F372.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍳</Utf8Code>
+    <Utf32Code>0x1F373</Utf32Code>
+    <ClientCode>/?1F373</ClientCode>
+    <Description>emoji</Description>
+    <File>1F373.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍴</Utf8Code>
+    <Utf32Code>0x1F374</Utf32Code>
+    <ClientCode>/?1F374</ClientCode>
+    <Description>emoji</Description>
+    <File>1F374.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍵</Utf8Code>
+    <Utf32Code>0x1F375</Utf32Code>
+    <ClientCode>/?1F375</ClientCode>
+    <Description>emoji</Description>
+    <File>1F375.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍶</Utf8Code>
+    <Utf32Code>0x1F376</Utf32Code>
+    <ClientCode>/?1F376</ClientCode>
+    <Description>emoji</Description>
+    <File>1F376.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍷</Utf8Code>
+    <Utf32Code>0x1F377</Utf32Code>
+    <ClientCode>/?1F377</ClientCode>
+    <Description>emoji</Description>
+    <File>1F377.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍸</Utf8Code>
+    <Utf32Code>0x1F378</Utf32Code>
+    <ClientCode>/?1F378</ClientCode>
+    <Description>emoji</Description>
+    <File>1F378.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍹</Utf8Code>
+    <Utf32Code>0x1F379</Utf32Code>
+    <ClientCode>/?1F379</ClientCode>
+    <Description>emoji</Description>
+    <File>1F379.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍺</Utf8Code>
+    <Utf32Code>0x1F37A</Utf32Code>
+    <ClientCode>/?1F37A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F37A.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍻</Utf8Code>
+    <Utf32Code>0x1F37B</Utf32Code>
+    <ClientCode>/?1F37B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F37B.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎀</Utf8Code>
+    <Utf32Code>0x1F380</Utf32Code>
+    <ClientCode>/?1F380</ClientCode>
+    <Description>emoji</Description>
+    <File>1F380.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎁</Utf8Code>
+    <Utf32Code>0x1F381</Utf32Code>
+    <ClientCode>/?1F381</ClientCode>
+    <Description>emoji</Description>
+    <File>1F381.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎂</Utf8Code>
+    <Utf32Code>0x1F382</Utf32Code>
+    <ClientCode>/?1F382</ClientCode>
+    <Description>emoji</Description>
+    <File>1F382.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎃</Utf8Code>
+    <Utf32Code>0x1F383</Utf32Code>
+    <ClientCode>/?1F383</ClientCode>
+    <Description>emoji</Description>
+    <File>1F383.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎄</Utf8Code>
+    <Utf32Code>0x1F384</Utf32Code>
+    <ClientCode>/?1F384</ClientCode>
+    <Description>emoji</Description>
+    <File>1F384.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎅</Utf8Code>
+    <Utf32Code>0x1F385</Utf32Code>
+    <ClientCode>/?1F385</ClientCode>
+    <Description>emoji</Description>
+    <File>1F385.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎆</Utf8Code>
+    <Utf32Code>0x1F386</Utf32Code>
+    <ClientCode>/?1F386</ClientCode>
+    <Description>emoji</Description>
+    <File>1F386.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎇</Utf8Code>
+    <Utf32Code>0x1F387</Utf32Code>
+    <ClientCode>/?1F387</ClientCode>
+    <Description>emoji</Description>
+    <File>1F387.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎈</Utf8Code>
+    <Utf32Code>0x1F388</Utf32Code>
+    <ClientCode>/?1F388</ClientCode>
+    <Description>emoji</Description>
+    <File>1F388.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎉</Utf8Code>
+    <Utf32Code>0x1F389</Utf32Code>
+    <ClientCode>/?1F389</ClientCode>
+    <Description>emoji</Description>
+    <File>1F389.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎊</Utf8Code>
+    <Utf32Code>0x1F38A</Utf32Code>
+    <ClientCode>/?1F38A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F38A.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎋</Utf8Code>
+    <Utf32Code>0x1F38B</Utf32Code>
+    <ClientCode>/?1F38B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F38B.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎌</Utf8Code>
+    <Utf32Code>0x1F38C</Utf32Code>
+    <ClientCode>/?1F38C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F38C.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎍</Utf8Code>
+    <Utf32Code>0x1F38D</Utf32Code>
+    <ClientCode>/?1F38D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F38D.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎎</Utf8Code>
+    <Utf32Code>0x1F38E</Utf32Code>
+    <ClientCode>/?1F38E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F38E.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎏</Utf8Code>
+    <Utf32Code>0x1F38F</Utf32Code>
+    <ClientCode>/?1F38F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F38F.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎐</Utf8Code>
+    <Utf32Code>0x1F390</Utf32Code>
+    <ClientCode>/?1F390</ClientCode>
+    <Description>emoji</Description>
+    <File>1F390.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎑</Utf8Code>
+    <Utf32Code>0x1F391</Utf32Code>
+    <ClientCode>/?1F391</ClientCode>
+    <Description>emoji</Description>
+    <File>1F391.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎒</Utf8Code>
+    <Utf32Code>0x1F392</Utf32Code>
+    <ClientCode>/?1F392</ClientCode>
+    <Description>emoji</Description>
+    <File>1F392.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎓</Utf8Code>
+    <Utf32Code>0x1F393</Utf32Code>
+    <ClientCode>/?1F393</ClientCode>
+    <Description>emoji</Description>
+    <File>1F393.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎠</Utf8Code>
+    <Utf32Code>0x1F3A0</Utf32Code>
+    <ClientCode>/?1F3A0</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3A0.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎡</Utf8Code>
+    <Utf32Code>0x1F3A1</Utf32Code>
+    <ClientCode>/?1F3A1</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3A1.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎢</Utf8Code>
+    <Utf32Code>0x1F3A2</Utf32Code>
+    <ClientCode>/?1F3A2</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3A2.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎣</Utf8Code>
+    <Utf32Code>0x1F3A3</Utf32Code>
+    <ClientCode>/?1F3A3</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3A3.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎤</Utf8Code>
+    <Utf32Code>0x1F3A4</Utf32Code>
+    <ClientCode>/?1F3A4</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3A4.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎥</Utf8Code>
+    <Utf32Code>0x1F3A5</Utf32Code>
+    <ClientCode>/?1F3A5</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3A5.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎦</Utf8Code>
+    <Utf32Code>0x1F3A6</Utf32Code>
+    <ClientCode>/?1F3A6</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3A6.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎧</Utf8Code>
+    <Utf32Code>0x1F3A7</Utf32Code>
+    <ClientCode>/?1F3A7</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3A7.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎨</Utf8Code>
+    <Utf32Code>0x1F3A8</Utf32Code>
+    <ClientCode>/?1F3A8</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3A8.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎩</Utf8Code>
+    <Utf32Code>0x1F3A9</Utf32Code>
+    <ClientCode>/?1F3A9</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3A9.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎪</Utf8Code>
+    <Utf32Code>0x1F3AA</Utf32Code>
+    <ClientCode>/?1F3AA</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3AA.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎫</Utf8Code>
+    <Utf32Code>0x1F3AB</Utf32Code>
+    <ClientCode>/?1F3AB</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3AB.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎬</Utf8Code>
+    <Utf32Code>0x1F3AC</Utf32Code>
+    <ClientCode>/?1F3AC</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3AC.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎭</Utf8Code>
+    <Utf32Code>0x1F3AD</Utf32Code>
+    <ClientCode>/?1F3AD</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3AD.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎮</Utf8Code>
+    <Utf32Code>0x1F3AE</Utf32Code>
+    <ClientCode>/?1F3AE</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3AE.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎯</Utf8Code>
+    <Utf32Code>0x1F3AF</Utf32Code>
+    <ClientCode>/?1F3AF</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3AF.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎰</Utf8Code>
+    <Utf32Code>0x1F3B0</Utf32Code>
+    <ClientCode>/?1F3B0</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3B0.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎱</Utf8Code>
+    <Utf32Code>0x1F3B1</Utf32Code>
+    <ClientCode>/?1F3B1</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3B1.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎲</Utf8Code>
+    <Utf32Code>0x1F3B2</Utf32Code>
+    <ClientCode>/?1F3B2</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3B2.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎳</Utf8Code>
+    <Utf32Code>0x1F3B3</Utf32Code>
+    <ClientCode>/?1F3B3</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3B3.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎴</Utf8Code>
+    <Utf32Code>0x1F3B4</Utf32Code>
+    <ClientCode>/?1F3B4</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3B4.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎵</Utf8Code>
+    <Utf32Code>0x1F3B5</Utf32Code>
+    <ClientCode>/?1F3B5</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3B5.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎶</Utf8Code>
+    <Utf32Code>0x1F3B6</Utf32Code>
+    <ClientCode>/?1F3B6</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3B6.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎷</Utf8Code>
+    <Utf32Code>0x1F3B7</Utf32Code>
+    <ClientCode>/?1F3B7</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3B7.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎸</Utf8Code>
+    <Utf32Code>0x1F3B8</Utf32Code>
+    <ClientCode>/?1F3B8</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3B8.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎹</Utf8Code>
+    <Utf32Code>0x1F3B9</Utf32Code>
+    <ClientCode>/?1F3B9</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3B9.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎺</Utf8Code>
+    <Utf32Code>0x1F3BA</Utf32Code>
+    <ClientCode>/?1F3BA</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3BA.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎻</Utf8Code>
+    <Utf32Code>0x1F3BB</Utf32Code>
+    <ClientCode>/?1F3BB</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3BB.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎼</Utf8Code>
+    <Utf32Code>0x1F3BC</Utf32Code>
+    <ClientCode>/?1F3BC</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3BC.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎽</Utf8Code>
+    <Utf32Code>0x1F3BD</Utf32Code>
+    <ClientCode>/?1F3BD</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3BD.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎾</Utf8Code>
+    <Utf32Code>0x1F3BE</Utf32Code>
+    <ClientCode>/?1F3BE</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3BE.png</File>
+</Item>
+<Item>
+    <Utf8Code>🎿</Utf8Code>
+    <Utf32Code>0x1F3BF</Utf32Code>
+    <ClientCode>/?1F3BF</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3BF.png</File>
+</Item>
+<Item>
+    <Utf8Code>🏀</Utf8Code>
+    <Utf32Code>0x1F3C0</Utf32Code>
+    <ClientCode>/?1F3C0</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3C0.png</File>
+</Item>
+<Item>
+    <Utf8Code>🏁</Utf8Code>
+    <Utf32Code>0x1F3C1</Utf32Code>
+    <ClientCode>/?1F3C1</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3C1.png</File>
+</Item>
+<Item>
+    <Utf8Code>🏂</Utf8Code>
+    <Utf32Code>0x1F3C2</Utf32Code>
+    <ClientCode>/?1F3C2</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3C2.png</File>
+</Item>
+<Item>
+    <Utf8Code>🏃</Utf8Code>
+    <Utf32Code>0x1F3C3</Utf32Code>
+    <ClientCode>/?1F3C3</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3C3.png</File>
+</Item>
+<Item>
+    <Utf8Code>🏄</Utf8Code>
+    <Utf32Code>0x1F3C4</Utf32Code>
+    <ClientCode>/?1F3C4</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3C4.png</File>
+</Item>
+<Item>
+    <Utf8Code>🏆</Utf8Code>
+    <Utf32Code>0x1F3C6</Utf32Code>
+    <ClientCode>/?1F3C6</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3C6.png</File>
+</Item>
+<Item>
+    <Utf8Code>🏈</Utf8Code>
+    <Utf32Code>0x1F3C8</Utf32Code>
+    <ClientCode>/?1F3C8</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3C8.png</File>
+</Item>
+<Item>
+    <Utf8Code>🏊</Utf8Code>
+    <Utf32Code>0x1F3CA</Utf32Code>
+    <ClientCode>/?1F3CA</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3CA.png</File>
+</Item>
+<Item>
+    <Utf8Code>🏠</Utf8Code>
+    <Utf32Code>0x1F3E0</Utf32Code>
+    <ClientCode>/?1F3E0</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3E0.png</File>
+</Item>
+<Item>
+    <Utf8Code>🏡</Utf8Code>
+    <Utf32Code>0x1F3E1</Utf32Code>
+    <ClientCode>/?1F3E1</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3E1.png</File>
+</Item>
+<Item>
+    <Utf8Code>🏢</Utf8Code>
+    <Utf32Code>0x1F3E2</Utf32Code>
+    <ClientCode>/?1F3E2</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3E2.png</File>
+</Item>
+<Item>
+    <Utf8Code>🏣</Utf8Code>
+    <Utf32Code>0x1F3E3</Utf32Code>
+    <ClientCode>/?1F3E3</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3E3.png</File>
+</Item>
+<Item>
+    <Utf8Code>🏥</Utf8Code>
+    <Utf32Code>0x1F3E5</Utf32Code>
+    <ClientCode>/?1F3E5</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3E5.png</File>
+</Item>
+<Item>
+    <Utf8Code>🏦</Utf8Code>
+    <Utf32Code>0x1F3E6</Utf32Code>
+    <ClientCode>/?1F3E6</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3E6.png</File>
+</Item>
+<Item>
+    <Utf8Code>🏧</Utf8Code>
+    <Utf32Code>0x1F3E7</Utf32Code>
+    <ClientCode>/?1F3E7</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3E7.png</File>
+</Item>
+<Item>
+    <Utf8Code>🏨</Utf8Code>
+    <Utf32Code>0x1F3E8</Utf32Code>
+    <ClientCode>/?1F3E8</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3E8.png</File>
+</Item>
+<Item>
+    <Utf8Code>🏩</Utf8Code>
+    <Utf32Code>0x1F3E9</Utf32Code>
+    <ClientCode>/?1F3E9</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3E9.png</File>
+</Item>
+<Item>
+    <Utf8Code>🏪</Utf8Code>
+    <Utf32Code>0x1F3EA</Utf32Code>
+    <ClientCode>/?1F3EA</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3EA.png</File>
+</Item>
+<Item>
+    <Utf8Code>🏫</Utf8Code>
+    <Utf32Code>0x1F3EB</Utf32Code>
+    <ClientCode>/?1F3EB</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3EB.png</File>
+</Item>
+<Item>
+    <Utf8Code>🏬</Utf8Code>
+    <Utf32Code>0x1F3EC</Utf32Code>
+    <ClientCode>/?1F3EC</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3EC.png</File>
+</Item>
+<Item>
+    <Utf8Code>🏭</Utf8Code>
+    <Utf32Code>0x1F3ED</Utf32Code>
+    <ClientCode>/?1F3ED</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3ED.png</File>
+</Item>
+<Item>
+    <Utf8Code>🏮</Utf8Code>
+    <Utf32Code>0x1F3EE</Utf32Code>
+    <ClientCode>/?1F3EE</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3EE.png</File>
+</Item>
+<Item>
+    <Utf8Code>🏯</Utf8Code>
+    <Utf32Code>0x1F3EF</Utf32Code>
+    <ClientCode>/?1F3EF</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3EF.png</File>
+</Item>
+<Item>
+    <Utf8Code>🏰</Utf8Code>
+    <Utf32Code>0x1F3F0</Utf32Code>
+    <ClientCode>/?1F3F0</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3F0.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐌</Utf8Code>
+    <Utf32Code>0x1F40C</Utf32Code>
+    <ClientCode>/?1F40C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F40C.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐍</Utf8Code>
+    <Utf32Code>0x1F40D</Utf32Code>
+    <ClientCode>/?1F40D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F40D.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐎</Utf8Code>
+    <Utf32Code>0x1F40E</Utf32Code>
+    <ClientCode>/?1F40E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F40E.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐑</Utf8Code>
+    <Utf32Code>0x1F411</Utf32Code>
+    <ClientCode>/?1F411</ClientCode>
+    <Description>emoji</Description>
+    <File>1F411.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐒</Utf8Code>
+    <Utf32Code>0x1F412</Utf32Code>
+    <ClientCode>/?1F412</ClientCode>
+    <Description>emoji</Description>
+    <File>1F412.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐔</Utf8Code>
+    <Utf32Code>0x1F414</Utf32Code>
+    <ClientCode>/?1F414</ClientCode>
+    <Description>emoji</Description>
+    <File>1F414.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐗</Utf8Code>
+    <Utf32Code>0x1F417</Utf32Code>
+    <ClientCode>/?1F417</ClientCode>
+    <Description>emoji</Description>
+    <File>1F417.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐘</Utf8Code>
+    <Utf32Code>0x1F418</Utf32Code>
+    <ClientCode>/?1F418</ClientCode>
+    <Description>emoji</Description>
+    <File>1F418.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐙</Utf8Code>
+    <Utf32Code>0x1F419</Utf32Code>
+    <ClientCode>/?1F419</ClientCode>
+    <Description>emoji</Description>
+    <File>1F419.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐚</Utf8Code>
+    <Utf32Code>0x1F41A</Utf32Code>
+    <ClientCode>/?1F41A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F41A.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐛</Utf8Code>
+    <Utf32Code>0x1F41B</Utf32Code>
+    <ClientCode>/?1F41B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F41B.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐜</Utf8Code>
+    <Utf32Code>0x1F41C</Utf32Code>
+    <ClientCode>/?1F41C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F41C.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐝</Utf8Code>
+    <Utf32Code>0x1F41D</Utf32Code>
+    <ClientCode>/?1F41D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F41D.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐞</Utf8Code>
+    <Utf32Code>0x1F41E</Utf32Code>
+    <ClientCode>/?1F41E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F41E.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐟</Utf8Code>
+    <Utf32Code>0x1F41F</Utf32Code>
+    <ClientCode>/?1F41F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F41F.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐠</Utf8Code>
+    <Utf32Code>0x1F420</Utf32Code>
+    <ClientCode>/?1F420</ClientCode>
+    <Description>emoji</Description>
+    <File>1F420.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐡</Utf8Code>
+    <Utf32Code>0x1F421</Utf32Code>
+    <ClientCode>/?1F421</ClientCode>
+    <Description>emoji</Description>
+    <File>1F421.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐢</Utf8Code>
+    <Utf32Code>0x1F422</Utf32Code>
+    <ClientCode>/?1F422</ClientCode>
+    <Description>emoji</Description>
+    <File>1F422.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐣</Utf8Code>
+    <Utf32Code>0x1F423</Utf32Code>
+    <ClientCode>/?1F423</ClientCode>
+    <Description>emoji</Description>
+    <File>1F423.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐤</Utf8Code>
+    <Utf32Code>0x1F424</Utf32Code>
+    <ClientCode>/?1F424</ClientCode>
+    <Description>emoji</Description>
+    <File>1F424.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐥</Utf8Code>
+    <Utf32Code>0x1F425</Utf32Code>
+    <ClientCode>/?1F425</ClientCode>
+    <Description>emoji</Description>
+    <File>1F425.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐦</Utf8Code>
+    <Utf32Code>0x1F426</Utf32Code>
+    <ClientCode>/?1F426</ClientCode>
+    <Description>emoji</Description>
+    <File>1F426.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐧</Utf8Code>
+    <Utf32Code>0x1F427</Utf32Code>
+    <ClientCode>/?1F427</ClientCode>
+    <Description>emoji</Description>
+    <File>1F427.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐨</Utf8Code>
+    <Utf32Code>0x1F428</Utf32Code>
+    <ClientCode>/?1F428</ClientCode>
+    <Description>emoji</Description>
+    <File>1F428.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐩</Utf8Code>
+    <Utf32Code>0x1F429</Utf32Code>
+    <ClientCode>/?1F429</ClientCode>
+    <Description>emoji</Description>
+    <File>1F429.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐫</Utf8Code>
+    <Utf32Code>0x1F42B</Utf32Code>
+    <ClientCode>/?1F42B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F42B.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐬</Utf8Code>
+    <Utf32Code>0x1F42C</Utf32Code>
+    <ClientCode>/?1F42C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F42C.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐭</Utf8Code>
+    <Utf32Code>0x1F42D</Utf32Code>
+    <ClientCode>/?1F42D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F42D.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐮</Utf8Code>
+    <Utf32Code>0x1F42E</Utf32Code>
+    <ClientCode>/?1F42E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F42E.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐯</Utf8Code>
+    <Utf32Code>0x1F42F</Utf32Code>
+    <ClientCode>/?1F42F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F42F.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐰</Utf8Code>
+    <Utf32Code>0x1F430</Utf32Code>
+    <ClientCode>/?1F430</ClientCode>
+    <Description>emoji</Description>
+    <File>1F430.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐱</Utf8Code>
+    <Utf32Code>0x1F431</Utf32Code>
+    <ClientCode>/?1F431</ClientCode>
+    <Description>emoji</Description>
+    <File>1F431.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐲</Utf8Code>
+    <Utf32Code>0x1F432</Utf32Code>
+    <ClientCode>/?1F432</ClientCode>
+    <Description>emoji</Description>
+    <File>1F432.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐳</Utf8Code>
+    <Utf32Code>0x1F433</Utf32Code>
+    <ClientCode>/?1F433</ClientCode>
+    <Description>emoji</Description>
+    <File>1F433.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐴</Utf8Code>
+    <Utf32Code>0x1F434</Utf32Code>
+    <ClientCode>/?1F434</ClientCode>
+    <Description>emoji</Description>
+    <File>1F434.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐵</Utf8Code>
+    <Utf32Code>0x1F435</Utf32Code>
+    <ClientCode>/?1F435</ClientCode>
+    <Description>emoji</Description>
+    <File>1F435.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐶</Utf8Code>
+    <Utf32Code>0x1F436</Utf32Code>
+    <ClientCode>/?1F436</ClientCode>
+    <Description>emoji</Description>
+    <File>1F436.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐷</Utf8Code>
+    <Utf32Code>0x1F437</Utf32Code>
+    <ClientCode>/?1F437</ClientCode>
+    <Description>emoji</Description>
+    <File>1F437.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐸</Utf8Code>
+    <Utf32Code>0x1F438</Utf32Code>
+    <ClientCode>/?1F438</ClientCode>
+    <Description>emoji</Description>
+    <File>1F438.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐹</Utf8Code>
+    <Utf32Code>0x1F439</Utf32Code>
+    <ClientCode>/?1F439</ClientCode>
+    <Description>emoji</Description>
+    <File>1F439.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐺</Utf8Code>
+    <Utf32Code>0x1F43A</Utf32Code>
+    <ClientCode>/?1F43A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F43A.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐻</Utf8Code>
+    <Utf32Code>0x1F43B</Utf32Code>
+    <ClientCode>/?1F43B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F43B.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐼</Utf8Code>
+    <Utf32Code>0x1F43C</Utf32Code>
+    <ClientCode>/?1F43C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F43C.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐽</Utf8Code>
+    <Utf32Code>0x1F43D</Utf32Code>
+    <ClientCode>/?1F43D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F43D.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐾</Utf8Code>
+    <Utf32Code>0x1F43E</Utf32Code>
+    <ClientCode>/?1F43E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F43E.png</File>
+</Item>
+<Item>
+    <Utf8Code>👀</Utf8Code>
+    <Utf32Code>0x1F440</Utf32Code>
+    <ClientCode>/?1F440</ClientCode>
+    <Description>emoji</Description>
+    <File>1F440.png</File>
+</Item>
+<Item>
+    <Utf8Code>👂</Utf8Code>
+    <Utf32Code>0x1F442</Utf32Code>
+    <ClientCode>/?1F442</ClientCode>
+    <Description>emoji</Description>
+    <File>1F442.png</File>
+</Item>
+<Item>
+    <Utf8Code>👃</Utf8Code>
+    <Utf32Code>0x1F443</Utf32Code>
+    <ClientCode>/?1F443</ClientCode>
+    <Description>emoji</Description>
+    <File>1F443.png</File>
+</Item>
+<Item>
+    <Utf8Code>👄</Utf8Code>
+    <Utf32Code>0x1F444</Utf32Code>
+    <ClientCode>/?1F444</ClientCode>
+    <Description>emoji</Description>
+    <File>1F444.png</File>
+</Item>
+<Item>
+    <Utf8Code>👅</Utf8Code>
+    <Utf32Code>0x1F445</Utf32Code>
+    <ClientCode>/?1F445</ClientCode>
+    <Description>emoji</Description>
+    <File>1F445.png</File>
+</Item>
+<Item>
+    <Utf8Code>👆</Utf8Code>
+    <Utf32Code>0x1F446</Utf32Code>
+    <ClientCode>/?1F446</ClientCode>
+    <Description>emoji</Description>
+    <File>1F446.png</File>
+</Item>
+<Item>
+    <Utf8Code>👇</Utf8Code>
+    <Utf32Code>0x1F447</Utf32Code>
+    <ClientCode>/?1F447</ClientCode>
+    <Description>emoji</Description>
+    <File>1F447.png</File>
+</Item>
+<Item>
+    <Utf8Code>👈</Utf8Code>
+    <Utf32Code>0x1F448</Utf32Code>
+    <ClientCode>/?1F448</ClientCode>
+    <Description>emoji</Description>
+    <File>1F448.png</File>
+</Item>
+<Item>
+    <Utf8Code>👉</Utf8Code>
+    <Utf32Code>0x1F449</Utf32Code>
+    <ClientCode>/?1F449</ClientCode>
+    <Description>emoji</Description>
+    <File>1F449.png</File>
+</Item>
+<Item>
+    <Utf8Code>👊</Utf8Code>
+    <Utf32Code>0x1F44A</Utf32Code>
+    <ClientCode>/?1F44A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F44A.png</File>
+</Item>
+<Item>
+    <Utf8Code>👋</Utf8Code>
+    <Utf32Code>0x1F44B</Utf32Code>
+    <ClientCode>/?1F44B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F44B.png</File>
+</Item>
+<Item>
+    <Utf8Code>👌</Utf8Code>
+    <Utf32Code>0x1F44C</Utf32Code>
+    <ClientCode>/?1F44C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F44C.png</File>
+</Item>
+<Item>
+    <Utf8Code>👍</Utf8Code>
+    <Utf32Code>0x1F44D</Utf32Code>
+    <ClientCode>/?1F44D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F44D.png</File>
+</Item>
+<Item>
+    <Utf8Code>👎</Utf8Code>
+    <Utf32Code>0x1F44E</Utf32Code>
+    <ClientCode>/?1F44E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F44E.png</File>
+</Item>
+<Item>
+    <Utf8Code>👏</Utf8Code>
+    <Utf32Code>0x1F44F</Utf32Code>
+    <ClientCode>/?1F44F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F44F.png</File>
+</Item>
+<Item>
+    <Utf8Code>👐</Utf8Code>
+    <Utf32Code>0x1F450</Utf32Code>
+    <ClientCode>/?1F450</ClientCode>
+    <Description>emoji</Description>
+    <File>1F450.png</File>
+</Item>
+<Item>
+    <Utf8Code>👑</Utf8Code>
+    <Utf32Code>0x1F451</Utf32Code>
+    <ClientCode>/?1F451</ClientCode>
+    <Description>emoji</Description>
+    <File>1F451.png</File>
+</Item>
+<Item>
+    <Utf8Code>👒</Utf8Code>
+    <Utf32Code>0x1F452</Utf32Code>
+    <ClientCode>/?1F452</ClientCode>
+    <Description>emoji</Description>
+    <File>1F452.png</File>
+</Item>
+<Item>
+    <Utf8Code>👓</Utf8Code>
+    <Utf32Code>0x1F453</Utf32Code>
+    <ClientCode>/?1F453</ClientCode>
+    <Description>emoji</Description>
+    <File>1F453.png</File>
+</Item>
+<Item>
+    <Utf8Code>👔</Utf8Code>
+    <Utf32Code>0x1F454</Utf32Code>
+    <ClientCode>/?1F454</ClientCode>
+    <Description>emoji</Description>
+    <File>1F454.png</File>
+</Item>
+<Item>
+    <Utf8Code>👕</Utf8Code>
+    <Utf32Code>0x1F455</Utf32Code>
+    <ClientCode>/?1F455</ClientCode>
+    <Description>emoji</Description>
+    <File>1F455.png</File>
+</Item>
+<Item>
+    <Utf8Code>👖</Utf8Code>
+    <Utf32Code>0x1F456</Utf32Code>
+    <ClientCode>/?1F456</ClientCode>
+    <Description>emoji</Description>
+    <File>1F456.png</File>
+</Item>
+<Item>
+    <Utf8Code>👗</Utf8Code>
+    <Utf32Code>0x1F457</Utf32Code>
+    <ClientCode>/?1F457</ClientCode>
+    <Description>emoji</Description>
+    <File>1F457.png</File>
+</Item>
+<Item>
+    <Utf8Code>👘</Utf8Code>
+    <Utf32Code>0x1F458</Utf32Code>
+    <ClientCode>/?1F458</ClientCode>
+    <Description>emoji</Description>
+    <File>1F458.png</File>
+</Item>
+<Item>
+    <Utf8Code>👙</Utf8Code>
+    <Utf32Code>0x1F459</Utf32Code>
+    <ClientCode>/?1F459</ClientCode>
+    <Description>emoji</Description>
+    <File>1F459.png</File>
+</Item>
+<Item>
+    <Utf8Code>👚</Utf8Code>
+    <Utf32Code>0x1F45A</Utf32Code>
+    <ClientCode>/?1F45A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F45A.png</File>
+</Item>
+<Item>
+    <Utf8Code>👛</Utf8Code>
+    <Utf32Code>0x1F45B</Utf32Code>
+    <ClientCode>/?1F45B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F45B.png</File>
+</Item>
+<Item>
+    <Utf8Code>👜</Utf8Code>
+    <Utf32Code>0x1F45C</Utf32Code>
+    <ClientCode>/?1F45C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F45C.png</File>
+</Item>
+<Item>
+    <Utf8Code>👝</Utf8Code>
+    <Utf32Code>0x1F45D</Utf32Code>
+    <ClientCode>/?1F45D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F45D.png</File>
+</Item>
+<Item>
+    <Utf8Code>👞</Utf8Code>
+    <Utf32Code>0x1F45E</Utf32Code>
+    <ClientCode>/?1F45E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F45E.png</File>
+</Item>
+<Item>
+    <Utf8Code>👟</Utf8Code>
+    <Utf32Code>0x1F45F</Utf32Code>
+    <ClientCode>/?1F45F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F45F.png</File>
+</Item>
+<Item>
+    <Utf8Code>👠</Utf8Code>
+    <Utf32Code>0x1F460</Utf32Code>
+    <ClientCode>/?1F460</ClientCode>
+    <Description>emoji</Description>
+    <File>1F460.png</File>
+</Item>
+<Item>
+    <Utf8Code>👡</Utf8Code>
+    <Utf32Code>0x1F461</Utf32Code>
+    <ClientCode>/?1F461</ClientCode>
+    <Description>emoji</Description>
+    <File>1F461.png</File>
+</Item>
+<Item>
+    <Utf8Code>👢</Utf8Code>
+    <Utf32Code>0x1F462</Utf32Code>
+    <ClientCode>/?1F462</ClientCode>
+    <Description>emoji</Description>
+    <File>1F462.png</File>
+</Item>
+<Item>
+    <Utf8Code>👣</Utf8Code>
+    <Utf32Code>0x1F463</Utf32Code>
+    <ClientCode>/?1F463</ClientCode>
+    <Description>emoji</Description>
+    <File>1F463.png</File>
+</Item>
+<Item>
+    <Utf8Code>👤</Utf8Code>
+    <Utf32Code>0x1F464</Utf32Code>
+    <ClientCode>/?1F464</ClientCode>
+    <Description>emoji</Description>
+    <File>1F464.png</File>
+</Item>
+<Item>
+    <Utf8Code>👦</Utf8Code>
+    <Utf32Code>0x1F466</Utf32Code>
+    <ClientCode>/?1F466</ClientCode>
+    <Description>emoji</Description>
+    <File>1F466.png</File>
+</Item>
+<Item>
+    <Utf8Code>👧</Utf8Code>
+    <Utf32Code>0x1F467</Utf32Code>
+    <ClientCode>/?1F467</ClientCode>
+    <Description>emoji</Description>
+    <File>1F467.png</File>
+</Item>
+<Item>
+    <Utf8Code>👨</Utf8Code>
+    <Utf32Code>0x1F468</Utf32Code>
+    <ClientCode>/?1F468</ClientCode>
+    <Description>emoji</Description>
+    <File>1F468.png</File>
+</Item>
+<Item>
+    <Utf8Code>👩</Utf8Code>
+    <Utf32Code>0x1F469</Utf32Code>
+    <ClientCode>/?1F469</ClientCode>
+    <Description>emoji</Description>
+    <File>1F469.png</File>
+</Item>
+<Item>
+    <Utf8Code>👪</Utf8Code>
+    <Utf32Code>0x1F46A</Utf32Code>
+    <ClientCode>/?1F46A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F46A.png</File>
+</Item>
+<Item>
+    <Utf8Code>👫</Utf8Code>
+    <Utf32Code>0x1F46B</Utf32Code>
+    <ClientCode>/?1F46B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F46B.png</File>
+</Item>
+<Item>
+    <Utf8Code>👮</Utf8Code>
+    <Utf32Code>0x1F46E</Utf32Code>
+    <ClientCode>/?1F46E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F46E.png</File>
+</Item>
+<Item>
+    <Utf8Code>👯</Utf8Code>
+    <Utf32Code>0x1F46F</Utf32Code>
+    <ClientCode>/?1F46F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F46F.png</File>
+</Item>
+<Item>
+    <Utf8Code>👰</Utf8Code>
+    <Utf32Code>0x1F470</Utf32Code>
+    <ClientCode>/?1F470</ClientCode>
+    <Description>emoji</Description>
+    <File>1F470.png</File>
+</Item>
+<Item>
+    <Utf8Code>👱</Utf8Code>
+    <Utf32Code>0x1F471</Utf32Code>
+    <ClientCode>/?1F471</ClientCode>
+    <Description>emoji</Description>
+    <File>1F471.png</File>
+</Item>
+<Item>
+    <Utf8Code>👲</Utf8Code>
+    <Utf32Code>0x1F472</Utf32Code>
+    <ClientCode>/?1F472</ClientCode>
+    <Description>emoji</Description>
+    <File>1F472.png</File>
+</Item>
+<Item>
+    <Utf8Code>👳</Utf8Code>
+    <Utf32Code>0x1F473</Utf32Code>
+    <ClientCode>/?1F473</ClientCode>
+    <Description>emoji</Description>
+    <File>1F473.png</File>
+</Item>
+<Item>
+    <Utf8Code>👴</Utf8Code>
+    <Utf32Code>0x1F474</Utf32Code>
+    <ClientCode>/?1F474</ClientCode>
+    <Description>emoji</Description>
+    <File>1F474.png</File>
+</Item>
+<Item>
+    <Utf8Code>👵</Utf8Code>
+    <Utf32Code>0x1F475</Utf32Code>
+    <ClientCode>/?1F475</ClientCode>
+    <Description>emoji</Description>
+    <File>1F475.png</File>
+</Item>
+<Item>
+    <Utf8Code>👶</Utf8Code>
+    <Utf32Code>0x1F476</Utf32Code>
+    <ClientCode>/?1F476</ClientCode>
+    <Description>emoji</Description>
+    <File>1F476.png</File>
+</Item>
+<Item>
+    <Utf8Code>👷</Utf8Code>
+    <Utf32Code>0x1F477</Utf32Code>
+    <ClientCode>/?1F477</ClientCode>
+    <Description>emoji</Description>
+    <File>1F477.png</File>
+</Item>
+<Item>
+    <Utf8Code>👸</Utf8Code>
+    <Utf32Code>0x1F478</Utf32Code>
+    <ClientCode>/?1F478</ClientCode>
+    <Description>emoji</Description>
+    <File>1F478.png</File>
+</Item>
+<Item>
+    <Utf8Code>👹</Utf8Code>
+    <Utf32Code>0x1F479</Utf32Code>
+    <ClientCode>/?1F479</ClientCode>
+    <Description>emoji</Description>
+    <File>1F479.png</File>
+</Item>
+<Item>
+    <Utf8Code>👺</Utf8Code>
+    <Utf32Code>0x1F47A</Utf32Code>
+    <ClientCode>/?1F47A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F47A.png</File>
+</Item>
+<Item>
+    <Utf8Code>👻</Utf8Code>
+    <Utf32Code>0x1F47B</Utf32Code>
+    <ClientCode>/?1F47B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F47B.png</File>
+</Item>
+<Item>
+    <Utf8Code>👼</Utf8Code>
+    <Utf32Code>0x1F47C</Utf32Code>
+    <ClientCode>/?1F47C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F47C.png</File>
+</Item>
+<Item>
+    <Utf8Code>👽</Utf8Code>
+    <Utf32Code>0x1F47D</Utf32Code>
+    <ClientCode>/?1F47D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F47D.png</File>
+</Item>
+<Item>
+    <Utf8Code>👾</Utf8Code>
+    <Utf32Code>0x1F47E</Utf32Code>
+    <ClientCode>/?1F47E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F47E.png</File>
+</Item>
+<Item>
+    <Utf8Code>👿</Utf8Code>
+    <Utf32Code>0x1F47F</Utf32Code>
+    <ClientCode>/?1F47F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F47F.png</File>
+</Item>
+<Item>
+    <Utf8Code>💀</Utf8Code>
+    <Utf32Code>0x1F480</Utf32Code>
+    <ClientCode>/?1F480</ClientCode>
+    <Description>emoji</Description>
+    <File>1F480.png</File>
+</Item>
+<Item>
+    <Utf8Code>💁</Utf8Code>
+    <Utf32Code>0x1F481</Utf32Code>
+    <ClientCode>/?1F481</ClientCode>
+    <Description>emoji</Description>
+    <File>1F481.png</File>
+</Item>
+<Item>
+    <Utf8Code>💂</Utf8Code>
+    <Utf32Code>0x1F482</Utf32Code>
+    <ClientCode>/?1F482</ClientCode>
+    <Description>emoji</Description>
+    <File>1F482.png</File>
+</Item>
+<Item>
+    <Utf8Code>💃</Utf8Code>
+    <Utf32Code>0x1F483</Utf32Code>
+    <ClientCode>/?1F483</ClientCode>
+    <Description>emoji</Description>
+    <File>1F483.png</File>
+</Item>
+<Item>
+    <Utf8Code>💄</Utf8Code>
+    <Utf32Code>0x1F484</Utf32Code>
+    <ClientCode>/?1F484</ClientCode>
+    <Description>emoji</Description>
+    <File>1F484.png</File>
+</Item>
+<Item>
+    <Utf8Code>💅</Utf8Code>
+    <Utf32Code>0x1F485</Utf32Code>
+    <ClientCode>/?1F485</ClientCode>
+    <Description>emoji</Description>
+    <File>1F485.png</File>
+</Item>
+<Item>
+    <Utf8Code>💆</Utf8Code>
+    <Utf32Code>0x1F486</Utf32Code>
+    <ClientCode>/?1F486</ClientCode>
+    <Description>emoji</Description>
+    <File>1F486.png</File>
+</Item>
+<Item>
+    <Utf8Code>💇</Utf8Code>
+    <Utf32Code>0x1F487</Utf32Code>
+    <ClientCode>/?1F487</ClientCode>
+    <Description>emoji</Description>
+    <File>1F487.png</File>
+</Item>
+<Item>
+    <Utf8Code>💈</Utf8Code>
+    <Utf32Code>0x1F488</Utf32Code>
+    <ClientCode>/?1F488</ClientCode>
+    <Description>emoji</Description>
+    <File>1F488.png</File>
+</Item>
+<Item>
+    <Utf8Code>💉</Utf8Code>
+    <Utf32Code>0x1F489</Utf32Code>
+    <ClientCode>/?1F489</ClientCode>
+    <Description>emoji</Description>
+    <File>1F489.png</File>
+</Item>
+<Item>
+    <Utf8Code>💊</Utf8Code>
+    <Utf32Code>0x1F48A</Utf32Code>
+    <ClientCode>/?1F48A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F48A.png</File>
+</Item>
+<Item>
+    <Utf8Code>💋</Utf8Code>
+    <Utf32Code>0x1F48B</Utf32Code>
+    <ClientCode>/?1F48B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F48B.png</File>
+</Item>
+<Item>
+    <Utf8Code>💌</Utf8Code>
+    <Utf32Code>0x1F48C</Utf32Code>
+    <ClientCode>/?1F48C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F48C.png</File>
+</Item>
+<Item>
+    <Utf8Code>💍</Utf8Code>
+    <Utf32Code>0x1F48D</Utf32Code>
+    <ClientCode>/?1F48D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F48D.png</File>
+</Item>
+<Item>
+    <Utf8Code>💎</Utf8Code>
+    <Utf32Code>0x1F48E</Utf32Code>
+    <ClientCode>/?1F48E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F48E.png</File>
+</Item>
+<Item>
+    <Utf8Code>💏</Utf8Code>
+    <Utf32Code>0x1F48F</Utf32Code>
+    <ClientCode>/?1F48F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F48F.png</File>
+</Item>
+<Item>
+    <Utf8Code>💐</Utf8Code>
+    <Utf32Code>0x1F490</Utf32Code>
+    <ClientCode>/?1F490</ClientCode>
+    <Description>emoji</Description>
+    <File>1F490.png</File>
+</Item>
+<Item>
+    <Utf8Code>💑</Utf8Code>
+    <Utf32Code>0x1F491</Utf32Code>
+    <ClientCode>/?1F491</ClientCode>
+    <Description>emoji</Description>
+    <File>1F491.png</File>
+</Item>
+<Item>
+    <Utf8Code>💒</Utf8Code>
+    <Utf32Code>0x1F492</Utf32Code>
+    <ClientCode>/?1F492</ClientCode>
+    <Description>emoji</Description>
+    <File>1F492.png</File>
+</Item>
+<Item>
+    <Utf8Code>💓</Utf8Code>
+    <Utf32Code>0x1F493</Utf32Code>
+    <ClientCode>/?1F493</ClientCode>
+    <Description>emoji</Description>
+    <File>1F493.png</File>
+</Item>
+<Item>
+    <Utf8Code>💔</Utf8Code>
+    <Utf32Code>0x1F494</Utf32Code>
+    <ClientCode>/?1F494</ClientCode>
+    <Description>emoji</Description>
+    <File>1F494.png</File>
+</Item>
+<Item>
+    <Utf8Code>💕</Utf8Code>
+    <Utf32Code>0x1F495</Utf32Code>
+    <ClientCode>/?1F495</ClientCode>
+    <Description>emoji</Description>
+    <File>1F495.png</File>
+</Item>
+<Item>
+    <Utf8Code>💖</Utf8Code>
+    <Utf32Code>0x1F496</Utf32Code>
+    <ClientCode>/?1F496</ClientCode>
+    <Description>emoji</Description>
+    <File>1F496.png</File>
+</Item>
+<Item>
+    <Utf8Code>💗</Utf8Code>
+    <Utf32Code>0x1F497</Utf32Code>
+    <ClientCode>/?1F497</ClientCode>
+    <Description>emoji</Description>
+    <File>1F497.png</File>
+</Item>
+<Item>
+    <Utf8Code>💘</Utf8Code>
+    <Utf32Code>0x1F498</Utf32Code>
+    <ClientCode>/?1F498</ClientCode>
+    <Description>emoji</Description>
+    <File>1F498.png</File>
+</Item>
+<Item>
+    <Utf8Code>💙</Utf8Code>
+    <Utf32Code>0x1F499</Utf32Code>
+    <ClientCode>/?1F499</ClientCode>
+    <Description>emoji</Description>
+    <File>1F499.png</File>
+</Item>
+<Item>
+    <Utf8Code>💚</Utf8Code>
+    <Utf32Code>0x1F49A</Utf32Code>
+    <ClientCode>/?1F49A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F49A.png</File>
+</Item>
+<Item>
+    <Utf8Code>💛</Utf8Code>
+    <Utf32Code>0x1F49B</Utf32Code>
+    <ClientCode>/?1F49B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F49B.png</File>
+</Item>
+<Item>
+    <Utf8Code>💜</Utf8Code>
+    <Utf32Code>0x1F49C</Utf32Code>
+    <ClientCode>/?1F49C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F49C.png</File>
+</Item>
+<Item>
+    <Utf8Code>💝</Utf8Code>
+    <Utf32Code>0x1F49D</Utf32Code>
+    <ClientCode>/?1F49D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F49D.png</File>
+</Item>
+<Item>
+    <Utf8Code>💞</Utf8Code>
+    <Utf32Code>0x1F49E</Utf32Code>
+    <ClientCode>/?1F49E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F49E.png</File>
+</Item>
+<Item>
+    <Utf8Code>💟</Utf8Code>
+    <Utf32Code>0x1F49F</Utf32Code>
+    <ClientCode>/?1F49F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F49F.png</File>
+</Item>
+<Item>
+    <Utf8Code>💠</Utf8Code>
+    <Utf32Code>0x1F4A0</Utf32Code>
+    <ClientCode>/?1F4A0</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4A0.png</File>
+</Item>
+<Item>
+    <Utf8Code>💡</Utf8Code>
+    <Utf32Code>0x1F4A1</Utf32Code>
+    <ClientCode>/?1F4A1</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4A1.png</File>
+</Item>
+<Item>
+    <Utf8Code>💢</Utf8Code>
+    <Utf32Code>0x1F4A2</Utf32Code>
+    <ClientCode>/?1F4A2</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4A2.png</File>
+</Item>
+<Item>
+    <Utf8Code>💣</Utf8Code>
+    <Utf32Code>0x1F4A3</Utf32Code>
+    <ClientCode>/?1F4A3</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4A3.png</File>
+</Item>
+<Item>
+    <Utf8Code>💤</Utf8Code>
+    <Utf32Code>0x1F4A4</Utf32Code>
+    <ClientCode>/?1F4A4</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4A4.png</File>
+</Item>
+<Item>
+    <Utf8Code>💥</Utf8Code>
+    <Utf32Code>0x1F4A5</Utf32Code>
+    <ClientCode>/?1F4A5</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4A5.png</File>
+</Item>
+<Item>
+    <Utf8Code>💦</Utf8Code>
+    <Utf32Code>0x1F4A6</Utf32Code>
+    <ClientCode>/?1F4A6</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4A6.png</File>
+</Item>
+<Item>
+    <Utf8Code>💧</Utf8Code>
+    <Utf32Code>0x1F4A7</Utf32Code>
+    <ClientCode>/?1F4A7</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4A7.png</File>
+</Item>
+<Item>
+    <Utf8Code>💨</Utf8Code>
+    <Utf32Code>0x1F4A8</Utf32Code>
+    <ClientCode>/?1F4A8</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4A8.png</File>
+</Item>
+<Item>
+    <Utf8Code>💩</Utf8Code>
+    <Utf32Code>0x1F4A9</Utf32Code>
+    <ClientCode>/?1F4A9</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4A9.png</File>
+</Item>
+<Item>
+    <Utf8Code>💪</Utf8Code>
+    <Utf32Code>0x1F4AA</Utf32Code>
+    <ClientCode>/?1F4AA</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4AA.png</File>
+</Item>
+<Item>
+    <Utf8Code>💫</Utf8Code>
+    <Utf32Code>0x1F4AB</Utf32Code>
+    <ClientCode>/?1F4AB</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4AB.png</File>
+</Item>
+<Item>
+    <Utf8Code>💬</Utf8Code>
+    <Utf32Code>0x1F4AC</Utf32Code>
+    <ClientCode>/?1F4AC</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4AC.png</File>
+</Item>
+<Item>
+    <Utf8Code>💮</Utf8Code>
+    <Utf32Code>0x1F4AE</Utf32Code>
+    <ClientCode>/?1F4AE</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4AE.png</File>
+</Item>
+<Item>
+    <Utf8Code>💯</Utf8Code>
+    <Utf32Code>0x1F4AF</Utf32Code>
+    <ClientCode>/?1F4AF</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4AF.png</File>
+</Item>
+<Item>
+    <Utf8Code>💰</Utf8Code>
+    <Utf32Code>0x1F4B0</Utf32Code>
+    <ClientCode>/?1F4B0</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4B0.png</File>
+</Item>
+<Item>
+    <Utf8Code>💱</Utf8Code>
+    <Utf32Code>0x1F4B1</Utf32Code>
+    <ClientCode>/?1F4B1</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4B1.png</File>
+</Item>
+<Item>
+    <Utf8Code>💲</Utf8Code>
+    <Utf32Code>0x1F4B2</Utf32Code>
+    <ClientCode>/?1F4B2</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4B2.png</File>
+</Item>
+<Item>
+    <Utf8Code>💳</Utf8Code>
+    <Utf32Code>0x1F4B3</Utf32Code>
+    <ClientCode>/?1F4B3</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4B3.png</File>
+</Item>
+<Item>
+    <Utf8Code>💴</Utf8Code>
+    <Utf32Code>0x1F4B4</Utf32Code>
+    <ClientCode>/?1F4B4</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4B4.png</File>
+</Item>
+<Item>
+    <Utf8Code>💵</Utf8Code>
+    <Utf32Code>0x1F4B5</Utf32Code>
+    <ClientCode>/?1F4B5</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4B5.png</File>
+</Item>
+<Item>
+    <Utf8Code>💸</Utf8Code>
+    <Utf32Code>0x1F4B8</Utf32Code>
+    <ClientCode>/?1F4B8</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4B8.png</File>
+</Item>
+<Item>
+    <Utf8Code>💹</Utf8Code>
+    <Utf32Code>0x1F4B9</Utf32Code>
+    <ClientCode>/?1F4B9</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4B9.png</File>
+</Item>
+<Item>
+    <Utf8Code>💺</Utf8Code>
+    <Utf32Code>0x1F4BA</Utf32Code>
+    <ClientCode>/?1F4BA</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4BA.png</File>
+</Item>
+<Item>
+    <Utf8Code>💻</Utf8Code>
+    <Utf32Code>0x1F4BB</Utf32Code>
+    <ClientCode>/?1F4BB</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4BB.png</File>
+</Item>
+<Item>
+    <Utf8Code>💼</Utf8Code>
+    <Utf32Code>0x1F4BC</Utf32Code>
+    <ClientCode>/?1F4BC</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4BC.png</File>
+</Item>
+<Item>
+    <Utf8Code>💽</Utf8Code>
+    <Utf32Code>0x1F4BD</Utf32Code>
+    <ClientCode>/?1F4BD</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4BD.png</File>
+</Item>
+<Item>
+    <Utf8Code>💾</Utf8Code>
+    <Utf32Code>0x1F4BE</Utf32Code>
+    <ClientCode>/?1F4BE</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4BE.png</File>
+</Item>
+<Item>
+    <Utf8Code>💿</Utf8Code>
+    <Utf32Code>0x1F4BF</Utf32Code>
+    <ClientCode>/?1F4BF</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4BF.png</File>
+</Item>
+<Item>
+    <Utf8Code>📀</Utf8Code>
+    <Utf32Code>0x1F4C0</Utf32Code>
+    <ClientCode>/?1F4C0</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4C0.png</File>
+</Item>
+<Item>
+    <Utf8Code>📁</Utf8Code>
+    <Utf32Code>0x1F4C1</Utf32Code>
+    <ClientCode>/?1F4C1</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4C1.png</File>
+</Item>
+<Item>
+    <Utf8Code>📂</Utf8Code>
+    <Utf32Code>0x1F4C2</Utf32Code>
+    <ClientCode>/?1F4C2</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4C2.png</File>
+</Item>
+<Item>
+    <Utf8Code>📃</Utf8Code>
+    <Utf32Code>0x1F4C3</Utf32Code>
+    <ClientCode>/?1F4C3</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4C3.png</File>
+</Item>
+<Item>
+    <Utf8Code>📄</Utf8Code>
+    <Utf32Code>0x1F4C4</Utf32Code>
+    <ClientCode>/?1F4C4</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4C4.png</File>
+</Item>
+<Item>
+    <Utf8Code>📅</Utf8Code>
+    <Utf32Code>0x1F4C5</Utf32Code>
+    <ClientCode>/?1F4C5</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4C5.png</File>
+</Item>
+<Item>
+    <Utf8Code>📆</Utf8Code>
+    <Utf32Code>0x1F4C6</Utf32Code>
+    <ClientCode>/?1F4C6</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4C6.png</File>
+</Item>
+<Item>
+    <Utf8Code>📇</Utf8Code>
+    <Utf32Code>0x1F4C7</Utf32Code>
+    <ClientCode>/?1F4C7</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4C7.png</File>
+</Item>
+<Item>
+    <Utf8Code>📈</Utf8Code>
+    <Utf32Code>0x1F4C8</Utf32Code>
+    <ClientCode>/?1F4C8</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4C8.png</File>
+</Item>
+<Item>
+    <Utf8Code>📉</Utf8Code>
+    <Utf32Code>0x1F4C9</Utf32Code>
+    <ClientCode>/?1F4C9</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4C9.png</File>
+</Item>
+<Item>
+    <Utf8Code>📊</Utf8Code>
+    <Utf32Code>0x1F4CA</Utf32Code>
+    <ClientCode>/?1F4CA</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4CA.png</File>
+</Item>
+<Item>
+    <Utf8Code>📋</Utf8Code>
+    <Utf32Code>0x1F4CB</Utf32Code>
+    <ClientCode>/?1F4CB</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4CB.png</File>
+</Item>
+<Item>
+    <Utf8Code>📌</Utf8Code>
+    <Utf32Code>0x1F4CC</Utf32Code>
+    <ClientCode>/?1F4CC</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4CC.png</File>
+</Item>
+<Item>
+    <Utf8Code>📍</Utf8Code>
+    <Utf32Code>0x1F4CD</Utf32Code>
+    <ClientCode>/?1F4CD</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4CD.png</File>
+</Item>
+<Item>
+    <Utf8Code>📎</Utf8Code>
+    <Utf32Code>0x1F4CE</Utf32Code>
+    <ClientCode>/?1F4CE</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4CE.png</File>
+</Item>
+<Item>
+    <Utf8Code>📏</Utf8Code>
+    <Utf32Code>0x1F4CF</Utf32Code>
+    <ClientCode>/?1F4CF</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4CF.png</File>
+</Item>
+<Item>
+    <Utf8Code>📐</Utf8Code>
+    <Utf32Code>0x1F4D0</Utf32Code>
+    <ClientCode>/?1F4D0</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4D0.png</File>
+</Item>
+<Item>
+    <Utf8Code>📑</Utf8Code>
+    <Utf32Code>0x1F4D1</Utf32Code>
+    <ClientCode>/?1F4D1</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4D1.png</File>
+</Item>
+<Item>
+    <Utf8Code>📒</Utf8Code>
+    <Utf32Code>0x1F4D2</Utf32Code>
+    <ClientCode>/?1F4D2</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4D2.png</File>
+</Item>
+<Item>
+    <Utf8Code>📓</Utf8Code>
+    <Utf32Code>0x1F4D3</Utf32Code>
+    <ClientCode>/?1F4D3</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4D3.png</File>
+</Item>
+<Item>
+    <Utf8Code>📔</Utf8Code>
+    <Utf32Code>0x1F4D4</Utf32Code>
+    <ClientCode>/?1F4D4</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4D4.png</File>
+</Item>
+<Item>
+    <Utf8Code>📕</Utf8Code>
+    <Utf32Code>0x1F4D5</Utf32Code>
+    <ClientCode>/?1F4D5</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4D5.png</File>
+</Item>
+<Item>
+    <Utf8Code>📖</Utf8Code>
+    <Utf32Code>0x1F4D6</Utf32Code>
+    <ClientCode>/?1F4D6</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4D6.png</File>
+</Item>
+<Item>
+    <Utf8Code>📗</Utf8Code>
+    <Utf32Code>0x1F4D7</Utf32Code>
+    <ClientCode>/?1F4D7</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4D7.png</File>
+</Item>
+<Item>
+    <Utf8Code>📘</Utf8Code>
+    <Utf32Code>0x1F4D8</Utf32Code>
+    <ClientCode>/?1F4D8</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4D8.png</File>
+</Item>
+<Item>
+    <Utf8Code>📙</Utf8Code>
+    <Utf32Code>0x1F4D9</Utf32Code>
+    <ClientCode>/?1F4D9</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4D9.png</File>
+</Item>
+<Item>
+    <Utf8Code>📚</Utf8Code>
+    <Utf32Code>0x1F4DA</Utf32Code>
+    <ClientCode>/?1F4DA</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4DA.png</File>
+</Item>
+<Item>
+    <Utf8Code>📛</Utf8Code>
+    <Utf32Code>0x1F4DB</Utf32Code>
+    <ClientCode>/?1F4DB</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4DB.png</File>
+</Item>
+<Item>
+    <Utf8Code>📜</Utf8Code>
+    <Utf32Code>0x1F4DC</Utf32Code>
+    <ClientCode>/?1F4DC</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4DC.png</File>
+</Item>
+<Item>
+    <Utf8Code>📝</Utf8Code>
+    <Utf32Code>0x1F4DD</Utf32Code>
+    <ClientCode>/?1F4DD</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4DD.png</File>
+</Item>
+<Item>
+    <Utf8Code>📞</Utf8Code>
+    <Utf32Code>0x1F4DE</Utf32Code>
+    <ClientCode>/?1F4DE</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4DE.png</File>
+</Item>
+<Item>
+    <Utf8Code>📟</Utf8Code>
+    <Utf32Code>0x1F4DF</Utf32Code>
+    <ClientCode>/?1F4DF</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4DF.png</File>
+</Item>
+<Item>
+    <Utf8Code>📠</Utf8Code>
+    <Utf32Code>0x1F4E0</Utf32Code>
+    <ClientCode>/?1F4E0</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4E0.png</File>
+</Item>
+<Item>
+    <Utf8Code>📡</Utf8Code>
+    <Utf32Code>0x1F4E1</Utf32Code>
+    <ClientCode>/?1F4E1</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4E1.png</File>
+</Item>
+<Item>
+    <Utf8Code>📢</Utf8Code>
+    <Utf32Code>0x1F4E2</Utf32Code>
+    <ClientCode>/?1F4E2</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4E2.png</File>
+</Item>
+<Item>
+    <Utf8Code>📣</Utf8Code>
+    <Utf32Code>0x1F4E3</Utf32Code>
+    <ClientCode>/?1F4E3</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4E3.png</File>
+</Item>
+<Item>
+    <Utf8Code>📤</Utf8Code>
+    <Utf32Code>0x1F4E4</Utf32Code>
+    <ClientCode>/?1F4E4</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4E4.png</File>
+</Item>
+<Item>
+    <Utf8Code>📥</Utf8Code>
+    <Utf32Code>0x1F4E5</Utf32Code>
+    <ClientCode>/?1F4E5</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4E5.png</File>
+</Item>
+<Item>
+    <Utf8Code>📦</Utf8Code>
+    <Utf32Code>0x1F4E6</Utf32Code>
+    <ClientCode>/?1F4E6</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4E6.png</File>
+</Item>
+<Item>
+    <Utf8Code>📧</Utf8Code>
+    <Utf32Code>0x1F4E7</Utf32Code>
+    <ClientCode>/?1F4E7</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4E7.png</File>
+</Item>
+<Item>
+    <Utf8Code>📨</Utf8Code>
+    <Utf32Code>0x1F4E8</Utf32Code>
+    <ClientCode>/?1F4E8</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4E8.png</File>
+</Item>
+<Item>
+    <Utf8Code>📩</Utf8Code>
+    <Utf32Code>0x1F4E9</Utf32Code>
+    <ClientCode>/?1F4E9</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4E9.png</File>
+</Item>
+<Item>
+    <Utf8Code>📪</Utf8Code>
+    <Utf32Code>0x1F4EA</Utf32Code>
+    <ClientCode>/?1F4EA</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4EA.png</File>
+</Item>
+<Item>
+    <Utf8Code>📫</Utf8Code>
+    <Utf32Code>0x1F4EB</Utf32Code>
+    <ClientCode>/?1F4EB</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4EB.png</File>
+</Item>
+<Item>
+    <Utf8Code>📮</Utf8Code>
+    <Utf32Code>0x1F4EE</Utf32Code>
+    <ClientCode>/?1F4EE</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4EE.png</File>
+</Item>
+<Item>
+    <Utf8Code>📰</Utf8Code>
+    <Utf32Code>0x1F4F0</Utf32Code>
+    <ClientCode>/?1F4F0</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4F0.png</File>
+</Item>
+<Item>
+    <Utf8Code>📱</Utf8Code>
+    <Utf32Code>0x1F4F1</Utf32Code>
+    <ClientCode>/?1F4F1</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4F1.png</File>
+</Item>
+<Item>
+    <Utf8Code>📲</Utf8Code>
+    <Utf32Code>0x1F4F2</Utf32Code>
+    <ClientCode>/?1F4F2</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4F2.png</File>
+</Item>
+<Item>
+    <Utf8Code>📳</Utf8Code>
+    <Utf32Code>0x1F4F3</Utf32Code>
+    <ClientCode>/?1F4F3</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4F3.png</File>
+</Item>
+<Item>
+    <Utf8Code>📴</Utf8Code>
+    <Utf32Code>0x1F4F4</Utf32Code>
+    <ClientCode>/?1F4F4</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4F4.png</File>
+</Item>
+<Item>
+    <Utf8Code>📶</Utf8Code>
+    <Utf32Code>0x1F4F6</Utf32Code>
+    <ClientCode>/?1F4F6</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4F6.png</File>
+</Item>
+<Item>
+    <Utf8Code>📷</Utf8Code>
+    <Utf32Code>0x1F4F7</Utf32Code>
+    <ClientCode>/?1F4F7</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4F7.png</File>
+</Item>
+<Item>
+    <Utf8Code>📹</Utf8Code>
+    <Utf32Code>0x1F4F9</Utf32Code>
+    <ClientCode>/?1F4F9</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4F9.png</File>
+</Item>
+<Item>
+    <Utf8Code>📺</Utf8Code>
+    <Utf32Code>0x1F4FA</Utf32Code>
+    <ClientCode>/?1F4FA</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4FA.png</File>
+</Item>
+<Item>
+    <Utf8Code>📻</Utf8Code>
+    <Utf32Code>0x1F4FB</Utf32Code>
+    <ClientCode>/?1F4FB</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4FB.png</File>
+</Item>
+<Item>
+    <Utf8Code>📼</Utf8Code>
+    <Utf32Code>0x1F4FC</Utf32Code>
+    <ClientCode>/?1F4FC</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4FC.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔃</Utf8Code>
+    <Utf32Code>0x1F503</Utf32Code>
+    <ClientCode>/?1F503</ClientCode>
+    <Description>emoji</Description>
+    <File>1F503.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔊</Utf8Code>
+    <Utf32Code>0x1F50A</Utf32Code>
+    <ClientCode>/?1F50A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F50A.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔋</Utf8Code>
+    <Utf32Code>0x1F50B</Utf32Code>
+    <ClientCode>/?1F50B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F50B.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔌</Utf8Code>
+    <Utf32Code>0x1F50C</Utf32Code>
+    <ClientCode>/?1F50C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F50C.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔍</Utf8Code>
+    <Utf32Code>0x1F50D</Utf32Code>
+    <ClientCode>/?1F50D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F50D.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔎</Utf8Code>
+    <Utf32Code>0x1F50E</Utf32Code>
+    <ClientCode>/?1F50E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F50E.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔏</Utf8Code>
+    <Utf32Code>0x1F50F</Utf32Code>
+    <ClientCode>/?1F50F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F50F.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔐</Utf8Code>
+    <Utf32Code>0x1F510</Utf32Code>
+    <ClientCode>/?1F510</ClientCode>
+    <Description>emoji</Description>
+    <File>1F510.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔑</Utf8Code>
+    <Utf32Code>0x1F511</Utf32Code>
+    <ClientCode>/?1F511</ClientCode>
+    <Description>emoji</Description>
+    <File>1F511.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔒</Utf8Code>
+    <Utf32Code>0x1F512</Utf32Code>
+    <ClientCode>/?1F512</ClientCode>
+    <Description>emoji</Description>
+    <File>1F512.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔓</Utf8Code>
+    <Utf32Code>0x1F513</Utf32Code>
+    <ClientCode>/?1F513</ClientCode>
+    <Description>emoji</Description>
+    <File>1F513.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔔</Utf8Code>
+    <Utf32Code>0x1F514</Utf32Code>
+    <ClientCode>/?1F514</ClientCode>
+    <Description>emoji</Description>
+    <File>1F514.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔖</Utf8Code>
+    <Utf32Code>0x1F516</Utf32Code>
+    <ClientCode>/?1F516</ClientCode>
+    <Description>emoji</Description>
+    <File>1F516.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔗</Utf8Code>
+    <Utf32Code>0x1F517</Utf32Code>
+    <ClientCode>/?1F517</ClientCode>
+    <Description>emoji</Description>
+    <File>1F517.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔘</Utf8Code>
+    <Utf32Code>0x1F518</Utf32Code>
+    <ClientCode>/?1F518</ClientCode>
+    <Description>emoji</Description>
+    <File>1F518.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔙</Utf8Code>
+    <Utf32Code>0x1F519</Utf32Code>
+    <ClientCode>/?1F519</ClientCode>
+    <Description>emoji</Description>
+    <File>1F519.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔚</Utf8Code>
+    <Utf32Code>0x1F51A</Utf32Code>
+    <ClientCode>/?1F51A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F51A.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔛</Utf8Code>
+    <Utf32Code>0x1F51B</Utf32Code>
+    <ClientCode>/?1F51B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F51B.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔜</Utf8Code>
+    <Utf32Code>0x1F51C</Utf32Code>
+    <ClientCode>/?1F51C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F51C.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔝</Utf8Code>
+    <Utf32Code>0x1F51D</Utf32Code>
+    <ClientCode>/?1F51D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F51D.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔞</Utf8Code>
+    <Utf32Code>0x1F51E</Utf32Code>
+    <ClientCode>/?1F51E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F51E.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔟</Utf8Code>
+    <Utf32Code>0x1F51F</Utf32Code>
+    <ClientCode>/?1F51F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F51F.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔠</Utf8Code>
+    <Utf32Code>0x1F520</Utf32Code>
+    <ClientCode>/?1F520</ClientCode>
+    <Description>emoji</Description>
+    <File>1F520.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔡</Utf8Code>
+    <Utf32Code>0x1F521</Utf32Code>
+    <ClientCode>/?1F521</ClientCode>
+    <Description>emoji</Description>
+    <File>1F521.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔢</Utf8Code>
+    <Utf32Code>0x1F522</Utf32Code>
+    <ClientCode>/?1F522</ClientCode>
+    <Description>emoji</Description>
+    <File>1F522.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔣</Utf8Code>
+    <Utf32Code>0x1F523</Utf32Code>
+    <ClientCode>/?1F523</ClientCode>
+    <Description>emoji</Description>
+    <File>1F523.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔤</Utf8Code>
+    <Utf32Code>0x1F524</Utf32Code>
+    <ClientCode>/?1F524</ClientCode>
+    <Description>emoji</Description>
+    <File>1F524.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔥</Utf8Code>
+    <Utf32Code>0x1F525</Utf32Code>
+    <ClientCode>/?1F525</ClientCode>
+    <Description>emoji</Description>
+    <File>1F525.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔦</Utf8Code>
+    <Utf32Code>0x1F526</Utf32Code>
+    <ClientCode>/?1F526</ClientCode>
+    <Description>emoji</Description>
+    <File>1F526.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔧</Utf8Code>
+    <Utf32Code>0x1F527</Utf32Code>
+    <ClientCode>/?1F527</ClientCode>
+    <Description>emoji</Description>
+    <File>1F527.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔨</Utf8Code>
+    <Utf32Code>0x1F528</Utf32Code>
+    <ClientCode>/?1F528</ClientCode>
+    <Description>emoji</Description>
+    <File>1F528.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔩</Utf8Code>
+    <Utf32Code>0x1F529</Utf32Code>
+    <ClientCode>/?1F529</ClientCode>
+    <Description>emoji</Description>
+    <File>1F529.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔪</Utf8Code>
+    <Utf32Code>0x1F52A</Utf32Code>
+    <ClientCode>/?1F52A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F52A.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔫</Utf8Code>
+    <Utf32Code>0x1F52B</Utf32Code>
+    <ClientCode>/?1F52B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F52B.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔮</Utf8Code>
+    <Utf32Code>0x1F52E</Utf32Code>
+    <ClientCode>/?1F52E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F52E.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔯</Utf8Code>
+    <Utf32Code>0x1F52F</Utf32Code>
+    <ClientCode>/?1F52F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F52F.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔰</Utf8Code>
+    <Utf32Code>0x1F530</Utf32Code>
+    <ClientCode>/?1F530</ClientCode>
+    <Description>emoji</Description>
+    <File>1F530.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔱</Utf8Code>
+    <Utf32Code>0x1F531</Utf32Code>
+    <ClientCode>/?1F531</ClientCode>
+    <Description>emoji</Description>
+    <File>1F531.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔲</Utf8Code>
+    <Utf32Code>0x1F532</Utf32Code>
+    <ClientCode>/?1F532</ClientCode>
+    <Description>emoji</Description>
+    <File>1F532.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔳</Utf8Code>
+    <Utf32Code>0x1F533</Utf32Code>
+    <ClientCode>/?1F533</ClientCode>
+    <Description>emoji</Description>
+    <File>1F533.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔴</Utf8Code>
+    <Utf32Code>0x1F534</Utf32Code>
+    <ClientCode>/?1F534</ClientCode>
+    <Description>emoji</Description>
+    <File>1F534.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔵</Utf8Code>
+    <Utf32Code>0x1F535</Utf32Code>
+    <ClientCode>/?1F535</ClientCode>
+    <Description>emoji</Description>
+    <File>1F535.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔶</Utf8Code>
+    <Utf32Code>0x1F536</Utf32Code>
+    <ClientCode>/?1F536</ClientCode>
+    <Description>emoji</Description>
+    <File>1F536.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔷</Utf8Code>
+    <Utf32Code>0x1F537</Utf32Code>
+    <ClientCode>/?1F537</ClientCode>
+    <Description>emoji</Description>
+    <File>1F537.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔸</Utf8Code>
+    <Utf32Code>0x1F538</Utf32Code>
+    <ClientCode>/?1F538</ClientCode>
+    <Description>emoji</Description>
+    <File>1F538.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔹</Utf8Code>
+    <Utf32Code>0x1F539</Utf32Code>
+    <ClientCode>/?1F539</ClientCode>
+    <Description>emoji</Description>
+    <File>1F539.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔺</Utf8Code>
+    <Utf32Code>0x1F53A</Utf32Code>
+    <ClientCode>/?1F53A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F53A.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔻</Utf8Code>
+    <Utf32Code>0x1F53B</Utf32Code>
+    <ClientCode>/?1F53B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F53B.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔼</Utf8Code>
+    <Utf32Code>0x1F53C</Utf32Code>
+    <ClientCode>/?1F53C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F53C.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔽</Utf8Code>
+    <Utf32Code>0x1F53D</Utf32Code>
+    <ClientCode>/?1F53D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F53D.png</File>
+</Item>
+<Item>
+    <Utf8Code>🕐</Utf8Code>
+    <Utf32Code>0x1F550</Utf32Code>
+    <ClientCode>/?1F550</ClientCode>
+    <Description>emoji</Description>
+    <File>1F550.png</File>
+</Item>
+<Item>
+    <Utf8Code>🕑</Utf8Code>
+    <Utf32Code>0x1F551</Utf32Code>
+    <ClientCode>/?1F551</ClientCode>
+    <Description>emoji</Description>
+    <File>1F551.png</File>
+</Item>
+<Item>
+    <Utf8Code>🕒</Utf8Code>
+    <Utf32Code>0x1F552</Utf32Code>
+    <ClientCode>/?1F552</ClientCode>
+    <Description>emoji</Description>
+    <File>1F552.png</File>
+</Item>
+<Item>
+    <Utf8Code>🕓</Utf8Code>
+    <Utf32Code>0x1F553</Utf32Code>
+    <ClientCode>/?1F553</ClientCode>
+    <Description>emoji</Description>
+    <File>1F553.png</File>
+</Item>
+<Item>
+    <Utf8Code>🕔</Utf8Code>
+    <Utf32Code>0x1F554</Utf32Code>
+    <ClientCode>/?1F554</ClientCode>
+    <Description>emoji</Description>
+    <File>1F554.png</File>
+</Item>
+<Item>
+    <Utf8Code>🕕</Utf8Code>
+    <Utf32Code>0x1F555</Utf32Code>
+    <ClientCode>/?1F555</ClientCode>
+    <Description>emoji</Description>
+    <File>1F555.png</File>
+</Item>
+<Item>
+    <Utf8Code>🕖</Utf8Code>
+    <Utf32Code>0x1F556</Utf32Code>
+    <ClientCode>/?1F556</ClientCode>
+    <Description>emoji</Description>
+    <File>1F556.png</File>
+</Item>
+<Item>
+    <Utf8Code>🕗</Utf8Code>
+    <Utf32Code>0x1F557</Utf32Code>
+    <ClientCode>/?1F557</ClientCode>
+    <Description>emoji</Description>
+    <File>1F557.png</File>
+</Item>
+<Item>
+    <Utf8Code>🕘</Utf8Code>
+    <Utf32Code>0x1F558</Utf32Code>
+    <ClientCode>/?1F558</ClientCode>
+    <Description>emoji</Description>
+    <File>1F558.png</File>
+</Item>
+<Item>
+    <Utf8Code>🕙</Utf8Code>
+    <Utf32Code>0x1F559</Utf32Code>
+    <ClientCode>/?1F559</ClientCode>
+    <Description>emoji</Description>
+    <File>1F559.png</File>
+</Item>
+<Item>
+    <Utf8Code>🕚</Utf8Code>
+    <Utf32Code>0x1F55A</Utf32Code>
+    <ClientCode>/?1F55A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F55A.png</File>
+</Item>
+<Item>
+    <Utf8Code>🕛</Utf8Code>
+    <Utf32Code>0x1F55B</Utf32Code>
+    <ClientCode>/?1F55B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F55B.png</File>
+</Item>
+<Item>
+    <Utf8Code>🗻</Utf8Code>
+    <Utf32Code>0x1F5FB</Utf32Code>
+    <ClientCode>/?1F5FB</ClientCode>
+    <Description>emoji</Description>
+    <File>1F5FB.png</File>
+</Item>
+<Item>
+    <Utf8Code>🗼</Utf8Code>
+    <Utf32Code>0x1F5FC</Utf32Code>
+    <ClientCode>/?1F5FC</ClientCode>
+    <Description>emoji</Description>
+    <File>1F5FC.png</File>
+</Item>
+<Item>
+    <Utf8Code>🗽</Utf8Code>
+    <Utf32Code>0x1F5FD</Utf32Code>
+    <ClientCode>/?1F5FD</ClientCode>
+    <Description>emoji</Description>
+    <File>1F5FD.png</File>
+</Item>
+<Item>
+    <Utf8Code>🗾</Utf8Code>
+    <Utf32Code>0x1F5FE</Utf32Code>
+    <ClientCode>/?1F5FE</ClientCode>
+    <Description>emoji</Description>
+    <File>1F5FE.png</File>
+</Item>
+<Item>
+    <Utf8Code>🗿</Utf8Code>
+    <Utf32Code>0x1F5FF</Utf32Code>
+    <ClientCode>/?1F5FF</ClientCode>
+    <Description>emoji</Description>
+    <File>1F5FF.png</File>
+</Item>
+<Item>
+    <Utf8Code>😀</Utf8Code>
+    <Utf32Code>0x1F600</Utf32Code>
+    <ClientCode>/?1F600</ClientCode>
+    <Description>emoji</Description>
+    <File>1F600.png</File>
+</Item>
+<Item>
+    <Utf8Code>😇</Utf8Code>
+    <Utf32Code>0x1F607</Utf32Code>
+    <ClientCode>/?1F607</ClientCode>
+    <Description>emoji</Description>
+    <File>1F607.png</File>
+</Item>
+<Item>
+    <Utf8Code>😈</Utf8Code>
+    <Utf32Code>0x1F608</Utf32Code>
+    <ClientCode>/?1F608</ClientCode>
+    <Description>emoji</Description>
+    <File>1F608.png</File>
+</Item>
+<Item>
+    <Utf8Code>😎</Utf8Code>
+    <Utf32Code>0x1F60E</Utf32Code>
+    <ClientCode>/?1F60E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F60E.png</File>
+</Item>
+<Item>
+    <Utf8Code>😐</Utf8Code>
+    <Utf32Code>0x1F610</Utf32Code>
+    <ClientCode>/?1F610</ClientCode>
+    <Description>emoji</Description>
+    <File>1F610.png</File>
+</Item>
+<Item>
+    <Utf8Code>😑</Utf8Code>
+    <Utf32Code>0x1F611</Utf32Code>
+    <ClientCode>/?1F611</ClientCode>
+    <Description>emoji</Description>
+    <File>1F611.png</File>
+</Item>
+<Item>
+    <Utf8Code>😕</Utf8Code>
+    <Utf32Code>0x1F615</Utf32Code>
+    <ClientCode>/?1F615</ClientCode>
+    <Description>emoji</Description>
+    <File>1F615.png</File>
+</Item>
+<Item>
+    <Utf8Code>😗</Utf8Code>
+    <Utf32Code>0x1F617</Utf32Code>
+    <ClientCode>/?1F617</ClientCode>
+    <Description>emoji</Description>
+    <File>1F617.png</File>
+</Item>
+<Item>
+    <Utf8Code>😙</Utf8Code>
+    <Utf32Code>0x1F619</Utf32Code>
+    <ClientCode>/?1F619</ClientCode>
+    <Description>emoji</Description>
+    <File>1F619.png</File>
+</Item>
+<Item>
+    <Utf8Code>😛</Utf8Code>
+    <Utf32Code>0x1F61B</Utf32Code>
+    <ClientCode>/?1F61B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F61B.png</File>
+</Item>
+<Item>
+    <Utf8Code>😟</Utf8Code>
+    <Utf32Code>0x1F61F</Utf32Code>
+    <ClientCode>/?1F61F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F61F.png</File>
+</Item>
+<Item>
+    <Utf8Code>😦</Utf8Code>
+    <Utf32Code>0x1F626</Utf32Code>
+    <ClientCode>/?1F626</ClientCode>
+    <Description>emoji</Description>
+    <File>1F626.png</File>
+</Item>
+<Item>
+    <Utf8Code>😧</Utf8Code>
+    <Utf32Code>0x1F627</Utf32Code>
+    <ClientCode>/?1F627</ClientCode>
+    <Description>emoji</Description>
+    <File>1F627.png</File>
+</Item>
+<Item>
+    <Utf8Code>😬</Utf8Code>
+    <Utf32Code>0x1F62C</Utf32Code>
+    <ClientCode>/?1F62C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F62C.png</File>
+</Item>
+<Item>
+    <Utf8Code>😮</Utf8Code>
+    <Utf32Code>0x1F62E</Utf32Code>
+    <ClientCode>/?1F62E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F62E.png</File>
+</Item>
+<Item>
+    <Utf8Code>😯</Utf8Code>
+    <Utf32Code>0x1F62F</Utf32Code>
+    <ClientCode>/?1F62F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F62F.png</File>
+</Item>
+<Item>
+    <Utf8Code>😴</Utf8Code>
+    <Utf32Code>0x1F634</Utf32Code>
+    <ClientCode>/?1F634</ClientCode>
+    <Description>emoji</Description>
+    <File>1F634.png</File>
+</Item>
+<Item>
+    <Utf8Code>😶</Utf8Code>
+    <Utf32Code>0x1F636</Utf32Code>
+    <ClientCode>/?1F636</ClientCode>
+    <Description>emoji</Description>
+    <File>1F636.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚁</Utf8Code>
+    <Utf32Code>0x1F681</Utf32Code>
+    <ClientCode>/?1F681</ClientCode>
+    <Description>emoji</Description>
+    <File>1F681.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚂</Utf8Code>
+    <Utf32Code>0x1F682</Utf32Code>
+    <ClientCode>/?1F682</ClientCode>
+    <Description>emoji</Description>
+    <File>1F682.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚆</Utf8Code>
+    <Utf32Code>0x1F686</Utf32Code>
+    <ClientCode>/?1F686</ClientCode>
+    <Description>emoji</Description>
+    <File>1F686.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚈</Utf8Code>
+    <Utf32Code>0x1F688</Utf32Code>
+    <ClientCode>/?1F688</ClientCode>
+    <Description>emoji</Description>
+    <File>1F688.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚊</Utf8Code>
+    <Utf32Code>0x1F68A</Utf32Code>
+    <ClientCode>/?1F68A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F68A.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚍</Utf8Code>
+    <Utf32Code>0x1F68D</Utf32Code>
+    <ClientCode>/?1F68D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F68D.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚎</Utf8Code>
+    <Utf32Code>0x1F68E</Utf32Code>
+    <ClientCode>/?1F68E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F68E.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚐</Utf8Code>
+    <Utf32Code>0x1F690</Utf32Code>
+    <ClientCode>/?1F690</ClientCode>
+    <Description>emoji</Description>
+    <File>1F690.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚔</Utf8Code>
+    <Utf32Code>0x1F694</Utf32Code>
+    <ClientCode>/?1F694</ClientCode>
+    <Description>emoji</Description>
+    <File>1F694.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚖</Utf8Code>
+    <Utf32Code>0x1F696</Utf32Code>
+    <ClientCode>/?1F696</ClientCode>
+    <Description>emoji</Description>
+    <File>1F696.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚘</Utf8Code>
+    <Utf32Code>0x1F698</Utf32Code>
+    <ClientCode>/?1F698</ClientCode>
+    <Description>emoji</Description>
+    <File>1F698.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚛</Utf8Code>
+    <Utf32Code>0x1F69B</Utf32Code>
+    <ClientCode>/?1F69B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F69B.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚜</Utf8Code>
+    <Utf32Code>0x1F69C</Utf32Code>
+    <ClientCode>/?1F69C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F69C.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚝</Utf8Code>
+    <Utf32Code>0x1F69D</Utf32Code>
+    <ClientCode>/?1F69D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F69D.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚞</Utf8Code>
+    <Utf32Code>0x1F69E</Utf32Code>
+    <ClientCode>/?1F69E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F69E.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚟</Utf8Code>
+    <Utf32Code>0x1F69F</Utf32Code>
+    <ClientCode>/?1F69F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F69F.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚠</Utf8Code>
+    <Utf32Code>0x1F6A0</Utf32Code>
+    <ClientCode>/?1F6A0</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6A0.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚡</Utf8Code>
+    <Utf32Code>0x1F6A1</Utf32Code>
+    <ClientCode>/?1F6A1</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6A1.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚣</Utf8Code>
+    <Utf32Code>0x1F6A3</Utf32Code>
+    <ClientCode>/?1F6A3</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6A3.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚦</Utf8Code>
+    <Utf32Code>0x1F6A6</Utf32Code>
+    <ClientCode>/?1F6A6</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6A6.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚮</Utf8Code>
+    <Utf32Code>0x1F6AE</Utf32Code>
+    <ClientCode>/?1F6AE</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6AE.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚯</Utf8Code>
+    <Utf32Code>0x1F6AF</Utf32Code>
+    <ClientCode>/?1F6AF</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6AF.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚰</Utf8Code>
+    <Utf32Code>0x1F6B0</Utf32Code>
+    <ClientCode>/?1F6B0</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6B0.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚱</Utf8Code>
+    <Utf32Code>0x1F6B1</Utf32Code>
+    <ClientCode>/?1F6B1</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6B1.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚳</Utf8Code>
+    <Utf32Code>0x1F6B3</Utf32Code>
+    <ClientCode>/?1F6B3</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6B3.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚴</Utf8Code>
+    <Utf32Code>0x1F6B4</Utf32Code>
+    <ClientCode>/?1F6B4</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6B4.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚵</Utf8Code>
+    <Utf32Code>0x1F6B5</Utf32Code>
+    <ClientCode>/?1F6B5</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6B5.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚷</Utf8Code>
+    <Utf32Code>0x1F6B7</Utf32Code>
+    <ClientCode>/?1F6B7</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6B7.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚸</Utf8Code>
+    <Utf32Code>0x1F6B8</Utf32Code>
+    <ClientCode>/?1F6B8</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6B8.png</File>
+</Item>
+<Item>
+    <Utf8Code>🚿</Utf8Code>
+    <Utf32Code>0x1F6BF</Utf32Code>
+    <ClientCode>/?1F6BF</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6BF.png</File>
+</Item>
+<Item>
+    <Utf8Code>🛁</Utf8Code>
+    <Utf32Code>0x1F6C1</Utf32Code>
+    <ClientCode>/?1F6C1</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6C1.png</File>
+</Item>
+<Item>
+    <Utf8Code>🛂</Utf8Code>
+    <Utf32Code>0x1F6C2</Utf32Code>
+    <ClientCode>/?1F6C2</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6C2.png</File>
+</Item>
+<Item>
+    <Utf8Code>🛃</Utf8Code>
+    <Utf32Code>0x1F6C3</Utf32Code>
+    <ClientCode>/?1F6C3</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6C3.png</File>
+</Item>
+<Item>
+    <Utf8Code>🛄</Utf8Code>
+    <Utf32Code>0x1F6C4</Utf32Code>
+    <ClientCode>/?1F6C4</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6C4.png</File>
+</Item>
+<Item>
+    <Utf8Code>🛅</Utf8Code>
+    <Utf32Code>0x1F6C5</Utf32Code>
+    <ClientCode>/?1F6C5</ClientCode>
+    <Description>emoji</Description>
+    <File>1F6C5.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌍</Utf8Code>
+    <Utf32Code>0x1F30D</Utf32Code>
+    <ClientCode>/?1F30D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F30D.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌎</Utf8Code>
+    <Utf32Code>0x1F30E</Utf32Code>
+    <ClientCode>/?1F30E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F30E.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌐</Utf8Code>
+    <Utf32Code>0x1F310</Utf32Code>
+    <ClientCode>/?1F310</ClientCode>
+    <Description>emoji</Description>
+    <File>1F310.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌒</Utf8Code>
+    <Utf32Code>0x1F312</Utf32Code>
+    <ClientCode>/?1F312</ClientCode>
+    <Description>emoji</Description>
+    <File>1F312.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌖</Utf8Code>
+    <Utf32Code>0x1F316</Utf32Code>
+    <ClientCode>/?1F316</ClientCode>
+    <Description>emoji</Description>
+    <File>1F316.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌗</Utf8Code>
+    <Utf32Code>0x1F317</Utf32Code>
+    <ClientCode>/?1F317</ClientCode>
+    <Description>emoji</Description>
+    <File>1F317.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌘</Utf8Code>
+    <Utf32Code>0x1F318</Utf32Code>
+    <ClientCode>/?1F318</ClientCode>
+    <Description>emoji</Description>
+    <File>1F318.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌚</Utf8Code>
+    <Utf32Code>0x1F31A</Utf32Code>
+    <ClientCode>/?1F31A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F31A.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌜</Utf8Code>
+    <Utf32Code>0x1F31C</Utf32Code>
+    <ClientCode>/?1F31C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F31C.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌝</Utf8Code>
+    <Utf32Code>0x1F31D</Utf32Code>
+    <ClientCode>/?1F31D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F31D.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌞</Utf8Code>
+    <Utf32Code>0x1F31E</Utf32Code>
+    <ClientCode>/?1F31E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F31E.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌲</Utf8Code>
+    <Utf32Code>0x1F332</Utf32Code>
+    <ClientCode>/?1F332</ClientCode>
+    <Description>emoji</Description>
+    <File>1F332.png</File>
+</Item>
+<Item>
+    <Utf8Code>🌳</Utf8Code>
+    <Utf32Code>0x1F333</Utf32Code>
+    <ClientCode>/?1F333</ClientCode>
+    <Description>emoji</Description>
+    <File>1F333.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍋</Utf8Code>
+    <Utf32Code>0x1F34B</Utf32Code>
+    <ClientCode>/?1F34B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F34B.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍐</Utf8Code>
+    <Utf32Code>0x1F350</Utf32Code>
+    <ClientCode>/?1F350</ClientCode>
+    <Description>emoji</Description>
+    <File>1F350.png</File>
+</Item>
+<Item>
+    <Utf8Code>🍼</Utf8Code>
+    <Utf32Code>0x1F37C</Utf32Code>
+    <ClientCode>/?1F37C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F37C.png</File>
+</Item>
+<Item>
+    <Utf8Code>🏇</Utf8Code>
+    <Utf32Code>0x1F3C7</Utf32Code>
+    <ClientCode>/?1F3C7</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3C7.png</File>
+</Item>
+<Item>
+    <Utf8Code>🏉</Utf8Code>
+    <Utf32Code>0x1F3C9</Utf32Code>
+    <ClientCode>/?1F3C9</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3C9.png</File>
+</Item>
+<Item>
+    <Utf8Code>🏤</Utf8Code>
+    <Utf32Code>0x1F3E4</Utf32Code>
+    <ClientCode>/?1F3E4</ClientCode>
+    <Description>emoji</Description>
+    <File>1F3E4.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐀</Utf8Code>
+    <Utf32Code>0x1F400</Utf32Code>
+    <ClientCode>/?1F400</ClientCode>
+    <Description>emoji</Description>
+    <File>1F400.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐁</Utf8Code>
+    <Utf32Code>0x1F401</Utf32Code>
+    <ClientCode>/?1F401</ClientCode>
+    <Description>emoji</Description>
+    <File>1F401.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐂</Utf8Code>
+    <Utf32Code>0x1F402</Utf32Code>
+    <ClientCode>/?1F402</ClientCode>
+    <Description>emoji</Description>
+    <File>1F402.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐃</Utf8Code>
+    <Utf32Code>0x1F403</Utf32Code>
+    <ClientCode>/?1F403</ClientCode>
+    <Description>emoji</Description>
+    <File>1F403.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐄</Utf8Code>
+    <Utf32Code>0x1F404</Utf32Code>
+    <ClientCode>/?1F404</ClientCode>
+    <Description>emoji</Description>
+    <File>1F404.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐅</Utf8Code>
+    <Utf32Code>0x1F405</Utf32Code>
+    <ClientCode>/?1F405</ClientCode>
+    <Description>emoji</Description>
+    <File>1F405.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐆</Utf8Code>
+    <Utf32Code>0x1F406</Utf32Code>
+    <ClientCode>/?1F406</ClientCode>
+    <Description>emoji</Description>
+    <File>1F406.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐇</Utf8Code>
+    <Utf32Code>0x1F407</Utf32Code>
+    <ClientCode>/?1F407</ClientCode>
+    <Description>emoji</Description>
+    <File>1F407.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐈</Utf8Code>
+    <Utf32Code>0x1F408</Utf32Code>
+    <ClientCode>/?1F408</ClientCode>
+    <Description>emoji</Description>
+    <File>1F408.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐉</Utf8Code>
+    <Utf32Code>0x1F409</Utf32Code>
+    <ClientCode>/?1F409</ClientCode>
+    <Description>emoji</Description>
+    <File>1F409.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐊</Utf8Code>
+    <Utf32Code>0x1F40A</Utf32Code>
+    <ClientCode>/?1F40A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F40A.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐋</Utf8Code>
+    <Utf32Code>0x1F40B</Utf32Code>
+    <ClientCode>/?1F40B</ClientCode>
+    <Description>emoji</Description>
+    <File>1F40B.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐏</Utf8Code>
+    <Utf32Code>0x1F40F</Utf32Code>
+    <ClientCode>/?1F40F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F40F.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐐</Utf8Code>
+    <Utf32Code>0x1F410</Utf32Code>
+    <ClientCode>/?1F410</ClientCode>
+    <Description>emoji</Description>
+    <File>1F410.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐓</Utf8Code>
+    <Utf32Code>0x1F413</Utf32Code>
+    <ClientCode>/?1F413</ClientCode>
+    <Description>emoji</Description>
+    <File>1F413.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐕</Utf8Code>
+    <Utf32Code>0x1F415</Utf32Code>
+    <ClientCode>/?1F415</ClientCode>
+    <Description>emoji</Description>
+    <File>1F415.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐖</Utf8Code>
+    <Utf32Code>0x1F416</Utf32Code>
+    <ClientCode>/?1F416</ClientCode>
+    <Description>emoji</Description>
+    <File>1F416.png</File>
+</Item>
+<Item>
+    <Utf8Code>🐪</Utf8Code>
+    <Utf32Code>0x1F42A</Utf32Code>
+    <ClientCode>/?1F42A</ClientCode>
+    <Description>emoji</Description>
+    <File>1F42A.png</File>
+</Item>
+<Item>
+    <Utf8Code>👥</Utf8Code>
+    <Utf32Code>0x1F465</Utf32Code>
+    <ClientCode>/?1F465</ClientCode>
+    <Description>emoji</Description>
+    <File>1F465.png</File>
+</Item>
+<Item>
+    <Utf8Code>👬</Utf8Code>
+    <Utf32Code>0x1F46C</Utf32Code>
+    <ClientCode>/?1F46C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F46C.png</File>
+</Item>
+<Item>
+    <Utf8Code>👭</Utf8Code>
+    <Utf32Code>0x1F46D</Utf32Code>
+    <ClientCode>/?1F46D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F46D.png</File>
+</Item>
+<Item>
+    <Utf8Code>💭</Utf8Code>
+    <Utf32Code>0x1F4AD</Utf32Code>
+    <ClientCode>/?1F4AD</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4AD.png</File>
+</Item>
+<Item>
+    <Utf8Code>💶</Utf8Code>
+    <Utf32Code>0x1F4B6</Utf32Code>
+    <ClientCode>/?1F4B6</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4B6.png</File>
+</Item>
+<Item>
+    <Utf8Code>💷</Utf8Code>
+    <Utf32Code>0x1F4B7</Utf32Code>
+    <ClientCode>/?1F4B7</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4B7.png</File>
+</Item>
+<Item>
+    <Utf8Code>📬</Utf8Code>
+    <Utf32Code>0x1F4EC</Utf32Code>
+    <ClientCode>/?1F4EC</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4EC.png</File>
+</Item>
+<Item>
+    <Utf8Code>📭</Utf8Code>
+    <Utf32Code>0x1F4ED</Utf32Code>
+    <ClientCode>/?1F4ED</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4ED.png</File>
+</Item>
+<Item>
+    <Utf8Code>📯</Utf8Code>
+    <Utf32Code>0x1F4EF</Utf32Code>
+    <ClientCode>/?1F4EF</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4EF.png</File>
+</Item>
+<Item>
+    <Utf8Code>📵</Utf8Code>
+    <Utf32Code>0x1F4F5</Utf32Code>
+    <ClientCode>/?1F4F5</ClientCode>
+    <Description>emoji</Description>
+    <File>1F4F5.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔀</Utf8Code>
+    <Utf32Code>0x1F500</Utf32Code>
+    <ClientCode>/?1F500</ClientCode>
+    <Description>emoji</Description>
+    <File>1F500.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔁</Utf8Code>
+    <Utf32Code>0x1F501</Utf32Code>
+    <ClientCode>/?1F501</ClientCode>
+    <Description>emoji</Description>
+    <File>1F501.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔂</Utf8Code>
+    <Utf32Code>0x1F502</Utf32Code>
+    <ClientCode>/?1F502</ClientCode>
+    <Description>emoji</Description>
+    <File>1F502.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔄</Utf8Code>
+    <Utf32Code>0x1F504</Utf32Code>
+    <ClientCode>/?1F504</ClientCode>
+    <Description>emoji</Description>
+    <File>1F504.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔅</Utf8Code>
+    <Utf32Code>0x1F505</Utf32Code>
+    <ClientCode>/?1F505</ClientCode>
+    <Description>emoji</Description>
+    <File>1F505.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔆</Utf8Code>
+    <Utf32Code>0x1F506</Utf32Code>
+    <ClientCode>/?1F506</ClientCode>
+    <Description>emoji</Description>
+    <File>1F506.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔇</Utf8Code>
+    <Utf32Code>0x1F507</Utf32Code>
+    <ClientCode>/?1F507</ClientCode>
+    <Description>emoji</Description>
+    <File>1F507.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔉</Utf8Code>
+    <Utf32Code>0x1F509</Utf32Code>
+    <ClientCode>/?1F509</ClientCode>
+    <Description>emoji</Description>
+    <File>1F509.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔕</Utf8Code>
+    <Utf32Code>0x1F515</Utf32Code>
+    <ClientCode>/?1F515</ClientCode>
+    <Description>emoji</Description>
+    <File>1F515.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔬</Utf8Code>
+    <Utf32Code>0x1F52C</Utf32Code>
+    <ClientCode>/?1F52C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F52C.png</File>
+</Item>
+<Item>
+    <Utf8Code>🔭</Utf8Code>
+    <Utf32Code>0x1F52D</Utf32Code>
+    <ClientCode>/?1F52D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F52D.png</File>
+</Item>
+<Item>
+    <Utf8Code>🕜</Utf8Code>
+    <Utf32Code>0x1F55C</Utf32Code>
+    <ClientCode>/?1F55C</ClientCode>
+    <Description>emoji</Description>
+    <File>1F55C.png</File>
+</Item>
+<Item>
+    <Utf8Code>🕝</Utf8Code>
+    <Utf32Code>0x1F55D</Utf32Code>
+    <ClientCode>/?1F55D</ClientCode>
+    <Description>emoji</Description>
+    <File>1F55D.png</File>
+</Item>
+<Item>
+    <Utf8Code>🕞</Utf8Code>
+    <Utf32Code>0x1F55E</Utf32Code>
+    <ClientCode>/?1F55E</ClientCode>
+    <Description>emoji</Description>
+    <File>1F55E.png</File>
+</Item>
+<Item>
+    <Utf8Code>🕟</Utf8Code>
+    <Utf32Code>0x1F55F</Utf32Code>
+    <ClientCode>/?1F55F</ClientCode>
+    <Description>emoji</Description>
+    <File>1F55F.png</File>
+</Item>
+<Item>
+    <Utf8Code>🕠</Utf8Code>
+    <Utf32Code>0x1F560</Utf32Code>
+    <ClientCode>/?1F560</ClientCode>
+    <Description>emoji</Description>
+    <File>1F560.png</File>
+</Item>
+<Item>
+    <Utf8Code>🕡</Utf8Code>
+    <Utf32Code>0x1F561</Utf32Code>
+    <ClientCode>/?1F561</ClientCode>
+    <Description>emoji</Description>
+    <File>1F561.png</File>
+</Item>
+<Item>
+    <Utf8Code>🕢</Utf8Code>
+    <Utf32Code>0x1F562</Utf32Code>
+    <ClientCode>/?1F562</ClientCode>
+    <Description>emoji</Description>
+    <File>1F562.png</File>
+</Item>
+<Item>
+    <Utf8Code>🕣</Utf8Code>
+    <Utf32Code>0x1F563</Utf32Code>
+    <ClientCode>/?1F563</ClientCode>
+    <Description>emoji</Description>
+    <File>1F563.png</File>
+</Item>
+<Item>
+    <Utf8Code>🕤</Utf8Code>
+    <Utf32Code>0x1F564</Utf32Code>
+    <ClientCode>/?1F564</ClientCode>
+    <Description>emoji</Description>
+    <File>1F564.png</File>
+</Item>
+<Item>
+    <Utf8Code>🕥</Utf8Code>
+    <Utf32Code>0x1F565</Utf32Code>
+    <ClientCode>/?1F565</ClientCode>
+    <Description>emoji</Description>
+    <File>1F565.png</File>
+</Item>
+<Item>
+    <Utf8Code>🕦</Utf8Code>
+    <Utf32Code>0x1F566</Utf32Code>
+    <ClientCode>/?1F566</ClientCode>
+    <Description>emoji</Description>
+    <File>1F566.png</File>
+</Item>
+<Item>
+    <Utf8Code>🕧</Utf8Code>
+    <Utf32Code>0x1F567</Utf32Code>
+    <ClientCode>/?1F567</ClientCode>
+    <Description>emoji</Description>
+    <File>1F567.png</File>
+</Item>
+</xparam>

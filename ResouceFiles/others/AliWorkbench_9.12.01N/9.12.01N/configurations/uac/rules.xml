@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- 规则不包含的默认表示符合规则 -->
+<RuleMap>
+	<!-- 定义了亮灯来自于网站的呼叫 -->
+	<!-- shell 必须包含特定的参数，当不符合的时候按照uc也要记录 -->
+	<Rules id="shell.aliim:sendmsg">
+		<Rule>
+			<Input>uactrace</Input>
+			<Action>Log</Action>
+		</Rule>
+		<DefaultAction>Log</DefaultAction>
+	</Rules>
+
+	<!-- 图片上传 -->
+	<!-- shell 必须包含特定的参数，当不符合的时候按照uc丢弃 -->
+	<Rules id="shell.aliim:sendappcmd">
+		<Rule>
+			<Input>appid=1685</Input>
+			<Action>Log</Action>
+		</Rule>
+		<DefaultAction>Discard</DefaultAction>
+	</Rules>
+
+	<!-- e客服 -->
+	<Rules id="plugin.9.17392.0">
+		<Rule>
+			<Action>Forward</Action>
+			<Forward>
+							<UACKey>main.toppanel.eservice</UACKey> 
+			</Forward>
+		</Rule>
+	</Rules>
+
+	<Rules id="plugin.4.12655.4">
+		<Rule>
+			<Action>Forward</Action>
+			<Forward>
+							<UACKey>chatdlg.useuutranslation</UACKey> 
+			</Forward>
+		</Rule>
+	</Rules>
+
+	<Rules id="plugin.9.-1.1">
+		<Rule>
+			<Action>Forward</Action>
+			<Forward>
+							<UACKey>main.toppanel.mysoftware</UACKey> 
+			</Forward>
+		</Rule>
+	</Rules>
+</RuleMap>

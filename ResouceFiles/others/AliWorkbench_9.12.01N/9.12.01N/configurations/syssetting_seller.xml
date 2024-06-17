@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xparam>
+<item id="ShowLeftBar">1</item>
+<item id="RejectChildAccount">1</item>
+<item id="DisableAV">0</item>
+<item id="DisableRemoteassistant">0</item>
+<item id="PersonalCleanSize">500</item>
+<item id="SkinConfig"><![CDATA[<xparam><color_hsl>1684275380</color_hsl><texturl>null</texturl><currentSuiteID></currentSuiteID><lastclicktype>0</lastclicktype></xparam>]]></item>
+<item id="HotKey"><![CDATA[[{"buse":true,"fsModifiers":6,"name":"chatdialog","vk":88},{"buse":true,"fsModifiers":6,"name":"mainwindow","vk":87},{"buse":true,"fsModifiers":6,"name":"screencapture","vk":80},{"buse":true,"fsModifiers":6,"name":"tribechat","vk":81}]]]></item>
+<item id="FileTransferSet"><![CDATA[<xparam><bFileRemind>1</bFileRemind><bFolderRemind>1</bFolderRemind><bZipRemind>1</bZipRemind><bSaveTmpFile>1</bSaveTmpFile><lFileSecuritySet>0</lFileSecuritySet></xparam>]]></item>
+<item id="EServiceRemindMe">1</item>
+<item id="EServiceRemindWaitingTime">60</item>
+<item id="EServiceAutoClose">0</item>
+<item id="NoSound">0</item>
+<item id="NeedsProfileCheck">1</item>
+<item id="EServiceAutoCloseTime">1</item>
+<item id="EServiceChatSwitchUnreplyFirst">1</item>
+<item id="EServiceNewMsgBkgnd">yellow</item>
+<item id="JoinTribeFlash">1</item>
+</xparam>

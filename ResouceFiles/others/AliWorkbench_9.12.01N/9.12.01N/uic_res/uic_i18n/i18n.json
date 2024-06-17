@@ -1,0 +1,18 @@
+{
+    "locales":
+    [
+        {
+            "name": "zh_CN",
+            "file": "zh_CN.xml"
+        },
+        {
+            "name": "zh_TW",
+            "file": "zh_TW.xml"
+        },
+        {
+            "name": "en_US",
+            "file": "en.xml"
+        }
+    ],
+    "defaultLocale":"zh_CN"
+}

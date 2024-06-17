@@ -67,7 +67,8 @@ namespace csr_windows.Client.ViewModels.Main
             //这里首先有三个判断
 
             //第一个判断是否启动了千牛
-            bool isRunning = FollowWindowHelper.IsProcessRunning(FollowWindowHelper.ProcessName);
+            FollowWindowHelper.RunQNProcessAtVersion(9, 12);
+            bool isRunning = true;
 
             if (isRunning)
             {

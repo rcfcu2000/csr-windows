@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<network_api_rule>
+  <ratio>1000</ratio>
+  <ratio_upload_per_top_api>10</ratio_upload_per_top_api>
+  <ratio_upload_per_jdy_api>3</ratio_upload_per_jdy_api>
+</network_api_rule>

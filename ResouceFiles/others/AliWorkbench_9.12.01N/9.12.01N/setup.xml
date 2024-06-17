@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<setup>
+	<install>
+		<reg>
+			<item key="HKEY_LOCAL_MACHINE" subkey="SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\AliWorkbench.exe" name="Path" type="REG_SZ" value="$INSTDIR" />
+			<item key="HKEY_CURRENT_USER" subkey="SOFTWARE\Classes\aliim" name="URL Protocol" type="REG_SZ" value="" />
+			<item key="HKEY_CURRENT_USER" subkey="SOFTWARE\Classes\aliim\Shell" name="" type="REG_SZ" value="" />
+			<item key="HKEY_CURRENT_USER" subkey="SOFTWARE\Classes\aliim\Shell\Open" name="" type="REG_SZ" value="" />
+			<item key="HKEY_CURRENT_USER" subkey="SOFTWARE\Classes\aliim\Shell\Open\Command" name="" type="REG_SZ" value="'$INSTDIR\$VERSION\wwcmd.exe' %1" />
+			<item key="HKEY_CURRENT_USER" subkey="SOFTWARE\Microsoft\Internet Explorer\ProtocolExecute\aliim" name="WarnOnOpen" type="REG_DWORD" value="0" />
+			<item key="HKEY_CLASSES_ROOT" subkey=".阿里旺旺接收的可疑文件" name="" type="REG_SZ" value="AliFileCheck.File" />
+			<item key="HKEY_CLASSES_ROOT" subkey="AliFileCheck.File" name="" type="REG_SZ" value="" />
+			<item key="HKEY_CLASSES_ROOT" subkey="AliFileCheck.File\DefaultIcon" name="" type="REG_SZ" value="$INSTDIR\$VERSION\AliFileCheck.exe,1" />
+			<item key="HKEY_CLASSES_ROOT" subkey="AliFileCheck.File\shell" name="" type="REG_SZ" value="" />
+			<item key="HKEY_CLASSES_ROOT" subkey="AliFileCheck.File\shell\open" name="" type="REG_SZ" value="" />
+			<item key="HKEY_CLASSES_ROOT" subkey="AliFileCheck.File\shell\open\command" name="" type="REG_SZ" value="'$INSTDIR\$VERSION\AliFileCheck.exe' '%1'" />
+			<item key="HKEY_CLASSES_ROOT" subkey=".emo" name="" type="REG_SZ" value="AliIM.Emotion" />
+			<item key="HKEY_CLASSES_ROOT" subkey="AliIM.Emotion" name="" type="REG_SZ" value="" />
+			<item key="HKEY_CLASSES_ROOT" subkey="AliIM.Emotion\DefaultIcon" name="" type="REG_SZ" value="$INSTDIR\$VERSION\AliIMEmotion.ico"/>
+			<item key="HKEY_CLASSES_ROOT" subkey="AliIM.Emotion\shell" name="" type="REG_SZ" value=""/>
+			<item key="HKEY_CLASSES_ROOT" subkey="AliIM.Emotion\shell\open" name="" type="REG_SZ" value=""/>
+			<item key="HKEY_CLASSES_ROOT" subkey="AliIM.Emotion\shell\open\command" name="" type="REG_SZ" value="'$INSTDIR\$VERSION\wwcmd.exe' '%1'"/>
+			<item key="HKEY_LOCAL_MACHINE" subkey="Software\Microsoft\Windows\CurrentVersion\Uninstall\千牛工作台" name="DisplayIcon" type="REG_SZ" value="$INSTDIR\Uninstall.exe" />
+			<item key="HKEY_LOCAL_MACHINE" subkey="Software\Microsoft\Windows\CurrentVersion\Uninstall\千牛工作台" name="DisplayName" type="REG_SZ" value="千牛工作台" />
+			<item key="HKEY_LOCAL_MACHINE" subkey="Software\Microsoft\Windows\CurrentVersion\Uninstall\千牛工作台" name="Publisher" type="REG_SZ" value="阿里巴巴（中国）有限公司" />
+			<item key="HKEY_LOCAL_MACHINE" subkey="Software\Microsoft\Windows\CurrentVersion\Uninstall\千牛工作台" name="DisplayVersion" type="REG_SZ" value="$VERSION" />
+			<item key="HKEY_LOCAL_MACHINE" subkey="Software\Microsoft\Windows\CurrentVersion\Uninstall\千牛工作台" name="UninstallString" type="REG_SZ" value="$INSTDIR\Uninstall.exe" />
+			<item key="HKEY_LOCAL_MACHINE" subkey="Software\Microsoft\Windows\CurrentVersion\Uninstall\千牛工作台" name="InstallLocation" type="REG_SZ" value="$INSTDIR" />
+			<item key="HKEY_LOCAL_MACHINE" subkey="Software\Microsoft\Windows\CurrentVersion\Uninstall\千牛工作台" name="NoModify" type="REG_DWORD" value="1" />
+			<item key="HKEY_LOCAL_MACHINE" subkey="Software\Microsoft\Windows\CurrentVersion\Uninstall\千牛工作台" name="NoRepair" type="REG_DWORD" value="1" />
+		</reg>
+		<desktopicon>
+			<item file="$INSTDIR\AliWorkbench.exe" link="千牛工作台.lnk" cmd="/run:desktop"/>
+		</desktopicon>
+		<startmenu>
+			<item file="$INSTDIR\AliWorkbench.exe" link="千牛工作台\千牛工作台.lnk" cmd="/run:winmenu"/>
+			<item file="$INSTDIR\Uninstall.exe" link="千牛工作台\卸载千牛工作台.lnk" cmd="/run:winmenu"/>
+		</startmenu>
+		<process>
+            <item path="$INSTDIR\$VERSION\SafeGuard\AlibabaProtectCon.exe" param="/local_load '$INSTDIR\$VERSION\SafeGuard\pc-sdk-setup.exe' '$INSTDIR'"  wait="15000" show="0"/>
+			<item path="$INSTDIR\AliWorkbench.exe" param="/addtask" wait="2000" show="0"/>
+			<item path="$INSTDIR\AliWorkbench.exe" param="/cleansdk /nouaccheck" wait="5000" show="0"/>
+			<item path="$INSTDIR\$VERSION\EndProcess.exe" param="IMClient-RV" wait="5000" show="0"/>
+            <item path="$INSTDIR\$VERSION\aliimfix.exe" param="-S -fix=aliimx" show="0"/>
+			<item path="$INSTDIR\$VERSION\aliedit_m.exe" param="/S" wait="5000" show="0"/>
+			<item path="$INSTDIR\$VERSION\wwbizsrv.exe" param="/install /path:'$INSTDIR'" show="0"/>
+			<item path="$INSTDIR\$VERSION\arphaCrashReport.exe" param='"--arpha_winlocaldumpexe=AliWorkbench.exe" "--arpha_winlocaldumpdir=AliWorkbench\dumps_by_win"' show="0"/>
+			<item path="$INSTDIR\$VERSION\wwst32.exe" param="invoker sysfilecheck" wait="5000" show="0"/>
+			<item path="$INSTDIR\$VERSION\wwst32.exe" param="user sreg path='$INSTDIR\AliWorkbench.exe'" wait="5000" show="0"/>
+		</process>
+	</install>
+	
+	<uninstall>
+		<reg>
+			<item key="HKEY_CLASSES_ROOT" subkeyname=".emo"/>
+			<item key="HKEY_CLASSES_ROOT" subkey="AliIM.Emotion\shell\open" subkeyname="command"/>
+			<item key="HKEY_CLASSES_ROOT" subkey="AliIM.Emotion\shell" subkeyname="open"/>
+			<item key="HKEY_CLASSES_ROOT" subkey="AliIM.Emotion" subkeyname="shell"/>
+			<item key="HKEY_CLASSES_ROOT" subkey="AliIM.Emotion" subkeyname="DefaultIcon" />
+			<item key="HKEY_CLASSES_ROOT" subkeyname="AliIM.Emotion"/>
+			<item key="HKEY_CLASSES_ROOT" subkey=".阿里旺旺接收的可疑文件"/>
+			<item key="HKEY_CLASSES_ROOT" subkey="AliFileCheck.File\shell\open" subkeyname="command"/>
+			<item key="HKEY_CLASSES_ROOT" subkey="AliFileCheck.File\shell" subkeyname="open"/>
+			<item key="HKEY_CLASSES_ROOT" subkey="AliFileCheck.File" subkeyname="shell"/>
+			<item key="HKEY_CLASSES_ROOT" subkey="AliFileCheck.File" subkeyname="DefaultIcon" />
+			<item key="HKEY_CLASSES_ROOT" subkeyname="AliFileCheck.File"/>
+			<item key="HKEY_LOCAL_MACHINE" subkey="Software\Microsoft\Windows\CurrentVersion\Uninstall\千牛工作台" name="DisplayIcon" />
+			<item key="HKEY_LOCAL_MACHINE" subkey="Software\Microsoft\Windows\CurrentVersion\Uninstall\千牛工作台" name="DisplayName" />
+			<item key="HKEY_LOCAL_MACHINE" subkey="Software\Microsoft\Windows\CurrentVersion\Uninstall\千牛工作台" name="Publisher"/>
+			<item key="HKEY_LOCAL_MACHINE" subkey="Software\Microsoft\Windows\CurrentVersion\Uninstall\千牛工作台" name="DisplayVersion" />
+			<item key="HKEY_LOCAL_MACHINE" subkey="Software\Microsoft\Windows\CurrentVersion\Uninstall\千牛工作台" name="UninstallString" />
+			<item key="HKEY_LOCAL_MACHINE" subkey="Software\Microsoft\Windows\CurrentVersion\Uninstall\千牛工作台" name="InstallLocation"/>
+			<item key="HKEY_LOCAL_MACHINE" subkey="Software\Microsoft\Windows\CurrentVersion\Uninstall\千牛工作台" name="NoModify" />
+			<item key="HKEY_LOCAL_MACHINE" subkey="Software\Microsoft\Windows\CurrentVersion\Uninstall\千牛工作台" name="NoRepair" />
+			<item key="HKEY_LOCAL_MACHINE" subkey="Software\Microsoft\Windows\CurrentVersion\Uninstall" subkeyname="千牛工作台" />
+			<item key="HKEY_LOCAL_MACHINE" subkey="SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths" subkeyname="AliWorkbench.exe"/>
+		</reg>
+		<desktopicon>
+			<item link="千牛工作台.lnk" />
+		</desktopicon>
+		<startmenu>
+			<item link="千牛工作台\千牛工作台.lnk" />
+			<item link="千牛工作台\卸载千牛工作台.lnk"/>
+			<item link="千牛工作台"/>
+		</startmenu>
+		<process>
+			<item path="$INSTDIR\AliWorkbench.exe" param="/removetask" wait="5000" show="0"/>
+			<item path="$INSTDIR\AliWorkbench.exe" param="/uninstall" wait="5000" show="0"/>
+		</process>
+		<file>
+			<item path="$INSTDIR\$VERSION" />
+			<item path="$INSTDIR\profiles" />
+			<item path="$INSTDIR\new" />
+			<item path="$INSTDIR\AliWorkbench.exe" />
+			<item path="$INSTDIR\AliWorkbench.exe.manifest" />
+			<item path="$INSTDIR\AliWorkbench.ini" />
+			<item path="$INSTDIR\AliWorkbench.RPT" />
+			<item path="$INSTDIR\AliWorkbenchTask.exe" />
+			<item path="$INSTDIR\DataConfig.ini" />
+		</file>
+	</uninstall>
+</setup>

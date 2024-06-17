@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xparam>	
+  <MsgItem>im.slot.menuitemclick</MsgItem>
+  <MsgItem>im.slot.importantpanelslotcreated</MsgItem>
+  <MsgItem>im.slot.importantpanelslotdestroyed</MsgItem>
+	<MsgItem>im.slot.topimportantpanelslotcreated</MsgItem>
+  <MsgItem>im.slot.topimportantpanelslotdestroyed</MsgItem>
+  <MsgItem>im.slot.itemclicked</MsgItem>
+  <MsgItem>ims.ui.cd.ChatDlgCreated</MsgItem>
+  <MsgItem>ims.ui.cd.ChatDlgDestroyed</MsgItem>
+  <MsgItem>ims.ui.cd.MainToolbarSlotCreated</MsgItem>
+  <MsgItem>ims.ui.cd.MainToolbarSlotDestroyed</MsgItem>
+  <MsgItem>ims.ui.cd.InputToolbarSlotCreated</MsgItem>
+  <MsgItem>ims.ui.cd.InputToolbarSlotDestroyed</MsgItem>
+  <MsgItem>ims.ui.cd.ExternTabSlotCreated</MsgItem>
+  <MsgItem>ims.ui.cd.ExternTabSlotDestroyed</MsgItem>
+  <MsgItem>ims.mainmenu.popupbegin</MsgItem>
+  <MsgItem>im.biz.login.loginok</MsgItem>
+  <MsgItem>im.disconnect</MsgItem>
+  <MsgItem>ims.mainmenu.destroyed</MsgItem>
+  <MsgItem>ims.mainmenu.popup.offline</MsgItem>
+  <MsgItem>ims.ui.cn.TextMessage</MsgItem>
+  <MsgItem>im.ui.cd.NotifyPlugItemMessage</MsgItem>
+  
+  <MsgItem>ims.ui.cd.EServiceDlgCreated</MsgItem>
+  <MsgItem>ims.ui.cd.EServiceDlgDestroyed</MsgItem>
+  <MsgItem>ims.ui.cd.EService_InputToolbarSlotCreated</MsgItem>
+  <MsgItem>ims.ui.cd.EService_InputToolbarSlotDestroyed</MsgItem>
+
+  <MsgItem>ims.ui.tribe.cd.ChatDlgCreated</MsgItem>
+  <MsgItem>ims.ui.tribe.cd.ChatDlgDestroyed</MsgItem>
+  <MsgItem>ims.ui.tribe.cd.MainToolbarSlotCreated</MsgItem>
+  <MsgItem>ims.ui.tribe.cd.MainToolbarSlotDestroyed</MsgItem>
+  <MsgItem>ims.ui.tribe.cd.InputToolbarSlotCreated</MsgItem>
+  <MsgItem>ims.ui.tribe.cd.InputToolbarSlotDestroyed</MsgItem>
+  <MsgItem>ims.sdk.delayloadfinish</MsgItem>
+  <MsgItem>ims.sdk.internalplugin.uimsg</MsgItem>
+  <MsgItem>ims.sdk.callplugin</MsgItem>
+  <MsgItem>im.sdk.notifycustommessage</MsgItem>
+  <MsgItem>im.biz.u2u.recv.custom</MsgItem>
+  <MsgItem>im.sdk.p2p.message</MsgItem>
+  <MsgItem>im.sdk.p2p.senderror</MsgItem>
+  <MsgItem>im.biz.cmddisp.shellnotify.aliim.plugin_invite</MsgItem>
+  <MsgItem>ims.ui.cd.ContactSessionClosed</MsgItem>
+  
+</xparam>

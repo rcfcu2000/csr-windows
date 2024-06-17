@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ADConfig>
+  <allADRefresh>http://po.im.alisoft.com/po?type=chatRemind&amp;show_type=.xml&amp;return_type=code</allADRefresh>
+  <!--<allBannerRefresh>http://po.im.alisoft.com/po?type=sKey_chatBanner,friendBanner&amp;show_type=.xml&amp;return_type=code</allBannerRefresh>-->
+  <newAdRefresh>http://ecpm.tanx.com/ex?</newAdRefresh>
+  <ShowMainBanner>0</ShowMainBanner>
+</ADConfig>

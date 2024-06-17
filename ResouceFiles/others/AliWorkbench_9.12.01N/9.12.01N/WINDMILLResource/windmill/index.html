@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="manifest" href="manifest.json" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0, viewport-fit=cover"/>
+  <link rel="stylesheet" href="https://appx/af-appx.min.css" />
+  <script src="https://appx/ext.service.js"></script>
+</head>
+<body>
+<div id="__react-content"></div>
+<script>
+  if (!window.Promise) {
+    document.writeln('<script src="https://gw.alipayobjects.com/as/g/appx_release/deps/1.0.1/es6-promise.js#nebula-addcors" crossorigin' + '>' + '<' + '/' + 'script>');
+  }
+  if (!window.Set || !window.Map) {
+    document.writeln('<script src="https://gw.alipayobjects.com/as/g/appx_release/deps/1.0.0/es6-set-map.js#nebula-addcors" crossorigin' + '>' + '<' + '/' + 'script>');
+  }
+</script>
+<script>
+  if(self.ES6Promise) {
+    self.ES6Promise.polyfill();
+  }
+</script>
+<!-- start path=https://appx/af-appx.min.js -->
+<script src="https://appx/af-appx.min.js#nebula-addcors" crossorigin
+ data-from="appx"></script>
+<!-- end -->
+<!-- start path=index.js -->
+<script src="https://appx/miniapp-components.js"></script>
+<script src="./index.js"></script>
+<!-- end -->
+<script>
+  (function () {
+    function onReady(callback) {
+      document.addEventListener('AlipayJSBridgeReady', function () {
+
+        callback({
+          bridge: window.AlipayJSBridge
+        });
+      });
+    }
+
+    window.bootstrapApp({
+      worker:'index.worker.js?version=ce107e7319c3c46ad19a93fc3ab5f156',
+      onReady: onReady
+    });
+  })();
+  
+  (function () {
+    document.addEventListener('AlipayAppStart', function () {
+	
+	console.log("i come to here111")
+    var script = document.createElement('script');
+
+      script.src = './index.js';
+      document.head.appendChild(script);
+      script.onload = function () {
+
+        document.dispatchEvent(new Event('AlipayJSBridgeReady'))
+
+      }
+
+    })
+
+  })();
+</script>
+</body>
+</html>

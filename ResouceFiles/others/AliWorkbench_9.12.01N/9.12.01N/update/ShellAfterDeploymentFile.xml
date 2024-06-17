@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
+<configs>
+  <item type="file" requestAccess = 'high' md5check='false' needWaitProccessExit='true' cmd=' /local_load "%VERSIONPATH%SafeGuard\pc-sdk-setup.exe" "%INSTALLPATH%"'>SafeGuard\AlibabaProtectCon.exe</item>
+</configs>

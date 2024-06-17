@@ -1,0 +1,14 @@
+<xparam>
+	<enablehook>1</enablehook>
+	<noHookList>https://trade.1688.com/order/seller_send_goods_order_print.htm</noHookList>
+	<noHookList>https://trade.1688.com/order/seller_order_print.htm</noHookList>
+	<noHookList>https://seller.ltaobuy.com/portal/investment</noHookList>
+	<noHookList>.alibaba-inc.com</noHookList>
+	<noHookList>.aliway.com</noHookList>
+	<noHookList>.alibaba.net</noHookList>
+	<noHookList>.taobao.org</noHookList>
+	<noHookList>.taobao.net</noHookList>
+	<noHookList>.atatech.org</noHookList>
+	<noHookList>.im.alisoft.com</noHookList>
+	<noHookList>//lark.alipay.com</noHookList>
+</xparam>

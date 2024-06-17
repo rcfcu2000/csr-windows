@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<staticconfigs>
+  <item id="VersionString">14.12.01T</item>
+  <item id="QNVersionString">9.12.01N</item>
+  <item id="QNBuildIdString">3385</item>
+  <item id="QNBuildNameString">ci.qianniu.manual.dabaoSSD</item>
+  <item id="QNBuildCommitString">57ce0d09bf9d3ff75f721d20e9169f58fcdf1b06</item>
+  <item id="QNBuildBranchString">feature/qtc_9.12.0xN</item>
+  <item id="QNBuildEnvironmentString">Release</item>
+	<item id="QNSDKVersionString">107006</item>
+	<item id="ExeFileName">AliWorkbench.exe</item>
+	<item id="AutoRL">75</item>
+	<item id="LgTOut">20</item>
+	<item id="HttpTimo">15</item>
+	<item id="NewIntroduce">0</item>
+	<item id="BottomFuncPanelSlotHeight">27</item>
+	<!--VersionMode版本的格式，0表示普通版本，1表示OpenIM版本-->
+	<item id="VersionMode">0</item>
+	<version_context cntaobao="trader" default="trader" default_site="cntaobao">
+		<compatible>
+			<trader/>
+		</compatible>
+	</version_context>
+</staticconfigs>

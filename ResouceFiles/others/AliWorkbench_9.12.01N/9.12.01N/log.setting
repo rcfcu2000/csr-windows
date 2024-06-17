@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<setting>
+  <!--"INFO", "WARNING", "ERROR"-->
+  <logLevel>WARNING</logLevel>
+  <filesize>50485760</filesize>
+  <replace_assert>0</replace_assert>
+  <enable_process_id>1</enable_process_id>
+  <enable_thread_id>1</enable_thread_id>
+  <enable_timestamp>1</enable_timestamp>
+  <enable_tickcount>1</enable_tickcount>
+  <enable_filename>0</enable_filename>
+  <!--other log file-->
+  <categoryConfig>
+    <categorys>
+      <filename>TCMChannelService</filename>
+    </categorys>
+   </categoryConfig>
+</setting>
+

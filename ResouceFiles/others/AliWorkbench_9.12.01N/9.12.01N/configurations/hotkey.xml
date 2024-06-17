@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hotkey>
+  <hk>
+	  <name>chatdialog</name>
+	  <fsModifiers>6</fsModifiers>
+	  <vk>88</vk>
+	  <buse>1</buse>
+  </hk>
+  <hk>
+	  <name>mainwindow</name>
+	  <fsModifiers>6</fsModifiers>
+	  <vk>87</vk>
+	  <buse>1</buse>
+  </hk>
+  <hk>
+	  <name>screencapture</name>
+	  <fsModifiers>6</fsModifiers>
+	  <vk>65</vk>
+	  <buse>1</buse>
+  </hk>
+  <hk>
+	  <name>msgcenter</name>
+	  <fsModifiers>6</fsModifiers>
+	  <vk>77</vk>
+	  <buse>1</buse>
+  </hk>
+  <hk>
+	  <name>floatbarsearch</name>
+	  <fsModifiers>6</fsModifiers>
+	  <vk>84</vk>
+	  <buse>1</buse>
+  </hk>
+</hotkey>

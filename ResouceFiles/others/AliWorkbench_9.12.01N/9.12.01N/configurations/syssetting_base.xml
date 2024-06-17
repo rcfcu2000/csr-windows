@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xparam>
+<item id="ChatRecentMsgs"><![CDATA[<xparam><show>1</show><num>20</num></xparam>]]></item>
+<item id="CombineShowMsg">1</item>
+<item id="ContactListViewMode">0</item>
+<item id="DailyNewsShowSet"><![CDATA[<xparam><m_scheme>1</m_scheme><m_last_time></m_last_time></xparam>]]></item>
+<item id="DisableShake">0</item>
+<item id="DragMergeChatDlg">1</item>
+<item id="HideMainframeWhenSiding">1</item>
+<item id="Longidle2idlestatus"><![CDATA[<xparam><set>1</set><time>5</time></xparam>]]></item>
+<item id="OnlineContactsFirst">1</item>
+<item id="QuitConfirm">1</item>
+<item id="RecentUpLmt">50</item>
+<item id="RecvGroupSendStrategy">1</item>
+<item id="RecvNoPic">0</item>
+<item id="SendIMShortKey">1</item>
+<item id="ShowContactSignature">1</item>
+<item id="ShowPersonalHeadImg">1</item>
+<item id="StrangerUpLmt">50</item>
+<item id="MultiChatConfirmOption">1</item>
+<item id="NotifyAtMyself">1</item>
+</xparam>

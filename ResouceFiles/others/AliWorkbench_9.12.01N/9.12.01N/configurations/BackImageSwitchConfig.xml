@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xparam>
+	<BakImgItems id="systemdefaultid">
+		<Type>0</Type>
+		<DefaultHSL>0x000000</DefaultHSL>
+		<TextShadowColor>0xFFFFFFFF</TextShadowColor>
+		<RenderWay>0</RenderWay>
+		<AlignType>1</AlignType>
+		<ImgAvgColor>0xFF3D7FFF</ImgAvgColor>
+		<ID2ImgFiles>
+			<ID2ImageFileMap id="0">SkinMgr\sysdefault.png</ID2ImageFileMap>			
+		</ID2ImgFiles>
+    <NavigationImgFiles>
+      <ID2ImageFileMap id="0">SkinMgr\na_sysdefault.png</ID2ImageFileMap>
+    </NavigationImgFiles>
+		<TextColors>
+			<TextColorMap id="0" memo="默认文字颜色">0xFF333333</TextColorMap>
+			<TextColorMap id="1" memo="提供插件的换肤颜色">0xFF3D7FFF</TextColorMap>
+			<TextColorMap id="2" memo="iconfont默认颜色">0xFFE4EDFF</TextColorMap>
+      <TextColorMap id="3" memo="提供插件的换肤浅色颜色">0xFFE4EDFF</TextColorMap>
+		</TextColors>
+		<ImageUrl>//img.alicdn.com/imgextra/i3/O1CN0110Y1D324IauTfoytu_!!6000000007368-2-tps-2000-100.png</ImageUrl>
+    <NavigationImageUrl>//img.alicdn.com/imgextra/i3/O1CN0110Y1D324IauTfoytu_!!6000000007368-2-tps-2000-100.png</NavigationImageUrl>
+	</BakImgItems>
+	<BakImgItems id="skin_texture_0">
+		<Type>0</Type>
+		<DefaultHSL>0x64bd001b</DefaultHSL>
+		<TextShadowColor>0xFFFFFFFF</TextShadowColor>
+		<RenderWay>0</RenderWay>
+		<AlignType>1</AlignType>
+		<ImgAvgColor>0xFF24B36B</ImgAvgColor>
+		<ID2ImgFiles>
+			<ID2ImageFileMap id="0">SkinMgr\skin_texture_0.png</ID2ImageFileMap>		
+		</ID2ImgFiles>
+    <NavigationImgFiles>
+      <ID2ImageFileMap id="0">SkinMgr\skin_na_texture_0.png</ID2ImageFileMap>
+    </NavigationImgFiles>
+		<TextColors>
+			<TextColorMap id="0" memo="默认文字颜色">0xFF333333</TextColorMap>
+			<TextColorMap id="1" memo="提供插件的换肤颜色">0xFF24B36B</TextColorMap>
+			<TextColorMap id="2" memo="iconfont默认颜色">0xFFD8EEE3</TextColorMap>
+			<TextColorMap id="3" memo="提供插件的换肤浅色颜色">0xFFD8EEE3</TextColorMap>
+		</TextColors>
+		<ImageUrl>//img.alicdn.com/imgextra/i3/O1CN01PcykCo1Hk9ZMUHeJR_!!6000000000795-2-tps-2000-100.png</ImageUrl>
+    <NavigationImageUrl>//img.alicdn.com/imgextra/i3/O1CN01PcykCo1Hk9ZMUHeJR_!!6000000000795-2-tps-2000-100.png</NavigationImageUrl>
+	</BakImgItems>
+	<BakImgItems id="skin_texture_1">
+		<Type>0</Type>
+		<DefaultHSL>0x648f001b</DefaultHSL>
+		<TextShadowColor>0xFFFFFFFF</TextShadowColor>
+		<RenderWay>0</RenderWay>
+		<AlignType>1</AlignType>
+		<ImgAvgColor>0xFFED436C</ImgAvgColor>
+		<ID2ImgFiles>
+			<ID2ImageFileMap id="0">SkinMgr\skin_texture_1.png</ID2ImageFileMap>
+		</ID2ImgFiles>
+    <NavigationImgFiles>
+      <ID2ImageFileMap id="0">SkinMgr\skin_na_texture_1.png</ID2ImageFileMap>
+    </NavigationImgFiles>
+		<TextColors>
+			<TextColorMap id="0" memo="默认文字颜色">0xFF333333</TextColorMap>
+			<TextColorMap id="1" memo="提供插件的换肤颜色">0xFFED436C</TextColorMap>
+			<TextColorMap id="2" memo="iconfont默认颜色">0xA0060606</TextColorMap>
+      <TextColorMap id="3" memo="提供插件的换肤浅色颜色">0xFFFFDAE3</TextColorMap>
+		</TextColors>
+		<ImageUrl>//img.alicdn.com/imgextra/i2/O1CN01GuGhOa1RiSG7Uhlud_!!6000000002145-2-tps-2000-100.png</ImageUrl>
+    <NavigationImageUrl>//img.alicdn.com/imgextra/i2/O1CN01GuGhOa1RiSG7Uhlud_!!6000000002145-2-tps-2000-100.png</NavigationImageUrl>
+	</BakImgItems>
+	<BakImgItems id="skin_texture_2">
+		<Type>0</Type>
+		<DefaultHSL>0x648f001b</DefaultHSL>
+		<TextShadowColor>0xFFFFFFFF</TextShadowColor>
+		<RenderWay>0</RenderWay>
+		<AlignType>1</AlignType>
+		<ImgAvgColor>0xFFF59E49</ImgAvgColor>
+		<ID2ImgFiles>
+			<ID2ImageFileMap id="0">SkinMgr\skin_texture_2.png</ID2ImageFileMap>		
+		</ID2ImgFiles>
+    <NavigationImgFiles>
+      <ID2ImageFileMap id="0">SkinMgr\skin_na_texture_2.png</ID2ImageFileMap>
+    </NavigationImgFiles>
+		<TextColors>
+			<TextColorMap id="0" memo="默认文字颜色">0xFF333333</TextColorMap>
+			<TextColorMap id="1" memo="提供插件的换肤颜色">0xFFF59E49</TextColorMap>
+			<TextColorMap id="2" memo="iconfont默认颜色">0xA0060606</TextColorMap>
+      <TextColorMap id="3" memo="提供插件的换肤浅色颜色">0xFFFFE3C7</TextColorMap>
+		</TextColors>
+		<ImageUrl>//img.alicdn.com/imgextra/i2/O1CN01JDBACw27RhdJJoKsc_!!6000000007794-2-tps-2000-100.png</ImageUrl>
+    <NavigationImageUrl>//img.alicdn.com/imgextra/i2/O1CN01JDBACw27RhdJJoKsc_!!6000000007794-2-tps-2000-100.png</NavigationImageUrl>
+	</BakImgItems>
+		<BakImgItems id="skin_texture_3">
+		<Type>0</Type>
+		<DefaultHSL>0x648f001b</DefaultHSL>
+		<TextShadowColor>0xFFFFFFFF</TextShadowColor>
+		<RenderWay>0</RenderWay>
+		<AlignType>1</AlignType>
+		<ImgAvgColor>0xFFC651A3</ImgAvgColor>
+		<ID2ImgFiles>
+			<ID2ImageFileMap id="0">SkinMgr\skin_texture_3.png </ID2ImageFileMap>		
+		</ID2ImgFiles>
+    <NavigationImgFiles>
+      <ID2ImageFileMap id="0">SkinMgr\skin_na_texture_3.png</ID2ImageFileMap>
+    </NavigationImgFiles>
+		<TextColors>
+			<TextColorMap id="0" memo="默认文字颜色">0xFF333333</TextColorMap>
+			<TextColorMap id="1" memo="提供插件的换肤颜色">0xFFC651A3</TextColorMap>
+			<TextColorMap id="2" memo="iconfont默认颜色">0xA0060606</TextColorMap>
+      <TextColorMap id="3" memo="提供插件的换肤浅色颜色">0xFFF8CAEA</TextColorMap>
+		</TextColors>
+		<ImageUrl>//img.alicdn.com/imgextra/i1/O1CN01iwYfoT1pepuQ5u3gx_!!6000000005386-2-tps-2000-100.png</ImageUrl>
+    <NavigationImageUrl>//img.alicdn.com/imgextra/i1/O1CN01iwYfoT1pepuQ5u3gx_!!6000000005386-2-tps-2000-100.png</NavigationImageUrl>
+	</BakImgItems>
+		<BakImgItems id="skin_texture_4">
+		<Type>0</Type>
+		<DefaultHSL>0x648f001b</DefaultHSL>
+		<TextShadowColor>0xFFFFFFFF</TextShadowColor>
+		<RenderWay>0</RenderWay>
+		<AlignType>1</AlignType>
+		<ImgAvgColor>0xFFF45C5C</ImgAvgColor>
+		<ID2ImgFiles>
+			<ID2ImageFileMap id="0">SkinMgr\skin_texture_4.png </ID2ImageFileMap>		
+		</ID2ImgFiles>
+    <NavigationImgFiles>
+      <ID2ImageFileMap id="0">SkinMgr\skin_na_texture_4.png</ID2ImageFileMap>
+    </NavigationImgFiles>
+		<TextColors>
+			<TextColorMap id="0" memo="默认文字颜色">0xFF333333</TextColorMap>
+			<TextColorMap id="1" memo="提供插件的换肤颜色">0xFFF45C5C</TextColorMap>
+			<TextColorMap id="2" memo="iconfont默认颜色">0xA0060606</TextColorMap>
+      <TextColorMap id="3" memo="提供插件的换肤浅色颜色">0xFFFFC4C4</TextColorMap>
+		</TextColors>
+		<ImageUrl>//img.alicdn.com/imgextra/i3/O1CN01apBbi61iZc51pWlL6_!!6000000004427-2-tps-2000-100.png</ImageUrl>\
+    <NavigationImageUrl>//img.alicdn.com/imgextra/i3/O1CN01apBbi61iZc51pWlL6_!!6000000004427-2-tps-2000-100.png</NavigationImageUrl>
+	</BakImgItems>
+	 
+		<BakImgItems id="skin_texture_gray">
+		<Type>0</Type>
+		<DefaultHSL>0x648f001b</DefaultHSL>
+		<TextShadowColor>0xFFFFFFFF</TextShadowColor>
+		<RenderWay>0</RenderWay>
+		<AlignType>1</AlignType>
+		<ImgAvgColor>0xFFF2F3F7</ImgAvgColor>
+		<ID2ImgFiles>
+			<ID2ImageFileMap id="0">SkinMgr\skin_texture_gray.png</ID2ImageFileMap>		
+		</ID2ImgFiles>
+    <NavigationImgFiles>
+      <ID2ImageFileMap id="0">SkinMgr\skin_na_texture_gray.png</ID2ImageFileMap>
+    </NavigationImgFiles>
+		<TextColors>
+			<TextColorMap id="0" memo="默认文字颜色">0xFFFFFFFF</TextColorMap>
+			<TextColorMap id="1" memo="提供插件的换肤颜色">0xAFAFAF</TextColorMap>
+			<TextColorMap id="2" memo="iconfont默认颜色">0xA0060606</TextColorMap>
+      <TextColorMap id="3" memo="提供插件的换肤浅色颜色">0xAFAFAF</TextColorMap>
+		</TextColors>
+		<ImageUrl>http://download.taobaocdn.com/freedom/37865/pic/skin_texture_gray.jpg</ImageUrl>
+    <NavigationImageUrl>//img.alicdn.com/tfs/TB1UahzQpXXXXc1XFXXXXXXXXXX-1200-900.jpg</NavigationImageUrl>
+	</BakImgItems>
+ </xparam>

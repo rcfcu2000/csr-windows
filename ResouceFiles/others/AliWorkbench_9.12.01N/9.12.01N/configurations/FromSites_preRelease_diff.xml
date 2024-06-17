@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<url>
+
+  <totalreplace id="tejia_zhaoshang"><![CDATA[https://market.wapa.taobao.com/app/ltao-fe/seller-portal/index.html]]></totalreplace>
+  <totalreplace id="get_real_cid_url"><![CDATA[https://pre-dispatch.taobao.com/dispatch?fromId=%s&toId=%s&charset=utf-8]]></totalreplace>
+  <totalreplace id="custompage_taobaolive"><![CDATA[https://pre-liveplatform.taobao.com/live/customerServiceLive.htm]]></totalreplace>
+  <totalreplace id="custompage_homepage_tejia"><![CDATA[https://ltao.wapa.taobao.com]]></totalreplace>
+  <!--><domainreplace id="stream-upload.taobao.com"><![CDATA[pre-stream.taobao.com]]></domainreplace><-->
+  <domainreplace id="gw.api.taobao.com"><![CDATA[110.75.14.63]]></domainreplace>
+  <domainreplace id="qnlogin.taobao.com"><![CDATA[qnlogin.prepub.taobao.com]]></domainreplace>
+  <domainreplace id="yungw.taobao.com"><![CDATA[yungw.prepub.taobao.com]]></domainreplace>
+  <domainreplace id="market.m.taobao.com"><![CDATA[market.wapa.taobao.com]]></domainreplace>
+  <domainreplace id="e-account.taobao.com"><![CDATA[e-account.prepub.taobao.com]]></domainreplace>
+  <totalreplace id="custompage_homepage_ent"><![CDATA[http://wapp.wapa.taobao.com/qn/pc/enterprise-home.html?host=h5.wapa.taobao.com]]></totalreplace>
+  <totalreplace id="custompage_localhomepage_ent"><![CDATA[http://wapp.wapa.taobao.com/qn/pc/enterprise-home.html?host=h5.wapa.taobao.com]]></totalreplace>
+  <totalreplace id="custompage_favorite"><![CDATA[https://market.wapa.taobao.com/app/qn/bookmarks/index.html]]></totalreplace>
+  <totalreplace id="use_local_homepage"><![CDATA[0]]></totalreplace>
+  <totalreplace id="custompage_shop_ticketcenter"><![CDATA[https://h5.m.taobao.com/qn/pc/new-task-center.html?host=h5.wapa.taobao.com]]></totalreplace>
+  <totalreplace id="shopwwTicketCreate"><![CDATA[https://h5.m.taobao.com/qn/pc/new-task-widget.html?host=h5.wapa.taobao.com&sell_id=%ls&target_id=%ls&from=ww]]></totalreplace>
+  <totalreplace id="UserRolePostInitUrl"><![CDATA[https://awp.taobao.com/bs/qn/post-reflux-client.html?usernick=%s]]></totalreplace>
+  <totalreplace id="amptribe_sendmsgs"><![CDATA[https://pre-wanted.alibaba-inc.com/admin/index.html#/messageBatchSend/operate]]></totalreplace>
+  <onlydomainreplace id="h5.m.taobao.com"><![CDATA[wapp.m.taobao.com]]></onlydomainreplace>
+  <onlydomainreplace id="awp.taobao.com"><![CDATA[wapp.m.taobao.com]]></onlydomainreplace>
+  <onlydomainreplace id="myseller.taobao.com"><![CDATA[pre-sellerhome-myseller.taobao.com]]></onlydomainreplace>
+  <onlydomainreplace id="qn.taobao.com"><![CDATA[qn.wapa.taobao.com]]></onlydomainreplace>
+  <onlydomainreplace id="miniapp-metadata.taobao.com"><![CDATA[pre-miniapp-metadata.taobao.com]]></onlydomainreplace>
+</url>

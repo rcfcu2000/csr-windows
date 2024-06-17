@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xparam>
+
+
+  <item>
+    <m_iShowFlag>1</m_iShowFlag>
+    <m_sSiteId>cntaobao</m_sSiteId>
+  </item>
+  <item>
+    <m_iShowFlag>1</m_iShowFlag>
+    <m_sSiteId>cnalichn</m_sSiteId>
+  </item>
+
+
+</xparam>

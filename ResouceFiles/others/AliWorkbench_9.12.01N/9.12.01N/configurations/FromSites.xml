@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FromSiteConfiguration>
+  <site id="cntaobao" name="cntaobao_sitename" domain="taobao.com">
+    <kvpair id="tejia_zhaoshang">https://market.m.taobao.com/app/ltao-fe/seller-portal/index.html</kvpair>
+    <kvpair id="editpassword">https://member1.taobao.com/member/fresh/account_passwd.htm</kvpair>
+    <kvpair id="forgetpassurl"><![CDATA[https://110.taobao.com/account/forget_passwd.htm?asker=qianniu]]></kvpair>
+    <kvpair id="RegisterNewUser"><![CDATA[https://reg.taobao.com/member/reg/fill_mobile.htm?asker=qianniu]]></kvpair>
+    <kvpair id="activeaccount">https://login.taobao.com/member/login.jhtml</kvpair>
+    <kvpair id="SSOFailLoginUrl"><![CDATA[https://login.taobao.com/member/login.jhtml]]></kvpair>
+    <kvpair id="custportraiturl">https://wsapi.jianghu.taobao.com/wangwang/headshow.htm?app_id=100000&amp;longId=</kvpair>
+    <kvpair id="custportraiturl_new">http://wwc.taobaocdn.com/avatar/getAvatar.do?</kvpair>
+    <kvpair id="editselfportraiturl">http://jianghu.taobao.com/admin/user/headset4webkit.htm?app_id=100000&amp;longId=</kvpair>
+    <kvpair id="canteditportraiturl">https://webim.ww.taobao.com/webim/personv6/childUserFace.htm?needtid=</kvpair>
+    <kvpair id="security_center_url">https://110.taobao.com/home/ww_home.htm</kvpair>
+    <kvpair id="namecardurl">https://webim.ww.taobao.com/webim/personv6/imUserCard.htm?signmode=im&amp;uid=</kvpair>
+    <kvpair id="departmentcardurl">https://tradecardseller.taobao.com/mmp/popupNameCard.htm?</kvpair>
+    <kvpair id="departmentcardurl_chat">https://tradecardseller.taobao.com/mmp/chatCard.htm?</kvpair>
+    <kvpair id="taobao_normal_modify_portrait">https://jianghu.taobao.com/admin/user/headset.htm?isw=1</kvpair>
+    <kvpair id="dailynews">http://web.wangwang.taobao.com/focus/seller/focusInfo.htm?signmode=im</kvpair>
+    <kvpair id="busi_server_url">http://msgchannel.wangwang.taobao.com/wwmsgchannel?version=%s</kvpair>
+    <kvpair id="plugin_sell_store"><![CDATA[http://web.wangwang.taobao.com/plugin/seller/pluginList.htm]]></kvpair>
+    <kvpair id="systemset_roam_set">https://ucshttp.ww.taobao.com/set_user_cfg</kvpair>
+    <kvpair id="systemset_roam_get">https://ucshttp.ww.taobao.com/get_user_cfg</kvpair>
+    <kvpair id="approuter_server_url"><![CDATA[http://msgchannel.wangwang.taobao.com/approuter?version=%s]]></kvpair>
+    <kvpair id="reportcenter_report_number">http://web.wangwang.taobao.com/report/getProofNumber.htm?bv=webkit </kvpair>
+    <kvpair id="reportcenter_report_message">http://web.wangwang.taobao.com/report/reportMessage.htm?bv=webkit </kvpair>
+    <kvpair id="reportcenter_report_phishing">http://web.wangwang.taobao.com/report/reportUrl.htm?bv=webkit </kvpair>
+    <kvpair id="reportcenter_my_report">http://web.wangwang.taobao.com/report/reportManager.htm?bv=webkit </kvpair>
+    <kvpair id="servicerobot"><![CDATA[http://service.taobao.com/support/minerva/robotWw.htm?source_id=1427112045&flag=ww&uid=%s&version=%s]]></kvpair>
+    <kvpair id="contactinfo.degree.manual"><![CDATA[https://www.taobao.com/go/act/wangwang/huoyuedu4.php]]></kvpair>
+    <kvpair id="HelpAbount.PrivacyAgreement"><![CDATA[https://terms.alicdn.com/legal-agreement/terms/suit_bu1_taobao/suit_bu1_taobao201703241622_61002.html?spm=a1zaa.8161610.0.0.769d3348vDKDpJ]]></kvpair>
+    <kvpair id="amptribe_management_background"><![CDATA[https://h5.m.taobao.com/bgm/qn-portal/index.htm?spm=a313o.201708ban.header.3.64f0197a7K1p4c#/three-party/group-base-stat-info?_k=h8asv0]]></kvpair>
+    <kvpair id="amptribe_default"><![CDATA[https://img.alicdn.com/tfs/TB1WCitueH2gK0jSZJnXXaT1FXa-100-100.png]]></kvpair>
+    <kvpair id="amptribe_item"><![CDATA[https://img.alicdn.com/tfs/TB1b6qoulv0gK0jSZKbXXbK2FXa-36-40.png]]></kvpair>
+    <kvpair id="amptribe_light_fill"><![CDATA[https://img.alicdn.com/tfs/TB1Eq1subH1gK0jSZFwXXc7aXXa-46-42.png]]></kvpair>
+    <kvpair id="amptribe_rank_fill"><![CDATA[https://img.alicdn.com/tfs/TB1JZmpubr1gK0jSZFDXXb9yVXa-40-40.png]]></kvpair>
+    <kvpair id="amptribe_redpacket_fill"><![CDATA[https://img.alicdn.com/tfs/TB1S0inuXT7gK0jSZFpXXaTkpXa-34-40.png]]></kvpair>
+    <kvpair id="amptribe_we"><![CDATA[https://img.alicdn.com/tfs/TB1l9mrueL2gK0jSZFmXXc7iXXa-50-36.png]]></kvpair>
+    <kvpair id="appreport"><![CDATA[https://market.m.taobao.com/app/taefed/wwReport/web/index.html?ccode=%ls&securityuid=%ls&displaynick=%ls#/report/ReportMessage]]></kvpair>
+  </site>
+  <site id="cnalichn" name="cnalichn_sitename" domain="china.alibaba.com">
+    <kvpair id="homepage">https://www.1688.com/</kvpair>
+    <kvpair id="domains">china.alibaba.com alibaba.com.cn alisoft.alibaba.com</kvpair>
+    <kvpair id="autologin_switch">1</kvpair>
+    <kvpair id="autologin">http://login.1688.com/member/aliwwSignin.do</kvpair>
+    <kvpair id="SSOFailLoginUrl"><![CDATA[https://login.1688.com/member/signin.htm]]></kvpair>
+    <kvpair id="editpassword">https://china.alibaba.com/member/modify_password.htm</kvpair>
+    <kvpair id="activeaccount">https://login.1688.com/member/signin.htm</kvpair>
+    <kvpair id="forgetpassurl"><![CDATA[https://passport.taobao.com/ac/password_find.htm?spm=a2107.1.0.0.72670377ahfO3N&from_site=3&tracelog=signin_main_pass&lang=zh_CN&app_name=b2b&login_id=&asker=qianniu]]></kvpair>
+    <kvpair id="RegisterNewUser"><![CDATA[https://member.1688.com/member/join/enterprise_join.htm?spm=a260k.635.2683862.d4.TKitdb&asker=qianniu]]></kvpair>
+    <kvpair id="custportraiturl">http://widget.1688.com/front/getJsonComponent.json?namespace=userIconServiceByLoginId&amp;widgetId=userIconServiceByLoginId&amp;methodName=execute</kvpair>
+    <kvpair id="custportraiturl_new">http://widget.1688.com/front/getJsonComponent.json?namespace=userIconServiceByLoginId&amp;widgetId=userIconServiceByLoginId&amp;methodName=execute&amp;loginId=%s</kvpair>
+    <kvpair id="searchurl">http://search.china.alibaba.com/offer/</kvpair>
+    <kvpair id="searchurlpic">mainwnd_searchregion/alilogo.png</kvpair>
+    <kvpair id="searchurltip">searchinalibaba</kvpair>
+    <kvpair id="namecardurl">https://webim.ww.taobao.com/webim/personv6/imUserCard.htm?signmode=none&amp;uid=</kvpair>
+    <kvpair id="chatcard_profile"><![CDATA[https://member.1688.com/member/ims/qianniuCard.htm?chatNick=%s&nick=%s]]></kvpair>
+    <kvpair id="chatcard_offer_active"><![CDATA[https://offer.1688.com/offer/migration/offer_card.htm?iframe_delete=true&memberId=%s&loginId=%s&offerId=%s&listOffer=0&self=%d]]></kvpair>
+    <kvpair id="servicerobot"><![CDATA[http://portal.manjushri.alibaba.com/portal/portal/init.jspa?instanceCode=ALIR00000161&scenceCode=SCEN00006298&digest=370d61a54eb35c0661f804268901f1af&noRedirect=true&siteId=CN&loginId=%s&WWUserID=%s]]></kvpair>
+    <kvpair id="dailynews"><![CDATA[https://qianniu.1688.com/page/mrjdgb20160311.html?iframe_delete=true]]></kvpair>
+    <kvpair id="contactinfo.degree.manual"><![CDATA[https://offer.1688.com/offer/migration/shengji.htm]]></kvpair>
+    <kvpair id="editselfportraiturl">https://member.1688.com/member/avatar/modify.htm?needsignin=1&amp;needtid=</kvpair>
+    <kvpair id="HelpAbount.PrivacyAgreement"><![CDATA[https://rule.1688.com/policy/privacy.html?spm=a1zaa.8153814.0.0.3c14e7a3BBES6b]]></kvpair>
+  </site>
+  <site id="cnaliyun" name="cnaliyun_sitename" domain="">
+    <kvpair id="custportraiturl">https://webim.ww.taobao.com/webim/personv6/getLogo.htm?signmode=im&amp;wangid=</kvpair>
+    <kvpair id="namecardurl">https://webim.ww.taobao.com/webim/personv6/imUserCard.htm?signmode=im&amp;uid=</kvpair>
+  </site>
+  <site id="wangwang" name="wangwang_sitename" domain="alisoft.com">
+    <kvpair id="editpassword">http://member.alisoft.com/member/user/userinfo!password.jspa</kvpair>
+    <kvpair id="custportraiturl">https://webim.ww.taobao.com/webim/personv6/getLogo.htm?signmode=im&amp;wangid=</kvpair>
+    <kvpair id="editselfportraiturl">https://webim.ww.taobao.com/webim/personv6/logoUpload.htm?signmode=im&amp;width=345&amp;height=235</kvpair>
+    <kvpair id="namecardurl">https://webim.ww.taobao.com/webim/personv6/imUserCard.htm?signmode=none&amp;uid=</kvpair>
+  </site>
+  <site id="cnalimam" name="cnalimam_sitename" domain="alimama.com">
+    <kvpair id="editpassword">http://www.alimama.com/membersvc/member/change_passwd.htm?menuid=H04_L0402_V04</kvpair>
+    <kvpair id="custportraiturl">https://webim.ww.taobao.com/webim/personv6/getLogo.htm?signmode=im&amp;wangid=</kvpair>
+    <kvpair id="editselfportraiturl">https://webim.ww.taobao.com/webim/personv6/logoUpload.htm?signmode=im&amp;width=345&amp;height=235</kvpair>
+    <kvpair id="namecardurl">https://webim.ww.taobao.com/webim/personv6/imUserCard.htm?signmode=none&amp;uid=</kvpair>
+  </site>
+  <site id="chnyahoo" name="chnyahoo_sitename" domain="yahoo.cn">
+    <kvpair id="editpassword">http://www.yahoo.cn/</kvpair>
+    <kvpair id="custportraiturl">https://webim.ww.taobao.com/webim/personv6/getLogo.htm?wangid=</kvpair>
+    <kvpair id="editselfportraiturl">https://webim.ww.taobao.com/webim/personv6/logoUpload.htm?width=345&amp;height=235</kvpair>
+    <kvpair id="namecardurl">https://webim.ww.taobao.com/webim/personv6/imUserCard.htm?signmode=none&amp;uid=</kvpair>
+  </site>
+  <site id="htyahooo" name="htyahooo_sitename" domain="yahoo.com.cn">
+    <kvpair id="dailynews"></kvpair>
+    <kvpair id="file_trans_disable">*</kvpair>
+    <kvpair id="namecardurl">https://webim.ww.taobao.com/webim/personv6/usaYahooUserCard.htm?signmode=none&amp;uid=</kvpair>
+  </site>
+  <site id="cnkoubei" name="cnkoubei_sitename" domain="koubei.com">
+    <kvpair id="namecardurl">https://webim.ww.taobao.com/webim/personv6/imUserCard.htm?signmode=none&amp;uid=</kvpair>
+    <kvpair id="editpassword">http://www.koubei.com/my/myhome.html?focus=703</kvpair>
+    <kvpair id="custportraiturl">http://call.koubei.com/export/wangwang/getuserlogo.html?size=100&amp;username=</kvpair>
+    <kvpair id="editselfportraiturl">http://call.koubei.com/wangwang/changeuserlogo.html?username=</kvpair>
+  </site>
+  <site id="enaliint" name="enaliint_sitename" domain="alibaba.com">
+    <kvpair id="cookie.language.site.alibaba"><![CDATA[https://duoyuyan.alibaba.com]]></kvpair>
+    <kvpair id="cookie.language.site.atmgateway"><![CDATA[https://atmgateway-client.alibaba.com]]></kvpair>
+    <kvpair id="homepage">https://www.alibaba.com</kvpair>
+    <kvpair id="namecardurl">https://workspace.alibaba.com/atmPlugin?id=contact&amp;chatNick=%ls</kvpair>
+    <kvpair id="domains">alibaba.com</kvpair>
+    <kvpair id="SSOFailLoginUrl"><![CDATA[https://login.alibaba.com/?]]></kvpair>
+    <kvpair id="im_chat_dialog_card_mian_url">https://webim.ww.taobao.com/webim/personv6/chatCard.htm?signmode=im</kvpair>
+    <kvpair id="custportraiturl">https://atmgateway.client.alibaba.com/atmgateway/get_portrait.htm?memberId=</kvpair>
+    <kvpair id="contactinfourl">https://workspace.alibaba.com/atmPlugin?id=profile&amp;chatNick=%ls</kvpair>
+    <kvpair id="editselfportraiturl">https://accounts.alibaba.com/user/portrait/atm_post_portrait.htm</kvpair>
+    <kvpair id="dailynews">https://atmgateway-client.alibaba.com/atmgateway/everydayFocus.htm?signmode=none</kvpair>
+    <kvpair id="editpassword">https://us.my.alibaba.com/user/company/change_password_security_prompt.htm</kvpair>
+    <kvpair id="registeruser">https://accounts.alibaba.com/register/cnfm_reg.htm</kvpair>
+    <kvpair id="forgetpasspage">https://passport.alibaba.com/ac/password_find.htm?fromSite=4</kvpair>
+    <kvpair id="activeaccount">https://login.alibaba.com</kvpair>
+    <kvpair id="allin_todolist_notify">https://workspace.alibaba.com/system/getOnlineAction</kvpair>
+    <kvpair id="HelpAbount.PrivacyAgreement"><![CDATA[https://rule.alibaba.com/rule/detail/2034.htm?spm=a1zaa.8153814.0.0.3c14e7a3k9hj3P]]></kvpair>
+  </site>
+  <site id="cnwujing" name="cnwujing_sitename" domain="wujing.com">
+    <kvpair id="namecardurl">https://webim.ww.taobao.com/webim/personv6/imUserCard.htm?signmode=none&amp;uid=</kvpair>
+  </site>
+  <site id="chnaigou" name="chnaigou_sitename" domain="aigou.com">
+    <kvpair id="namecardurl">https://webim.ww.taobao.com/webim/personv6/imUserCard.htm?signmode=none&amp;uid=</kvpair>
+  </site>
+  <site id="iogxhhoi" name="iogxhhoi_sitename" domain="eataobao.com">
+    <kvpair id="HelpAbount.PrivacyAgreement"><![CDATA[https://terms.alicdn.com/legal-agreement/terms/suit_bu1_taobao/suit_bu1_taobao201703241622_61002.html?spm=a1zaa.8161610.0.0.769d3348vDKDpJ]]></kvpair>
+    <kvpair id="forgetpassurl"><![CDATA[https://passport.taobao.com/ac/password_find.htm?fromSite=44]]></kvpair>
+    <kvpair id="bindshopHelper"><![CDATA[https://www.yuque.com/docs/share/aee07cc7-3ff0-418c-99aa-8a303e516b86?#x7ZFG]]></kvpair>
+    <kvpair id="RegisterNewUser"><![CDATA[https://market.m.taobao.com/app/crs-qn/en-workbench/index.html#/portal]]></kvpair>
+  </site>
+  <site id="" name="" domain="">
+    <kvpair id="yun_url"><![CDATA[https://market.m.taobao.com/app/bsop-static/bsop-punish-test-webapp/qn-cloud-security-update.html]]></kvpair>
+    <kvpair id="tbmedia_url"><![CDATA[https://stream-upload.taobao.com/api/upload.api?appkey=%ls&_input_charset=utf-8]]></kvpair>
+    <kvpair id="winmillappxupdateurl">https://m.duanqu.com?_ariver_appid=66666692</kvpair>
+    <kvpair id="tribeboard_url">https://h5.m.taobao.com/qn/pc/tribe-board.html</kvpair>
+    <kvpair id="message_card_url">workspace.alibaba.com/card</kvpair>
+    <kvpair id="netconf_download">http://web.im.alisoft.com/userprofile/getprofile</kvpair>
+    <kvpair id="netconf_upload">http://web.im.alisoft.com/userprofile/postprofile</kvpair>
+    <kvpair id="signatureurl">https://profile.im.alisoft.com/userprofile/getsignature?signmode=im</kvpair>
+    <kvpair id="im_eservice_dialog_card_focus_url"><![CDATA[https://tradecardseller.taobao.com/tradecard/nameCard.htm?signmode=im&jumpFrom=qianniu]]></kvpair>
+    <kvpair id="im_chat_dialog_card_basic_url"><![CDATA[https://webim.ww.taobao.com/webim/personv6/chat_card.htm?signmode=im&jumpFrom=qianniu]]></kvpair>
+    <kvpair id="hot_key_help_url"><![CDATA[http://web.wangwang.taobao.com/help/knowledgeDetail.htm?knowledgeId=1203397&version=]]></kvpair>
+    <kvpair id="hismsgsvrrecordingurl">https://webim.ww.taobao.com/webim/common/config.do?signmode=im&amp;action=common/configAction&amp;event_submit_do_config=true&amp;key=1&amp;uid=</kvpair>
+    <kvpair id="userdetailinfourl">https://webim.ww.taobao.com/webim/personv6/personDetailNew.htm?signmode=im&amp;uid=</kvpair>
+    <kvpair id="selfdetailinfourl">https://webim.ww.taobao.com/webim/personv6/personNew.htm?signmode=im&amp;uid=</kvpair>
+    <kvpair id="searchuserurl">https://webim.ww.taobao.com/webim/personv6/search.htm?signmode=im&amp;uid=</kvpair>
+    <kvpair id="myshow_errorpage">http://www.im.alisoft.com/webim/magicFacev6/errorInfo.html</kvpair>
+    <kvpair id="downloadallbegintime">2</kvpair>
+    <kvpair id="report_url"><![CDATA[https://110.alibaba.com/policeHall/hallIndex.htm]]></kvpair>
+    <kvpair id="bindwangid">http://member.alisoft.com/member/wangwangsix/getWangHaoByClickingHere.jspa?longId=XXX&amp;userProfile.nickname=</kvpair>
+    <!-- 上传可疑文件云扫描 -->
+    <kvpair id="file_safe_upload">http://wwfilesafe.wangwang.taobao.com/wwfilesafe</kvpair>
+    <kvpair id="ww_robot_url"><![CDATA[http://im.robot.aliapp.com/all/aliqzg/space.jsp?id=3&userId=%s&page=mjww]]></kvpair>
+    <kvpair id="tribe.searchtribe"><![CDATA[https://webim.ww.taobao.com/webim/tribev6/tribeSearch.htm?searchType=0&signmode=im&uid=]]></kvpair>
+    <kvpair id="tribe.onlinechatlog"><![CDATA[http://%s.g.im.alisoft.com/chat?signmode=im]]></kvpair>
+    <kvpair id="contactprofile.alichn.viewprofile"><![CDATA[http://me.1688.com/wwprofile/%s.html?asker=wangwang&LoginId=%s]]></kvpair>
+    <kvpair id="contactprofile.alichn.viewtrustpass"><![CDATA[https://esite.1688.com/credit.htm?loginId=%s]]></kvpair>
+    <kvpair id="contactprofile.alichn.viewtrustpower"><![CDATA[https://shili.1688.com/page/0701/tg.html]]></kvpair>
+    <kvpair id="contactprofile.taobao.viewprofile"><![CDATA[https://member1.taobao.com/member/userProfile.jhtml?asker=wangwang&userID=%s]]></kvpair>
+    <kvpair id="contactprofile.taobao.viewstore"><![CDATA[https://store.taobao.com/shop/view_shop.htm?shop_nick=%s]]></kvpair>
+    <kvpair id="helpcenter.search.url"><![CDATA[http://web.wangwang.taobao.com/help/search_result.htm?pageNu=1&categoryId=&searchKey=]]></kvpair>
+    <kvpair id="contactmgr_remind_url"><![CDATA[http://mai.taobao.com/seller_admin.htm?svid=606]]></kvpair>
+    <kvpair id="magicface.errorpage"><![CDATA[http://www.im.alisoft.com/webim/magicFacev6/errorInfo.html]]></kvpair>
+    <kvpair id="emotion.select"><![CDATA[https://webim.ww.taobao.com/webim/personv6/setMyShow.htm?signmode=im&type=userface]]></kvpair>
+    <kvpair id="proofurl"><![CDATA[https://webim.ww.taobao.com/webim/other/proof.htm?signmode=im]]></kvpair>
+    <kvpair id="sns.feedsaddress.space"><![CDATA[https://jianghu.taobao.com/home.htm?tracelogww=ww]]></kvpair>
+    <!-- activateuserconfig -->
+    <kvpair id="activate.taobao"><![CDATA[https://member1.taobao.com/member/activate_acct.jhtml?nick=%s]]></kvpair>
+    <kvpair id="ww.download.url"><![CDATA[https://www.taobao.com/wangwang/2010_fp/seller.php]]></kvpair>
+    <kvpair id="eservice_backstage_manage_url"><![CDATA[https://webim.ww.taobao.com/webim/online/managerEService.htm?signmode=im]]></kvpair>
+    <kvpair id="eservice_action_my_taobao_url"><![CDATA[https://mai.taobao.com/seller_admin.htm?signmode=im]]></kvpair>
+    <kvpair id="eservice_mytaobao_url"><![CDATA[https://trade.taobao.com/trade/itemlist/list_sold_items.htm]]></kvpair>
+    <kvpair id="eservice_in_sell_goods_url"><![CDATA[https://sell.taobao.com/auction/goods/goods_on_sale.htm?tracelog=tszbb]]></kvpair>
+    <kvpair id="eservice_action_my_store"><![CDATA[https://store.taobao.com/shop/view_shop.htm?tracelog=twddp]]></kvpair>
+    <kvpair id="operatoricon_openbrowser"><![CDATA[https://webim.ww.taobao.com/webim/other/activeShow.htm?signmode=im&activeCode=%s&userid=%s&selfid=%s&opentype=%d]]></kvpair>
+    <kvpair id="taobaovip_download"><![CDATA[http://www.im.alisoft.com/webim/actions/taobaovip/]]></kvpair>
+    <kvpair id="taobaovip_openbrowser"><![CDATA[https://vip.taobao.com/?ad_id=&am_id=&cm_id=1400223052c1ec99da49&pm_id=%s]]></kvpair>
+    <kvpair id="contactprofile.aliint.viewcgs"><![CDATA[https://atmgateway-client.alibaba.com/atmgateway/getTrustPass.htm?memberId=%s]]></kvpair>
+    <kvpair id="contactprofile.aliint.viewaelevel">https://help.aliexpress.com/vip_club.html?tracelog=atm</kvpair>
+    <kvpair id="cookie.language.site.alisoft"><![CDATA[http://im.alisoft.com]]></kvpair>
+    <!--contact info-->
+    <kvpair id="contactinfo.illegalchars"><![CDATA[<>\]]></kvpair>
+    <!--taobao goods info-->
+    <kvpair id="taobao_goodsinfo_url"><![CDATA[https://tbskip.taobao.com/xml/commodityInfo.htm?t=%s&uid=%s&ver=%d]]></kvpair>
+    <kvpair id="vip_goodsinfo_url"><![CDATA[http://laputa.1688.com/offer/detail_wang_wang.htm?uid=%s&ver=%s]]></kvpair>
+    <kvpair id="common_goodsinfo_url"><![CDATA[https://atmgateway-client.alibaba.com/atmgateway/http/getUrlDetail.do?url=%s&pver=%s&loginid=%s]]></kvpair>
+    <kvpair id="icbu_goodsinfo_url"><![CDATA[https://atmgateway-client.alibaba.com/atmgateway/http/getUrlDetail.do?url=%s&pver=%s&loginid=%s]]></kvpair>
+    <kvpair id="image_bank_url"><![CDATA[https://picman.1688.com/album/ajax/]]></kvpair>
+    <kvpair id="image_bank_browse_url"><![CDATA[https://work.1688.com/?_path_=seller2017Base/2017sellerbase_winport/albumManage]]></kvpair>
+    <kvpair id="QrLogin"><![CDATA[https://qrlogin.taobao.com/qrcodelogin/generateNoLoginQRCode.do?lt=m&dsp=TVLogin]]></kvpair>
+    <kvpair id="QrLoginQuery"><![CDATA[https://qrlogin.taobao.com/qrcodelogin/loginByQRCode.do?t=%lld&lt=m&at=%s]]></kvpair>
+    <kvpair id="durex_check_url"><![CDATA[https://aq.taobao.com/durex/dcode/checkedRequestServlet?param=%s]]></kvpair>
+    <kvpair id="QnMobile"><![CDATA[https://www.taobao.com/market/work/portal/mobile.php]]></kvpair>
+    <kvpair id="ErrorReport"><![CDATA[https://pc.work.taobao.com/error/error_report]]></kvpair>
+    <kvpair id="UACTrack"><![CDATA[https://pc.work.taobao.com/track]]></kvpair>
+    <kvpair id="PluginService"><![CDATA[https://h5.m.taobao.com/qn/pc/3_0_0/plugin-service.html]]></kvpair>
+    <kvpair id="FeedBack_1688"><![CDATA[https://114.1688.com/sp/ww/qianniu140916.html]]></kvpair>
+    <kvpair id="NewbieGuideInstructions"><![CDATA[http://c.fm.taobao.com/message/pc/get.html?msg_id=9220137364806812078]]></kvpair>
+    <kvpair id="DispatchQueueHelpInfo"><![CDATA[https://www.yuque.com/lryk5q/ltxwkc/fepgic]]></kvpair>
+    <kvpair id="local_MessageNotify"><![CDATA[alires:///WebUI/Message/message-notify.html]]></kvpair>
+    <kvpair id="local_MessageNotifyByBubble"><![CDATA[alires:///WebUI/Message/message-bubble.html]]></kvpair>
+    <kvpair id="local_MessageCenterRss"><![CDATA[alires:///WebUI/msg-center/index1.html]]></kvpair>
+    <kvpair id="forgetpassurl"><![CDATA[https://110.taobao.com/account/forget_passwd.htm?asker=qianniu]]></kvpair>
+    <kvpair id="RobotManage"><![CDATA[https://iseiya.taobao.com/athena/manage/solution_manager.htm?&quickphrase]]></kvpair>
+    <kvpair id="TeamSolutionApp"><![CDATA[23005968]]></kvpair>
+    <kvpair id="EChildUnsupportCertLoginUrl"><![CDATA[http://zzh.zizhanghao.taobao.com/subaccount/myself/security/checkSubAuth.htm?uid=%s]]></kvpair>
+    <kvpair id="QNHomePage"><![CDATA[https://work.taobao.com]]></kvpair>
+    <kvpair id="PostApproveUrl"><![CDATA[https://mai.taobao.com/subaccount/task/approvalTaskList.htm?taskId=%s]]></kvpair>
+    <kvpair id="UserRolePostInitUrl"><![CDATA[https://awp.taobao.com/bs/qn/post-reflux-client.html?usernick=%s]]></kvpair>
+    <kvpair id="Django_up_file"><![CDATA[http://up.django.t.taobao.com/rest/1.0/file]]></kvpair>
+    <kvpair id="Django_up_transactioin"><![CDATA[http://up.django.t.taobao.com/rest/1.0/file/transaction]]></kvpair>
+    <kvpair id="Django_up_chunk"><![CDATA[http://up.django.t.taobao.com/rest/1.0/file/chunk]]></kvpair>
+    <kvpair id="ANiuOnline"><![CDATA[https://gcx.1688.com/cbu/aniu/portal.htm?pageId=249054&_param_digest_=8be51e7059291fdd1f782d87e9da0b50]]></kvpair>
+    <kvpair id="ShowBalance"><![CDATA[alires:///WebUI/AlipayBalance/index.html]]></kvpair>
+    <kvpair id="QnMobileQrCode"><![CDATA[https://work.taobao.com/download/index?ct=qnpcclient]]></kvpair>
+    <kvpair id="juxingtai_appkey"><![CDATA[23312231]]></kvpair>
+    <kvpair id="ziyunying_appkey"><![CDATA[24800010]]></kvpair>
+    <kvpair id="xinlingshou_appkey"><![CDATA[23485200]]></kvpair>
+    <kvpair id="wanxiang_appkey"><![CDATA[23352401]]></kvpair>
+    <kvpair id="uicauthsdk_appkey"><![CDATA[24585574]]></kvpair>
+    <kvpair id="wanxiang_pluginId"><![CDATA[8291]]></kvpair>
+    <kvpair id="custompage_homepage_tejia"><![CDATA[https://ltao.seller.taobao.com]]></kvpair>
+    <kvpair id="custompage_homepage"><![CDATA[alires:///WebUI/home/index.html]]></kvpair>
+    <kvpair id="custompage_homepage_offline_package_openwork"><![CDATA[alires:///WebUI/qn-home/index.html]]></kvpair>
+    <kvpair id="custompage_homepage_ent"><![CDATA[https://h5.m.taobao.com/qn/pc/enterprise/index.html]]></kvpair>
+    <kvpair id="custompage_homepage_1688"><![CDATA[https://work.1688.com/?_path_=sellerBaseNew/sellberBaseNew_Index/qn2018Index]]></kvpair>
+    <kvpair id="custompage_homepage_1688_child"><![CDATA[https://work.1688.com/?path=child/childIndex/childIndexMenu]]></kvpair>
+    <kvpair id="custompage_homepage_openwork"><![CDATA[https://market.m.taobao.com/app/crs-qn/pcWorkbench/home/index.html]]></kvpair>
+    <kvpair id="custompage_homepage_openwork_new"><![CDATA[https://qn.taobao.com/home.html]]></kvpair>
+    <kvpair id="custompage_homepage_ea"><![CDATA[https://market.m.taobao.com/app/crs-qn/pcWorkbench/ea/index.html]]></kvpair>
+    <kvpair id="custompage_plugincenter"><![CDATA[https://qn.taobao.com/home.html/my-app-center/appcenter]]></kvpair>
+    <kvpair id="custompage_plugincenter_ww"><![CDATA[https://market.m.taobao.com/app/qn/app-center/index.online.html?platform=pcww]]></kvpair>
+    <kvpair id="custompage_datapanel"><![CDATA[https://h5.m.taobao.com/qn/home-simple-6_01_00.html?host=h5.m.taobao.com]]></kvpair>
+    <kvpair id="custompage_taobaolive"><![CDATA[https://liveplatform.taobao.com/live/customerServiceLive.htm]]></kvpair>
+    <kvpair id="custompage_niuba"><![CDATA[https://h5.m.taobao.com/qn/enterprise-home.html]]></kvpair>
+    <kvpair id="custompage_niubalive"><![CDATA[https://h5.m.taobao.com/qn/pc/niuba-list.html]]></kvpair>
+    <kvpair id="custompage_headlines"><![CDATA[https://market.m.taobao.com/app/qn/toutiao-h5/index.html]]></kvpair>
+    <kvpair id="plugin_batch_ampmsgs"><![CDATA[https://market.m.taobao.com/app/bgm-common/bgm-workbench/index.html#/iframe?key=group-MsgManage]]></kvpair>
+    <kvpair id="custompage_ticketcenter"><![CDATA[https://awp.taobao.com/bs/enterprice/task-center-new.html?host=awp.taobao.com]]></kvpair>
+    <kvpair id="custompage_ticketadmin"><![CDATA[https://awp.taobao.com/bs/enterprice/task-bg.html?host=awp.taobao.com]]></kvpair>
+    <kvpair id="custompage_shop_ticketcenter"><![CDATA[https://h5.m.taobao.com/qn/pc/new-task-center.html?host=h5.m.taobao.com]]></kvpair>
+    <kvpair id="custompage_favorite"><![CDATA[https://market.m.taobao.com/app/qn/bookmarks/index.html]]></kvpair>
+    <kvpair id="custompage_headlines_icbu"><![CDATA[https://waimaoquan.alibaba.com/toutiao/?tracelog=qianniu]]></kvpair>
+    <kvpair id="custompage_1688offerassist"><![CDATA[https://fuwu.1688.com/business/notice4.html]]></kvpair>
+    <kvpair id="custompage_messagecenter"><![CDATA[alires:///WebUI/msg-center/index.html]]></kvpair>
+    <kvpair id="TBLiveVersionCheck"><![CDATA[https://jdy.tmall.com/version/check]]></kvpair>
+    <kvpair id="ChildAccountInfo"><![CDATA[https://h5.m.taobao.com/qn/post-reflux-new.html]]></kvpair>
+    <kvpair id="ManuallyFix"><![CDATA[https://fmcenter.taobao.com/message/pc/get.html?spm=0.0.0.0.Hjt8JP&msg_id=9220137364806845474]]></kvpair>
+    <kvpair id="PerfMonitorScript"><![CDATA[http://g.alicdn.com/aes/??tracker/1.0.13/index.js,tracker-plugin-jserror/1.0.9/index.js,tracker-plugin-api/1.1.7/index.js,tracker-plugin-perf/1.1.4/index.js,tracker-plugin-longtask/1.0.1/index.js,tracker-plugin-tsl/1.0.1/index.js,tracker-plugin-pv/2.2.1/index.js,tracker-plugin-event/1.1.3/index.js]]></kvpair>
+    <kvpair id="redpacketGoodsSelect"><![CDATA[https://h5.m.taobao.com/qn/hongbao-goods.html]]></kvpair>
+    <kvpair id="RegsiterOpenAccount"><![CDATA[https://e-account.taobao.com/register.html?time=%lld]]></kvpair>
+    <kvpair id="ResetOpenAccountPassword"><![CDATA[https://h5.m.taobao.com/qn/pc/enterprise-login-find.html?time=%lld&type=0]]></kvpair>
+    <kvpair id="RegsiterOpenAccount_external"><![CDATA[https://e-account.taobao.com/index.html?step=register]]></kvpair>
+    <kvpair id="ResetOpenAccountPassword_external"><![CDATA[https://e-account.taobao.com/index.html?step=forgot]]></kvpair>
+    <kvpair id="TicketCreate"><![CDATA[https://awp.taobao.com/bs/enterprice/task-new.html?host=awp.taobao.com&showtoolbar=%ls&from=workbench%ls#/create]]></kvpair>
+    <kvpair id="TicketDetail"><![CDATA[https://awp.taobao.com/bs/enterprice/task-new.html?host=awp.taobao.com&ticketId=%ls&showtoolbar=%ls&from=workbench%ls#/en_detail]]></kvpair>
+    <kvpair id="wwticketList"><![CDATA[https://awp.taobao.com/bs/enterprice/task-new.html?host=awp.taobao.com&sell_id=%ls&target_id=%ls&from=ww#/list]]></kvpair>
+    <kvpair id="wwticketCreate"><![CDATA[https://awp.taobao.com/bs/enterprice/task-new.html?host=awp.taobao.com&sell_id=%ls&target_id=%ls&from=ww#/create?defaultTplIndex=1]]></kvpair>
+    <kvpair id="wwticketDetail"><![CDATA[https://awp.taobao.com/bs/enterprice/task-new.html?host=awp.taobao.com&sell_id=%ls&id=%ls&from=ww#/detail?ticketId=%ls&from=list]]></kvpair>
+    <kvpair id="shopwwTicketCreate"><![CDATA[https://h5.m.taobao.com/qn/pc/new-task-widget.html?host=h5.m.taobao.com&sell_id=%ls&target_id=%ls&from=ww]]></kvpair>
+    <kvpair id="plugin_auth"><![CDATA[https://market.m.taobao.com/app/qn/qn-app-air/enterprise-plugin-authorization-v2.html?%ls#/home?_k=z8ob8c]]></kvpair>
+    <kvpair id="DrawerCardUrl"><![CDATA[https://h5.m.taobao.com/aliww/pc-drawer.html]]></kvpair>
+    <kvpair id="Shangjiashiyebu"><![CDATA[https://cts.alibaba.com]]></kvpair>
+    <kvpair id="FbtTransferContact"><![CDATA[https://market.m.taobao.com/app/FBT/consult/transfer.html]]></kvpair>
+    <kvpair id="plugin_degraded_url"><![CDATA[https://h5.m.taobao.com/qn/pc/app-downgrade.html?spm=0.0.0.0.rqBAuw&platform=%ls&protocolCategoryId=%ld&operationCategoryId=%d&pluginId=%ls]]></kvpair>
+    <kvpair id="create_amptribe"><![CDATA[https://market.m.taobao.com/app/qn/sc-group-air/st-group-create-new.html]]></kvpair>
+    <kvpair id="ampsubtribe_setting"><![CDATA[https://market.m.taobao.com/app/qn/sc-group-air/st-subtribe-setting-new.html]]></kvpair>
+    <kvpair id="ampmaintribe_setting"><![CDATA[https://market.m.taobao.com/app/qn/sc-group-air/st-maintribe-setting-new.html]]></kvpair>
+    <kvpair id="amptribe_app"><![CDATA[https://h5.m.taobao.com/qn/st-group-app.html]]></kvpair>
+    <kvpair id="wwmaintribe_setting"><![CDATA[alires:///WebUI/wwtribesetting/ww_seting.html]]></kvpair>
+    <kvpair id="DownloadManager"><![CDATA[alires:///WebUI/Downloads/0.0.1/index.html]]></kvpair>
+    <kvpair id="chat_msg_recent"><![CDATA[alires:///WebUI/chatnewmsg/recent.html]]></kvpair>
+    <kvpair id="chat_msg_TribeRecent"><![CDATA[alires:///WebUI/chatmsg/recent.html]]></kvpair>
+	<kvpair id="chat_msg_Tribehistory"><![CDATA[alires:///WebUI/chatmsg/history.html]]></kvpair>
+    <kvpair id="chat_msg_history"><![CDATA[alires:///WebUI/chatnewmsg/history.html]]></kvpair>
+    <kvpair id="chat_msg_file_list"><![CDATA[alires:///WebUI/chatnewmsg/history.html]]></kvpair>
+    <kvpair id="chat_msg_video_snapshot_default"><![CDATA[https://img.alicdn.com/imgextra/i3/O1CN015S0eSV1GpMOckyjSd_!!2-amp.png]]></kvpair>
+    <kvpair id="chat_msg_msg_mgr">
+      <![CDATA[alires:///WebUI/chatnewmsg/msgmgr.html]]></kvpair>
+    <kvpair id="chat_msg_tribe_at"><![CDATA[alires:///WebUI/chatmsg/tribeat.html]]></kvpair>
+    <kvpair id="activeservice_chat_msg"><![CDATA[https://market.m.taobao.com/app/im/customer-service-im/index.html#/]]></kvpair>
+    <kvpair id="red_packet"><![CDATA[https://market.m.taobao.com/app/aliww/qn-hongbao/hongbao-client.html]]></kvpair>
+    <kvpair id="ImageDownloadServer"><![CDATA[https://interface.im.taobao.com/status.taobao]]></kvpair>
+    <kvpair id="ImageDownloadAliCDN"><![CDATA[https://img.alicdn.com/imgextra/i3/O1CN015S0eSV1GpMOckyjSd_!!2-amp.png]]></kvpair>
+    <kvpair id="taobao_Rule"><![CDATA[https://rulechannel.taobao.com/#/]]></kvpair>
+    <kvpair id="tmall_Rule"><![CDATA[https://rulechannel.tmall.com/tmall#/]]></kvpair>
+    <kvpair id="taobao_productManual"><![CDATA[https://helpcenter.taobao.com/servicehall/knowledge?hcSessionId=3-1281-4c952368-b702-46ca-8a9b-7c4d343ee702#1000113216,1000113242]]></kvpair>
+    <kvpair id="tmall_productManual"><![CDATA[https://helpcenter.tmall.com/servicehall/knowledge?hcSessionId=3-1281-4c952368-b702-46ca-8a9b-7c4d343ee702#1000112413,1000112443]]></kvpair>
+    <kvpair id="feedback"><![CDATA[alires:///WebUI/CheckFeedback/index.html]]></kvpair>
+    <kvpair id="feedback_checklogin"><![CDATA[https://h5.m.taobao.com/qn/login-help.html]]></kvpair>
+    <kvpair id="feedback_checknetwork"><![CDATA[https://h5.m.taobao.com/qn/network-help.html]]></kvpair>
+    <kvpair id="feedback_satification"><![CDATA[https://market.m.taobao.com/app/qn/tracker-survey-ui/index.html?pid=AHJb74]]></kvpair>
+    <kvpair id="create_live"><![CDATA[https://h5.m.taobao.com/qn/customer-service-live-create-v2.html]]></kvpair>
+    <kvpair id="liveList"><![CDATA[https:///h5.m.taobao.com/qn/customer-service-live-index-v2.html#/list]]></kvpair>
+    <kvpair id="live_message"><![CDATA[https://h5.m.taobao.com/qn/customer-service-live-index-v2.html]]></kvpair>
+    <kvpair id="live_chatnick_info"><![CDATA[https://h5.m.taobao.com/qn/intelligent-service.html?type=live]]></kvpair>
+    <kvpair id="livePushUrl"><![CDATA[https://liveplatform.taobao.com/live/videoSetting?id=%ls]]></kvpair>
+    <kvpair id="liveUnderstandPush"><![CDATA[https://www.yuque.com/kfzb/kfzb2018]]></kvpair>
+    <kvpair id="watchallurl"><![CDATA[https://liveplatform.taobao.com/live/dataBoard.htm?liveId=%ls]]></kvpair>
+    <kvpair id="onlineurl"><![CDATA[https://liveplatform.taobao.com/live/dataBoard.htm?liveId=%ls]]></kvpair>
+    <kvpair id="TpMobileAndSoUrl">http://web.im.alisoft.com/memberinfo/getuserflags11</kvpair>
+    <kvpair id="PreviewMp4">alires:///WebUI/mp4Preview/mp4Preview.html?mp4=%ls</kvpair>
+    <kvpair id="userguide_appnew">https://market.m.taobao.com/app/crs-qn/qn-app-center/user-guide.html#/guide</kvpair>
+    <kvpair id="openTaoBao">http://tb.cn/n/im/dynamic/chat.html</kvpair>
+    <kvpair id="banama1688_activeaccount"> https://qianniu.1688.com/page/2016/windows.html</kvpair>
+    <kvpair id="black_url"><![CDATA[https://helpcenter.taobao.com/learn/knowledge?spm=a21pp.8204670.0.0.6e615b71Dzb7S2&cateId=263&id=13048151&xttkn=7207017d2062b9]]></kvpair>
+    <kvpair id="amptribe_sendmsgs"><![CDATA[https://wanted.taobao.com/admin/index.html#/messageBatchSend/operate]]></kvpair>
+    <kvpair id="pc_miniapp_auth">alires:///WebUI/pc-miniapp-auth/index.html</kvpair>
+    <kvpair id="gloabalsearch"><![CDATA[https://market.m.taobao.com/app/crs-qn/qn-search-web/index.html]]></kvpair>
+    <kvpair id="plugin.setdefault"><![CDATA[https://qn.taobao.com/microapp/qn-set-default-plugin-app?platform=%ls&seqId=%ls&categoryId=%ls&inFlow=%ls]]></kvpair>
+	<kvpair id="PluginPurchasePage"><![CDATA[https://qn.taobao.com/microapp/qn-set-default-plugin-app?orderPlugin=true&platform=%ls&categoryCode=%ls&categoryId=%ls&showCategory=%ls]]></kvpair>
+    <kvpair id="workbench_preload_address"><![CDATA[https://qn.taobao.com/home.htm/__empty__?__qnpreviewwebview__=1]]></kvpair>
+    <kvpair id="cbu_home_page"><![CDATA[https://cxt.1688.com/shangjpc.html?&tracelog=fuwu01]]></kvpair>
+    <kvpair id="cbu_report_page"><![CDATA[https://rule.1688.com/cbu/rule/detail/11005075.htm?spm=a262jn.10526145.alitoutiao.d0offine.5d881768MJDAAb]]></kvpair>
+    <kvpair id="ut_debug_info_url"><![CDATA[https://log.alibaba-inc.com/track/check/log/%ls?logType=UT&platformType=APP]]></kvpair>
+    <kvpair id="windmill_openwebcontainer_url"><![CDATA[https://miniapp-metadata.taobao.com/framework]]></kvpair>
+  </site>
+</FromSiteConfiguration>

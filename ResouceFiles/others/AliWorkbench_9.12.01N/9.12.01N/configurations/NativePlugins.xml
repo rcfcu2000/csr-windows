@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<xparam>
+	<plugin>
+		<plugin_id>11000000</plugin_id>
+		<name>ECS远程管理</name>
+		<appKey>21792653</appKey>
+		<dev_type>1</dev_type>
+		<official>1</official>
+		<call_back_url>AliRemote.exe</call_back_url>
+	</plugin>
+	<plugin>
+		<plugin_id>11000001</plugin_id>
+		<name>应用后台</name>
+		<appKey>21804221</appKey>
+		<dev_type>1</dev_type>
+		<official>1</official>
+		<call_back_url>AliRemote.exe</call_back_url>
+	</plugin>
+	<plugin>
+		<plugin_id>11000003</plugin_id>
+		<name>牛吧直播</name>
+		<!-- 该appkey为自定义，NativeAppSign.xml有相对应的标记，必须同步修改 -->
+		<appKey>NiuBa.setup</appKey>
+		<dev_type>1</dev_type>
+		<official>1</official>
+		<call_back_url></call_back_url>
+	</plugin>	
+</xparam>

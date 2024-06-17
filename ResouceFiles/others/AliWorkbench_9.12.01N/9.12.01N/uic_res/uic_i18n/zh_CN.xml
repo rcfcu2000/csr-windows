@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Messages>
+    <!--ui-->
+    <Message Key="UI_MESSAGE_REGIST" Value="免费注册"/>
+    <Message Key="UI_MESSAGE_REGIST_EA" Value="企业入驻"/>
+    <Message Key="UI_MESSAGE_FORGOTPASSWORD" Value="忘记密码"/>
+    <Message Key="UI_MESSAGE_LOGIN" Value="登 录"/>
+    <Message Key="UI_MESSAGE_REMEMBER_PASSWORD" Value="记住密码"/>
+    <Message Key="UI_MESSAGE_AUTO_LOGIN" Value="自动登录"/>
+    <Message Key="UI_MESSAGE_CAPSLOCK_OPEN" Value="大写锁定已打开"/>
+    <Message Key="UI_MESSAGE_QR_TOOLTIPS" Value="二维码扫码，安全登录"/>
+    <Message Key="UI_MESSAGE_ACCOUNT_EDIT_TIPVALUE" Value="请输入账号"/>
+    <Message Key="UI_MESSAGE_MOBILE_EDIT_TIPVALUE" Value="请输入手机号"/>
+    <Message Key="UI_MESSAGE_PASSWORD_EDIT_TIPVALUE" Value="请输入密码"/>
+    <Message Key="UI_MESSAGE_SMS_CODE_EDIT_TIPVALUE" Value="请输入验证码"/>
+    <Message Key="UI_MESSAGE_SEND_SMS_CODE" Value="发送验证码"/>
+    <Message Key="UI_MESSAGE_ALREADY_SEND" Value="已发送"/>
+    <Message Key="UI_MESSAGE_USE_SMS_CODE_LOGIN" Value="验证码登陆"/>
+    <Message Key="UI_MESSAGE_USE_PASSWORD_LOGIN" Value="密码登陆"/>
+    <Message Key="UI_MESSAGE_GOBACK_LOGIN" Value="返回登录"/>
+    <Message Key="UI_MESSAGE_PHOTO_STATUS" Value="在线状态"/>
+    <!--error-->
+    <Message Key="ERROR_MESSAGE_NETWORK_FAIL" Value="网络异常，请检查网络并重试"/>
+    <Message Key="ERROR_MESSAGE_ALREADY_LOGIN_FAIL" Value="该用户已经在本机登录，请确认"/>
+    <Message Key="ERROR_MESSAGE_OTHER_FAIL" Value="程序开小差了，请重启程序并登录"/>
+    <Message Key="ERROR_MESSAGE_SSOSESSIONID_FAIL" Value="SSO登录态失效，请重新登录"/>
+    <Message Key="ERROR_MESSAGE_REMEMBER_LOGIN_FAIL" Value="账密无法自动登录，请重新输入"/>
+    <Message Key="ERROR_MESSAGE_ACCOUNTPASSWORD_EMPTY_FAIL" Value="账号或者密码为空，请重新输入"/>
+    <Message Key="ERROR_MESSAGE_PASSWORDFORMAT_FAIL" Value="密码不合法，请重新输入"/>
+    <Message Key="ERROR_MESSAGE_PHONEFORMAT_FAIL" Value="手机号不合法，请重新输入"/>
+    <Message Key="ERROR_MESSAGE_PHONESMS_EMPTY_FAIL" Value="手机号或者验证码为空，请重新输入"/>
+    <Message Key="ERROR_MESSAGE_SERVER_OTHER_FAIL" Value="服务器返回异常错误，请重新登录"/>
+    <Message Key="ERROR_MESSAGE_WEBVIEW_FAIL" Value="浏览器控件加载失败，请重新登录"/>
+    <Message Key="ERROR_MESSAGE_JSBRIDGE_FAIL" Value="登录跳转失败，请重新登录"/>
+    <Message Key="ERROR_MESSAGE_QRLOGIN_FAIL" Value="二维码扫描登录失败，请重新登录"/>
+</Messages>

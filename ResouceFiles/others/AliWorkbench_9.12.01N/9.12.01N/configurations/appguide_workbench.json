@@ -1,0 +1,122 @@
+{
+    "guideFlowName": "Workbench_GuideFlow",
+    "guideViewList": [
+        {
+            "guideViewID": "BENCH_LEFT_OFFICIAL_BAR",
+            "balloon": {
+                "title": "官方功能",
+                "text": "全新菜单导航，官方功能一键直达",
+                "detailUrl": "https://helpcenter.tmall.com/servicehall/knowledge_detail?kwdContentId=175557273556383744",
+                "rect": {
+                    "xoffset": 0,
+                    "yoffset": 0,
+                    "width": 296
+                },
+                "direction": "right"
+            }
+        },
+        {
+            "guideViewID": "BENCH_LEFT_THIRDPARTY_BAR",
+            "balloon": {
+                "title": "我的应用",
+                "text": "主动订购并添加的应用快速访问，展示的工具可以进行自主管理",
+                "detailUrl": "https://helpcenter.taobao.com/servicehall/sop_detail?kwdContentId=10235770355848198&questionId=934f4443446c4cf884d0ed209a0565e8",
+                "rect": {
+                    "xoffset": 0,
+                    "yoffset": 0,
+                    "width": 296
+                },
+                "direction": "right"
+            }
+        },
+        {
+            "guideViewID": "BENCH_RECENT_URL",
+            "picture": {
+                "visible": true,
+                "pictureFile": "Workbench\\UIWorkbenchAppGuide\\RecentUrl.png",
+                "rect": {
+                    "xoffset": 0,
+                    "yoffset": 0,
+                    "width": 144,
+                    "height": 248
+                },
+                "direction": "down"
+            },
+            "balloon": {
+                "title": "最常使用",
+                "text": "这里可以查看常用的菜单&浏览的网页，快速找到你经常使用的功能",
+                "detailUrl": "https://helpcenter.taobao.com/servicehall/knowledge_detail?kwdContentId=208175832182584320",
+                "rect": {
+                    "xoffset": 0,
+                    "yoffset": 0,
+                    "width": 296
+                },
+                "direction": "right"
+            }
+        },
+        {
+            "guideViewID": "BENCH_GLOBAL_SEARCH",
+            "picture": {
+                "visible": true,
+                "pictureFile": "Workbench\\UIWorkbenchAppGuide\\GlobalSearch.png",
+                "rect": {
+                    "xoffset": 0,
+                    "yoffset": 0,
+                    "width": 418,
+                    "height": 490
+                },
+                "direction": "down"
+            },
+            "balloon": {
+                "title": "搜索",
+                "text": "这里可以查看常用的菜单，快速找到你经常使用的功能",
+                "detailUrl": "https://helpcenter.taobao.com/servicehall/knowledge_detail?kwdContentId=208175836477557760",
+                "rect": {
+                    "xoffset": 0,
+                    "yoffset": 0,
+                    "width": 296
+                },
+                "direction": "right"
+            }
+        },
+        {
+            "guideViewID": "BENCH_COLLECTION_WITH_MEMOLIST",
+            "picture": {
+                "visible": true,
+                "pictureFile": "Workbench\\UIWorkbenchAppGuide\\CollectionUrl.png",
+                "rect": {
+                    "xoffset": -524,
+                    "yoffset": 0,
+                    "width": 272,
+                    "height": 392
+                },
+                "direction": "down"
+            },
+            "balloon": {
+                "title": "备忘、收藏二合一",
+                "text": "原\"备忘清单\"的网址可在\"收藏夹\"的备忘清单中继续使用",
+                "detailUrl": "https://helpcenter.tmall.com/servicehall/knowledge_detail?kwdContentId=150429043405129728",
+                "rect": {
+                    "xoffset": 0,
+                    "yoffset": 0,
+                    "width": 296
+                },
+                "direction": "right"
+            }
+        },
+		{
+            "guideViewID": "BENCH_COLLECTION_ONLY",
+            "balloon": {
+                "title": "收藏夹功能",
+                "text": "可以添加并管理你高频使用的网页，并通过收藏夹进行快速访问",
+                "detailUrl": "https://helpcenter.tmall.com/servicehall/knowledge_detail?kwdContentId=150429043405129728",
+                "rect": {
+                    "xoffset": -27,
+                    "yoffset": 0,
+                    "width": 296
+                },
+                "direction": "down"
+            }
+        }
+    ]
+}
