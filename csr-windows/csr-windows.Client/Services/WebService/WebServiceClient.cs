@@ -550,9 +550,13 @@ namespace csr_windows.Client.Services.WebService
                                         productMsg = JsonConvert.SerializeObject(msg.msg.E2_items);
                                         break;
                                     case 129:
-                                        if (msg.ext.dynamic_msg_content[0].templateData.templateId == 295001)
+                                        if (msg.ext.dynamic_msg_content[0].templateId == 295001)
+                                        {
                                             productMsg = JsonConvert.SerializeObject(msg.ext.dynamic_msg_content[0].templateData.E2_items[0]);
-                                        else if (msg.ext.dynamic_msg_content[0].templateData.templateId == 164002)
+                                            sendUserNiceName = msg.ext.sender_nick;
+                                            receiveUserNiceName = msg.ext.receiver_nick;
+                                        }
+                                        else if (msg.ext.dynamic_msg_content[0].templateId == 164002)
                                             isAdd = false;
                                         break;
                                     default:
@@ -607,8 +611,21 @@ namespace csr_windows.Client.Services.WebService
 
                         if (lastTemplateIsProduct && msgTemplateId != 0)
                         {
+                            if (msgTemplateId == 129)
+                            {
+                                MultipleProductModel multipleModel = JsonConvert.DeserializeObject<MultipleProductModel>(productMsg);
+                                multipleModel.TaoBaoID = multipleModel.ItemId;
+                                multipleModel.SendUserNiceName = sendUserNiceName.Replace("cntaobao", ""); ;
+                                multipleModel.ReceiveUserNiceName = receiveUserNiceName.Replace("cntaobao", ""); ;
+                                multipleModel.TaoBaoID = multipleModel.TaoBaoID;
+                                if (!multipleModel.Pic.StartsWith("http"))
+                                {
+                                    multipleModel.Pic = $"http:{multipleModel.Pic}";
+                                }
+                                WeakReferenceMessenger.Default.Send(multipleModel, MessengerConstMessage.SendMsgMultipleProductToken);
+                            }
                             //单个商品
-                            if (msgTemplateId == 241005 || msgTemplateId == 262002 || msgTemplateId == 101)
+                            else if (msgTemplateId == 241005 || msgTemplateId == 262002 || msgTemplateId == 101)
                             {
                                 //文本
                                 if (lastTemplateId == 101 && json.msg[chats.Count - 1].msg.jsview[0].type == 0)
@@ -616,8 +633,8 @@ namespace csr_windows.Client.Services.WebService
                                     return;
                                 }
                                 SingleProductModel singleModel = JsonConvert.DeserializeObject<SingleProductModel>(productMsg);
-                                singleModel.SendUserNiceName = sendUserNiceName.Replace("cntaobao", ""); ;
-                                singleModel.ReceiveUserNiceName = receiveUserNiceName.Replace("cntaobao", ""); ;
+                                singleModel.SendUserNiceName = sendUserNiceName.Replace("cntaobao", "");
+                                singleModel.ReceiveUserNiceName = receiveUserNiceName.Replace("cntaobao", "");
                                 singleModel.TaoBaoID = StringHelper.GetTaoBaoIDByActionUrl(string.IsNullOrEmpty(singleModel.ActionUrl) ? singleModel.E1ActionUrl : singleModel.ActionUrl);
                                 if (!string.IsNullOrEmpty(singleModel.Pic) && !singleModel.Pic.StartsWith("http"))
                                 {
@@ -625,7 +642,7 @@ namespace csr_windows.Client.Services.WebService
                                 }
                                 WeakReferenceMessenger.Default.Send(singleModel, MessengerConstMessage.SendMsgSingleProductToken);
                             }
-                            if (msgTemplateId == 200005 || msgTemplateId == 129)
+                            else if (msgTemplateId == 200005)
                             {
                                 List<MultipleProductModel> multipleModels = JsonConvert.DeserializeObject<List<MultipleProductModel>>(productMsg);
                                 for (int i = 0; i < multipleModels.Count; i++)
