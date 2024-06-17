@@ -12,6 +12,7 @@ using csr_windows.Domain.WebSocketModels;
 using Fleck;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SharpDX.Direct3D11;
 using Sunny.UI.Win32;
 using System;
 using System.Collections.Concurrent;
@@ -37,6 +38,7 @@ namespace csr_windows.Client.Services.WebService
         private static SunnyNet syNet = new SunnyNet();
         private static readonly HttpClient _httpClient = new HttpClient();
         public static IWebSocketConnection Socket;
+        public static WebSocketServer wsServer = null;
         public static void StartHttpsServer()
         {
             bool sunnyNetIsRun = false;
@@ -84,6 +86,7 @@ namespace csr_windows.Client.Services.WebService
         public static void StartWebSocketServer()
         {
             var server = new WebSocketServer("ws://0.0.0.0:50000");
+            wsServer = server;
             server.Start(socket =>
             {
                 Socket = socket;
@@ -668,6 +671,14 @@ namespace csr_windows.Client.Services.WebService
             string csrName = TopHelp.GetQNChatTitle();
             if (allSockets.ContainsKey(csrName) && allSockets[csrName] != null)
                 allSockets[csrName].Send(msg);
+        }
+
+        public static void CloseAll() {
+            if (wsServer != null )
+                wsServer.Dispose();
+            if (syNet != null)
+                syNet = null;
+            allSockets.Clear(); 
         }
     }
 }

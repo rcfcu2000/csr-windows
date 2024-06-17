@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xparam>
+	<reserveThreshould>10</reserveThreshould>
+	<hideThreshould>20</hideThreshould>
+	<sysMemUsedThreashould>70</sysMemUsedThreashould>
+	<aliappMemThreadShouldWhenSysBusy>50</aliappMemThreadShouldWhenSysBusy>
+	<aliappMemThreadShouldWhenSysFree>100</aliappMemThreadShouldWhenSysFree>
+	<idleThreshould>30</idleThreshould>
+	<aliworkbenchMemVirtualSizeThreshould>1536</aliworkbenchMemVirtualSizeThreshould><!--MB--><!--1.5G-->
+	<aliworkbenchTabCountThreshould>10</aliworkbenchTabCountThreshould>
+  <aliworkbenchRenderMemoryLimit>600</aliworkbenchRenderMemoryLimit><!--MB--><!--600M-->
+  <availPagefileMin>150</availPagefileMin><!--MB--><!--100M-->
+</xparam>

@@ -37,6 +37,7 @@ using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static csr_windows.Client.Services.WebService.TopHelp;
+using static csr_windows.Client.Services.WebService.WebServiceClient;
 using csr_windows.Client.Services.WebService;
 using csr_windows.Domain.BaseModels;
 using csr_windows.Domain.BaseModels.BackEnd;
@@ -119,6 +120,7 @@ namespace csr_windows.Client
             WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.ExitToken, (r, m) =>
             {
                 _isUpdatePos = false;
+                WebServiceClient.CloseAll();
                 this.Close();
                 Application.Current.Shutdown();
             });

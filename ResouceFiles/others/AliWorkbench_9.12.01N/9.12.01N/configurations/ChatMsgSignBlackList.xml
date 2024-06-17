@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+  <rule>
+    <pattern><![CDATA[auction1.taobao.com/auction/item_detail]]></pattern>
+    <comment></comment>
+  </rule>
+  <rule>
+    <pattern><![CDATA[auction1.taobao.com/auction/trade_detail]]></pattern>
+    <comment></comment>
+  </rule>
+  <rule>
+    <pattern><![CDATA[search\\d*.taobao.com]]></pattern>
+    <comment></comment>
+  </rule>
+  <rule>
+    <pattern><![CDATA[list.taobao.com]]></pattern>
+    <comment></comment>
+  </rule>
+  <rule>
+    <pattern><![CDATA[list.mall.taobao.com]]></pattern>
+    <comment></comment>
+  </rule>
+  <rule>
+    <pattern><![CDATA[item.taobao.com]]></pattern>
+    <comment></comment>
+  </rule>
+  <rule>
+    <pattern><![CDATA[store.taobao.com/shop/view_shop]]></pattern>
+    <comment></comment>
+  </rule>
+  <rule>
+    <pattern><![CDATA[shop\\d+.taobao.com]]></pattern>
+    <comment></comment>
+  </rule>
+</config>

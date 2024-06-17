@@ -1,0 +1,20 @@
+{
+  // 0: INFO; 1: WARNING; 2: ERROR; 3: FATAL
+  "log_level": 1,
+  "debug": {
+    "*": {
+      "enable": false,
+      "framework": 9224,
+      "app": 9225
+    }
+//  "3000000000000000": {
+//    "enable": false,
+//    "framework": 9226,
+//    "app": 9227,
+//    "plugins": {
+//      "3000000000000001": 9228,
+//      "3000000000000002": 9229
+//    }
+//  }
+  }
+}

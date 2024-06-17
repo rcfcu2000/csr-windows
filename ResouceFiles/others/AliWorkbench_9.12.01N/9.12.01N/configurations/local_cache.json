@@ -1,0 +1,12 @@
+{
+	"arg_name" : "qntag",
+	"cors" : true,
+	"res_white_list" : [
+		"http://g.alicdn.com/sj/qn/jssdk.js",
+		"http://g.alicdn.com/sj/qn/jssdk-ex.js",
+		"http://g.alicdn.com/sj/qn/lib/js/less.js",
+		"http://g.tbcdn.cn/sj/qn/jssdk.js",
+		"http://g.tbcdn.cn/sj/qn/jssdk-ex.js",
+		"http://g.tbcdn.cn/sj/qn/lib/js/less.js"
+	]
+}

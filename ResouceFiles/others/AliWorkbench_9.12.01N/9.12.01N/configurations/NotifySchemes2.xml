@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<schemes cur="normal">
+	<scheme id="normal">
+		<event id="01_recv_message">
+			<describe>recv_message</describe>
+			<notify>1</notify>
+			<sound>sound\sent.wav</sound>
+			<sound_enable>1</sound_enable>
+		</event>
+		<event id="02_contact_online">
+			<describe>contact_online</describe>
+			<notify>1</notify>
+			<sound>sound\online.wav</sound>
+			<sound_enable>1</sound_enable>
+		</event>
+		<event id="03_contact_offline">
+			<describe>contact_offline</describe>
+			<notify>0</notify>
+			<sound>sound\offline.wav</sound>
+			<sound_enable>0</sound_enable>
+		</event>
+		<event id="04_sys_msg">
+			<describe>system_message</describe>
+			<notify>1</notify>
+			<nty_cfg_disable>1</nty_cfg_disable>
+			<sound>sound\dingdong.wav</sound>
+			<sound_enable>1</sound_enable>
+		</event>
+		<event id="05_chatdlg_shake">
+			<describe>chatdlg_shake</describe>
+			<notify>0</notify>
+			<nty_cfg_disable>1</nty_cfg_disable>
+			<sound>sound\Vibration.wav</sound>
+			<sound_enable>1</sound_enable>
+		</event>
+	- <event id="06_tribe_message">
+			<describe>tribe_message</describe> 
+			<notify>0</notify> 
+			<nty_cfg_disable>1</nty_cfg_disable> 
+			<sound>sound\tribe.wav</sound> 
+			<sound_enable>1</sound_enable> 
+	  </event>
+
+	</scheme>
+	<scheme id="silent">
+		<event id="01_recv_message">
+			<describe>recv_message</describe>
+			<notify>0</notify>
+			<sound>sound\sent.wav</sound>
+			<sound_enable>1</sound_enable>
+		</event>
+		<event id="02_contact_online">
+			<describe>contact_online</describe>
+			<notify>0</notify>
+			<sound>sound\online.wav</sound>
+			<sound_enable>1</sound_enable>
+		</event>
+		<event id="03_contact_offline">
+			<describe>contact_offline</describe>
+			<notify>0</notify>
+			<sound>sound\offline.wav</sound>
+			<sound_enable>0</sound_enable>
+		</event>
+		<event id="04_sys_msg">
+			<describe>system_message</describe>
+			<notify>1</notify>
+      <nty_cfg_disable>1</nty_cfg_disable>
+			<sound>sound\dingdong.wav</sound>
+			<sound_enable>1</sound_enable>
+		</event>
+		<event id="05_chatdlg_shake">
+			<describe>chatdlg_shake</describe>
+			<notify>0</notify>
+      <nty_cfg_disable>1</nty_cfg_disable>
+			<sound>sound\Vibration.wav</sound>
+			<sound_enable>1</sound_enable>
+		</event>
+		<event id="06_tribe_message">
+			<describe>tribe_message</describe>
+			<notify>0</notify>
+      <nty_cfg_disable>1</nty_cfg_disable>
+			<sound>sound\tribe.wav</sound>
+			<sound_enable>1</sound_enable>
+		</event>
+	</scheme>
+</schemes>

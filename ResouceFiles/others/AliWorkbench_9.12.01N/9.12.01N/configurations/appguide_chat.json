@@ -1,0 +1,33 @@
+{
+    "guideFlowName": "Chat_GuideFlow",
+    "guideViewList": [
+        {
+            "guideViewID": "CHAT_LEFT_OFFICIAL_BAR",
+            "balloon": {
+                "title": "官方功能",
+                "text": "全新菜单导航，官方功能一键直达",
+                "detailUrl": "https://helpcenter.tmall.com/servicehall/knowledge_detail?kwdContentId=175557273556383744",
+                "rect": {
+                    "xoffset": 0,
+                    "yoffset": 0,
+                    "width": 296
+                },
+                "direction": "right"
+            }
+        },
+        {
+            "guideViewID": "CHAT_LEFT_THIRDPARTY_BAR",
+            "balloon": {
+                "title": "我的应用",
+                "text": "主动订购并添加的应用快速访问，展示的工具可以进行自主管理",
+                "detailUrl": "https://helpcenter.taobao.com/servicehall/sop_detail?kwdContentId=10235770355848198&questionId=934f4443446c4cf884d0ed209a0565e8",
+                "rect": {
+                    "xoffset": 0,
+                    "yoffset": 0,
+                    "width": 296
+                },
+                "direction": "right"
+            }
+        }
+    ]
+}

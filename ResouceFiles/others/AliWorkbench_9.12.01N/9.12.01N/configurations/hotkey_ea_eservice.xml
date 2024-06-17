@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xparam>
+	<hotkey>
+		<type>3</type>
+		<appkey>0</appkey>
+		<action>action.ea.switch.shop</action>
+		<buse>1</buse>
+		<fsModifiers>2</fsModifiers>
+		<vk>68</vk>
+	</hotkey>
+	
+</xparam>

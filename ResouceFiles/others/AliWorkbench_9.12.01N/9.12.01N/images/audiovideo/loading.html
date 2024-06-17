@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+
+<script src="Scripts/swfobject_modified.js" type="text/javascript"></script>
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	overflow:hidden;
+}
+html{
+	overflow:hidden;
+	
+}
+-->
+</style></head>
+
+<body>
+
+
+<div id="cotent_div">
+  
+  
+</div>
+<script type="text/javascript">
+function isEmpty(str){
+	if(null!=str && ""!=str){
+		return false;
+	}
+	else{
+		return true;
+	}
+}
+
+function getUrlParamValue(name){
+	var paramValue = "";
+	var urlParamStr=window.location.search;
+	if(!isEmpty(urlParamStr)){
+		var paramArray = new Array();
+		paramArray = urlParamStr.split("&");
+		for(var i=0; i<paramArray.length; i++){
+			var tmp = paramArray[i];
+			if(tmp.indexOf(name+"=")!=-1){
+				paramValue = tmp.substring(tmp.indexOf(name+"=")+name.length+1 , tmp.length);
+			}
+		}
+	}
+	return paramValue;
+}
+
+var urlstr=getUrlParamValue("id");
+var w = getUrlParamValue("w");
+var h = getUrlParamValue("h");
+
+var outhtml='<object id="swf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" ';
+outhtml+=' width="'+w+'"';
+outhtml+=' height="' + h + '">';
+outhtml+='<param name="movie"  value="file:///'+urlstr+'"  />';
+ outhtml+=' <param name="quality" value="high" />';
+  outhtml+='<param name="wmode" value="opaque" />';
+ outhtml+='</object> ';
+ 
+document.getElementById("cotent_div").innerHTML=outhtml;
+
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "modules": [
+    "GPP32.dll",
+    "browserhook.dll",
+    "ss2devprops.dll"
+  ],
+  "moduleRegexs": [
+    "hook_(.*).dll",
+    "(.*)kraken(.*).dll",
+    "(.*)manowar(.*).dll",
+    "nhAsus(.*).dll",
+    "(.*).exe"
+  ],
+  "pathRegexs": [ "(.*)A-Volute(.*)" ]
+}

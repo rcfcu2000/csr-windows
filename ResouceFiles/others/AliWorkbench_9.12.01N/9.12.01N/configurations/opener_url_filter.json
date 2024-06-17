@@ -1,0 +1,28 @@
+{
+	"7368" : [
+		"upload.taobao.com/auction/descModule/descModuleOpt.htm",
+		"wuliu.taobao.com/user/logis_tools.htm",
+		"map.taobao.com/itempos/sellItempos.htm"	
+	],
+	"7854" : [
+		"wuxian.taobao.com/decorate/interactiveVideo.htm",
+		"duomeiti.taobao.com/interactiveVideo.htm"
+	],
+  "bench": [
+    "trade.taobao.com/trade/itemlist/list_export_order.htm",
+    "trade.taobao.com/trade/itemlist/list_sold_items.htm?event_submit_do_query=1",
+    "bda.sycm.taobao.com/toolbox/keyword/keyword_detail.htm",
+    "order.1688.com/order/smart_make_order.htm",
+	"subway.simba.taobao.com/#!/campaigns/standards/adgroups/items/add",
+    "upload.tmall.com/auction/publish/sizeMapping.htm",
+	"gongxiao.tmall.com/distributor/order/order_batch_pay.htm",
+	"wuliu.taobao.com/user/logis_tools.htm",
+	"duomeiti.taobao.com/interactiveVideo.htm",
+	"wuxian.taobao.com/decorate/interactiveVideo.htm",
+	"wuliu.taobao.com/user/order_list_new",
+	"upload.tmall.com/auction/publish/listAfterSale.htm",
+	"partner.aliqin.tmall.com/buyflow.do",
+	"goods.gongxiao.tmall.com/supplier/product/publishSupplyItem.htm",
+	"wuliu.taobao.com/user/normal_print_tickets.htm"
+  ]
+}

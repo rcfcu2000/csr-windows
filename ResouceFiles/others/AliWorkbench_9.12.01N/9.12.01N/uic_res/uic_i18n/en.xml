@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Messages>
+    <!--ui-->
+    <Message Key="UI_MESSAGE_REGIST" Value="Join Free"/>
+    <Message Key="UI_MESSAGE_REGIST_EA" Value="Join Us"/>
+    <Message Key="UI_MESSAGE_FORGOTPASSWORD" Value="Forgot Password"/>
+    <Message Key="UI_MESSAGE_LOGIN" Value="Log In"/>
+    <Message Key="UI_MESSAGE_REMEMBER_PASSWORD" Value="Save Password"/>
+    <Message Key="UI_MESSAGE_AUTO_LOGIN" Value="Auto Login"/>
+    <Message Key="UI_MESSAGE_CAPSLOCK_OPEN" Value="Caps Lock is on"/>
+    <Message Key="UI_MESSAGE_QR_TOOLTIPS" Value="Scan QR code to log in safely"/>
+    <Message Key="UI_MESSAGE_ACCOUNT_EDIT_TIPVALUE" Value="Enter Account Number"/>
+    <Message Key="UI_MESSAGE_MOBILE_EDIT_TIPVALUE" Value="Enter Mobile Number"/>
+    <Message Key="UI_MESSAGE_PASSWORD_EDIT_TIPVALUE" Value="Enter Password"/>
+    <Message Key="UI_MESSAGE_SMS_CODE_EDIT_TIPVALUE" Value="Enter Code"/>
+    <Message Key="UI_MESSAGE_SEND_SMS_CODE" Value="Send Code"/>
+    <Message Key="UI_MESSAGE_ALREADY_SEND" Value="Sent"/>
+    <Message Key="UI_MESSAGE_USE_SMS_CODE_LOGIN" Value="Code Login"/>
+    <Message Key="UI_MESSAGE_USE_PASSWORD_LOGIN" Value="Password Login"/>
+    <Message Key="UI_MESSAGE_GOBACK_LOGIN" Value="Go Back"/>
+    <Message Key="UI_MESSAGE_PHOTO_STATUS" Value="Online Status"/>
+    <!--error-->
+    <Message Key="ERROR_MESSAGE_NETWORK_FAIL" Value="Network exception. Check your network and try again"/>
+    <Message Key="ERROR_MESSAGE_ALREADY_LOGIN_FAIL" Value="The user has logged in locally. Please confirm"/>
+    <Message Key="ERROR_MESSAGE_OTHER_FAIL" Value="Program exception. Restart the program and log in again"/>
+    <Message Key="ERROR_MESSAGE_SSOSESSIONID_FAIL" Value="SSO Login status expired. Please log in again"/>
+    <Message Key="ERROR_MESSAGE_REMEMBER_LOGIN_FAIL" Value="Unable to log in automatically with this account information. Please enter it again"/>
+    <Message Key="ERROR_MESSAGE_ACCOUNTPASSWORD_EMPTY_FAIL" Value="Empty account number or password. Please enter it again"/>
+    <Message Key="ERROR_MESSAGE_PASSWORDFORMAT_FAIL" Value="Illegal password. Please enter it again"/>
+    <Message Key="ERROR_MESSAGE_PHONEFORMAT_FAIL" Value="Illegal phone number. Please enter it again"/>
+    <Message Key="ERROR_MESSAGE_PHONESMS_EMPTY_FAIL" Value="Empty phone number or SMS code. Please enter it again"/>
+    <Message Key="ERROR_MESSAGE_SERVER_OTHER_FAIL" Value="Server returned unexpected errors. Please log in again"/>
+    <Message Key="ERROR_MESSAGE_WEBVIEW_FAIL" Value="Browser controls failed to load. Please log in again"/>
+    <Message Key="ERROR_MESSAGE_JSBRIDGE_FAIL" Value="Login jump failed. Please log in again"/>
+    <Message Key="ERROR_MESSAGE_QRLOGIN_FAIL" Value="Scanning QR code to log in failed. Please log in again"/>
+</Messages>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<url>
+  <domainreplace id="gw.api.taobao.com"><![CDATA[110.75.14.63]]></domainreplace>
+  <domainreplace id="qnlogin.taobao.com"><![CDATA[qnlogin.prepub.taobao.com]]></domainreplace>
+  <domainreplace id="yungw.taobao.com"><![CDATA[yungw.prepub.taobao.com]]></domainreplace>
+  <domainreplace id="qngateway.taobao.com"><![CDATA[yungw.prepub.taobao.com]]></domainreplace>
+  <domainreplace id="eco.taobao.com"><![CDATA[140.205.57.248]]></domainreplace>
+  <totalreplace id="Login_v3"><![CDATA[http://qnlogin.prepub.taobao.com/login]]></totalreplace>
+  <totalreplace id="Logout_v3"><![CDATA[http://qnlogin.prepub.taobao.com/logout]]></totalreplace>
+  <totalreplace id="Login_saas"><![CDATA[http://qnlogin.prepub.taobao.com/saas/login]]></totalreplace>
+  <totalreplace id="JingdouServerUrl"><![CDATA[http://jdy.prepub.tmall.com]]></totalreplace>
+  <totalreplace id="ForwardContactInGroup"><![CDATA[https://pre-dispatch.taobao.com/dispatch?toId=%s&fromId=%s&site=cntaobao&groupId=%s&charset=utf-8&exceptUsers=%s]]></totalreplace>
+</url>

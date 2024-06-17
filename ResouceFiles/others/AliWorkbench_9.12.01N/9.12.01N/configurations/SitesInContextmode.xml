@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cmsites>
+  <cmsite mode ="normal">
+    <kvpair id="registeruser">http://member1.taobao.com/member/register.jhtml?fromsite=wangwang</kvpair>
+    <kvpair id="registeruser_mode">out</kvpair>
+    <kvpair id="download_new_version">http://www.taobao.com/wangwang/</kvpair> 
+    <kvpair id="modulelist">modules_i.xml</kvpair> 
+  </cmsite>
+  <cmsite mode ="alitalk">
+    <kvpair id="registeruser">https://webim.ww.taobao.com/webim/reg/cnalichnReg.htm</kvpair>
+    <kvpair id="registeruser_mode">in</kvpair>
+    <kvpair id="download_new_version">http://im.alisoft.com/download/</kvpair> 
+    <kvpair id="modulelist">modules_i_at.xml</kvpair> 
+  </cmsite>
+  <cmsite mode ="trader">
+    <kvpair id="download_new_version">http://www.taobao.com/wangwang/</kvpair> 
+  </cmsite>
+</cmsites>
+

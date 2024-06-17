@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xparam>
+	<hotkey>
+		<type>0</type>
+		<appkey>0</appkey>
+		<action>action.close_saleslead</action>
+		<buse>1</buse>
+		<fsModifiers>4</fsModifiers>
+		<vk>88</vk>
+	</hotkey>
+	<hotkey>
+		<type>0</type>
+		<appkey>0</appkey>
+		<action>action.send_goods</action>
+		<buse>1</buse>
+		<fsModifiers>4</fsModifiers>
+		<vk>71</vk>
+	</hotkey>
+	<hotkey>
+		<type>0</type>
+		<appkey>0</appkey>
+		<action>action.send_coupon</action>
+		<buse>1</buse>
+		<fsModifiers>4</fsModifiers>
+		<vk>67</vk>
+	</hotkey>
+	<hotkey>
+		<type>0</type>
+		<appkey>0</appkey>
+		<action>action.open_order</action>
+		<buse>1</buse>
+		<fsModifiers>4</fsModifiers>
+		<vk>79</vk>
+	</hotkey>
+	<hotkey>
+		<type>0</type>
+		<appkey>0</appkey>
+		<action>action.send_msg</action>
+		<buse>1</buse>
+		<fsModifiers>4</fsModifiers>
+		<vk>68</vk>
+	</hotkey>
+</xparam>

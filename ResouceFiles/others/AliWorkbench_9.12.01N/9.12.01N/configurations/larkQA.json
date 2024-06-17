@@ -1,0 +1,194 @@
+﻿[
+  {
+    "category": "千牛应用、插件",
+    "bizCategory": "plugin",
+    "problems": [
+      {
+        "desc": "工具打不开",
+        "docUrl": ""
+      },
+      {
+        "desc": "打开工具白屏",
+        "docurl": ""
+      },
+      {
+        "desc": "打开工具加载很慢",
+        "docurl": ""
+      },
+      {
+        "desc": "工具滥收费",
+        "docurl": ""
+      },
+      {
+        "desc": "提示enc-k错误",
+        "docUrl": "https://www.yuque.com/docs/share/e411ea71-8e4e-4f22-ac42-1439fdd7314c"
+      },
+      {
+        "desc": "提示无权限",
+        "docurl": ""
+      },
+      {
+        "desc": "提示远程调用服务失败",
+        "docurl": ""
+      },
+      {
+        "desc": "其他",
+        "docurl": ""
+      }
+    ]
+  },
+  {
+    "category": "网页问题",
+    "bizCategory": "web",
+    "problems": [
+      {
+        "desc": "网页打不开",
+        "docurl": "https://www.yuque.com/docs/share/9bb7cd44-31b9-44cb-a287-f50192522860"
+      },
+      {
+        "desc": "网页打开缓慢",
+        "docUrl": "https://www.yuque.com/docs/share/9bb7cd44-31b9-44cb-a287-f50192522860"
+      },
+      {
+        "desc": "网页中部分内容显示异常",
+        "docUrl": "https://www.yuque.com/docs/share/9bb7cd44-31b9-44cb-a287-f50192522860"
+      },
+      {
+        "desc": "页面提示暂无模块",
+        "docUrl": "https://www.yuque.com/docs/share/9bb7cd44-31b9-44cb-a287-f50192522860"
+      },
+      {
+        "desc": "页面提示spdy协议出错",
+        "docUrl": "https://www.yuque.com/docs/share/9bb7cd44-31b9-44cb-a287-f50192522860"
+      },
+      {
+        "desc": "页面提示连接被重置",
+        "docUrl": "https://www.yuque.com/docs/share/9bb7cd44-31b9-44cb-a287-f50192522860"
+      },
+      {
+        "desc": "页面提示域名解析失败",
+        "docurl": "https://www.yuque.com/docs/share/9bb7cd44-31b9-44cb-a287-f50192522860"
+      },
+	  {
+        "desc": "其他",
+        "docurl": ""
+      }
+    ]
+  },
+  {
+    "category": "聊天消息问题",
+    "bizCategory": "immsg",
+    "problems": [
+      {
+        "desc": "收不到消息",
+        "docUrl": "https://www.yuque.com/docs/share/d746c063-bcb9-4b9c-a643-331afb77d95d"
+      },
+      {
+        "desc": "消息无提醒声音",
+        "docUrl": "https://www.yuque.com/docs/share/d746c063-bcb9-4b9c-a643-331afb77d95d"
+      },
+      {
+        "desc": "消息延迟",
+        "docUrl": "https://www.yuque.com/docs/share/d746c063-bcb9-4b9c-a643-331afb77d95d"
+      },           
+      {
+        "desc": "消息发送不成功",
+        "docUrl": "https://www.yuque.com/docs/share/d746c063-bcb9-4b9c-a643-331afb77d95d"
+      },
+      {
+        "desc": "电脑和手机消息不同步",
+        "docUrl": "https://www.yuque.com/docs/share/d746c063-bcb9-4b9c-a643-331afb77d95d"
+      },      
+      {
+        "desc": "文件发送不成功",
+        "docUrl": "https://www.yuque.com/docs/share/d746c063-bcb9-4b9c-a643-331afb77d95d"
+      },      
+      {
+        "desc": "看不到聊天记录",
+        "docUrl": "https://www.yuque.com/docs/share/d746c063-bcb9-4b9c-a643-331afb77d95d"
+      }, 
+      {
+        "desc": "被禁言了",
+        "docUrl": "https://www.yuque.com/docs/share/d746c063-bcb9-4b9c-a643-331afb77d95d"
+      },
+      {
+        "desc": "不知道如何关闭自动回复",
+        "docUrl": "https://www.yuque.com/docs/share/d746c063-bcb9-4b9c-a643-331afb77d95d"
+      },
+      {
+        "desc": "表情功能有问题",
+        "docUrl": "https://www.yuque.com/docs/share/d746c063-bcb9-4b9c-a643-331afb77d95d"
+      }, 
+	  {
+        "desc": "其他",
+        "docurl": ""
+      }	  
+    ]
+  },
+  {
+    "category": "联系人问题",
+    "bizCategory": "eservice",
+    "problems": [
+      {
+        "desc": "收藏的联系人、星标功能异常",
+        "docUrl": ""
+      },
+      {
+        "desc": "联系人转接有问题",
+        "docUrl": ""
+      }, 
+	  {
+        "desc": "其他",
+        "docurl": ""
+      }	
+    ]
+  },
+{
+    "category": "系统消息问题",
+    "bizCategory": "systemmsg",
+    "problems": [
+       {
+        "desc": "收不到系统消息",
+        "docUrl": "https://www.yuque.com/docs/share/d2be87d7-27ee-4909-8883-8b005e2f7fef"
+      },
+      {
+        "desc": "消息无提醒声音",
+        "docUrl": "https://www.yuque.com/docs/share/d2be87d7-27ee-4909-8883-8b005e2f7fef"
+      },
+      {
+        "desc": "消息延迟",
+        "docUrl": "https://www.yuque.com/docs/share/d2be87d7-27ee-4909-8883-8b005e2f7fef"
+      },
+      {
+        "desc": "广告等无效消息太多",
+        "docUrl": ""
+      } , 
+	  {
+        "desc": "其他",
+        "docurl": ""
+      }	     
+    ]
+  },
+  {
+    "category": "其他问题",
+    "bizCategory": "other",
+    "problems": [
+      {
+        "desc": "打不开接待窗口、聊天面板",
+        "docUrl": "https://www.yuque.com/docs/share/fe402cd0-3fdd-435c-b555-52c3e59d3c69"
+      },
+      {
+        "desc": "打不开工作台窗口、浏览器",
+        "docUrl": ""
+      },
+      {
+        "desc": "点击旺旺头像打不开聊天、旺旺亮灯问题",
+        "docUrl": "https://www.yuque.com/docs/share/90142c0e-2ddf-479d-a0f7-bd15093d1e13"
+      }, 
+	  {
+        "desc": "其他",
+        "docurl": ""
+      }	  
+    ]
+  }
+]

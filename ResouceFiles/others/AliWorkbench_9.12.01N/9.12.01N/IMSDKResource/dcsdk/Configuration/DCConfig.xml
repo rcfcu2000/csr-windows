@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xparam>
+	<uploadInterval>180</uploadInterval>
+	<uploadUrl><![CDATA[http://adashww.ut.taobao.com/rest/sur?v=3.0&u=&is=0&v=3.0&p=PC]]></uploadUrl>
+</xparam>

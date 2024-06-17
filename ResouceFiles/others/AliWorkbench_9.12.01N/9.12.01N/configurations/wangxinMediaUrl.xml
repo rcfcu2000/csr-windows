@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xparam>
+  <mediaUrl>
+    <item>http://img01.taobaocdn.com/L1</item>
+    <item>http://img02.taobaocdn.com/L1</item>
+    <item>http://img03.taobaocdn.com/L1</item>
+    <item>http://img04.taobaocdn.com/L1</item>
+    <item>http://interface.im.taobao.com/mobileimweb/fileupload/downloadPriFile.do?</item>
+    <item>http://interface.im.hupan.com/mobileimweb/fileupload/getFile.do?</item>
+    <item>http://interface.im.hupan.com/mobileimweb/fileupload/getFile.json?</item>
+    <item>http://download.taobaocdn.com/tbsc/client/taotoy/</item>
+    <item>http://ftsproxy.wangxin.taobao.com/fetch?</item>
+    <item>http://interface.im.taobao.com/api/wwfile/downloadWwFile.json?</item>
+  </mediaUrl>
+  <BSignWxMediaUrl>1</BSignWxMediaUrl>
+</xparam>

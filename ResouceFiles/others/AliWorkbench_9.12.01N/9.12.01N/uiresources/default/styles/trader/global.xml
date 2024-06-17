@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?><ResRoot Version="1.0.0">
+	<ResHeader>
+		<Property Name="Flag" Type="String" Value="AliRevolutionUISkin"/>
+	</ResHeader>
+	<ResConfig>
+		<Property Name="StringEncode" Type="String" Value=""/>
+	</ResConfig>
+	<UIComponent Class="global">
+		<Property Name="FontHeight" Type="INT" Value="-12"/>
+		<Property Name="BackColor" Type="UINT" Value="0xFFFFFFFF"/>
+		<Property Name="TextColor" Type="UINT" Value="0xFF333333"/>
+		<Property Name="DisableTextColor" Type="UINT" Value="0xFFC0C0C0"/>
+		<Property Name="HighlightTextColor" Type="UINT" Value="0xFF333333"/>
+		<Property Name="FrameBorderFilePath" Type="String" Value="common\FrameBorder.xml"/>
+	</UIComponent>
+	<UIComponent Class="filenamelabel">
+		<Property Name="FontHeight" Type="INT" Value="-12"/>
+		<Property Name="BackColor" Type="UINT" Value="0xFFFFFFFF"/>
+	</UIComponent>
+	<UIComponent Class="radiobox">
+		<Property Name="RadioBoxImage" Type="String" Value="RadioButton13.png"/>
+		<Property Name="ImageTextSpace" Type="INT" Value="5"/>
+	</UIComponent>
+	<UIComponent Class="ComboBoxComponent">
+		<Property Name="ButtonImage" Type="String" Value="comboboxbuttonimage.png"/>
+	</UIComponent>
+	<UIComponent Class="checkbox">
+		<Property Name="CheckBoxImage" Type="String" Value="common/CheckBox/DefautlCheckBox.png"/>
+		<Property Name="ImageTextSpace" Type="INT" Value="5"/>
+	</UIComponent>
+	<UIComponent Class="standbutton">
+		<Property Name="Cursor" Type="String" Value="Hand"/>
+	</UIComponent>
+	<UIComponent Class="coolbutton">
+		<Property Name="Cursor" Type="String" Value="Hand"/>
+	</UIComponent>
+	<UIComponent Class="TextLabel">
+		<Property Name="TextColor" Type="UINT" Value="0xFF4A4A4A"/>
+	</UIComponent>
+	<UIComponent Class="MainFrame">
+		<Property Name="BackColor" Type="UINT" Value="0xFFFFFFFF"/>
+		<Property Name="FrameBorderFilePath" Type="String" Value="common\FrameBorder.xml"/>
+	</UIComponent>
+	<UIComponent Class="Dialog">
+		<Property Name="BackgroundImageLayout" Type="INT" Value="3"/>
+		<Property Name="FrameBorderFilePath" Type="String" Value="common\FrameBorder.xml"/>
+	</UIComponent>
+  <UIComponent Class="BookMarksMenu">
+    <Property Name="BackgroundImageLayout" Type="INT" Value="3"/>
+    <Property Name="FrameBorderFilePath" Type="String" Value="common\FrameBorder.xml"/>
+  </UIComponent>
+  <UIComponent Class="transparentmenu">
+      <Property Name="InheritStyle" Type="String" Value="ENT_NOMARL_VERTICAL_MENU_STYLE"/>
+  </UIComponent>
+  <UIComponent Class="WindowsStyleToolTips">
+    <Property Name="BackgroundImageLayout" Type="INT" Value="3"/>
+    <Property Name="FrameBorderFilePath" Type="String" Value="common\FrameBorder.xml"/>
+  </UIComponent>
+	<UIComponent Class="coolmenuitem">
+		<Property Name="SubMenuArrow" Type="String" Value="common\submenuarrow.png"/>
+		<Property Name="CheckImage" Type="String" Value="menucheckicon.png"/>
+		<Property Name="RadioImage" Type="String" Value="menuradioicon.png"/>
+		<Property Name="RenderLeft" Type="INT" Value="4"/>
+		<Property Name="ImageLeft" Type="INT" Value="22"/>
+		<Property Name="TextLeft" Type="INT" Value="22"/>
+		<Property Name="TextColor" Type="UINT" Value="0xFF333333"/>
+		<Property Name="HighlightTextColor" Type="UINT" Value="0xFF3D7FFF"/>
+		<Property Name="EnableHighlightTextColor" Type="BOOL" Value="TRUE"/>
+		<Property Name="EnableHighlightBackground" Type="BOOL" Value="FALSE"/>
+		<Property Name="ItemHeight" Type="INT" Value="32"/>
+	</UIComponent>
+	<UIComponent Class="coolmainmenuitem">
+		<Property Name="SubMenuArrow" Type="String" Value="common\submenuarrow.png"/>
+		<Property Name="CheckImage" Type="String" Value="menucheckicon.png"/>
+		<Property Name="RadioImage" Type="String" Value="menuradioicon.png"/>
+		<Property Name="RenderLeft" Type="INT" Value="4"/>
+		<Property Name="ImageLeft" Type="INT" Value="19"/>
+		<Property Name="TextLeft" Type="INT" Value="19"/>
+		<Property Name="TextColor" Type="UINT" Value="0xFF333333"/>
+		<Property Name="HighlightTextColor" Type="UINT" Value="0xFF3D7FFF"/>
+		<Property Name="EnableHighlightTextColor" Type="BOOL" Value="TRUE"/>
+		<Property Name="EnableHighlightBackground" Type="BOOL" Value="FALSE"/>
+		<Property Name="ItemHeight" Type="INT" Value="32"/>
+	</UIComponent>
+	<UIComponent Class="coolmenu">
+		<Property Name="Width" Type="INT" Value="150"/>
+		<Property Name="MenuMarginTop" Type="INT" Value="1"/>
+		<Property Name="MenuMarginBottom" Type="INT" Value="1"/>
+		<Property Name="MenuMarginLeft" Type="INT" Value="1"/>
+		<Property Name="MenuMarginRight" Type="INT" Value="1"/>
+		<Property Name="SimpleRegionID" Type="String" Value="ID_MENU_SIMPLE_REGION"/>
+	</UIComponent>
+	<UIComponent Class="simplescrollmenu">
+		<Property Name="CheckImage" Type="String" Value="menucheckicon.png"/>
+		<Property Name="RenderLeft" Type="INT" Value="4"/>
+		<Property Name="ImageLeft" Type="INT" Value="22"/>
+		<Property Name="TextLeft" Type="INT" Value="22"/>
+		<Property Name="EnableHighlightTextColor" Type="BOOL" Value="TRUE"/>
+		<Property Name="TextColor" Type="UINT" Value="0xFF333333"/>
+		<Property Name="HighlightTextColor" Type="UINT" Value="0xFF3D7FFF"/>
+		<Property Name="EnableHighlightBackground" Type="BOOL" Value="FALSE"/>
+		<Property Name="ItemHeight" Type="INT" Value="32"/>
+	</UIComponent>
+	<UIComponent Class="WWUIMsgScrollList">
+		<Property Name="RenderLeft" Type="INT" Value="4"/>
+		<Property Name="ImageLeft" Type="INT" Value="22"/>
+		<Property Name="TextLeft" Type="INT" Value="22"/>
+		<Property Name="HighlightTextColor" Type="UINT" Value="0xFF333333"/>
+		<Property Name="ItemHeight" Type="INT" Value="24"/>
+		<Property Name="BackColor" Type="UINT" Value="0xFFDFEEF1"/>
+	</UIComponent>
+	<UIComponent Class="NCArea">
+		<Property Name="BackColor" Type="UINT" Value="0xFF9BC1CD"/>
+		<Property Name="BorderWidth" Type="INT" Value="0"/>
+		<Property Name="TitleHeight" Type="INT" Value="24"/>
+		<Property Name="MaximizeBox" Type="BOOL" Value="TRUE"/>
+		<Property Name="MinimizeBox" Type="BOOL" Value="TRUE"/>
+		<Property Name="SysMenu" Type="BOOL" Value="TRUE"/>
+		<Property Name="NailBox" Type="BOOL" Value="FALSE"/>
+		<Property Name="HelpBox" Type="BOOL" Value="FALSE"/>
+		<Property Name="TextColor" Type="UINT" Value="0xFFFFFFFF"/>
+		<Property Name="NCAreaButtonOffsetY" Type="INT" Value="0"/>
+		<Property Name="NCAreaButtonOffsetX" Type="INT" Value="0"/>
+		<Property Name="NCAreaRightOffset" Type="INT" Value="0"/>
+		<Property Name="SysMenuIcon" Type="String" Value=""/>
+		<Property Name="SysMenuIconFrame" Type="String" Value="logo\wang_logo_frame.png"/>
+		<Property Name="MaximizeBoxIcon" Type="String" Value="NCButton\buttonmax_white.png"/>
+		<Property Name="RestoreBoxIcon" Type="String" Value="NCButton\buttonrestore_white.png"/>
+		<Property Name="MinimizeBoxIcon" Type="String" Value="NCButton\buttonmin_white.png"/>
+		<Property Name="CloseButtonIcon" Type="String" Value="NCButton\buttonclose_white.png"/>
+		<Property Name="NailButtonIcon" Type="String" Value="NCButton\buttonNail_white.png"/>
+		<Property Name="NailedButtonIcon" Type="String" Value="NCButton\buttonNailed_white.png"/>
+		<Property Name="ResizeButtonIcon" Type="String" Value="button_resize.png"/>
+		<Property Name="HelpButtonIcon" Type="String" Value=""/>
+		<Property Name="UseCoolBackground" Type="BOOL" Value="TRUE"/>
+		<Property Name="SmartBorder" Type="BOOL" Value="FALSE"/>
+	</UIComponent>
+	<UIComponent Class="SuperTabCtrl">
+		<Property Name="CloseButtonIcon" Type="String" Value="tab_buttonclose.png"/>
+		<Property Name="CloseButtonRight" Type="INT" Value="3"/>
+	</UIComponent>
+	<UIComponent Class="UpDownComponent">
+		<Property Name="UpLeftDownImage" Type="String" Value="systemsetting\updown_up1.png"/>
+		<Property Name="UpLeftUnDownImage" Type="String" Value="systemsetting\updown_up2.png"/>
+		<Property Name="UpLeftHotImage" Type="String" Value="systemsetting\updown_up3.png"/>
+		<Property Name="UpLeftDisableImage" Type="String" Value="systemsetting\updown_up4.png"/>
+		<Property Name="DownRightDownImage" Type="String" Value="systemsetting\updown_down1.png"/>
+		<Property Name="DownRightUnDownImage" Type="String" Value="systemsetting\updown_down2.png"/>
+		<Property Name="DownRightHotImage" Type="String" Value="systemsetting\updown_down3.png"/>
+		<Property Name="DownRightDisableImage" Type="String" Value="systemsetting\updown_down4.png"/>
+	</UIComponent>
+	<UIComponent Class="SimpleRegion">
+		<Property Name="RoundRectRadiusX" Type="INT" Value="1"/>
+		<Property Name="RoundRectRadiusY" Type="INT" Value="1"/>
+	</UIComponent>
+	<UIComponent Class="ListViewComponent">
+		<Property Name="CheckBoxImage" Type="String" Value="lvcheckbox.png"/>
+	</UIComponent>
+	<UIComponent Class="ListBoxComponent">
+		<Property Name="TextColor" Type="UINT" Value="0xFF333333"/>
+		<Property Name="HighlightTextColor" Type="UINT" Value="0xFF333333"/>
+	</UIComponent>
+	<UIComponent Class="SimpleBorder">
+		<Property Name="Color" Type="UINT" Value="0xFF7D9AAA"/>
+	</UIComponent>
+</ResRoot>

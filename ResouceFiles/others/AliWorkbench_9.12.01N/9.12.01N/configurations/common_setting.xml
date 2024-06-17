@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<xparam>
+	<feeds_interval>10000</feeds_interval>
+	<LocalOrWeb>1</LocalOrWeb>
+	<refreshdb_interval>30</refreshdb_interval>
+	<MaxMsgImgFileSize>5242880</MaxMsgImgFileSize>
+	<BUseAccountsBindingsNewFun>1</BUseAccountsBindingsNewFun>
+	<AccountsBindingsNewFunEscapeTime>1200</AccountsBindingsNewFunEscapeTime>
+	<Hupan_media_url_Match>
+		<item>http://interface.im.hupan.com/mobileimweb/fileupload/getFile.do?</item>
+		<item>http://interface.im.hupan.com/mobileimweb/fileupload/getFile.json?</item>
+		<item>http://interface.im.taobao.com/api/file/downloadFile.json?</item>
+		<item>http://interface.im.taobao.com/mobileimweb/fileupload/downloadPriFile.do?</item>
+		<item>http://interface.im.taobao.com/mobileimweb/fileupload/getThumbnail.do?</item>
+		<item>http://interface.im.taobao.com/mobileimweb/fileupload/getFile.do?</item>
+		<item>http://interface.im.taobao.com/mobileimweb/fileupload/getFile.json?</item>
+		<item>http://interface.im.taobao.com/api/wwfile/downloadWwFile.json?</item>
+		<item>https://interface.im.taobao.com/api/file/downloadFile.json?</item>
+		<item>https://interface.im.taobao.com/mobileimweb/fileupload/downloadPriFile.do?</item>
+		<item>https://interface.im.taobao.com/mobileimweb/fileupload/getThumbnail.do?</item>
+		<item>https://interface.im.taobao.com/mobileimweb/fileupload/getFile.do?</item>
+		<item>https://interface.im.taobao.com/mobileimweb/fileupload/getFile.json?</item>
+		<item>https://interface.im.taobao.com/api/wwfile/downloadWwFile.json?</item>
+		<item>http://img01.taobaocdn.com/L1</item>
+		<item>http://img02.taobaocdn.com/L1</item>
+		<item>http://img03.taobaocdn.com/L1</item>
+		<item>http://img04.taobaocdn.com/L1</item>
+		<item>http://download.taobaocdn.com/tbsc/client/taotoy/</item>
+		<item>http://qianniu.alicdn.com/emoticon/</item>
+		<item>http://ftsproxy.wangxin.taobao.com/fetch?</item>
+		<item>https://ftsproxy.wangxin.taobao.com/fetch?</item>
+		<item>https://img.alicdn.com/imgextra/</item>
+		<item>http://wwimg.alicdn.com</item>
+		<item>https://wwimg.alicdn.com</item>
+	</Hupan_media_url_Match>
+	<BSignHupanMediaUrl>1</BSignHupanMediaUrl>
+	<UploadIECrash>0</UploadIECrash>
+	<ContactRightPageCache>2</ContactRightPageCache>
+	<MsgSyn>1</MsgSyn><!--1:open; 0:close-->
+	<ReadedFlagDelayTime>5</ReadedFlagDelayTime>   
+	<RecentContactSyn>1</RecentContactSyn>
+	<JammedMonitor>1</JammedMonitor>
+	<JammedMonitorTime>1000</JammedMonitorTime>
+	<JammedMonitorTime2>3000</JammedMonitorTime2>
+	<JammedMonitorTime3>5000</JammedMonitorTime3>
+	<JammedSleepTime>800</JammedSleepTime>
+	<MsgbusMonitor>0</MsgbusMonitor>
+	<update_support>cntaobao千牛技术支持:升级</update_support>
+	<StartYunke>1</StartYunke>
+	<DegradeManual>cntaobao</DegradeManual>
+	<UseNewAVModule>1</UseNewAVModule>
+	<UseWebCookie>1</UseWebCookie>
+</xparam>

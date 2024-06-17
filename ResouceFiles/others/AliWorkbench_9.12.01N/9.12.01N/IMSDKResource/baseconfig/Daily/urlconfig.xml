@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<urlconfig>
+	<item id="autologin_enaliint"><![CDATA[https://login.alibaba.com/atmlogin.htm?domain=alibaba.com]]></item>
+	<item id="autologin_normal"><![CDATA[https://login.daily.taobao.net/member/loginByIm.do]]></item>
+	<item id="autologin_cnalichn"><![CDATA[https://login.1688.com/member/aliwwSignin.do]]></item>
+	<item id="autologin_eservice"><![CDATA[https://mai.taobao.com/login/loginByIm.do?_input_charset=utf-8]]></item>
+	<item id="fetch_signature"><![CDATA[http://profile.im.alisoft.com/userprofile/getsignature]]></item>
+	<item id="get_uid_prefix"><![CDATA[http://10.125.58.107:7011/getprefix?appkey=%ls]]></item>
+	<item id="media_upload"><![CDATA[https://interface.im.daily.taobao.net/api/file/uploadFile.json]]></item>
+	<item id="taobao_query_url"><![CDATA[http://web.wangwang.taobao.com/tbskip/commodityInfo.htm]]></item>
+	<item id="tcms_allot"><![CDATA[http://allot.qintao.daily.taobao.net/imlogingw/tcp60login?ver=%ls&devid=%ls]]></item>
+	<item id="tribe_portraitset"><![CDATA[http://www2.im.alisoft.com/webim/tribev6/tribeLogoUpload.htm?signmode=im&amp;tribeId=%ls&amp;width=480&amp;height=328]]></item>
+	<item id="tribe_service"><![CDATA[http://www2.im.alisoft.com/webim/tribev6/service/serviceIndexTb.htm?signmode=im]]></item>
+	<item id="tribe_service_taobao"><![CDATA[http://web.wangwang.taobao.com/group/Navigate.do?signmode=im]]></item>
+	<item id="tribeportraiturl"><![CDATA[http://10.125.30.151/webim/tribev6/tribeGetLogo.htm?tribeId=]]></item>
+	<item id="imssecuritycode"><![CDATA[http://checkcode.alisoft.com/alisoft/checkcode?sessionID=%ls]]></item>
+    <item id="tribeinfo"><![CDATA[http://www2.im.alisoft.com/webim/tribev6/tribeDetailV2.htm?signmode=im&tribeId=%s&width=580&height=328]]></item>
+    <item id="tribekeyword"><![CDATA[http://www2.im.alisoft.com/webim/tribev6/tribeTagTop.htm?signmode=im&loginId=%s&tribeId=%s&itemId=%d&pageFlag=client&className=tribeSearch&bgColor=f6f9f9]]></item>
+	<item id="tribebulletintb"><![CDATA[http://web.wangwang.taobao.com/group/groupNoticeV2.htm?tribeId=%s&loginId=%s]]></item>	
+	<item id="tribebulletin"><![CDATA[http://www2.im.alisoft.com/webim/tribev6/service/serviceIndexTbV2.htm?signmode=im&tribeId=%s&loginId=%s&appkey=%s&versions=%d]]></item>	
+</urlconfig>

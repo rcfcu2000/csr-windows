@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<url>
+  <kvpair id="GetServerTime"><![CDATA[https://api.m.taobao.com/rest/api3.do?v=*&api=mtop.common.getTimestamp]]></kvpair>
+  <kvpair id="Login_v3"><![CDATA[https://qnlogin.taobao.com/login]]></kvpair>
+  <kvpair id="Logout_v3"><![CDATA[https://qnlogin.taobao.com/logout]]></kvpair>
+  <kvpair id="Login_saas"><![CDATA[https://qnlogin.taobao.com/saas/login]]></kvpair>
+  <kvpair id="TopUrl"><![CDATA[http://gw.api.taobao.com/router/rest]]></kvpair>
+  <kvpair id="quanxianguanliAppkey"><![CDATA[24556982]]></kvpair>
+  <kvpair id="TopUrlHttps"><![CDATA[https://eco.taobao.com/router/rest]]></kvpair>
+  <kvpair id="TopUrlTql"><![CDATA[http://gw.api.taobao.com/tql/2.0/json]]></kvpair>
+  <kvpair id="TopUrlTqlHttps"><![CDATA[https://eco.taobao.com/tql/2.0/json]]></kvpair>
+  <kvpair id="JingdouServerUrl"><![CDATA[https://jindoucloud.taobao.com]]></kvpair>
+  <kvpair id="NewJingdouServerUrl"><![CDATA[https://jdyservice.tmall.com]]></kvpair>
+  <kvpair id="JingdouServerGatewayUrl"><![CDATA[https://qngateway.taobao.com/gw/api]]></kvpair>
+  <kvpair id="UICLogin"><![CDATA[https://login.taobao.com/member/loginByIm.do?_input_charset=utf-8]]></kvpair>
+  <kvpair id="ForwardContactInGroup"><![CDATA[https://dispatch.taobao.com/dispatch?toId=%s&fromId=%s&site=cntaobao&groupId=%s&charset=utf-8&exceptUsers=%s]]></kvpair>
+  <kvpair id="RobotClickPhrase"><![CDATA[https://iseiya.taobao.com/athena/ajax/clickQuickPhrase.do?]]></kvpair>
+  <kvpair id="GetPhraseQuestion"><![CDATA[https://iseiya.taobao.com/athena/qianniu/getQuickPhrase.do]]></kvpair>
+  <kvpair id="AddPhraseQuestion"><![CDATA[https://iseiya.taobao.com/athena/qianniu/addQuickPhrase.do]]></kvpair>
+  <kvpair id="ModifyPhraseQuestion"><![CDATA[https://iseiya.taobao.com/athena/qianniu/modifyQuickPhrase.do]]></kvpair>
+  <kvpair id="OpenVideo"><![CDATA[https://h5.m.taobao.com/qn/pc/niuba-interview.html#!/interview/%ls/]]></kvpair>
+  <kvpair id="AlipayBalance"><![CDATA[http://tbskip.taobao.com/wwlife/get_zhifubao_balance.do?timestamp=905100&url=https://lab.alipay.com/user/balance/showBalanceForTaobao.htm]]></kvpair>
+</url>

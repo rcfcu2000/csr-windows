@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xparam>
+	<item>qnapp.log</item>
+	<item>qnsdk.log</item>
+	<item>imsdk.log</item>
+	<item>imservice.log</item>
+	<item>aliworkbench.log.old</item>
+	<item>WebLog.log</item>
+	<item>aliworkbench.log</item>
+	<item>cef.log</item>
+	<item>cef.log.old</item>
+	<item>runtime_v8.log</item>
+	<item>runtime_v8.log.old</item>
+	<item>runtime_worker.log</item>
+	<item>runtime_worker.log.old</item>
+</xparam>

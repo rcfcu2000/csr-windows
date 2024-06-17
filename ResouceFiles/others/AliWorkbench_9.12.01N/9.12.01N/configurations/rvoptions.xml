@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RvOptions>
+	<RemakeRegFile>0</RemakeRegFile> 
+	<RebuildRuntime>0</RebuildRuntime>
+	<ConfirmCoClass>0</ConfirmCoClass>
+	<ScanDirRecursive>0</ScanDirRecursive>
+	<IncludeDir>modules\8001\</IncludeDir>
+	<IncludeDir>modules\8003\</IncludeDir>
+	<IncludeDir>modules\8004\</IncludeDir>	
+	<ExcludeDir>plugins\graffitigui\</ExcludeDir>
+	<ExcludeDir>plugins\OfferManager\</ExcludeDir>
+	<ExcludeDir>plugins\yahooemail\</ExcludeDir>
+</RvOptions>

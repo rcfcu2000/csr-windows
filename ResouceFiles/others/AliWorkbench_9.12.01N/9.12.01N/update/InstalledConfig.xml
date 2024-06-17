@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<applications>
+  <delay_interval>200000</delay_interval>
+  <prior_class>64</prior_class>
+  <application>
+    <name>AliWorkbench</name>
+    <id>0</id>
+    <strategy>https://yungw.taobao.com/gw/invoke/taobao.jindoucloud.version.check2?clientSysName=Windows+PC&amp;nick=%UID%&amp;clientName=QianNiu&amp;jailbreak=false&amp;clientVersion=%VER%&amp;timestamp=%TIME%&amp;version=1&amp;userId=%NUMBERID%&amp;userDomain=%USERDOMAIN%&amp;SystemVersion=%7B%22updateParam%22%3A%5B%7B%22ProcesType%22%3A%22%PROCESTYPE%%22%7D%2C%7B%22GlobalEnterpriseLogin%22%3A%22%GlobalEnterpriseLogin%%22%7D%5D%7D</strategy>
+    <checkurl>https://static.alimama.com/wangwang/wwupdate/new/%VER%/%OLDVER%/0_chk.xml</checkurl>
+  </application>
+</applications>
+
+
+

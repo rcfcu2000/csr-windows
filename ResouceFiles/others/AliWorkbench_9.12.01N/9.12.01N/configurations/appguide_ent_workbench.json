@@ -1,0 +1,19 @@
+{
+    "guideFlowName": "EntWorkbench_GuideFlow",
+    "guideViewList": [
+        {
+            "guideViewID": "ENTBENCH_LEFT_PORTRAIT",
+            "balloon": {
+                "title": "切换账号",
+                "text": "这里可以切换企业绑定的多个店铺账号",
+                "detailUrl": "https://helpcenter.tmall.com/servicehall/knowledge_detail?kwdContentId=209041817848538112",
+                "rect": {
+                    "xoffset": 0,
+                    "yoffset": 0,
+                    "width": 296
+                },
+                "direction": "right"
+            }
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<options>
+	<op id="mode">auto</op>
+	<op id="ver">beta</op>
+	<op id="loglevel">2</op>
+</options>

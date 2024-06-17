@@ -54,34 +54,8 @@ namespace csr_windows.Client.ViewModels.Main
         private async void OnStartClientCommand()
         {
             //第一个判断是否启动了千牛
-            bool isRunning = FollowWindowHelper.IsProcessRunning(FollowWindowHelper.ProcessName);
-            if (!isRunning)
-            {
-                //打开千牛
-                string programDisplayName = "千牛工作台";
-
-                string programPath = FollowWindowHelper.FindProgramPath(programDisplayName);
-
-                if (!string.IsNullOrEmpty(programPath))
-                {
-                    try
-                    {
-                        Process process = Process.Start(programPath + "\\AliWorkbench.exe");
-                        Console.WriteLine($"{programDisplayName} started successfully from: {programPath}");
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine($"Failed to start {programDisplayName}: {ex.Message}");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine($"Program {programDisplayName} not found in the registry.");
-                }
-                return;
-            }
-            //启动了千牛判断是否启动了窗口
-            else
+            FollowWindowHelper.RunQNProcessAtVersion(9, 12);
+            
             {
                 //没启动接待窗口就去启动接待窗口
                 if (!GlobalCache.IsFollowWindow)

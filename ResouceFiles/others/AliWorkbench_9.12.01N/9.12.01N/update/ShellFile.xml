@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<configs>
+  <item type="file" cmd=' /S'>aliedit_m.exe</item>
+  <item type="file" cmd=' IMClient-RV'>EndProcess.exe</item>
+   <item type="file" cmd=' -S -fix=aliimx'>aliimfix.exe</item>
+  <item type="file" requestAccess = 'high' cmd=' '>FixQnUpdate.exe</item>
+  <item type="file" requestAccess = 'high' md5check='false' needWaitProccessExit='true' cmd=' /local_load "%VERSIONPATH%SafeGuard\pc-sdk-setup.exe" "%INSTALLPATH%"'>SafeGuard\AlibabaProtectCon.exe</item>
+  <item type="file" cmd=' /cleansdk'>..\AliWorkbench.exe</item>
+  <item type="file" cmd= '"--arpha_winlocaldumpexe=AliWorkbench.exe" "--arpha_winlocaldumpdir=AliWorkbench\dumps_by_win"'>arphaCrashReport.exe</item>
+
+</configs>

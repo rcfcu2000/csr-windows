@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Messages>
+    <!--ui-->
+    <Message Key="UI_MESSAGE_REGIST" Value="免費註冊"/>
+    <Message Key="UI_MESSAGE_REGIST_EA" Value="企業入駐"/>
+    <Message Key="UI_MESSAGE_FORGOTPASSWORD" Value="忘記密碼"/>
+    <Message Key="UI_MESSAGE_LOGIN" Value="登錄"/>
+    <Message Key="UI_MESSAGE_REMEMBER_PASSWORD" Value="記住密碼"/>
+    <Message Key="UI_MESSAGE_AUTO_LOGIN" Value="自動登錄"/>
+    <Message Key="UI_MESSAGE_CAPSLOCK_OPEN" Value="大寫鎖定已打開"/>
+    <Message Key="UI_MESSAGE_QR_TOOLTIPS" Value="二維碼掃碼，安全登錄"/>
+    <Message Key="UI_MESSAGE_ACCOUNT_EDIT_TIPVALUE" Value="請輸入賬號"/>
+    <Message Key="UI_MESSAGE_MOBILE_EDIT_TIPVALUE" Value="請輸入手機號"/>
+    <Message Key="UI_MESSAGE_PASSWORD_EDIT_TIPVALUE" Value="請輸入密碼"/>
+    <Message Key="UI_MESSAGE_SMS_CODE_EDIT_TIPVALUE" Value="請輸入驗證碼"/>
+    <Message Key="UI_MESSAGE_SEND_SMS_CODE" Value="發送驗證碼"/>
+    <Message Key="UI_MESSAGE_ALREADY_SEND" Value="已發送"/>
+    <Message Key="UI_MESSAGE_USE_SMS_CODE_LOGIN" Value="驗證碼登錄"/>
+    <Message Key="UI_MESSAGE_USE_PASSWORD_LOGIN" Value="密碼登錄"/>
+    <Message Key="UI_MESSAGE_GOBACK_LOGIN" Value="返回登錄"/>
+    <Message Key="UI_MESSAGE_PHOTO_STATUS" Value="線上狀態"/>
+    <!--error-->
+    <Message Key="ERROR_MESSAGE_NETWORK_FAIL" Value="網路異常，請檢查網路並重試"/>
+    <Message Key="ERROR_MESSAGE_ALREADY_LOGIN_FAIL" Value="該用戶已經在本機登錄，請確認"/>
+    <Message Key="ERROR_MESSAGE_OTHER_FAIL" Value="程式開小差了，請重啟程式並登錄"/>
+    <Message Key="ERROR_MESSAGE_SSOSESSIONID_FAIL" Value="SSO登錄態失效，請重新登錄"/>
+    <Message Key="ERROR_MESSAGE_REMEMBER_LOGIN_FAIL" Value="賬密無法自動登錄，請重新輸入"/>
+    <Message Key="ERROR_MESSAGE_ACCOUNTPASSWORD_EMPTY_FAIL" Value="賬號或者密碼為空，請重新輸入"/>
+    <Message Key="ERROR_MESSAGE_PASSWORDFORMAT_FAIL" Value="密碼不合法，請重新輸入"/>
+    <Message Key="ERROR_MESSAGE_PHONEFORMAT_FAIL" Value="手機號不合法，請重新輸入"/>
+    <Message Key="ERROR_MESSAGE_PHONESMS_EMPTY_FAIL" Value="手機號或者驗證碼為空，請重新輸入"/>
+    <Message Key="ERROR_MESSAGE_SERVER_OTHER_FAIL" Value="伺服器返回異常錯誤，請重新登錄"/>
+    <Message Key="ERROR_MESSAGE_WEBVIEW_FAIL" Value="流覽器控制項載入失敗，請重新登錄"/>
+    <Message Key="ERROR_MESSAGE_JSBRIDGE_FAIL" Value="登錄跳轉失敗，請重新登錄"/>
+    <Message Key="ERROR_MESSAGE_QRLOGIN_FAIL" Value="二維碼掃描登錄失敗，請重新登錄"/>
+</Messages>
