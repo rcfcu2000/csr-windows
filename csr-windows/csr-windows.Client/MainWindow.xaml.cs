@@ -233,7 +233,7 @@ namespace csr_windows.Client
 
                     if (GlobalCache.FollowHandle == IntPtr.Zero)
                     {
-                        Application.Current.Dispatcher.Invoke(() => 
+                        Application.Current?.Dispatcher.Invoke(() =>
                         {
                             if ((this.DataContext as MainViewModel).IsInIM)
                             {
@@ -327,7 +327,6 @@ namespace csr_windows.Client
         /// </summary>
         private void UpdateWindowPos(bool isFirst)
         {
-            this.Topmost = true;
             Task.Factory.StartNew(() =>
             {
                 try
@@ -369,8 +368,10 @@ namespace csr_windows.Client
             return;
         var hight = Math.Abs(rect.Bottom - rect.Top);
         double windowWith = 0, windowHeight = 0, left = 0, top = 0;
+
         this.Dispatcher.Invoke(() =>
         {
+            this.Topmost = true;
             var hwndSource = (HwndSource)PresentationSource.FromVisual(this);
             if (hwndSource == null)
                 return;
@@ -380,6 +381,7 @@ namespace csr_windows.Client
             this.Height = (hight + 15) * scaleY;
             windowWith = this.Width;
             windowHeight = this.Height;
+            this.Topmost = false;
         });
         Point sp = new Point(rect.Right - _lastRect.Right + thisRect.Left, rect.Top - _lastRect.Top + thisRect.Top);
         Win32.SetWindowPos(Handle, GlobalCache.FollowHandle, (int)sp.X, (int)sp.Y, (int)windowWith, (int)windowHeight, 0x0001 | 0x0004);
