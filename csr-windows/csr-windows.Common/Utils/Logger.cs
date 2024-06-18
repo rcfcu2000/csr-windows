@@ -8,7 +8,7 @@ public class Logger
 
     public static void WriteInfo(string info)
     {
-        Console.WriteLine(info);
+        //Logger.WriteInfo(info);
         if (loginfo.IsInfoEnabled)
         {
             loginfo.Info(info);
@@ -17,7 +17,7 @@ public class Logger
 
     public static void WriteError(string error)
     {
-        Console.WriteLine(error);
+        //Logger.WriteInfo(error);
         if (logerror.IsErrorEnabled)
         {
             logerror.Error(error);
@@ -26,7 +26,7 @@ public class Logger
 
     public static void WriteError(string info, Exception ex)
     {
-        Console.WriteLine(info);
+        //Logger.WriteInfo(info);
         if (logerror.IsErrorEnabled)
         {
             logerror.Error(info, ex);

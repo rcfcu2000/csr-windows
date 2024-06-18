@@ -28,7 +28,7 @@ namespace csr_windows.Common.Helper
             }
             else
             {
-                Console.WriteLine("ID not found in the URL.");
+                Logger.WriteInfo("ID not found in the URL.");
             }
             return ID;
         }

@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Windows;
 using System.Windows.Forms;
+using System.Windows.Automation;
 
 namespace csr_windows.Client.Services.WebService
 {
@@ -63,6 +64,8 @@ namespace csr_windows.Client.Services.WebService
             return true;
         }
     }
+
+
     public static class TopHelp
     {
         /// <summary>
@@ -141,7 +144,6 @@ namespace csr_windows.Client.Services.WebService
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool EnumChildWindows(IntPtr window, EnumWindowProc callback, IntPtr lParam);
 
-
         private const UInt32 WM_CLOSE = 0x0010;
         public static void CloseWindow(IntPtr hwnd)
         {
@@ -173,7 +175,7 @@ namespace csr_windows.Client.Services.WebService
         //    }
         //    catch (Exception e)
         //    {
-        //        Console.WriteLine(e.StackTrace);
+        //        Logger.WriteInfo(e.StackTrace);
         //        return handles;
         //    }
 
@@ -191,7 +193,7 @@ namespace csr_windows.Client.Services.WebService
         //        }
         //        catch (Exception e)
         //        {
-        //            Console.WriteLine(e.StackTrace);
+        //            Logger.WriteInfo(e.StackTrace);
         //            continue;
         //        }
         //        try
@@ -200,7 +202,7 @@ namespace csr_windows.Client.Services.WebService
         //        }
         //        catch (Exception e)
         //        {
-        //            Console.WriteLine(e.StackTrace);
+        //            Logger.WriteInfo(e.StackTrace);
         //            continue;
         //        }
         //    }
@@ -277,7 +279,7 @@ namespace csr_windows.Client.Services.WebService
             Process[] processes = Process.GetProcessesByName(processName);
             if (processes.Length == 0)
             {
-                Console.WriteLine($"No process found with the name '{processName}'.");
+                Logger.WriteInfo($"No process found with the name '{processName}'.");
                 return IntPtr.Zero;
             }
 
@@ -310,7 +312,7 @@ namespace csr_windows.Client.Services.WebService
             Process[] processes = Process.GetProcessesByName(processName);
             if (processes.Length == 0)
             {
-                Console.WriteLine($"No process found with the name '{processName}'.");
+                Logger.WriteInfo($"No process found with the name '{processName}'.");
                 return IntPtr.Zero;
             }
 
@@ -329,16 +331,46 @@ namespace csr_windows.Client.Services.WebService
                 }
             }
 
-            Console.WriteLine("未找到匹配的窗口。");
+            Logger.WriteInfo("未找到匹配的窗口。");
             return hWnd;
 
         }
 
+        public static IntPtr FindRichEditComponent(IntPtr parentHandle)
+        {
+            return FindWindowRecursive(parentHandle, "RichEditComponent");
+        }
+
+        private static IntPtr FindWindowRecursive(IntPtr parentHandle, string className)
+        {
+            IntPtr result = IntPtr.Zero;
+            IntPtr child = IntPtr.Zero;
+
+            do
+            {
+                child = FindWindowEx(parentHandle, child, null, null);
+                if (child != IntPtr.Zero)
+                {
+                    // Check if this child matches the class name
+                    IntPtr foundHandle = FindWindowEx(parentHandle, child, className, null);
+                    if (foundHandle != IntPtr.Zero)
+                    {
+                        return foundHandle;
+                    }
+
+                    // Recursively search the children of this child
+                    result = FindWindowRecursive(child, className);
+                    if (result != IntPtr.Zero)
+                    {
+                        return result;
+                    }
+                }
+            } while (child != IntPtr.Zero);
+            return result;
+        }
 
 
         // 方法：关闭指定进程和窗口标题子串的窗口,窗口标题支持模糊查找
-
-
         public static bool CloseWindowByProcessAndTitle(string processName, string titleSubstring)
         {
 
@@ -373,7 +405,7 @@ namespace csr_windows.Client.Services.WebService
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"无法打开链接: {ex.Message}");
+                Logger.WriteInfo($"无法打开链接: {ex.Message}");
                 Logger.WriteError($"唤起aliim聊天窗口失败: {ex.Message}");
                 return false;
             }
@@ -385,7 +417,7 @@ namespace csr_windows.Client.Services.WebService
 
             if (hwd == IntPtr.Zero)
             {
-                Console.WriteLine("窗口句柄无效。");
+                Logger.WriteInfo("窗口句柄无效。");
                 Logger.WriteError("没有找到 接待中心 窗口");
                 return false;
             }
@@ -397,6 +429,21 @@ namespace csr_windows.Client.Services.WebService
             }
         }
 
+
+        public static string GetQNChatInputText()
+        {
+            IntPtr hwd = FindWindowByProcessAndTitle("AliWorkbench", "接待中心");
+
+            IntPtr richEditHandle = FindRichEditComponent(hwd);
+            if (richEditHandle != IntPtr.Zero)
+            {
+                AutomationElement rec = AutomationElement.FromHandle(richEditHandle);
+                string text = rec.Current.Name;
+                Logger.WriteInfo($"{text} {richEditHandle}");
+                return text;
+            }
+            else return null;
+        }
 
         public static string GetQNChatTitle()
         {
@@ -419,7 +466,7 @@ namespace csr_windows.Client.Services.WebService
 
                 if (hwd == IntPtr.Zero)
                 {
-                    Console.WriteLine("窗口句柄无效。");
+                    Logger.WriteInfo("窗口句柄无效。");
                     Logger.WriteError("没有找到 接待中心 窗口");
                     return false;
                 }
@@ -451,13 +498,13 @@ namespace csr_windows.Client.Services.WebService
                         // 使用SendKeys类模拟输入文本消息
                         SendKeys.SendWait(msg + "^{ENTER}");
                         //SendTextToWindow(hwd,msg);
-                        Console.WriteLine($"消息 '{msg}' 已发送至窗口 {hwd.ToInt64()}");
+                        Logger.WriteInfo($"消息 '{msg}' 已发送至窗口 {hwd.ToInt64()}");
                         return true;
                     }
                     catch (Exception ex)
                     {
                         // 捕获SendKeys异常
-                        Console.WriteLine("给指定买家发消息发送按键时发生错误: " + ex.Message);
+                        Logger.WriteInfo("给指定买家发消息发送按键时发生错误: " + ex.Message);
                         Logger.WriteError($"给买家{nick}发消息时发生错误:{ex.Message}");
                         return false;
                     }
@@ -465,7 +512,7 @@ namespace csr_windows.Client.Services.WebService
                     //}
                     //else
                     //{
-                    //    Console.WriteLine("无法将窗口置于前台。");
+                    //    Logger.WriteInfo("无法将窗口置于前台。");
                     //    Logger.WriteError("无法将 接待中心 窗口置于前台");
                     //    return false;
                     //}
@@ -475,7 +522,7 @@ namespace csr_windows.Client.Services.WebService
             else
             {
                 //唤起聊天失败
-                Console.WriteLine("唤起聊天失败。");
+                Logger.WriteInfo("唤起聊天失败。");
                 Logger.WriteError("唤起聊天失败。");
                 return false;
             }
@@ -518,7 +565,7 @@ namespace csr_windows.Client.Services.WebService
             POINT lpPoint = new POINT();
             GetCursorPos(out lpPoint);
 
-            Console.WriteLine($"cursor: {lpPoint.X}, {lpPoint.Y}");
+            Logger.WriteInfo($"cursor: {lpPoint.X}, {lpPoint.Y}");
 
             bool isSuccess = true;
             if (isSuccess)
@@ -532,7 +579,7 @@ namespace csr_windows.Client.Services.WebService
                 foreach (var handle in allChildWindows)
                 {
                     string windowTitle = GetWindowTitle(handle);
-                    //Console.WriteLine(windowTitle);
+                    //Logger.WriteInfo(windowTitle);
                     if(windowTitle.Contains("Chrome Legacy Window")) {
                         RECT rect = new RECT();
                         GetWindowRect(handle, out rect);
@@ -547,15 +594,13 @@ namespace csr_windows.Client.Services.WebService
                                 chatRect = rect;
                             }
                         }
-                        Console.WriteLine($"window rect: {handle} {rect.Left}, {rect.Top}, {rect.Right}, {rect.Bottom}");
+                        Logger.WriteInfo($"window rect: {handle} {rect.Left}, {rect.Top}, {rect.Right}, {rect.Bottom}");
                     }
                 }
 
-                IntPtr chatHwd = FindWindowByProcessAndTitle("AliWorkbench", "Chrome Legacy Window");
-
                 if (hwd == IntPtr.Zero)
                 {
-                    Console.WriteLine("窗口句柄无效。");
+                    Logger.WriteInfo("窗口句柄无效。");
                     Logger.WriteError("没有找到 接待中心 窗口");
                     return false;
                 }
@@ -574,8 +619,8 @@ namespace csr_windows.Client.Services.WebService
                         RECT rect = new RECT();
                         GetWindowRect(hwd, out rect);
 
-                        Console.WriteLine($"window rect: {rect.Left}, {rect.Top}, {rect.Right}, {rect.Bottom}");
-                        Console.WriteLine($"window rect: {chatRect.Left}, {chatRect.Top}, {chatRect.Right}, {chatRect.Bottom}");
+                        Logger.WriteInfo($"window rect: {rect.Left}, {rect.Top}, {rect.Right}, {rect.Bottom}");
+                        Logger.WriteInfo($"window rect: {chatRect.Left}, {chatRect.Top}, {chatRect.Right}, {chatRect.Bottom}");
 
                         Point clientPoint = new Point((chatRect.Right + chatRect.Left) / 2, chatRect.Bottom + (rect.Bottom - chatRect.Bottom) * 0.5);
                         //ClientToScreen(hwd, ref clientPoint);
@@ -584,17 +629,15 @@ namespace csr_windows.Client.Services.WebService
                         {
                             // 将鼠标光标移动到指定位置
                             SetCursorPos((int)clientPoint.X, (int)clientPoint.Y);
-                            Console.WriteLine($"set cursor: {clientPoint.X}, {clientPoint.Y}");
+                            Logger.WriteInfo($"set cursor: {clientPoint.X}, {clientPoint.Y}");
                             // 模拟鼠标左键按下和释放
                             mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
                             mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
                             Thread.Sleep(5);
                         }
 
-
                         try
                         {
-
                             Thread th = new Thread(new ThreadStart(delegate ()
                             {
                                 for (int i = 0; i < 10; i++)
@@ -621,13 +664,13 @@ namespace csr_windows.Client.Services.WebService
                             SetCursorPos(lpPoint.X, lpPoint.Y);
                             //SendKeys.SendWait("{ENTER}");
                             //SendTextToWindow(hwd,msg);
-                            Console.WriteLine($"消息 '{msg}' 已发送至窗口 {hwd.ToInt64()}");
+                            Logger.WriteInfo($"消息 '{msg}' 已发送至窗口 {hwd.ToInt64()}");
                             return true;
                         }
                         catch (Exception ex)
                         {
                             // 捕获SendKeys异常
-                            Console.WriteLine("给指定买家发消息发送按键时发生错误: " + ex.Message);
+                            Logger.WriteInfo("给指定买家发消息发送按键时发生错误: " + ex.Message);
                             Logger.WriteError($"给买家{nick}发消息时发生错误:{ex.Message}");
                             return false;
                         }
@@ -635,7 +678,7 @@ namespace csr_windows.Client.Services.WebService
                     }
                     else
                     {
-                        Console.WriteLine("无法将窗口置于前台。");
+                        Logger.WriteInfo("无法将窗口置于前台。");
                         Logger.WriteError("无法将 接待中心 窗口置于前台");
                         return false;
                     }
@@ -645,7 +688,7 @@ namespace csr_windows.Client.Services.WebService
             else
             {
                 //唤起聊天失败
-                Console.WriteLine("唤起聊天失败。");
+                Logger.WriteInfo("唤起聊天失败。");
                 Logger.WriteError("唤起聊天失败。");
                 return false;
             }
@@ -679,7 +722,7 @@ namespace csr_windows.Client.Services.WebService
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.ToString());
+                    Logger.WriteInfo(e.ToString());
                 }
             }
         }
@@ -702,7 +745,7 @@ namespace csr_windows.Client.Services.WebService
             }
             catch (Exception e)
             {
-                Console.WriteLine($"post error: {e.Message} {jsonPayload}");
+                Logger.WriteInfo($"post error: {e.Message} {jsonPayload}");
             }
         }
 

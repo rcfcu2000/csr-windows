@@ -355,7 +355,7 @@ namespace csr_windows.Client.ViewModels.Customer
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Logger.WriteInfo(ex.Message);
                 RemoveLoadingControl();
             }
         }

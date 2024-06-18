@@ -50,7 +50,7 @@ namespace csr_windows.Client.Services.WebService
 
             //CertificateManager certManager = new CertificateManager();
             //certManager._载入X509KeyPair("E:\\works\\ollydbg\\demo\\server.crt", "E:\\works\\ollydbg\\demo\\server.key");
-            //Console.Write($"server：{certManager.获取ServerName()}");
+            //Logger.WriteInfo($"server：{certManager.获取ServerName()}");
 
             //syNet.设置自定义CA证书(certManager);
             //syNet.安装证书();
@@ -65,22 +65,22 @@ namespace csr_windows.Client.Services.WebService
             //syNet.进程代理_添加进程名("Aliapp.exe");
             bool proxyRun = syNet.进程代理_加载驱动();
 
-            Console.Write($"中间件启动结果：{proxyRun}");
+            Logger.WriteInfo($"中间件启动结果：{proxyRun}");
 
             Logger.WriteInfo($"中间件启动结果：{proxyRun}");
 
             if (sunnyNetIsRun)
             {
-                Console.WriteLine(sunnyNetIsRun);
+                Logger.WriteInfo(sunnyNetIsRun.ToString());
             }
             else
             {
-                Console.WriteLine("启动失败" + syNet.取错误());
+                Logger.WriteInfo("启动失败" + syNet.取错误());
                 //错误处理
                 Logger.WriteError("启动失败" + syNet.取错误());
             }
 
-            Console.WriteLine("HTTPS server started.");
+            Logger.WriteInfo("HTTPS server started.");
         }
 
         public static void StartWebSocketServer()
@@ -92,22 +92,22 @@ namespace csr_windows.Client.Services.WebService
                 Socket = socket;
                 socket.OnOpen = () =>
                 {
-                    Console.WriteLine("WebSocket connection opened.");
+                    Logger.WriteInfo("WebSocket connection opened.");
                     var title = TopHelp.GetQNChatTitle();
-                    if (!string.IsNullOrEmpty(title) && !allSockets.ContainsKey(title))
+                    if (!string.IsNullOrEmpty(title))
                     {
-                        allSockets.Add(title, socket);
+                        allSockets[title] = socket;
                     }
 
                     //启动成功
                     SendJSFunc(JSFuncType.GetCurrentCsr);
                     //SendJSFunc(JSFuncType.GetGoodsList);
-                    Console.WriteLine(TopHelp.GetQNChatTitle());
+                    Logger.WriteInfo(TopHelp.GetQNChatTitle());
                 };
 
                 socket.OnClose = () =>
                 {
-                    Console.WriteLine("WebSocket connection closed.");
+                    Logger.WriteInfo("WebSocket connection closed.");
                     allSockets.Remove(TopHelp.GetQNChatTitle());
 
                     if (allSockets.Count == 0)
@@ -123,7 +123,7 @@ namespace csr_windows.Client.Services.WebService
                     if (json.type == "goodsList")
                     {
                         JArray glist = json.msg.data.table.dataSource;
-                        Console.WriteLine(JsonConvert.SerializeObject(glist));
+                        Logger.WriteInfo(JsonConvert.SerializeObject(glist));
                         List<GetGoodProductModel> list = new List<GetGoodProductModel>();
                         foreach (dynamic good in glist)
                         {
@@ -138,7 +138,7 @@ namespace csr_windows.Client.Services.WebService
                                 Pic = pic,
                                 ActionUrl = good.itemDesc.desc[0].href
                             });
-                            Console.WriteLine($"item get：{good.itemId}, {good.monthlySoldQuantity}, {good.itemDesc.desc[0].text}");
+                            Logger.WriteInfo($"item get：{good.itemId}, {good.monthlySoldQuantity}, {good.itemDesc.desc[0].text}");
                         }
                         list.OrderBy(s => s.MmonthlySoldQuantity);
                         WeakReferenceMessenger.Default.Send(list,MessengerConstMessage.GetGoodsListToken);
@@ -147,7 +147,7 @@ namespace csr_windows.Client.Services.WebService
 
                     if (json.type == JSFuncType.ReceiveCurrentCst)
                     {
-                        Console.WriteLine($"item get：{json}");
+                        Logger.WriteInfo($"item get：{json}");
                         MJSResult<CurrentCsrModel> mJSResult;
                         //解析
                         mJSResult = JsonConvert.DeserializeObject<MJSResult<CurrentCsrModel>>(JsonConvert.SerializeObject(json));
@@ -167,7 +167,7 @@ namespace csr_windows.Client.Services.WebService
                         String display_name = json.msg.display;
                         string ccode = json.msg.ccode;
                         GlobalCache.CurrentCustomer = new CustomerModel() { UserNiceName = nick_name, UserDisplayName = display_name, CCode = ccode };
-                        Console.WriteLine($"GetCurrentConv json:{json}");
+                        Logger.WriteInfo($"GetCurrentConv json:{json}");
                     }
 
 
@@ -177,12 +177,12 @@ namespace csr_windows.Client.Services.WebService
                         String display_name = json.msg.display;
                         string ccode = json.msg.ccode;
                         GlobalCache.CurrentCustomer = new CustomerModel() { UserNiceName = nick_name, UserDisplayName = display_name, CCode = ccode };
-                        Console.WriteLine($"conversation changed：{nick_name}");
+                        Logger.WriteInfo($"conversation changed：{nick_name}");
                     }
 
                     if (json.type == JSFuncType.ActiveReceiveRemoteHisMsg)
                     {
-                        Console.WriteLine(message);
+                        Logger.WriteInfo(message);
                         String user_name = "";
                         String assistant_name = "";
                         String chat_link = null;
@@ -404,7 +404,7 @@ namespace csr_windows.Client.Services.WebService
                             }
                             catch (Exception ex)
                             {
-                                Console.WriteLine(ex);
+                                Logger.WriteInfo(ex.Message);
                             }
                             if (response.StatusCode == System.Net.HttpStatusCode.OK)
                             {
@@ -455,7 +455,7 @@ namespace csr_windows.Client.Services.WebService
 
                     if (json.type == "message")
                     {
-                        Console.WriteLine(message);
+                        Logger.WriteInfo(message);
                         String user_name = "";
                         String assistant_name = "";
                         String chat_link = null;

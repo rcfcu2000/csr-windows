@@ -104,7 +104,9 @@ namespace csr_windows.Client.ViewModels.Customer
         /// </summary>
         private void OnInputAICommand()
         {
-            _uIService.OpenCustomerBottomInputAIView();
+            string chat_text = TopHelp.GetQNChatInputText();
+            WeakReferenceMessenger.Default.Send<string, string>(chat_text, MessengerConstMessage.Want2ReplyToken);
+            //_uIService.OpenCustomerBottomInputAIView();
         }
 
         /// <summary>

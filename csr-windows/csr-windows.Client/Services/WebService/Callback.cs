@@ -28,18 +28,18 @@ namespace csr_windows.Client.Services.WebService
         {
             SunnyNet synet = new SunnyNet();
 
-            //Console.WriteLine($"test reached... {唯一ID} {MessageId} {pid}");
+            //Logger.WriteInfo($"test reached... {唯一ID} {MessageId} {pid}");
 
-            //Console.WriteLine(synet.身份验证模式_获取授权的S5账号(唯一ID));
+            //Logger.WriteInfo(synet.身份验证模式_获取授权的S5账号(唯一ID));
             Request Request = Sunny.MessageIdToSunny(MessageId);
 
             // 操作请求数据（可以再任意消息类型时使用）
             // Request.request  
-            //Console.WriteLine($"test reached... {消息类型} {Method} {Url}");
+            //Logger.WriteInfo($"test reached... {消息类型} {Method} {Url}");
 
             if (消息类型 == Const.Net_Http_Request && Url.Contains("iseiya.taobao.com/imsupport"))
             {
-                Console.WriteLine($"test reached... {Url}");
+                Logger.WriteInfo($"test reached... {Url}");
             }
             else if (消息类型 == Const.Net_Http_Response && Url.Contains("iseiya.taobao.com/imsupport"))
             {

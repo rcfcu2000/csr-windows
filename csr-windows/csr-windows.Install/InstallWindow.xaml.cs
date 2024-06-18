@@ -170,16 +170,16 @@ namespace csr_windows.Install
                     {
                         IntPtr OtherExeWnd = new IntPtr(0);
                         OtherExeWnd = FindWindow("WTWindow", "");
-                        Console.WriteLine($"OtherExeWnd:{OtherExeWnd}");
+                        Logger.WriteInfo($"OtherExeWnd:{OtherExeWnd}");
                         //判断这个窗体是否有效
                         if (OtherExeWnd != IntPtr.Zero)
                         {
-                            Console.WriteLine("找到窗口");
+                            Logger.WriteInfo("找到窗口");
                             ShowWindow(OtherExeWnd, 0);//0表示隐藏窗口
                             while (true)
                             {
                                 IntPtr ExeWnd = FindWindow("WTWindow", "Sunny抓包工具3.0 【2024-06-04】      SDK版本【2024-06-03】");
-                                Console.WriteLine($"ExeWnd:{ExeWnd}");
+                                Logger.WriteInfo($"ExeWnd:{ExeWnd}");
                                 if (ExeWnd == IntPtr.Zero || !IsWindowVisible(ExeWnd))
                                 {
                                     Task.Delay(50).Wait();
@@ -467,15 +467,15 @@ namespace csr_windows.Install
                     {
                         p.Kill();
                         p.WaitForExit(); // possibly with a timeout
-                        Console.WriteLine($"已杀掉{processName}进程！！！");
+                        Logger.WriteInfo($"已杀掉{processName}进程！！！");
                     }
                     catch (Win32Exception e)
                     {
-                        Console.WriteLine(e.Message.ToString());
+                        Logger.WriteInfo(e.Message.ToString());
                     }
                     catch (InvalidOperationException e)
                     {
-                        Console.WriteLine(e.Message.ToString());
+                        Logger.WriteInfo(e.Message.ToString());
                     }
                 }
 

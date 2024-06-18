@@ -53,9 +53,9 @@ namespace csr_windows.Common.Helper
 
                         CheckVersion();
 
-                        Console.WriteLine($"Window found with title containing '{targetTitlePart}': {windowTitle}");
+                        Logger.WriteInfo($"Window found with title containing '{targetTitlePart}': {windowTitle}");
                         intPtr = new IntPtr(window.Current.NativeWindowHandle);
-                        Console.WriteLine($"Find IntPtr:{intPtr}");
+                        Logger.WriteInfo($"Find IntPtr:{intPtr}");
                         found = true;
                         break;
                     }
@@ -69,7 +69,7 @@ namespace csr_windows.Common.Helper
 
             if (!found)
             {
-                //Console.WriteLine($"No window found with title containing '{targetTitlePart}'.");
+                //Logger.WriteInfo($"No window found with title containing '{targetTitlePart}'.");
             }
             return found;
         }
@@ -123,11 +123,11 @@ namespace csr_windows.Common.Helper
                 try
                 {
                     Process process = Process.Start(programPath);
-                    Console.WriteLine($"{programDisplayName} started successfully from: {programPath}");
+                    Logger.WriteInfo($"{programDisplayName} started successfully from: {programPath}");
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Failed to start {programDisplayName}: {ex.Message}");
+                    Logger.WriteInfo($"Failed to start {programDisplayName}: {ex.Message}");
                 }
             }
         }
@@ -222,12 +222,12 @@ namespace csr_windows.Common.Helper
                     {
                         // 读取文件版本信息
                         var versionInfo = System.Diagnostics.FileVersionInfo.GetVersionInfo(executablePath);
-                        Console.WriteLine($"Process ID: {processId}, Version: {versionInfo.FileVersion}");
+                        Logger.WriteInfo($"Process ID: {processId}, Version: {versionInfo.FileVersion}");
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error retrieving version info: {ex.Message}");
+                    Logger.WriteInfo($"Error retrieving version info: {ex.Message}");
                 }
             }
             return true;

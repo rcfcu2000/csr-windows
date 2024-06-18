@@ -312,7 +312,7 @@ namespace csr_windows.Client.Services.WebService
         public byte[] 取POST数据_字节集()
         {
             IntPtr p = Sunny.GetRequestBody(MessageId);
-            Console.WriteLine(MessageId+ "|取POST数据_字节集|" + p);
+            Logger.WriteInfo(MessageId+ "|取POST数据_字节集|" + p);
             if (p.ToInt64() < 1) {
                 return new byte[0];
             } 
