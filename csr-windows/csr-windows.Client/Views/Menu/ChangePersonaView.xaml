@@ -203,7 +203,6 @@
                                                     <Button
                                                         Width="350"
                                                         Height="40"
-                                                        Margin="0,0,15,0"
                                                         hc:BorderElement.CornerRadius="2"
                                                         Background="{StaticResource 0.1OpacityBlueTheme}"
                                                         Command="{Binding ContinueToUseCommand}"
