@@ -98,10 +98,10 @@ namespace csr_windows.Core
                 var query = string.Join("&", parameters.Select(kvp => $"{Uri.EscapeDataString(kvp.Key)}={Uri.EscapeDataString(kvp.Value)}"));
                 url = $"{url}?{query}";
             }
-
-            HttpResponseMessage response = await _httpClient.GetAsync(url);
+            HttpResponseMessage response = null;
             try
             {
+                response = await _httpClient.GetAsync(url);
                 response.EnsureSuccessStatusCode();
             }
             catch (Exception)
@@ -109,7 +109,7 @@ namespace csr_windows.Core
                 WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel(NoteMessage, promptEnum: PromptEnum.Note), MessengerConstMessage.OpenPromptMessageToken);
                 return string.Empty;
             }
-            return await response.Content.ReadAsStringAsync();
+            return await response?.Content.ReadAsStringAsync();
         }
 
         // POST请求方法
@@ -118,9 +118,10 @@ namespace csr_windows.Core
             url = ServerUrl + url;
             //var content = new FormUrlEncodedContent(parameters);
             var content = new StringContent(JsonConvert.SerializeObject(parameters), Encoding.UTF8, "application/json");
-            HttpResponseMessage response = await _httpClient.PostAsync(url, content);
+            HttpResponseMessage response = null;
             try
             {
+                response = await _httpClient.PostAsync(url, content);
                 response.EnsureSuccessStatusCode();
             }
             catch (Exception)
@@ -129,7 +130,7 @@ namespace csr_windows.Core
                 WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.HiddenLoadingVisibilityChangeToken);
                 return string.Empty;
             }
-            return await response.Content.ReadAsStringAsync();
+            return await response?.Content.ReadAsStringAsync();
         }
 
         // PUT请求方法

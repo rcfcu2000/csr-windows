@@ -77,11 +77,8 @@ namespace csr_windows.Client.ViewModels.Customer
             //主动接收历史消息为空
             WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.ActiveReceiveRemoteHisMsgHistoryNull, (r,m) =>
             {
-                Application.Current.Dispatcher.Invoke(() =>
-                {
-                    RemoveLoadingControl();
-                    AddTextControl(ChatIdentityEnum.Recipient, "好像您最近没有和这位顾客有过沟通呢～");
-                });
+                RemoveLoadingControl();
+                AddTextControl(ChatIdentityEnum.Recipient, "好像您最近没有和这位顾客有过沟通呢～");
             });
 
             //我该怎么回
@@ -96,20 +93,14 @@ namespace csr_windows.Client.ViewModels.Customer
                     AddLoadingControl();
                     Task.Delay(500).ContinueWith(t =>
                     {
-                        Application.Current.Dispatcher.Invoke(() =>
-                        {
-                            RemoveLoadingControl();
-                            AddTextControl(ChatIdentityEnum.Recipient, "您还没有选择任何顾客进行沟通，我没办法提供建议哦～");
-                        });
+                        RemoveLoadingControl();
+                        AddTextControl(ChatIdentityEnum.Recipient, "您还没有选择任何顾客进行沟通，我没办法提供建议哦～");
                     });
                 }
                 else
                 {
-                    Application.Current.Dispatcher.Invoke(() =>
-                    {
-                        //发送一条消息
-                        AddLoadingControl();
-                    });
+                    //发送一条消息
+                    AddLoadingControl();
                     WebServiceClient.SendJSFunc(JSFuncType.GetRemoteHisMsg, GlobalCache.CurrentCustomer.CCode, AIChatApiList.How2Replay);
                     //WebServiceClient.SendJSFunc(JSFuncType.GetRemoteHisMsg, GlobalCache.CurrentCustomer.UserNiceName);
                 }
@@ -126,22 +117,16 @@ namespace csr_windows.Client.ViewModels.Customer
                     AddLoadingControl();
                     Task.Delay(500).ContinueWith(t =>
                     {
-                        Application.Current.Dispatcher.Invoke(() =>
-                        {
-                            RemoveLoadingControl();
-                            AddTextControl(ChatIdentityEnum.Recipient, "您还没有选择任何顾客进行沟通，我没办法提供建议哦～");
-                        });
+                        RemoveLoadingControl();
+                        AddTextControl(ChatIdentityEnum.Recipient, "您还没有选择任何顾客进行沟通，我没办法提供建议哦～");
                     });
                 }
                 else
                 {
                     AddWant2ReplyControl(ChatIdentityEnum.Sender, m);
                     GlobalCache.CurrentProductWant2ReplyGuideContent = m;
-                    Application.Current.Dispatcher.Invoke(() =>
-                    {
-                        //发送一条消息
-                        AddLoadingControl();
-                    });
+                    //发送一条消息
+                    AddLoadingControl();
                     WebServiceClient.SendJSFunc(JSFuncType.GetRemoteHisMsg, GlobalCache.CurrentCustomer.CCode, AIChatApiList.Want2Reply);
                 }
             });
@@ -152,11 +137,8 @@ namespace csr_windows.Client.ViewModels.Customer
             //HTTPError回调
             WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.ApiChatHttpErrorToken, (r, m) =>
             {
-                Application.Current.Dispatcher.Invoke(() =>
-                {
-                    RemoveLoadingControl();
-                    AddTextControl(ChatIdentityEnum.Recipient, "尴尬了，好像出了点问题，您的问题存在敏感信息，抱歉麻烦等下再试试～");
-                });
+                RemoveLoadingControl();
+                AddTextControl(ChatIdentityEnum.Recipient, "尴尬了，好像出了点问题，您的问题存在敏感信息，抱歉麻烦等下再试试～");
             });
 
             //接收千牛Msg单个商品
@@ -204,7 +186,8 @@ namespace csr_windows.Client.ViewModels.Customer
             {
                 sseUserControl = message;
                 RemoveLoadingControl();
-                UserControls.Add(message);
+                if (!UserControls.Contains(message))
+                    UserControls.Add(message);
             });
         }
 
@@ -246,101 +229,112 @@ namespace csr_windows.Client.ViewModels.Customer
                 }
 
                 //添加文本
-                ChatCopyTextView chatCopyTextView = new ChatCopyTextView()
-                {
-                    DataContext = new ChatCopyTextViewModel(chatTestModels)
-                    {
-                        IsHaveProduct = !string.IsNullOrEmpty(param.ProductName),
-                        ProductName = param.ProductName,
-                        AllContent = param.Param.Msg
-                    }
-                };
-
                 ChatBaseView chatBaseView = new ChatBaseView()
                 {
                     DataContext = new ChatBaseViewModel()
                     {
                         ChatIdentityEnum = ChatIdentityEnum.Recipient,
-                        ContentControl = chatCopyTextView
+                        ContentControl = new ChatCopyTextView()
+                        {
+                            DataContext = new ChatCopyTextViewModel(chatTestModels)
+                            {
+                                IsHaveProduct = !string.IsNullOrEmpty(param.ProductName),
+                                ProductName = param.ProductName,
+                                AllContent = param.Param.Msg
+                            }
+                        }
                     }
                 };
 
 
                 RemoveLoadingControl();
-                UserControls.Add(chatBaseView);
+                if (!UserControls.Contains(chatBaseView))
+                    UserControls.Add(chatBaseView);
             });
 
         }
 
         public ChatBaseView AddTextControl(ChatIdentityEnum identityEnum, string content, bool toAddCurrentUserControls = true)
         {
-            // 切换到UI线程更新UI
-            ChatBaseView chatBaseView = new ChatBaseView()
+            ChatBaseView chatBaseView1 = Application.Current.Dispatcher.Invoke(() =>
             {
-                DataContext = new ChatBaseViewModel()
+                // 切换到UI线程更新UI
+                ChatBaseView chatBaseView = new ChatBaseView()
                 {
-                    ChatIdentityEnum = identityEnum,
-                    ContentControl = new ChatTextView()
+                    DataContext = new ChatBaseViewModel()
                     {
-                        DataContext = new ChatTextViewModel(content)
+                        ChatIdentityEnum = identityEnum,
+                        ContentControl = new ChatTextView()
+                        {
+                            DataContext = new ChatTextViewModel(content)
+                        }
+                    }
+                };
+
+                if (toAddCurrentUserControls)
+                {
+                    try
+                    {
+                        if (!UserControls.Contains(chatBaseView))
+                            UserControls.Add(chatBaseView);
+                    }
+                    catch (ArgumentOutOfRangeException ex)
+                    {
+                        Logger.WriteError($"异常信息: {ex.Message}");
+                        Logger.WriteError($"参数名: {ex.ParamName}");
+                        Logger.WriteError($"堆栈跟踪: {ex.StackTrace}");
                     }
                 }
-            };
+                return chatBaseView;
+            });
 
-            if (toAddCurrentUserControls)
-            {
-                try
-                {
-                    UserControls.Add(chatBaseView);
-                }
-                catch (ArgumentOutOfRangeException ex)
-                {
-                    Logger.WriteError($"异常信息: {ex.Message}");
-                    Logger.WriteError($"参数名: {ex.ParamName}");
-                    Logger.WriteError($"堆栈跟踪: {ex.StackTrace}");
-                }
-            }
-            return chatBaseView;
+            return chatBaseView1;
         }
 
         public void AddBottomBoldControl(ChatIdentityEnum identityEnum, string content)
         {
-            ChatBaseView chatBaseView = new ChatBaseView()
+            Application.Current.Dispatcher.Invoke(() => 
             {
-                DataContext = new ChatBaseViewModel()
+                ChatBaseView chatBaseView = new ChatBaseView()
                 {
-                    ChatIdentityEnum = identityEnum,
-                    ContentControl = new ChatBottomBoldTextView()
+                    DataContext = new ChatBaseViewModel()
                     {
-                        DataContext = new ChatBottomBoldTextViewModel()
+                        ChatIdentityEnum = identityEnum,
+                        ContentControl = new ChatBottomBoldTextView()
                         {
-                            Content = content
+                            DataContext = new ChatBottomBoldTextViewModel()
+                            {
+                                Content = content
+                            }
                         }
                     }
-                }
-            };
-
-            UserControls.Add(chatBaseView);
+                };
+                if (!UserControls.Contains(chatBaseView))
+                    UserControls.Add(chatBaseView);
+            });
         }
 
         public void AddWant2ReplyControl(ChatIdentityEnum identityEnum, string content)
         {
-            ChatBaseView chatBaseView = new ChatBaseView()
+            Application.Current.Dispatcher.Invoke(() =>
             {
-                DataContext = new ChatBaseViewModel()
+                ChatBaseView chatBaseView = new ChatBaseView()
                 {
-                    ChatIdentityEnum = identityEnum,
-                    ContentControl = new ChatWant2ReplyView()
+                    DataContext = new ChatBaseViewModel()
                     {
-                        DataContext = new ChatWant2ReplyViewModel()
+                        ChatIdentityEnum = identityEnum,
+                        ContentControl = new ChatWant2ReplyView()
                         {
-                            Content = content
+                            DataContext = new ChatWant2ReplyViewModel()
+                            {
+                                Content = content
+                            }
                         }
                     }
-                }
-            };
-
-            UserControls.Add(chatBaseView);
+                };
+                if (!UserControls.Contains(chatBaseView))
+                    UserControls.Add(chatBaseView);
+            });
         }
         /// <summary>
         /// 添加loading控件
@@ -349,9 +343,13 @@ namespace csr_windows.Client.ViewModels.Customer
         {
             try
             {
-                if (UserControls.Contains(_loadingChatBaseView))
-                    UserControls.Remove(_loadingChatBaseView);
-                UserControls.Add(_loadingChatBaseView);
+                Application.Current.Dispatcher.Invoke(() => 
+                {
+                    if (UserControls.Contains(_loadingChatBaseView))
+                        UserControls.Remove(_loadingChatBaseView);
+                    UserControls.Add(_loadingChatBaseView);
+                });
+
             }
             catch (Exception ex)
             {
@@ -365,7 +363,12 @@ namespace csr_windows.Client.ViewModels.Customer
         /// </summary>
         public void RemoveLoadingControl()
         {
-            UserControls.Remove(_loadingChatBaseView);
+            Application.Current.Dispatcher.Invoke(() => 
+            {
+                if (UserControls.Contains(_loadingChatBaseView))
+                    UserControls.Remove(_loadingChatBaseView);
+            });
+            
         }
 
 
@@ -486,7 +489,8 @@ namespace csr_windows.Client.ViewModels.Customer
                 }
                 chatBaseViewModel.ContentControl = chatTextAndProductView;
                 chatBaseView.DataContext = chatBaseViewModel;
-                GlobalCache.CustomerChatList[mBaseProduct.SendUserNiceName].Add(chatBaseView);
+                if (!GlobalCache.CustomerChatList[mBaseProduct.SendUserNiceName].Contains(chatBaseView))
+                    GlobalCache.CustomerChatList[mBaseProduct.SendUserNiceName].Add(chatBaseView);
                 if (myProducts.Count == 1)
                 {
                     GlobalCache.CustomerCurrentProductList[mBaseProduct.SendUserNiceName] = myProducts[0];
@@ -506,12 +510,14 @@ namespace csr_windows.Client.ViewModels.Customer
                         {
                             GlobalCache.CurrentProduct = myProducts[0];
                         }
-                        UserControls.Add(chatBaseView);
+                        if (!UserControls.Contains(chatBaseView))
+                            UserControls.Add(chatBaseView);
                     }
                 }
                 else
                 {
-                    UserControls.Add(chatBaseView);
+                    if (!UserControls.Contains(chatBaseView))
+                        UserControls.Add(chatBaseView);
                 }
                 AddCustomerDialogueProducts(GlobalCache.CurrentCustomer.UserNiceName, myProducts);
             }
@@ -530,7 +536,8 @@ namespace csr_windows.Client.ViewModels.Customer
                 var _list = GlobalCache.CustomerDialogueProducts[userNickName].Where(x => x.ProductName == item.ProductName);
                 if (_list.Count() == 0)//没有重复的
                 {
-                    GlobalCache.CustomerDialogueProducts[userNickName].Add(item);
+                    if (!GlobalCache.CustomerDialogueProducts[userNickName].Contains(item))
+                        GlobalCache.CustomerDialogueProducts[userNickName].Add(item);
                 }
             }
         }
@@ -544,28 +551,30 @@ namespace csr_windows.Client.ViewModels.Customer
         /// <exception cref="NotImplementedException"></exception>
         private void OnChangeCustomerMulipteProduct(object recipient, MyProduct message)
         {
-            ChatBaseView chatBaseView = new ChatBaseView()
-            {
-                DataContext = new ChatBaseViewModel()
+            Application.Current.Dispatcher.Invoke(() => 
+            { 
+                ChatBaseView chatBaseView = new ChatBaseView()
                 {
-                    ChatIdentityEnum = ChatIdentityEnum.Sender,
-                    ContentControl = new ChatTextAndProductView()
+                    DataContext = new ChatBaseViewModel()
                     {
-                        DataContext = new ChatTextAndProductViewModel(new List<MyProduct>() { message }, ChatTextAndProductIdentidyEnum.CustomerService)
+                        ChatIdentityEnum = ChatIdentityEnum.Sender,
+                        ContentControl = new ChatTextAndProductView()
                         {
-                            StartContent = "换成这款商品：",
+                            DataContext = new ChatTextAndProductViewModel(new List<MyProduct>() { message }, ChatTextAndProductIdentidyEnum.CustomerService)
+                            {
+                                StartContent = "换成这款商品：",
+                            }
                         }
                     }
-                }
-            };
-
-            UserControls.Add(chatBaseView);
-
+                };
+                if (!UserControls.Contains(chatBaseView))
+                    UserControls.Add(chatBaseView);
+            });
             Task.Delay(500).ContinueWith(t =>
             {
+                AddTextControl(ChatIdentityEnum.Recipient, "明白了，后续回答将基于该商品。");
                 Application.Current.Dispatcher.Invoke(() =>
                 {
-                    AddTextControl(ChatIdentityEnum.Recipient, "明白了，后续回答将基于该商品。");
                     GlobalCache.CurrentProduct = message;
                 });
             });
@@ -579,38 +588,41 @@ namespace csr_windows.Client.ViewModels.Customer
         /// <exception cref="NotImplementedException"></exception>
         private void OnChangeSingleProductToken(object recipient, MyProduct message)
         {
-            ChatBaseView chatBaseView = new ChatBaseView()
+            Application.Current.Dispatcher.Invoke(() => 
             {
-                DataContext = new ChatBaseViewModel()
+                ChatBaseView chatBaseView = new ChatBaseView()
                 {
-                    ChatIdentityEnum = ChatIdentityEnum.Sender,
-                    ContentControl = new ChatTextAndProductView()
+                    DataContext = new ChatBaseViewModel()
                     {
-                        DataContext = new ChatTextAndProductViewModel(new List<MyProduct>() { message }, ChatTextAndProductIdentidyEnum.CustomerService)
+                        ChatIdentityEnum = ChatIdentityEnum.Sender,
+                        ContentControl = new ChatTextAndProductView()
                         {
-                            StartContent = "我想换到这个商品：",
+                            DataContext = new ChatTextAndProductViewModel(new List<MyProduct>() { message }, ChatTextAndProductIdentidyEnum.CustomerService)
+                            {
+                                StartContent = "我想换到这个商品：",
+                            }
                         }
                     }
-                }
-            };
+                };
 
-            UserControls.Add(chatBaseView);
+                if (!UserControls.Contains(chatBaseView))
+                    UserControls.Add(chatBaseView);
 
 
-            ChatBaseView switchProductBaseView = new ChatBaseView()
-            {
-                DataContext = new ChatBaseViewModel()
+                ChatBaseView switchProductBaseView = new ChatBaseView()
                 {
-                    ChatIdentityEnum = ChatIdentityEnum.Recipient,
-                    ContentControl = new ChatSwitchProductsView()
+                    DataContext = new ChatBaseViewModel()
                     {
-                        DataContext = new ChatSwitchProductsViewModel(message)
+                        ChatIdentityEnum = ChatIdentityEnum.Recipient,
+                        ContentControl = new ChatSwitchProductsView()
+                        {
+                            DataContext = new ChatSwitchProductsViewModel(message)
+                        }
                     }
-                }
-            };
-
-            UserControls.Add(switchProductBaseView);
-
+                };
+                if (!UserControls.Contains(switchProductBaseView))
+                    UserControls.Add(switchProductBaseView);
+            });
         }
 
         /// <summary>
@@ -635,23 +647,28 @@ namespace csr_windows.Client.ViewModels.Customer
         /// <exception cref="NotImplementedException"></exception>
         private void OnChooseProductChange(object recipient, MyProduct message)
         {
-            ChatBaseView chatBaseView = new ChatBaseView()
+            Application.Current.Dispatcher.Invoke(() => 
             {
-                DataContext = new ChatBaseViewModel()
+                ChatBaseView chatBaseView = new ChatBaseView()
                 {
-                    ChatIdentityEnum = ChatIdentityEnum.Sender,
-                    ContentControl = new ChatTextAndProductView()
+                    DataContext = new ChatBaseViewModel()
                     {
-                        DataContext = new ChatTextAndProductViewModel(new List<MyProduct>() { message }, ChatTextAndProductIdentidyEnum.CustomerService)
+                        ChatIdentityEnum = ChatIdentityEnum.Sender,
+                        ContentControl = new ChatTextAndProductView()
                         {
-                            StartContent = "后续内容基于这款商品：",
+                            DataContext = new ChatTextAndProductViewModel(new List<MyProduct>() { message }, ChatTextAndProductIdentidyEnum.CustomerService)
+                            {
+                                StartContent = "后续内容基于这款商品：",
+                            }
                         }
                     }
-                }
-            };
-            UserControls.Add(chatBaseView);
-            AddTextControl(ChatIdentityEnum.Recipient, "明白了，后续回答将基于该商品。");
-            GlobalCache.CurrentProduct = message;
+                };
+                if (!UserControls.Contains(chatBaseView))
+                    UserControls.Add(chatBaseView);
+                AddTextControl(ChatIdentityEnum.Recipient, "明白了，后续回答将基于该商品。");
+                GlobalCache.CurrentProduct = message;
+            });
+            
         }
 
         /// <summary>
@@ -679,11 +696,8 @@ namespace csr_windows.Client.ViewModels.Customer
                 AddLoadingControl();
                 Task.Delay(500).ContinueWith(t =>
                 {
-                    Application.Current.Dispatcher.Invoke(() =>
-                    {
-                        RemoveLoadingControl();
-                        AddTextControl(ChatIdentityEnum.Recipient, "您还没有选择任何顾客进行沟通，我没办法提供建议哦～");
-                    });
+                    RemoveLoadingControl();
+                    AddTextControl(ChatIdentityEnum.Recipient, "您还没有选择任何顾客进行沟通，我没办法提供建议哦～");
                 });
             }
             else
@@ -712,7 +726,8 @@ namespace csr_windows.Client.ViewModels.Customer
                             }
                         }
                     };
-                    UserControls.Add(chatBaseView);
+                    if (!UserControls.Contains(chatBaseView))
+                        UserControls.Add(chatBaseView);
                     //发送一条消息
                     AddLoadingControl();
                 });
@@ -777,7 +792,8 @@ namespace csr_windows.Client.ViewModels.Customer
                 };
 
                 RemoveLoadingControl();
-                UserControls.Add(chatBaseView);
+                if (!UserControls.Contains(chatBaseView))
+                    UserControls.Add(chatBaseView);
             });
         }
         #endregion

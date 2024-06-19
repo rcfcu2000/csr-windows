@@ -406,7 +406,7 @@ namespace csr_windows.Client.Services.WebService
                             {
                                 Logger.WriteInfo(ex.Message);
                             }
-                            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                            if (response?.StatusCode == System.Net.HttpStatusCode.OK)
                             {
                                 bool isFirst = true;
                                 using (var stream = await response.Content.ReadAsStreamAsync())

@@ -9,6 +9,7 @@ using csr_windows.Domain;
 using csr_windows.Domain.Enumeration;
 using csr_windows.Domain.WeakReferenceMessengerModels;
 using csr_windows.Domain.WebSocketModels;
+using csr_windows.Resources.Enumeration;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -105,6 +106,11 @@ namespace csr_windows.Client.ViewModels.Customer
         private void OnInputAICommand()
         {
             string chat_text = TopHelp.GetQNChatInputText();
+            if (string.IsNullOrEmpty(chat_text))
+            {
+                WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel("请在接待中心输入您想优化的内容",promptEnum:PromptEnum.Note), MessengerConstMessage.OpenPromptMessageToken);
+                return;
+            }
             WeakReferenceMessenger.Default.Send<string, string>(chat_text, MessengerConstMessage.Want2ReplyToken);
             //_uIService.OpenCustomerBottomInputAIView();
         }
