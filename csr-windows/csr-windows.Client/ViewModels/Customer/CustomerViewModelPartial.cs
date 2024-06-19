@@ -41,6 +41,7 @@ namespace csr_windows.Client.ViewModels.Customer
                 {
                     GlobalCache.CustomerChatList[CurrentCustomer.UserNiceName] = new List<UserControl>(UserControls);
                     GlobalCache.CustomerCurrentProductList[CurrentCustomer.UserNiceName] = GlobalCache.CurrentProduct;
+                    GlobalCache.CustomerDialogueLastTaoBaoId[CurrentCustomer.UserNiceName] = GlobalCache.DialogueLastTaoBaoId;
                 }
                 CurrentCustomer = m;
                 var isGetSuccess = GlobalCache.CustomerChatList.TryGetValue(CurrentCustomer?.UserNiceName, out List<UserControl> _tempUserControls);
@@ -64,10 +65,12 @@ namespace csr_windows.Client.ViewModels.Customer
                     if (GlobalCache.CustomerCurrentProductList.ContainsKey(CurrentCustomer.UserNiceName))
                     {
                         GlobalCache.CurrentProduct = GlobalCache.CustomerCurrentProductList[CurrentCustomer.UserNiceName];
+                        GlobalCache.DialogueLastTaoBaoId = GlobalCache.CustomerDialogueLastTaoBaoId[CurrentCustomer.UserNiceName];
                     }
                     else
                     {
                         GlobalCache.CurrentProduct = null;
+                        GlobalCache.DialogueLastTaoBaoId = string.Empty;
                     }
                 }
 
@@ -380,8 +383,16 @@ namespace csr_windows.Client.ViewModels.Customer
         /// <exception cref="NotImplementedException"></exception>
         private async void OnSendMsgSingleProduct(object recipient, SingleProductModel message)
         {
-            //根据信息去请求接口
-            string msg = await ApiClient.Instance.GetAsync(string.Format($"{BackEndApiList.GetMerchantByTid}/{message.TaoBaoID}"));
+            //判断是否对话中提到的最后一个taobaoid 跟现在的商品taobaoid是否一样，一样的话就直接return
+            if (string.IsNullOrEmpty(GlobalCache.DialogueLastTaoBaoId))
+                GlobalCache.DialogueLastTaoBaoId = message.TaoBaoID;
+            else if(GlobalCache.DialogueLastTaoBaoId == message.TaoBaoID)
+                return;
+             else
+                GlobalCache.DialogueLastTaoBaoId = message.TaoBaoID;
+
+                //根据信息去请求接口
+                string msg = await ApiClient.Instance.GetAsync(string.Format($"{BackEndApiList.GetMerchantByTid}/{message.TaoBaoID}"));
             Application.Current.Dispatcher.Invoke(() =>
             {
                 AddTextAndProductChat(msg, message, message.Pic, string.IsNullOrEmpty(message.ActionUrl) ? message.E1ActionUrl : message.ActionUrl);
@@ -396,6 +407,14 @@ namespace csr_windows.Client.ViewModels.Customer
         /// <exception cref="NotImplementedException"></exception>
         private async void OnSendMsgMultipleProduct(object recipient, MultipleProductModel message)
         {
+            //判断是否对话中提到的最后一个taobaoid 跟现在的商品taobaoid是否一样，一样的话就直接return
+            if (string.IsNullOrEmpty(GlobalCache.DialogueLastTaoBaoId))
+                GlobalCache.DialogueLastTaoBaoId = message.TaoBaoID;
+            else if (GlobalCache.DialogueLastTaoBaoId == message.TaoBaoID)
+                return;
+            else
+                GlobalCache.DialogueLastTaoBaoId = message.TaoBaoID;
+
             //根据信息去请求接口
             string msg = await ApiClient.Instance.GetAsync($"{BackEndApiList.GetMerchantByTid}/{message.TaoBaoID}");
             Application.Current.Dispatcher.Invoke(() =>
@@ -413,7 +432,6 @@ namespace csr_windows.Client.ViewModels.Customer
         /// <param name="actionUrl"></param>
         private void AddTextAndProductChat(string msg, MBaseProduct mBaseProduct, string picUrl, string actionUrl)
         {
-
             string startContent, endContent;
             BaseGetMerchantByTidModel model = JsonConvert.DeserializeObject<BaseGetMerchantByTidModel>(msg);
             if (model.Data == null || model.Data.Count == 0)
@@ -477,10 +495,11 @@ namespace csr_windows.Client.ViewModels.Customer
                 EndContent = endContent,
             };
 
-            //发送者不是当前客户 就去判断是否有第一条
+            //发送者不是当前聊天 就去储存到相应的聊天人那里
             if (mBaseProduct.SendUserNiceName != GlobalCache.CurrentCustomer.UserNiceName && mBaseProduct.SendUserNiceName != GlobalCache.CustomerServiceNickName)
             {
                 var isGetSuccess = GlobalCache.CustomerChatList.TryGetValue(mBaseProduct.SendUserNiceName, out List<UserControl> _tempUserControls);
+                //如果没显示过欢迎语
                 if (!isGetSuccess || _tempUserControls.Count == 0)
                 {
                     //添加一个欢迎UserControl
@@ -491,6 +510,7 @@ namespace csr_windows.Client.ViewModels.Customer
                 chatBaseView.DataContext = chatBaseViewModel;
                 if (!GlobalCache.CustomerChatList[mBaseProduct.SendUserNiceName].Contains(chatBaseView))
                     GlobalCache.CustomerChatList[mBaseProduct.SendUserNiceName].Add(chatBaseView);
+                GlobalCache.CustomerDialogueLastTaoBaoId[mBaseProduct.SendUserNiceName] = mBaseProduct.TaoBaoID;
                 if (myProducts.Count == 1)
                 {
                     GlobalCache.CustomerCurrentProductList[mBaseProduct.SendUserNiceName] = myProducts[0];
@@ -501,6 +521,7 @@ namespace csr_windows.Client.ViewModels.Customer
             {
                 chatBaseViewModel.ContentControl = chatTextAndProductView;
                 chatBaseView.DataContext = chatBaseViewModel;
+                GlobalCache.DialogueLastTaoBaoId = mBaseProduct.TaoBaoID;
                 if (myProducts.Count == 1)
                 {
                     if (GlobalCache.CurrentProduct?.ProductName != myProducts[0].ProductName)

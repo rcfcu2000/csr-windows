@@ -96,6 +96,11 @@ namespace csr_windows.Domain
         public static Dictionary<string, List<MyProduct>> StoreAllProducts = new Dictionary<string, List<MyProduct>>();
 
         /// <summary>
+        /// 店铺维度的 每个客户的对话中提到的淘宝ID
+        /// </summary>
+        public static Dictionary<string,Dictionary<string,string>> StoreCustomerDialogueLastTaoBaoId = new Dictionary<string, Dictionary<string, string>>();
+
+        /// <summary>
         /// 每个客户的聊天记录
         /// </summary>
         public static Dictionary<string,List<UserControl>> CustomerChatList = new Dictionary<string, List<UserControl>>();
@@ -105,11 +110,20 @@ namespace csr_windows.Domain
         /// </summary>
         public static Dictionary<string,MyProduct> CustomerCurrentProductList = new Dictionary<string,MyProduct>();
 
-
         /// <summary>
         /// 对话中的商品列表
         /// </summary>
         public static Dictionary<string, List<MyProduct>> CustomerDialogueProducts = new Dictionary<string, List<MyProduct>>();
+
+        /// <summary>
+        /// 每个客户的对话中提到的淘宝ID
+        /// </summary>
+        public static Dictionary<string,string> CustomerDialogueLastTaoBaoId = new Dictionary<string,string>();
+
+        /// <summary>
+        /// 对话中提到的淘宝ID
+        /// </summary>
+        public static string DialogueLastTaoBaoId;
 
         /// <summary>
         /// 热销列表
@@ -202,9 +216,12 @@ namespace csr_windows.Domain
             StoreCustomerChatList[oldStoreName] = CustomerChatList;
             StoreCustomerCurrentProductList[oldStoreName] = CustomerCurrentProductList;
             StoreCustomerDialogueProducts[oldStoreName] = CustomerDialogueProducts;
+            StoreCustomerDialogueLastTaoBaoId[oldStoreName] = CustomerDialogueLastTaoBaoId;
+
             CustomerChatList = new Dictionary<string, List<UserControl>>();
             CustomerCurrentProductList = new Dictionary<string, MyProduct>();
             CustomerDialogueProducts = new Dictionary<string, List<MyProduct>>();
+            CustomerDialogueLastTaoBaoId = new Dictionary<string, string>();
 
             if (StoreCustomerChatList.ContainsKey(newStoreName))
                 CustomerChatList = StoreCustomerChatList[newStoreName];
@@ -212,10 +229,12 @@ namespace csr_windows.Domain
                 CustomerCurrentProductList = StoreCustomerCurrentProductList[newStoreName];
             if (StoreCustomerDialogueProducts.ContainsKey(newStoreName))
                 CustomerDialogueProducts = StoreCustomerDialogueProducts[newStoreName];
+            if (StoreCustomerDialogueLastTaoBaoId.ContainsKey(newStoreName))
+                CustomerDialogueLastTaoBaoId = StoreCustomerDialogueLastTaoBaoId[newStoreName];
             #endregion
 
-            #region 字段切换
-            //切换login
+                #region 字段切换
+                //切换login
             if (StoreSSOLoginModel.ContainsKey(oldStoreName))
             {
                 SSOLoginModel = StoreSSOLoginModel[oldStoreName];

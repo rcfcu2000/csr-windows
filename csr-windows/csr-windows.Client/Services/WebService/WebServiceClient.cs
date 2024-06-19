@@ -414,6 +414,7 @@ namespace csr_windows.Client.Services.WebService
                                 {
                                     while (!reader.EndOfStream)
                                     {
+                                        
                                         string line = await reader.ReadLineAsync();
                                         if (!string.IsNullOrWhiteSpace(line))
                                         {
@@ -482,7 +483,7 @@ namespace csr_windows.Client.Services.WebService
                                 DateTime start = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
                                 DateTime date = start.AddMilliseconds(unixDate);
 
-                                if (chat_content.Contains("item.taobao.com/item.htm"))
+                                if (!string.IsNullOrEmpty(chat_content) && chat_content.Contains("item.taobao.com/item.htm"))
                                     chat_link = chat_content;
 
                                 payload.content = chat_content;
@@ -572,7 +573,7 @@ namespace csr_windows.Client.Services.WebService
                             if (msg.templateId == 101)
                             {
                                 //这个时候只拿得到ActionUrl
-                                if (msg.msg.jsview[0].type == 1)
+                                if (msg.msg?.jsview != null && msg.msg.jsview[0].type == 1)
                                 {
                                     SingleProductModel singleProduct = new SingleProductModel()
                                     {
@@ -583,7 +584,7 @@ namespace csr_windows.Client.Services.WebService
                                     sendUserNiceName = msg.ext.sender_nick;
                                     receiveUserNiceName = msg.ext.receiver_nick;
                                 }
-                                if (msg.msg.jsview[0].type == 5)
+                                if (msg.msg?.jsview != null && msg.msg.jsview[0].type == 5)
                                 {
                                     Single101ProductModel model = JsonConvert.DeserializeObject<Single101ProductModel>($"{msg.msg.jsview[0].value.urlinfo}");
                                     SingleProductModel singleProduct = new SingleProductModel()
