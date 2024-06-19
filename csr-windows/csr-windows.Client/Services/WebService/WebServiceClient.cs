@@ -408,7 +408,7 @@ namespace csr_windows.Client.Services.WebService
                             }
                             if (response?.StatusCode == System.Net.HttpStatusCode.OK)
                             {
-                                bool isFirst = true;
+                                WeakReferenceMessenger.Default.Send(chatBaseView, MessengerConstMessage.SSESteamReponseToken);
                                 using (var stream = await response.Content.ReadAsStreamAsync())
                                 using (var reader = new StreamReader(stream))
                                 {
@@ -418,11 +418,6 @@ namespace csr_windows.Client.Services.WebService
                                         if (!string.IsNullOrWhiteSpace(line))
                                         {
                                             chatTextViewModel.Content += line;
-                                            if (isFirst)
-                                            {
-                                                isFirst = false;
-                                                WeakReferenceMessenger.Default.Send(chatBaseView,MessengerConstMessage.SSESteamReponseToken);
-                                            }
                                         }
                                     }
                                 }
