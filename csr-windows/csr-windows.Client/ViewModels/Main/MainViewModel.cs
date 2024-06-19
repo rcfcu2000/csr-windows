@@ -27,6 +27,11 @@ namespace csr_windows.Client.ViewModels.Main
         private IUiService _uiService;
         private bool _isInIM;
 
+        private bool _isShowDockControl;
+        private bool _isShowMainGrid = true;
+
+
+
         #endregion
 
         #region Commands
@@ -74,6 +79,26 @@ namespace csr_windows.Client.ViewModels.Main
             get => _isInIM;
             set => SetProperty(ref _isInIM, value);
         }
+
+        /// <summary>
+        /// 是否停靠
+        /// </summary>
+        public bool IsShowDockControl
+        {
+            get => _isShowDockControl;
+            set => SetProperty(ref _isShowDockControl, value);
+        }
+
+
+        /// <summary>
+        /// 是否是展示MainGrid
+        /// </summary>
+        public bool IsShowMainGrid
+        {
+            get => _isShowMainGrid;
+            set => SetProperty(ref _isShowMainGrid, value);
+        }
+
         #endregion
 
         #region Methods

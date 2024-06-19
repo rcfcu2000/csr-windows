@@ -21,6 +21,7 @@ using csr_windows.Domain.BaseModels.BackEnd.Base;
 using csr_windows.Domain.BaseModels;
 using Newtonsoft.Json;
 using System.Text.RegularExpressions;
+using csr_windows.Common.Utils;
 
 namespace csr_windows.Client.ViewModels.Customer
 {
@@ -209,26 +210,31 @@ namespace csr_windows.Client.ViewModels.Customer
                 UserControls.Remove(sseUserControl);
 
                 var param = JsonConvert.DeserializeObject<MChatApiResult<ChatApiParam>>(message);
-                //
+                
                 // 使用正则表达式分割字符串
-                //string[] splitText = Regex.Split(param.Param.Msg, @"(?<=[。；？！～ ： ”])");
-                string[] splitText = Regex.Split(param.Param.Msg, @"(?<=[。；？！～]|[，。；？！～]”|”[，。；？！～])");
+                var result = StringProcessor.Divide(param.Param.Msg);
 
+                // 使用LINQ去除空字符串
+                List<List<string>> cleanedListOfresult = result
+                    .Select(subList => subList.Where(str => !string.IsNullOrEmpty(str)).ToList())
+                    .Where(subList => subList.Any()) // 如果需要去除空子列表
+                    .ToList();
 
-                string[] filteredText = splitText
-                    .Where(s => !string.IsNullOrWhiteSpace(s))
-                    .ToArray();
                 List<ChatTestModel> chatTestModels = new List<ChatTestModel>();
-                for (int i = 1; i < filteredText.Length + 1; i++)
+                for (int i = 0; i < cleanedListOfresult.Count; i++)
                 {
-
-                    var content = filteredText[i - 1].Trim(new char[] { ' ', '\n', '\r', '。' });
-
-                    chatTestModels.Add(new ChatTestModel()
+                    for (int j = 0; j < cleanedListOfresult[i].Count; j++)
                     {
-                        Content = content,
-                        IsLast = i == filteredText.Length,
-                    });
+                        var content = cleanedListOfresult[i][j].Trim(new char[] {' ', '\n', '\r', '。' });
+
+                        chatTestModels.Add(new ChatTestModel()
+                        {
+                            Content = content,
+                            IsLast = i == cleanedListOfresult.Count + 1 && j == cleanedListOfresult[i].Count + 1,
+                        });
+                    }
+
+                   
                 }
 
                 //添加文本
