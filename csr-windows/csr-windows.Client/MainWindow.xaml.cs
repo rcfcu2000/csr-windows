@@ -256,7 +256,7 @@ namespace csr_windows.Client
                     }
                     if (title != null && title != GlobalCache.CustomerServiceNickName)
                     {
-
+                        WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.StoreOldCurrentCustomerToekn);
                         var list = title.Split(':');
                         GlobalCache.StoreName = list[0];
                         if (list.Count() >= 2)
