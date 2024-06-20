@@ -34,6 +34,22 @@ namespace csr_windows.Client.ViewModels.Customer
         {
             //打开顾客界面窗体
             WeakReferenceMessenger.Default.Register<UserControl, string>(this, MessengerConstMessage.OpenCustomerUserControlToken, (r, m) => { ContentControl = m; });
+
+            //储存当前用户的数据
+            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.StoreOldCurrentCustomerToekn, (r,m) => 
+            {
+                //储存历史记录
+                if (!string.IsNullOrEmpty(CurrentCustomer?.UserNiceName))
+                {
+                    GlobalCache.CustomerChatList[CurrentCustomer.UserNiceName] = new List<UserControl>(UserControls);
+                    GlobalCache.CustomerCurrentProductList[CurrentCustomer.UserNiceName] = GlobalCache.CurrentProduct;
+                    GlobalCache.CustomerDialogueLastTaoBaoId[CurrentCustomer.UserNiceName] = GlobalCache.DialogueLastTaoBaoId;
+                    GlobalCache.CustomerAutoReplyRegex[CurrentCustomer.UserNiceName] = GlobalCache.AutoReplyRegex;
+                    GlobalCache.CustomerAiChatAutoReplyRegex[CurrentCustomer.UserNiceName] = GlobalCache.AiChatAutoReplyRegex;
+                }
+                CurrentCustomer = null;
+            });
+
             //改变当前顾客
             WeakReferenceMessenger.Default.Register<CustomerModel, string>(this, MessengerConstMessage.ChangeCurrentCustomerToken, (r, m) =>
             {

@@ -21,7 +21,6 @@ namespace csr_windows.Client.Services.Impl
     public class UISerivce : IUiService
     {
         #region Fields
-
         private WelcomeView _welcomeView;
         private CustomerInitBottomView _customerInitBottomView;
         private ChangePersonaView _changePersonaView = new ChangePersonaView();

@@ -51,6 +51,11 @@ namespace csr_windows.Domain
         public const string LoginSuccessToken = "LoginSuccessToken";
 
         /// <summary>
+        /// 储存 旧当前客户的数据
+        /// </summary>
+        public const string StoreOldCurrentCustomerToekn = "StoreOldCurrentCustomerToekn";
+
+        /// <summary>
         /// 改变当前客户
         /// </summary>
         public const string ChangeCurrentCustomerToken = "ChangeCurrentCustomerToken";
