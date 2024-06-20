@@ -1,4 +1,6 @@
-﻿using CommunityToolkit.Mvvm.Messaging;
+﻿using CommunityToolkit.Mvvm.DependencyInjection;
+using CommunityToolkit.Mvvm.Messaging;
+using csr_windows.Client.Services.Base;
 using csr_windows.Client.Services.WebService.Enums;
 using csr_windows.Client.ViewModels.Chat;
 using csr_windows.Client.Views.Chat;
@@ -24,12 +26,14 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms.Design;
 using System.Windows.Interop;
 
 namespace csr_windows.Client.Services.WebService
 {
     internal static class WebServiceClient
     {
+        private static IUiService _uIService;
         /// <summary>
         /// 商品聊天模板id列表
         /// </summary>
@@ -114,6 +118,8 @@ namespace csr_windows.Client.Services.WebService
                     {
                         GlobalCache.IsFollowWindow = false;
                         GlobalCache.FollowHandle = IntPtr.Zero;
+                        _uIService = Ioc.Default.GetService<IUiService>();
+                        _uIService.OpenNoStartClientView();
                     }
                 };
 
@@ -448,6 +454,12 @@ namespace csr_windows.Client.Services.WebService
                             }
                         });
                     }
+
+                    if (json.type == "window")
+                    {
+                        Console.WriteLine(json.msg);
+                    }
+
 
                     if (json.type == "message")
                     {

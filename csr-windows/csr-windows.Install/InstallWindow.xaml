@@ -8,6 +8,7 @@
     Title="会回安装"
     Width="500"
     Background="Transparent"
+    Topmost="True"
     Closed="Window_Closed"
     KeyDown="Window_KeyDown"
     Loaded="Window_Loaded"

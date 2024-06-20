@@ -118,7 +118,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Resources\csr_windows_Install.zip" />
+    <None Include="Resources\csr_windows_install.zip" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

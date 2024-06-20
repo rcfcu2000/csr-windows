@@ -49,6 +49,9 @@ namespace csr_windows.Install
         [DllImport("User32.dll", EntryPoint = "SendMessage")]
         private static extern int SendMessage(IntPtr hWnd, int msg, uint wParam, uint lParam);
 
+        [DllImport("user32.dll", SetLastError = true)]
+        internal static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint);
+
         /// <summary>
         /// 判断窗口是否可见
         /// </summary>
@@ -162,43 +165,59 @@ namespace csr_windows.Install
                     Process myProcess = new Process();
                     myProcess.StartInfo.UseShellExecute = true;
                     myProcess.StartInfo.FileName = $@"{path}{System.IO.Path.DirectorySeparatorChar}工具3.0.exe";
-                    myProcess.StartInfo.CreateNoWindow = false;
-                    myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+                    myProcess.StartInfo.CreateNoWindow = true;
+                    myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                     myProcess.Start();
 
+
+                    IntPtr id = myProcess.MainWindowHandle;
+                    Console.WriteLine($"MainWindow:{id}");
+                    MoveWindow(myProcess.MainWindowHandle, 0, 0, 1, 1, true);
+                    
+                    Application.Current.Dispatcher.Invoke(() => 
+                    {
+                        this.Topmost = true;
+                        Width = 500;
+                        Height = 500;
+                    });
                     while (true)
                     {
                         IntPtr OtherExeWnd = new IntPtr(0);
                         OtherExeWnd = FindWindow("WTWindow", "");
                         Console.WriteLine($"OtherExeWnd:{OtherExeWnd}");
+
+                        if (OtherExeWnd == IntPtr.Zero || !IsWindowVisible(OtherExeWnd))
+                        {
+                            Task.Delay(2).Wait();
+                            continue;
+                        }
+
+                        MoveWindow(OtherExeWnd, 0, 0, 1, 1, true);
                         //判断这个窗体是否有效
                         if (OtherExeWnd != IntPtr.Zero)
                         {
                             Console.WriteLine("找到窗口");
-                            ShowWindow(OtherExeWnd, 0);//0表示隐藏窗口
+                            //ShowWindow(OtherExeWnd, 0);//0表示隐藏窗口
                             while (true)
                             {
                                 IntPtr ExeWnd = FindWindow("WTWindow", "Sunny抓包工具3.0 【2024-06-04】      SDK版本【2024-06-03】");
                                 Console.WriteLine($"ExeWnd:{ExeWnd}");
                                 if (ExeWnd == IntPtr.Zero || !IsWindowVisible(ExeWnd))
                                 {
-                                    Task.Delay(50).Wait();
+                                    Task.Delay(10).Wait();
                                     continue;
                                 }
+                                MoveWindow(ExeWnd, 0, 0, 1, 1, true);
                                 SendMessage(ExeWnd, 16, 0, 0);//关闭窗口，通过发送消息的方式 
                                 break;
                             }
                             break;
                         }
-                        else
-                        {
-                            Task.Delay(50).Wait();
-                        }
                     }
 
                     #endregion
 
-
+                    myProcess.Kill();
                     Dispatcher.BeginInvoke(new Action(() =>
                     {
                         InstallingGrid.Visibility = Visibility.Collapsed;
