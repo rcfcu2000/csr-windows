@@ -34,7 +34,7 @@ namespace csr_windows.Client.Services.WebService.Enums
         /// <summary>
         /// 接收当前用户
         /// </summary>
-        public const string ReceiveCurrentCst = "currentCsr";
+        public const string ReceiveCurrentCsr = "currentCsr";
 
         /// <summary>
         /// 接收当前客户

@@ -104,16 +104,9 @@ namespace csr_windows.Client.Services.WebService
                 socket.OnOpen = () =>
                 {
                     Logger.WriteInfo("WebSocket connection opened.");
-                    var title = TopHelp.GetQNChatTitle();
-                    if (!string.IsNullOrEmpty(title))
-                    {
-                        allSockets[title] = socket;
-                    }
-
+                    
                     //启动成功
-                    SendJSFunc(JSFuncType.GetCurrentCsr);
-                    //SendJSFunc(JSFuncType.GetGoodsList);
-                    Logger.WriteInfo(TopHelp.GetQNChatTitle());
+                    SendJSFunc(JSFuncType.GetCurrentCsr,socket:socket);
                 };
 
                 socket.OnClose = () =>
@@ -158,7 +151,7 @@ namespace csr_windows.Client.Services.WebService
                     }
 
 
-                    if (json.type == JSFuncType.ReceiveCurrentCst)
+                    if (json.type == JSFuncType.ReceiveCurrentCsr)
                     {
                         Logger.WriteInfo($"item get：{json}");
                         MJSResult<CurrentCsrModel> mJSResult;
@@ -171,6 +164,9 @@ namespace csr_windows.Client.Services.WebService
                         {
                             GlobalCache.UserName = list[1];
                         }
+
+                        allSockets[mJSResult.Msg.Nick] = socket;
+
                         SendJSFunc(JSFuncType.GetCurrentConv);
                     }
 
@@ -834,7 +830,7 @@ namespace csr_windows.Client.Services.WebService
             });
         }
 
-        public static void SendJSFunc(string jsFuncType, string nickName = "", string apiChatUri = "")
+        public static void SendJSFunc(string jsFuncType, string nickName = "", string apiChatUri = "", IWebSocketConnection socket = null)
         {
             dynamic root = new JObject();
             //root.act = "getGoodsList";
@@ -851,7 +847,9 @@ namespace csr_windows.Client.Services.WebService
             // 将对象转换成JSON字符串
             string jsonString = JsonConvert.SerializeObject(root, Formatting.Indented);
             string csrName = TopHelp.GetQNChatTitle();
-            if (allSockets.ContainsKey(csrName) && allSockets[csrName] != null)
+            if (socket != null)
+                socket.Send(jsonString);
+            else if (allSockets.ContainsKey(csrName) && allSockets[csrName] != null)
                 allSockets[csrName].Send(jsonString);
         }
 
