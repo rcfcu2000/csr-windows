@@ -85,17 +85,23 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AIChat\AutoReplayModel.cs" />
     <Compile Include="AIChat\How2ReplyModel.cs" />
     <Compile Include="AIChat\ReMultiGoodModel.cs" />
     <Compile Include="AIChat\Want2ReplyModel.cs" />
     <Compile Include="Api\AIChatApiList.cs" />
+    <Compile Include="Api\ApiConstToken.cs" />
     <Compile Include="Api\BackEndApiList.cs" />
     <Compile Include="BaseModels\BackEnd\Base\BackendBase.cs" />
     <Compile Include="BaseModels\BackEnd\Base\BaseGetMerchantByTidModel.cs" />
     <Compile Include="BaseModels\BackEnd\Base\BaseGetMerchantList.cs" />
+    <Compile Include="BaseModels\BackEnd\Base\BasePaging.cs" />
     <Compile Include="BaseModels\BackEnd\CategoryModel.cs" />
     <Compile Include="BaseModels\BackEnd\GetMerchantByTidModel.cs" />
     <Compile Include="BaseModels\BackEnd\MerchantLink.cs" />
+    <Compile Include="BaseModels\BackEnd\QA\BackendAutoReplyModel.cs" />
+    <Compile Include="BaseModels\BackEnd\QA\QAModel.cs" />
+    <Compile Include="BaseModels\BackEnd\QA\QaTypesItem.cs" />
     <Compile Include="BaseModels\BackEnd\ShopModel.cs" />
     <Compile Include="BaseModels\BackEnd\SSOLogin\SSOLoginAuthorityModel.cs" />
     <Compile Include="BaseModels\BackEnd\SSOLogin\SSOLoginModel.cs" />

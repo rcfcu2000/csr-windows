@@ -21,8 +21,11 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Sockets;
+using System.Security.Policy;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows;
 using System.Windows.Interop;
 
@@ -39,6 +42,10 @@ namespace csr_windows.Client.Services.WebService
         private static readonly HttpClient _httpClient = new HttpClient();
         public static IWebSocketConnection Socket;
         public static WebSocketServer wsServer = null;
+
+        static string aiURL = "https://www.zhihuige.cc/csrnew/api";
+        //static string aiURL = "http://192.168.2.133:5060/api";
+
         public static void StartHttpsServer()
         {
             bool sunnyNetIsRun = false;
@@ -60,7 +67,7 @@ namespace csr_windows.Client.Services.WebService
             //syNet.进程代理_设置捕获任意进程(true);
             syNet.进程代理_添加进程名("AliRender.exe");
             syNet.进程代理_添加进程名("AliApp.exe");
-            syNet.进程代理_添加进程名("AliWorkbench.exe");
+            //syNet.进程代理_添加进程名("AliWorkbench.exe");
             //syNet.进程代理_添加进程名("aliapp.exe");
             //syNet.进程代理_添加进程名("Aliapp.exe");
             bool proxyRun = syNet.进程代理_加载驱动();
@@ -191,10 +198,10 @@ namespace csr_windows.Client.Services.WebService
 
                         List<JObject> messages = new List<JObject>();
 
-                        var msgList =  JsonConvert.DeserializeObject<List<dynamic>>(JsonConvert.SerializeObject(json.msg));
+                        var msgList = JsonConvert.DeserializeObject<List<dynamic>>(JsonConvert.SerializeObject(json.msg));
                         if (msgList.Count == 0)
                         {
-                            WeakReferenceMessenger.Default.Send(string.Empty,MessengerConstMessage.ActiveReceiveRemoteHisMsgHistoryNull);
+                            WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.ActiveReceiveRemoteHisMsgHistoryNull);
                             return;
                         }
 
@@ -278,7 +285,7 @@ namespace csr_windows.Client.Services.WebService
                                     chat.content = msg.ext.dynamic_msg_content[0].templateData.E2_actionUrl;
                                 else
                                     chat.content = $"未能解析：{msg.ext.dynamic_msg_content[0].templateData.templateId}的数据";
-                                
+
                                 chat.date = msg.msgtime;
                                 payload.content = chat.content;
                             }
@@ -289,6 +296,7 @@ namespace csr_windows.Client.Services.WebService
                             messages.Add(payload);
                             chats.Add(chat);
                         }
+
                         TopHelp.SaveMessage(_httpClient, messages);
                         dynamic aichat = new JObject();
 
@@ -296,10 +304,23 @@ namespace csr_windows.Client.Services.WebService
                         aichat.message_history = JArray.FromObject(chats);
 
 
-                        string aiURL = "https://www.zhihuige.cc/csrnew/api";
+                        var _aiUrl = string.Empty;
+              
                         if (!string.IsNullOrEmpty(apiChatUri))
                         {
-                            aiURL = $"{aiURL}{apiChatUri}";
+                            switch (apiChatUri)
+                            {
+                                case AIChatApiList.How2Replay:
+                                case AIChatApiList.Want2Reply:
+                                case AIChatApiList.ReMultiGood:
+                                    _aiUrl = $"{aiURL}{apiChatUri}";
+                                    break;
+                                case ApiConstToken.MsgRegexToken:
+                                    _aiUrl = $"{aiURL}{AIChatApiList.AutoReplay}";
+                                    break;
+                                default:
+                                    break;
+                            }
                         }
                         else
                         {
@@ -370,83 +391,63 @@ namespace csr_windows.Client.Services.WebService
                                 GlobalCache.ProductIntroductionCustomerScene = null;
                                 jsonMessage = JsonConvert.SerializeObject(reMultiGoodModel);
                                 break;
+                            case ApiConstToken.MsgRegexToken:
+                                //先去匹配通用问题自动回复正则
+                                string Regexquestion = string.Empty;
+
+                                //倒叙
+                                for (int i = chats.Count - 1; i >= 0; i--)
+                                {
+                                    string role = chats[i]["role"].ToString();
+
+                                    if (role == "user")
+                                    {
+                                        //做匹配
+                                        Regexquestion = chats[i]["content"].ToString();
+
+                                      
+                                        foreach (var item in GlobalCache.QAModels)
+                                        {
+                                            if (!string.IsNullOrEmpty(item.RegEx))
+                                            {
+                                                Regex regex = new Regex(item.RegEx);
+                                                if (regex.IsMatch(Regexquestion))
+                                                {
+                                                    if (GlobalCache.AiChatAutoReplyRegex == item.RegEx)
+                                                    {
+                                                        return;
+                                                    }
+                                                    GlobalCache.AiChatAutoReplyRegex = item.RegEx;
+                                                    //请求大模型
+                                                    AutoReplayModel autoReplayModel = new AutoReplayModel()
+                                                    {
+                                                        Answer = item.Answer,
+                                                        GoodsName = GlobalCache.IsHaveProduct ? GlobalCache.CurrentProduct.ProductName : null,
+                                                        Question = item.Question
+                                                    };
+                                                    jsonMessage = JsonConvert.SerializeObject(autoReplayModel);
+                                                    GlobalCache.AutoReplyRegex = string.Empty;
+                                                    goto continueRequest;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        break;
+                                    }
+                                }
+
+                                break;
                             default:
                                 break;
                         }
-
-                        HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Post, aiURL);
-                        requestMessage.Content = new StringContent(jsonMessage, Encoding.UTF8, "application/json");
-                        ChatTextViewModel chatTextViewModel = null;
-                        ChatBaseView chatBaseView = null;
-                        Application.Current.Dispatcher.Invoke(() => 
+                        if (string.IsNullOrEmpty(jsonMessage))
                         {
-                            chatTextViewModel = new ChatTextViewModel();
-                            chatBaseView = new ChatBaseView()
-                            {
-                                DataContext = new ChatBaseViewModel()
-                                {
-                                    ChatIdentityEnum = Resources.Enumeration.ChatIdentityEnum.Recipient,
-                                    ContentControl = new ChatTextView()
-                                    {
-                                        DataContext = chatTextViewModel
-                                    }
-                                }
-                            };
-                        });
-                        
-
-                        Task.Factory.StartNew(async () => 
-                        {
-                            HttpResponseMessage response = null;
-                            try
-                            {
-                                response = await _httpClient.SendAsync(requestMessage, HttpCompletionOption.ResponseHeadersRead);
-                            }
-                            catch (Exception ex)
-                            {
-                                Logger.WriteInfo(ex.Message);
-                            }
-                            if (response?.StatusCode == System.Net.HttpStatusCode.OK)
-                            {
-                                WeakReferenceMessenger.Default.Send(chatBaseView, MessengerConstMessage.SSESteamReponseToken);
-                                using (var stream = await response.Content.ReadAsStreamAsync())
-                                using (var reader = new StreamReader(stream))
-                                {
-                                    while (!reader.EndOfStream)
-                                    {
-                                        
-                                        string line = await reader.ReadLineAsync();
-                                        if (!string.IsNullOrWhiteSpace(line))
-                                        {
-                                            chatTextViewModel.Content += line;
-                                        }
-                                    }
-                                }
-
-                                string sendMsg = TopHelp.QNSendMsgJS(user_name, chatTextViewModel.Content, GlobalCache.CurrentProduct?.ProductName);
-                                string messengerToken = MessengerConstMessage.AskAIResponseToken;
-                                switch (apiChatUri)
-                                {
-                                    case AIChatApiList.How2Replay:
-                                        messengerToken = MessengerConstMessage.AskAIResponseToken;
-                                        break;
-                                    case AIChatApiList.Want2Reply:
-                                        messengerToken = MessengerConstMessage.Want2ReplyResponseToken;
-                                        break;
-                                    case AIChatApiList.ReMultiGood:
-                                        messengerToken = MessengerConstMessage.ReMultiGoodReponseToken;
-                                        break;
-                                    default:
-                                        break;
-                                }
-                                WeakReferenceMessenger.Default.Send(sendMsg, messengerToken);
-                            }
-                            else
-                            {
-                                //发送错误消息提示
-                                WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.ApiChatHttpErrorToken);
-                            }
-                        });
+                            return;
+                        }
+                        continueRequest:
+                        RequestAiChat(user_name, apiChatUri, _aiUrl, jsonMessage);
                     }
 
                     if (json.type == "message")
@@ -478,6 +479,7 @@ namespace csr_windows.Client.Services.WebService
                                 String chat_content = msg.msg.text;
                                 chat.content = chat_content;
                                 chat.date = msg.msgtime;
+                                chat.formNickName = formNickName;
 
                                 long unixDate = chat.date;
                                 DateTime start = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
@@ -500,6 +502,7 @@ namespace csr_windows.Client.Services.WebService
                                 chat.role = "assistant";
                                 chat.content = msg.msg.text;
                                 chat.date = msg.msgtime;
+                                chat.formNickName = formNickName;
                                 long unixDate = chat.date;
                                 DateTime start = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
                                 DateTime date = start.AddMilliseconds(unixDate);
@@ -606,6 +609,79 @@ namespace csr_windows.Client.Services.WebService
 
                         TopHelp.SaveMessage(_httpClient, messages);
 
+
+                        //先去匹配通用问题自动回复正则
+                        string Regexquestion = string.Empty;
+
+                        //倒叙
+                        for (int i = chats.Count - 1; i >= 0; i--)
+                        {
+                            string role = chats[i]["role"].ToString();
+                            string nickName = chats[i]["formNickName"].ToString();
+                            if (role == "user")
+                            {
+                                //做匹配
+                                Regexquestion = chats[i]["content"].ToString();
+
+                                //去匹配正则
+                                foreach (var item in GlobalCache.AutoReplyModels)
+                                {
+                                    if (!string.IsNullOrEmpty(item.RegEx))
+                                    {
+                                        Regex regex = new Regex(item.RegEx);
+                                        if (regex.IsMatch(Regexquestion))
+                                        {
+                                            //判断当前用户的上一次正则是哪个？
+                                            //如果一样的话就不发送
+                                            if (GlobalCache.CustomerAutoReplyRegex.ContainsKey(nickName) && GlobalCache.CustomerAutoReplyRegex[nickName] == item.RegEx)
+                                            {
+                                                goto continueProcessing;
+                                            }
+                                            GlobalCache.CustomerAutoReplyRegex[nickName] = item.RegEx;
+                                            var msg = TopHelp.QNSendMsgJS(nickName, item.Answer, (GlobalCache.CustomerCurrentProductList.ContainsKey(nickName) && GlobalCache.CustomerCurrentProductList[nickName] != null) ? GlobalCache.CustomerCurrentProductList[nickName].ProductName : string.Empty);
+                                            //发送socket
+                                            SendSocket(msg);
+                                            goto continueProcessing;
+                                        }
+                                    }
+                                }
+
+                                if (nickName == GlobalCache.CurrentCustomer.UserNiceName)
+                                {
+                                    foreach (var item in GlobalCache.QAModels)
+                                    {
+                                        if (!string.IsNullOrEmpty(item.RegEx))
+                                        {
+                                            Regex regex = new Regex(item.RegEx);
+                                            if (regex.IsMatch(Regexquestion))
+                                            {
+                                                if (GlobalCache.AiChatAutoReplyRegex == item.RegEx)
+                                                {
+                                                    goto continueProcessing;
+                                                }
+                                                GlobalCache.AiChatAutoReplyRegex = item.RegEx;
+                                                //请求大模型
+                                                AutoReplayModel autoReplayModel = new AutoReplayModel()
+                                                {
+                                                    Answer = item.Answer,
+                                                    GoodsName = GlobalCache.IsHaveProduct ? GlobalCache.CurrentProduct.ProductName : null,
+                                                    Question = item.Question
+                                                };
+                                                string jsonMessage = JsonConvert.SerializeObject(autoReplayModel);
+                                                GlobalCache.AutoReplyRegex = string.Empty;
+                                                RequestAiChat(user_name, ApiConstToken.MsgRegexToken, $"{aiURL}{AIChatApiList.AutoReplay}", jsonMessage);
+                                                goto continueProcessing;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                goto continueProcessing;
+                            }
+                        }
+                        continueProcessing:
                         int lastTemplateId = json.msg[chats.Count-1].templateId;
                         bool lastTemplateIsProduct =  ProductChatTemplateIdList.Contains(lastTemplateId);
 
@@ -615,8 +691,8 @@ namespace csr_windows.Client.Services.WebService
                             {
                                 MultipleProductModel multipleModel = JsonConvert.DeserializeObject<MultipleProductModel>(productMsg);
                                 multipleModel.TaoBaoID = multipleModel.ItemId;
-                                multipleModel.SendUserNiceName = sendUserNiceName.Replace("cntaobao", ""); ;
-                                multipleModel.ReceiveUserNiceName = receiveUserNiceName.Replace("cntaobao", ""); ;
+                                multipleModel.SendUserNiceName = sendUserNiceName.Replace("cntaobao", "");
+                                multipleModel.ReceiveUserNiceName = receiveUserNiceName.Replace("cntaobao", "");
                                 multipleModel.TaoBaoID = multipleModel.TaoBaoID;
                                 if (!multipleModel.Pic.StartsWith("http"))
                                 {
@@ -663,6 +739,87 @@ namespace csr_windows.Client.Services.WebService
                 };
             });
 
+        }
+
+        private static void RequestAiChat(string user_name, string apiChatUri, string aiURL, string jsonMessage)
+        {
+            HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Post, aiURL);
+            requestMessage.Content = new StringContent(jsonMessage, Encoding.UTF8, "application/json");
+            ChatTextViewModel chatTextViewModel = null;
+            ChatBaseView chatBaseView = null;
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                chatTextViewModel = new ChatTextViewModel();
+                chatBaseView = new ChatBaseView()
+                {
+                    DataContext = new ChatBaseViewModel()
+                    {
+                        ChatIdentityEnum = Resources.Enumeration.ChatIdentityEnum.Recipient,
+                        ContentControl = new ChatTextView()
+                        {
+                            DataContext = chatTextViewModel
+                        }
+                    }
+                };
+            });
+
+
+            Task.Factory.StartNew(async () =>
+            {
+                HttpResponseMessage response = null;
+                try
+                {
+                    response = await _httpClient.SendAsync(requestMessage, HttpCompletionOption.ResponseHeadersRead);
+                }
+                catch (Exception ex)
+                {
+                    Logger.WriteInfo(ex.Message);
+                }
+                if (response?.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    WeakReferenceMessenger.Default.Send(chatBaseView, MessengerConstMessage.SSESteamReponseToken);
+                    using (var stream = await response.Content.ReadAsStreamAsync())
+                    using (var reader = new StreamReader(stream))
+                    {
+                        while (!reader.EndOfStream)
+                        {
+
+                            string line = await reader.ReadLineAsync();
+                            if (!string.IsNullOrWhiteSpace(line))
+                            {
+                                chatTextViewModel.Content += line;
+                            }
+                        }
+                    }
+
+                    string sendMsg = TopHelp.QNSendMsgJS(user_name, chatTextViewModel.Content, GlobalCache.CurrentProduct?.ProductName);
+                    string messengerToken = MessengerConstMessage.AskAIResponseToken;
+                    switch (apiChatUri)
+                    {
+                        case AIChatApiList.How2Replay:
+                            messengerToken = MessengerConstMessage.AskAIResponseToken;
+                            break;
+                        case AIChatApiList.Want2Reply:
+                            messengerToken = MessengerConstMessage.Want2ReplyResponseToken;
+                            break;
+                        case AIChatApiList.ReMultiGood:
+                            messengerToken = MessengerConstMessage.ReMultiGoodReponseToken;
+                            break;
+                        case ApiConstToken.MsgRegexToken:
+                            //todo
+                            messengerToken = MessengerConstMessage.AskAIResponseToken;
+                            break;
+                        default:
+                            break;
+                    }
+                    WeakReferenceMessenger.Default.Send(sendMsg, messengerToken);
+                }
+                else
+                {
+                    //发送错误消息提示
+                    WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.ApiChatHttpErrorToken);
+                }
+            });
         }
 
         public static void SendJSFunc(string jsFuncType, string nickName = "", string apiChatUri = "")

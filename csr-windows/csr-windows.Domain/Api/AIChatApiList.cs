@@ -27,5 +27,10 @@ namespace csr_windows.Domain.Api
         /// 推荐搭配
         /// </summary>
         public const string ReMultiGood = "/re_multi_good";
+
+        /// <summary>
+        /// 正则匹配自动回复
+        /// </summary>
+        public const string AutoReplay = "/auto_reply";
     }
 }

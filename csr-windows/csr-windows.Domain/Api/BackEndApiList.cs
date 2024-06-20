@@ -38,5 +38,16 @@ namespace csr_windows.Domain.Api
         /// 获取商品列表
         /// </summary>
         public const string GetMerchantList = "/merchant/getMerchantList";
+
+        /// <summary>
+        /// 获取自动回复
+        /// </summary>
+        public const string AutoreplayGetList = "/autoreply/getList";
+
+        /// <summary>
+        /// 获取窗口QA回复
+        /// </summary>
+        public const string GetQAList = "/qa/getQaList";
+
     }
 }

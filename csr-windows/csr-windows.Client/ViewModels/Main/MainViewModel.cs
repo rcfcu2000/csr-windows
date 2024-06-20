@@ -3,7 +3,13 @@ using CommunityToolkit.Mvvm.DependencyInjection;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using csr_windows.Client.Services.Base;
+using csr_windows.Core;
 using csr_windows.Domain;
+using csr_windows.Domain.AIChat;
+using csr_windows.Domain.Api;
+using csr_windows.Domain.BaseModels.BackEnd.Base;
+using csr_windows.Domain.BaseModels.BackEnd.QA;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -50,6 +56,7 @@ namespace csr_windows.Client.ViewModels.Main
             _uiService = Ioc.Default.GetService<IUiService>();
             WeakReferenceMessenger.Default.Register<UserControl, string>(this, MessengerConstMessage.OpenMainUserControlToken, (r, m) => { ChangeContent(m); });
             WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.LoginSuccessToken, (r, m) => { IsInIM = true; });
+            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.GetQARegexToken, OnGetQARegexToken);
             MainUserControl = new Views.Main.WelcomeView();
 
             OpenAICommand = new RelayCommand(OnOpenAICommand);
@@ -145,6 +152,88 @@ namespace csr_windows.Client.ViewModels.Main
         {
             _uiService.OpenMenuAboutView();
         }
+
+
+        /// <summary>
+        /// 获取QA正则
+        /// </summary>
+        /// <param name="recipient"></param>
+        /// <param name="message"></param>
+        private async void OnGetQARegexToken(object recipient, string message)
+        {
+            //调用获取自动回复 接口
+            Dictionary<string, object> autoReplykeyValuePairs = new Dictionary<string, object>()
+            {
+                { "page",1 },
+                { "pageSize",500 },
+                { "shopId",GlobalCache.Shop.ID }
+            };
+            string content = await ApiClient.Instance.PostAsync(BackEndApiList.AutoreplayGetList, autoReplykeyValuePairs);
+            if (content == string.Empty)
+            {
+                return;
+            }
+            BackendBase<BasePaging<BackendAutoReplyModel>> autoReplyModel = JsonConvert.DeserializeObject<BackendBase<BasePaging<BackendAutoReplyModel>>>(content);
+            if (autoReplyModel.Code == 0)
+            {
+                GlobalCache.AutoReplyModels = autoReplyModel.Data.List;
+            }
+            else
+            {
+                Logger.WriteError($"OnGetQARegexToken Func AutoreplayGetList RequestErrorCode:{autoReplyModel.Code}");
+                Logger.WriteError($"OnGetQARegexToken Func AutoreplayGetList RequestErrorMsg:{autoReplyModel.Msg}");
+            }
+
+            GlobalCache.QAModels = new List<QAModel>();
+
+            //调用获取QA 接口
+            Dictionary<string, object> QAKeyWord1Pairs = new Dictionary<string, object>()
+            {
+                { "keyword","1"},//  通用 
+                { "page",1 },
+                { "pageSize",500 },
+                { "shopId",GlobalCache.Shop.ID }
+            };
+            content = await ApiClient.Instance.PostAsync(BackEndApiList.GetQAList, QAKeyWord1Pairs);
+            if (content == string.Empty)
+            {
+                return;
+            }
+            BackendBase<BasePaging<QAModel>> qaKeyword1model = JsonConvert.DeserializeObject<BackendBase<BasePaging<QAModel>>>(content);
+            if (qaKeyword1model.Code == 0)
+            {
+                GlobalCache.QAModels.AddRange(qaKeyword1model.Data.List);
+            }
+            else
+            {
+                Logger.WriteError($"OnGetQARegexToken Func GetQAList keyword1 RequestErrorCode:{qaKeyword1model.Code}");
+                Logger.WriteError($"OnGetQARegexToken Func GetQAList keyword1 RequestErrorMsg:{qaKeyword1model.Msg}");
+            }
+
+            Dictionary<string, object> QAKeyWord3Pairs = new Dictionary<string, object>()
+            {
+                { "keyword","3"},//   行业
+                { "page",1 },
+                { "pageSize",500 },
+                { "shopId",GlobalCache.Shop.ID }
+            };
+            content = await ApiClient.Instance.PostAsync(BackEndApiList.GetQAList, QAKeyWord3Pairs);
+            if (content == string.Empty)
+            {
+                return;
+            }
+            BackendBase<BasePaging<QAModel>> qaKeyword1mode3 = JsonConvert.DeserializeObject<BackendBase<BasePaging<QAModel>>>(content);
+            if (qaKeyword1mode3.Code == 0)
+            {
+                GlobalCache.QAModels.AddRange(qaKeyword1mode3.Data.List);
+            }
+            else
+            {
+                Logger.WriteError($"OnGetQARegexToken Func GetQAList keyword3 RequestErrorCode:{qaKeyword1mode3.Code}");
+                Logger.WriteError($"OnGetQARegexToken Func GetQAList keyword3 RequestErrorMsg:{qaKeyword1mode3.Msg}");
+            }
+        }
+
         #endregion
 
 

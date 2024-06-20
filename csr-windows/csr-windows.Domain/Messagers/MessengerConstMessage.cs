@@ -65,12 +65,17 @@ namespace csr_windows.Domain
         /// </summary>
         public const string HiddenLoadingVisibilityChangeToken = "HiddenLoadingVisibilityChangeToken";
 
-        #region 切换用户
+        #region 切换
 
         /// <summary>
         /// 切换登录用户的Token
         /// </summary>
         public const string ChangeLoginToken = "ChangeLoginToken";
+
+        /// <summary>
+        /// 获取QA正则的Token
+        /// </summary>
+        public const string GetQARegexToken = "GetQARegexToken";
 
         #endregion
 

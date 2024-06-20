@@ -43,6 +43,8 @@ namespace csr_windows.Client.ViewModels.Customer
                     GlobalCache.CustomerChatList[CurrentCustomer.UserNiceName] = new List<UserControl>(UserControls);
                     GlobalCache.CustomerCurrentProductList[CurrentCustomer.UserNiceName] = GlobalCache.CurrentProduct;
                     GlobalCache.CustomerDialogueLastTaoBaoId[CurrentCustomer.UserNiceName] = GlobalCache.DialogueLastTaoBaoId;
+                    GlobalCache.CustomerAutoReplyRegex[CurrentCustomer.UserNiceName] = GlobalCache.AutoReplyRegex;
+                    GlobalCache.CustomerAiChatAutoReplyRegex[CurrentCustomer.UserNiceName] = GlobalCache.AiChatAutoReplyRegex;
                 }
                 CurrentCustomer = m;
                 var isGetSuccess = GlobalCache.CustomerChatList.TryGetValue(CurrentCustomer?.UserNiceName, out List<UserControl> _tempUserControls);
@@ -74,6 +76,17 @@ namespace csr_windows.Client.ViewModels.Customer
                         GlobalCache.DialogueLastTaoBaoId = string.Empty;
                     }
                 }
+
+                //更换当前用户的是否有匹配的正则
+                if (GlobalCache.CustomerAutoReplyRegex.ContainsKey(CurrentCustomer.UserNiceName))
+                    GlobalCache.AutoReplyRegex = GlobalCache.CustomerAutoReplyRegex[CurrentCustomer.UserNiceName];
+                //更换当前用户已经被AI处理过的自动回复
+                if (GlobalCache.CustomerAiChatAutoReplyRegex.ContainsKey(CurrentCustomer.UserNiceName))
+                    GlobalCache.AiChatAutoReplyRegex = GlobalCache.CustomerAiChatAutoReplyRegex[CurrentCustomer.UserNiceName];
+
+
+                //去匹配正则
+                WebServiceClient.SendJSFunc(JSFuncType.GetRemoteHisMsg, GlobalCache.CurrentCustomer.CCode, ApiConstToken.MsgRegexToken);
 
             });
 

@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.Messaging;
+using csr_windows.Domain.AIChat;
 using csr_windows.Domain.BaseModels.BackEnd;
+using csr_windows.Domain.BaseModels.BackEnd.QA;
 using csr_windows.Domain.Common;
 using csr_windows.Domain.WebSocketModels;
 using csr_windows.Resources.Enumeration;
@@ -145,6 +147,37 @@ namespace csr_windows.Domain
         /// </summary>
         public static IntPtr FollowHandle;
 
+        /// <summary>
+        /// 店铺维度 每个客户的最后一次匹配的自动回复正则
+        /// </summary>
+        public static Dictionary<string, Dictionary<string, string>> StoreCustomerAutoReply = new Dictionary<string, Dictionary<string, string>>();
+
+        /// <summary>
+        /// 每个客户的最后一次匹配的自动回复正则
+        /// </summary>
+        public static Dictionary<string, string> CustomerAutoReplyRegex = new Dictionary<string, string>();
+
+        /// <summary>
+        /// 自动回复正则
+        /// </summary>
+        public static string AutoReplyRegex;
+
+        /// <summary>
+        /// 店铺维度 每个用户大模型已经处理的消息正则
+        /// </summary>
+        public static Dictionary<string, Dictionary<string, string>> StoreCustomerAiChatAutoReplyRegex = new Dictionary<string, Dictionary<string, string>>();
+
+        /// <summary>
+        /// 每个用户大模型已经处理的消息正则
+        /// </summary>
+        public static Dictionary<string,string> CustomerAiChatAutoReplyRegex = new Dictionary<string, string>();
+
+
+        /// <summary>
+        /// 大模型已经处理的消息正则
+        /// </summary>
+        public static string AiChatAutoReplyRegex;
+
 
         //静态事件处理属性更改
         public static event EventHandler<PropertyChangedEventArgs> StaticPropertyChanged;
@@ -217,11 +250,16 @@ namespace csr_windows.Domain
             StoreCustomerCurrentProductList[oldStoreName] = CustomerCurrentProductList;
             StoreCustomerDialogueProducts[oldStoreName] = CustomerDialogueProducts;
             StoreCustomerDialogueLastTaoBaoId[oldStoreName] = CustomerDialogueLastTaoBaoId;
+            StoreCustomerAutoReply[oldStoreName] = CustomerAutoReplyRegex;
+            StoreCustomerAiChatAutoReplyRegex[oldStoreName] = CustomerAiChatAutoReplyRegex;
+
 
             CustomerChatList = new Dictionary<string, List<UserControl>>();
             CustomerCurrentProductList = new Dictionary<string, MyProduct>();
             CustomerDialogueProducts = new Dictionary<string, List<MyProduct>>();
             CustomerDialogueLastTaoBaoId = new Dictionary<string, string>();
+            CustomerAutoReplyRegex = new Dictionary<string, string>();
+            CustomerAiChatAutoReplyRegex = new Dictionary<string, string>();
 
             if (StoreCustomerChatList.ContainsKey(newStoreName))
                 CustomerChatList = StoreCustomerChatList[newStoreName];
@@ -231,6 +269,10 @@ namespace csr_windows.Domain
                 CustomerDialogueProducts = StoreCustomerDialogueProducts[newStoreName];
             if (StoreCustomerDialogueLastTaoBaoId.ContainsKey(newStoreName))
                 CustomerDialogueLastTaoBaoId = StoreCustomerDialogueLastTaoBaoId[newStoreName];
+            if (StoreCustomerAutoReply.ContainsKey(newStoreName))
+                CustomerAutoReplyRegex = StoreCustomerAutoReply[newStoreName];
+            if (StoreCustomerAiChatAutoReplyRegex.ContainsKey(newStoreName))
+                CustomerAiChatAutoReplyRegex = StoreCustomerAiChatAutoReplyRegex[newStoreName];
             #endregion
 
                 #region 字段切换
@@ -270,10 +312,24 @@ namespace csr_windows.Domain
             set
             {
                 _shop = value;
+                if (_shop != null)
+                {
+                    WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.GetQARegexToken);
+                }
                 //调用通知
                 SetStaticPropertyChanged();
             }
         }
+
+        /// <summary>
+        /// 自动回复的模型列表
+        /// </summary>
+        public static List<BackendAutoReplyModel> AutoReplyModels { get; set; }
+
+        /// <summary>
+        /// QA回复的模型列表
+        /// </summary>
+        public static List<QAModel> QAModels { get; set; }
 
 
         public static SSOLoginModel SSOLoginModel
