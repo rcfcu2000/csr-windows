@@ -58,9 +58,9 @@ namespace csr_windows.Client.Services.WebService
             //syNet.强制客户端走TCP(true);
 
             //syNet.进程代理_设置捕获任意进程(true);
-            syNet.进程代理_添加进程名("AliRender.exe");
-            syNet.进程代理_添加进程名("AliApp.exe");
-            syNet.进程代理_添加进程名("AliWorkbench.exe");
+            syNet.进程代理_添加进程名("alirender.exe");
+            syNet.进程代理_添加进程名("aliapp.exe");
+            //syNet.进程代理_添加进程名("AliWorkbench.exe");
             //syNet.进程代理_添加进程名("aliapp.exe");
             //syNet.进程代理_添加进程名("Aliapp.exe");
             bool proxyRun = syNet.进程代理_加载驱动();
