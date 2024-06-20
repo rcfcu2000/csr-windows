@@ -257,5 +257,8 @@
   <ItemGroup>
     <Resource Include="Images\Menu\xiaoxiao.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Main\docked_background.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

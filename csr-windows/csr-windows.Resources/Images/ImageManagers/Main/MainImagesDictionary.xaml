@@ -14,4 +14,7 @@
 
     <!--  背景  -->
     <ImageSource x:Key="IMG_Main_Background">/csr-windows.Resources;component/Images/Main/main_background.png</ImageSource>
+
+    <!--  停靠背景图  -->
+    <ImageSource x:Key="IMG_Main_DockedBackground">/csr-windows.Resources;component/Images/Main/docked_background.png</ImageSource>
 </ResourceDictionary>

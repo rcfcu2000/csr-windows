@@ -58,33 +58,24 @@
                     <AdornerDecorator>
                         <!--<controls:DpiDecorator>-->
                         <Grid>
-
-                            <Border
-                                Margin="5"
-                                Background="Black"
-                                CornerRadius="16"
-                                Opacity="0.05">
-                                <Border.Effect>
-                                    <BlurEffect KernelType="Box" RenderingBias="Quality" />
-                                </Border.Effect>
-                            </Border>
-
                             <Border
                                 x:Name="root"
-                                Margin="5"
                                 Padding="0"
-                                Background="White"
-                                BorderBrush="#19000000"
-                                BorderThickness="1">
+                                Background="Transparent"
+                                BorderBrush="#19000000">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding DataContext.IsShowDockControl, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" Value="True">
+                                                <Setter Property="BorderThickness" Value="0" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding DataContext.IsShowDockControl, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" Value="False">
+                                                <Setter Property="BorderThickness" Value="1" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
                                 <Grid>
-                                    <TextBlock
-                                        Margin="24,21,0,0"
-                                        HorizontalAlignment="Left"
-                                        VerticalAlignment="Top"
-                                        FontSize="14"
-                                        Foreground="#818A92"
-                                        Text="{Binding VersionString, StringFormat={}V{0}}" />
-
                                     <AdornerDecorator KeyboardNavigation.IsTabStop="False">
                                         <ContentPresenter
                                             Margin="0,0,0,0"
