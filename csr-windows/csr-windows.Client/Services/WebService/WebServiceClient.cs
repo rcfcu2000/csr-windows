@@ -622,14 +622,14 @@ namespace csr_windows.Client.Services.WebService
                         string Regexquestion = string.Empty;
 
                         //倒叙
-                        for (int i = chats.Count - 1; i >= 0; i--)
+                        for (int i = messages.Count - 1; i >= 0; i--)
                         {
-                            string role = chats[i]["role"].ToString();
-                            string nickName = chats[i]["formNickName"].ToString();
-                            if (role == "user")
+                            string csrNickName = messages[i]["csr_nick"].ToString();
+                            string cstNickName = messages[i]["user_nick"].ToString();
+                            if ((int) messages[i]["direction"] == 1)
                             {
                                 //做匹配
-                                Regexquestion = chats[i]["content"].ToString();
+                                Regexquestion = messages[i]["content"].ToString();
 
                                 //去匹配正则
                                 foreach (var item in GlobalCache.AutoReplyModels)
@@ -641,20 +641,20 @@ namespace csr_windows.Client.Services.WebService
                                         {
                                             //判断当前用户的上一次正则是哪个？
                                             //如果一样的话就不发送
-                                            if (GlobalCache.CustomerAutoReplyRegex.ContainsKey(nickName) && GlobalCache.CustomerAutoReplyRegex[nickName] == item.RegEx)
+                                            if (GlobalCache.CustomerAutoReplyRegex.ContainsKey(cstNickName) && GlobalCache.CustomerAutoReplyRegex[cstNickName] == item.RegEx)
                                             {
                                                 goto continueProcessing;
                                             }
-                                            GlobalCache.CustomerAutoReplyRegex[nickName] = item.RegEx;
-                                            var msg = TopHelp.QNSendMsgJS(nickName, item.Answer, (GlobalCache.CustomerCurrentProductList.ContainsKey(nickName) && GlobalCache.CustomerCurrentProductList[nickName] != null) ? GlobalCache.CustomerCurrentProductList[nickName].ProductName : string.Empty);
+                                            GlobalCache.CustomerAutoReplyRegex[cstNickName] = item.RegEx;
+                                            var msg = TopHelp.QNSendMsgJS(cstNickName, item.Answer, (GlobalCache.CustomerCurrentProductList.ContainsKey(cstNickName) && GlobalCache.CustomerCurrentProductList[cstNickName] != null) ? GlobalCache.CustomerCurrentProductList[cstNickName].ProductName : string.Empty);
                                             //发送socket
-                                            SendSocket(msg);
+                                            SendSocket(msg, csr_name:csrNickName);
                                             goto continueProcessing;
                                         }
                                     }
                                 }
 
-                                if (nickName == GlobalCache.CurrentCustomer.UserNiceName)
+                                if (cstNickName == GlobalCache.CurrentCustomer.UserNiceName)
                                 {
                                     foreach (var item in GlobalCache.QAModels)
                                     {
@@ -853,11 +853,12 @@ namespace csr_windows.Client.Services.WebService
                 allSockets[csrName].Send(jsonString);
         }
 
-        public static void SendSocket(string msg)
+        public static void SendSocket(string msg, string csr_name = null)
         {
-            string csrName = TopHelp.GetQNChatTitle();
-            if (allSockets.ContainsKey(csrName) && allSockets[csrName] != null)
-                allSockets[csrName].Send(msg);
+            if (csr_name == null)
+                csr_name = TopHelp.GetQNChatTitle();
+            if (allSockets.ContainsKey(csr_name) && allSockets[csr_name] != null)
+                allSockets[csr_name].Send(msg);
         }
 
         public static void CloseAll() {
