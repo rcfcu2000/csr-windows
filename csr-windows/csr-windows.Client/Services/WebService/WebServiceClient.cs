@@ -643,12 +643,14 @@ namespace csr_windows.Client.Services.WebService
                                             //如果一样的话就不发送
                                             if (GlobalCache.CustomerAutoReplyRegex.ContainsKey(nickName) && GlobalCache.CustomerAutoReplyRegex[nickName] == item.RegEx)
                                             {
+                                                WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.AutoReplyRemindToken);
                                                 goto continueProcessing;
                                             }
                                             GlobalCache.CustomerAutoReplyRegex[nickName] = item.RegEx;
                                             var msg = TopHelp.QNSendMsgJS(nickName, item.Answer, (GlobalCache.CustomerCurrentProductList.ContainsKey(nickName) && GlobalCache.CustomerCurrentProductList[nickName] != null) ? GlobalCache.CustomerCurrentProductList[nickName].ProductName : string.Empty);
                                             //发送socket
                                             SendSocket(msg);
+                                            WeakReferenceMessenger.Default.Send(item.Answer, MessengerConstMessage.AutoReplyRemindToken);
                                             goto continueProcessing;
                                         }
                                     }

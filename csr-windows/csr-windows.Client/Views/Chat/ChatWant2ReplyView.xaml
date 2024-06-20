@@ -12,18 +12,42 @@
     mc:Ignorable="d">
     <Grid Margin="0,0,0,15">
         <StackPanel>
-            <TextBlock Margin="0,0,0,10" Text="帮我优化这句话：" />
+            <TextBlock Margin="0,0,0,10" Text="{Binding FirstContent}" />
             <Border
                 MinWidth="154"
                 MinHeight="34"
-                Background="#FF93B8FF"
                 CornerRadius="5">
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ChatIdentityEnum}" Value="Recipient">
+                                <Setter Property="Background" Value="#1A2335C5" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ChatIdentityEnum}" Value="Sender">
+                                <Setter Property="Background" Value="#FF93B8FF" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="4" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <Border Background="#FF75A3FF" CornerRadius="5 0 0 5" />
+                    <Border CornerRadius="5 0 0 5">
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ChatIdentityEnum}" Value="Recipient">
+                                        <Setter Property="Background" Value="#FF2335C5" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding ChatIdentityEnum}" Value="Sender">
+                                        <Setter Property="Background" Value="#FF75A3FF" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Border.Style>
+                    </Border>
                     <TextBlock
                         Grid.Column="1"
                         Margin="11,8,15,8"

@@ -156,7 +156,7 @@ namespace csr_windows.Client.ViewModels.Customer
                 }
                 else
                 {
-                    AddWant2ReplyControl(ChatIdentityEnum.Sender, m);
+                    AddWant2ReplyControl(ChatIdentityEnum.Sender, "帮我优化这句话：", m);
                     GlobalCache.CurrentProductWant2ReplyGuideContent = m;
                     //发送一条消息
                     AddLoadingControl();
@@ -198,10 +198,10 @@ namespace csr_windows.Client.ViewModels.Customer
             //商品推荐 回调
             WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.ReMultiGoodReponseToken, OnReMultiGoodReponse);
 
+            WeakReferenceMessenger.Default.Register<string, string>(this, MessengerConstMessage.AutoReplyRemindToken, OnAutoReplyRemind);
+
 
         }
-
-
 
 
 
@@ -352,7 +352,7 @@ namespace csr_windows.Client.ViewModels.Customer
             });
         }
 
-        public void AddWant2ReplyControl(ChatIdentityEnum identityEnum, string content)
+        public void AddWant2ReplyControl(ChatIdentityEnum identityEnum,string firstContent, string content)
         {
             Application.Current.Dispatcher.Invoke(() =>
             {
@@ -363,9 +363,10 @@ namespace csr_windows.Client.ViewModels.Customer
                         ChatIdentityEnum = identityEnum,
                         ContentControl = new ChatWant2ReplyView()
                         {
-                            DataContext = new ChatWant2ReplyViewModel()
+                            DataContext = new ChatWant2ReplyViewModel(firstContent)
                             {
-                                Content = content
+                                Content = content,
+                                ChatIdentityEnum = identityEnum
                             }
                         }
                     }
@@ -851,6 +852,19 @@ namespace csr_windows.Client.ViewModels.Customer
                 if (!UserControls.Contains(chatBaseView))
                     UserControls.Add(chatBaseView);
             });
+        }
+
+
+        private void OnAutoReplyRemind(object recipient, string message)
+        {
+            if (string.IsNullOrEmpty(message))
+            {
+                AddTextControl(ChatIdentityEnum.Recipient, "顾客好像有相同的疑问，快去看看吧～");
+            }
+            else
+            {
+                AddWant2ReplyControl(ChatIdentityEnum.Recipient, "我刚刚自动为您回复了一条消息：", message);
+            }
         }
         #endregion
 

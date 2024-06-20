@@ -168,6 +168,10 @@ namespace csr_windows.Domain
         /// </summary>
         public const string SendSwitchProductToken = "SendSwitchProductToken";
 
+        /// <summary>
+        /// 自动回复的提醒Token
+        /// </summary>
+        public const string AutoReplyRemindToken = "AutoReplyRemindToken";
         #endregion
 
         #region HTTPError
