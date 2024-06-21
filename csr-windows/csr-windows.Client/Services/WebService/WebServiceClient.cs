@@ -41,7 +41,7 @@ namespace csr_windows.Client.Services.WebService
         /// 商品聊天模板id列表
         /// </summary>
         private static List<int> ProductChatTemplateIdList = new List<int>() { 241005, 262002, 101, 200005, 129 };
-        private static Dictionary<string, IWebSocketConnection> allSockets = new Dictionary<string, IWebSocketConnection>();
+        private static ConcurrentDictionary<string, IWebSocketConnection> allSockets = new ConcurrentDictionary<string, IWebSocketConnection>();
         private static SunnyNet syNet = new SunnyNet();
         private static readonly HttpClient _httpClient = new HttpClient();
         public static IWebSocketConnection Socket;
@@ -112,7 +112,7 @@ namespace csr_windows.Client.Services.WebService
                 socket.OnClose = () =>
                 {
                     Logger.WriteInfo("WebSocket connection closed.");
-                    allSockets.Remove(TopHelp.GetQNChatTitle());
+                    allSockets.TryRemove(TopHelp.GetQNChatTitle(),out var value);
 
                     if (allSockets.Count == 0)
                     {
@@ -165,6 +165,7 @@ namespace csr_windows.Client.Services.WebService
                             GlobalCache.UserName = list[1];
                         }
 
+                        Task.Delay(50).Wait();
                         allSockets[mJSResult.Msg.Nick] = socket;
 
                         SendJSFunc(JSFuncType.GetCurrentConv);
@@ -662,7 +663,7 @@ namespace csr_windows.Client.Services.WebService
                                     {
                                         if (!string.IsNullOrEmpty(item.RegEx))
                                         {
-                                            Regex regex = new Regex(item.RegEx);
+                                            Regex regex = new Regex($@"{item.RegEx}");
                                             if (regex.IsMatch(Regexquestion))
                                             {
                                                 if (GlobalCache.AiChatAutoReplyRegex == item.RegEx)
@@ -848,7 +849,10 @@ namespace csr_windows.Client.Services.WebService
 
             // 将对象转换成JSON字符串
             string jsonString = JsonConvert.SerializeObject(root, Formatting.Indented);
-            string csrName = TopHelp.GetQNChatTitle();
+            string csrName = GlobalCache.CustomerServiceNickName;
+            if (string.IsNullOrEmpty(csrName))
+                csrName = TopHelp.GetQNChatTitle();
+
             if (socket != null)
                 socket.Send(jsonString);
             else if (allSockets.ContainsKey(csrName) && allSockets[csrName] != null)
@@ -857,7 +861,7 @@ namespace csr_windows.Client.Services.WebService
 
         public static void SendSocket(string msg, string csr_name = null)
         {
-            if (csr_name == null)
+            if (string.IsNullOrEmpty(csr_name))
                 csr_name = TopHelp.GetQNChatTitle();
             if (allSockets.ContainsKey(csr_name) && allSockets[csr_name] != null)
                 allSockets[csr_name].Send(msg);

@@ -150,7 +150,6 @@ namespace csr_windows.Client.Services.Impl
                 if (_customerInitBottomView == null)
                 {
                     _customerInitBottomView = new CustomerInitBottomView();
-                    _customerInitBottomView.DataContext = new CustomerInitBottomViewModel();
                 }
                 WeakReferenceMessenger.Default.Send(_customerInitBottomView as UserControl, MessengerConstMessage.OpenCustomerUserControlToken);
             });

@@ -46,6 +46,7 @@ using System.Web.UI.WebControls;
 using csr_windows.Core.RequestService;
 using System.Net.WebSockets;
 using csr_windows.Client.Services.WebService.Enums;
+using csr_windows.Common;
 
 namespace csr_windows.Client
 {
@@ -88,6 +89,8 @@ namespace csr_windows.Client
 
 
             this.Loaded += MainWindow_Loaded;
+
+            this.Closed += MainWindow_Closed;
 
             _uiService = Ioc.Default.GetService<IUiService>();
 
@@ -159,6 +162,7 @@ namespace csr_windows.Client
         }
 
 
+
         private void MainWindow_SourceInitialized(object sender, EventArgs e)
         {
             Matrix m = PresentationSource.FromVisual(this).CompositionTarget.TransformToDevice;
@@ -197,7 +201,10 @@ namespace csr_windows.Client
 
         #region Methods
 
-
+        private void MainWindow_Closed(object sender, EventArgs e)
+        {
+            HookKeyUtil.RemoveGlobalKeyHook();
+        }
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
