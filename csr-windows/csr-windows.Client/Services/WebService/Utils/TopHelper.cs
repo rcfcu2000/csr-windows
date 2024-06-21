@@ -644,7 +644,8 @@ namespace csr_windows.Client.Services.WebService
                         if (clearText)
                         {
                             // 使用SendKeys类模拟输入文本消息
-                            SendKeys.SendWait("^A");
+                            Thread.Sleep(15);
+                            SendKeys.SendWait("^a");
                             SendKeys.SendWait("{BACKSPACE}");
                             SetCursorPos(lpPoint.X, lpPoint.Y);
                             Logger.WriteInfo("消息已清空!");
