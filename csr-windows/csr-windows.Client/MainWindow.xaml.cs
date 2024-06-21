@@ -47,6 +47,8 @@ using csr_windows.Core.RequestService;
 using System.Net.WebSockets;
 using csr_windows.Client.Services.WebService.Enums;
 using csr_windows.Common;
+using Sunny.UI.Win32;
+using System.Runtime.InteropServices;
 
 namespace csr_windows.Client
 {
@@ -128,6 +130,7 @@ namespace csr_windows.Client
                 _isUpdatePos = false;
                 WebServiceClient.CloseAll();
                 this.Close();
+                Process.GetCurrentProcess().Kill();
                 Application.Current.Shutdown();
             });
 
@@ -347,6 +350,16 @@ namespace csr_windows.Client
                         }
                         Win32.RECT rect = new Win32.RECT();
                         Win32.GetWindowRect(GlobalCache.FollowHandle, ref rect);
+                        var foregroundWindowIntptr = Win32.GetForegroundWindow();
+                        if (foregroundWindowIntptr == GlobalCache.FollowHandle)
+                        {
+                            Application.Current.Dispatcher.Invoke(() => 
+                            {
+                                this.Topmost = true;
+                                this.Topmost = false;
+                            });
+                            //Win32.SetActiveWindow(Handle);
+                        }
                         if (!(_lastRect.Bottom == rect.Bottom && _lastRect.Top == rect.Top && _lastRect.Left == rect.Left && _lastRect.Right == rect.Right))
                         {
                             if (isFirst)
@@ -357,7 +370,8 @@ namespace csr_windows.Client
                             }
                             _subTaskHandler();
                         }
-                        System.Threading.Thread.Sleep(10);
+                        Task.Delay(20).Wait();
+                        //System.Threading.Thread.Sleep(10);
                     } while (_isUpdatePos);
                 }
                 catch (Exception ex)
@@ -376,8 +390,12 @@ namespace csr_windows.Client
             var hight = Math.Abs(rect.Bottom - rect.Top);
             double windowWith = 0, windowHeight = 0, left = 0, top = 0;
 
+            Win32.WINDOWPLACEMENT placement = new Win32.WINDOWPLACEMENT();
+            placement.length = Marshal.SizeOf(placement);
+            Win32.GetWindowPlacement(GlobalCache.FollowHandle, ref placement);
             this.Dispatcher.Invoke(() =>
             {
+         
                 this.Topmost = true;
                 var hwndSource = (HwndSource)PresentationSource.FromVisual(this);
                 if (hwndSource == null)
@@ -385,13 +403,16 @@ namespace csr_windows.Client
                 Win32.GetWindowRect(hwndSource.Handle, ref thisRect);
                 left = this.Left;
                 top = this.Top;
-                this.Height = (hight + 15) * scaleY;
+                if (placement.showCmd == Win32.ShowWindowCommands.Minimized)
+                    Height = 0;
+                else
+                    this.Height = (hight + 15) * scaleY;
                 windowWith = this.Width;
                 windowHeight = this.Height;
                 this.Topmost = false;
+                Point sp = new Point(rect.Right - _lastRect.Right + thisRect.Left, rect.Top - _lastRect.Top + thisRect.Top);
+                Win32.SetWindowPos(Handle, GlobalCache.FollowHandle, (int)sp.X, (int)sp.Y, (int)windowWith, (int)windowHeight, 0x0001 | 0x0004);
             });
-            Point sp = new Point(rect.Right - _lastRect.Right + thisRect.Left, rect.Top - _lastRect.Top + thisRect.Top);
-            Win32.SetWindowPos(Handle, GlobalCache.FollowHandle, (int)sp.X, (int)sp.Y, (int)windowWith, (int)windowHeight, 0x0001 | 0x0004);
             _lastRect = rect;
         }
 

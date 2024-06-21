@@ -77,13 +77,6 @@
                                 BorderBrush="#19000000"
                                 BorderThickness="1">
                                 <Grid>
-                                    <TextBlock
-                                        Margin="24,21,0,0"
-                                        HorizontalAlignment="Left"
-                                        VerticalAlignment="Top"
-                                        FontSize="14"
-                                        Foreground="#818A92"
-                                        Text="{Binding VersionString, StringFormat={}V{0}}" />
 
                                     <AdornerDecorator KeyboardNavigation.IsTabStop="False">
                                         <ContentPresenter

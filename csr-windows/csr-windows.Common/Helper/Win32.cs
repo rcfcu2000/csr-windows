@@ -4,6 +4,8 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Shapes;
 
 namespace csr_windows.Common.Helper
 {
@@ -63,6 +65,33 @@ namespace csr_windows.Common.Helper
 
         [DllImport("user32.dll")]
         public static extern void SwitchToThisWindow(IntPtr hwnd, bool fUnknown);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool GetWindowPlacement(IntPtr hWnd, ref WINDOWPLACEMENT lpwndpl);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto, ExactSpelling = true)]
+        public static extern IntPtr GetForegroundWindow();
+
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct WINDOWPLACEMENT
+        {
+            public int length;
+            public int flags;
+            public ShowWindowCommands showCmd;
+            public Point ptMinPosition;
+            public Point ptMaxPosition;
+            public Rectangle rcNormalPosition;
+        }
+
+        public enum ShowWindowCommands
+        {
+            Hide = 0,
+            Normal = 1,
+            Minimized = 2,
+            Maximized = 3
+        }
 
 
         #region 控制鼠标移动

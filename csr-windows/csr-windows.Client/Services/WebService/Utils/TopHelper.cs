@@ -11,6 +11,8 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Automation;
+using Sunny.UI.Win32;
+using csr_windows.Domain;
 
 namespace csr_windows.Client.Services.WebService
 {
