@@ -15,12 +15,14 @@
     xmlns:view="clr-namespace:csr_windows.Client.Views.Main"
     xmlns:vm="clr-namespace:csr_windows.Client.ViewModels.Main"
     Title="会回"
+    MinWidth="310"
+    MinHeight="700"
     d:DataContext="{d:DesignInstance vm:MainViewModel}"
     d:DesignHeight="800"
     d:DesignWidth="400"
     MouseDown="Window_MouseDown"
     MouseLeftButtonDown="Window_MouseLeftButtonDown"
-    ResizeMode="NoResize"
+    ResizeMode="CanResize"
     SizeToContent="WidthAndHeight"
     Style="{StaticResource MainWindowsStyle}"
     UseLayoutRounding="True"
@@ -28,10 +30,10 @@
     <!--  SizeToContent="WidthAndHeight"  -->
 
     <Window.Resources>
-        <system:Double x:Key="PopupMenuHorizontalOffset">16</system:Double>
+        <system:Double x:Key="PopupMenuHorizontalOffset">45</system:Double>
         <system:Double x:Key="PopupMenuVerticalOffset">80</system:Double>
     </Window.Resources>
-    <Grid Width="400">
+    <Grid MinWidth="300">
         <Image Source="{StaticResource IMG_Main_Background}" Stretch="Fill" />
         <ContentControl Content="{Binding MainUserControl}" />
         <Button

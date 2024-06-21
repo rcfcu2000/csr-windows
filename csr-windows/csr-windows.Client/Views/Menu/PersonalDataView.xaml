@@ -15,7 +15,14 @@
     mc:Ignorable="d">
     <Border Background="White" CornerRadius="15 15 0 0">
         <Grid>
-            <Image VerticalAlignment="Top" Source="{StaticResource IMG_Menu_SuspendedBg}" />
+            <Border
+                Height="150"
+                VerticalAlignment="Top"
+                CornerRadius="15 15 0 0 ">
+                <Border.Background>
+                    <ImageBrush ImageSource="{StaticResource IMG_Menu_SuspendedBg}" />
+                </Border.Background>
+            </Border>
             <Grid>
                 <controls:ImageButton
                     Width="36"
@@ -47,7 +54,7 @@
                                 <TextBlock
                                     FontSize="14"
                                     FontWeight="Bold"
-                                    Text="{Binding UserName}" />
+                                    Text="{Binding Source={StaticResource GlobalCache}, Path=UserName}" />
 
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
@@ -56,33 +63,40 @@
                                     Height="16"
                                     Margin="0,0,15,0"
                                     Source="{StaticResource IMG_Common_Store}" />
-                                <TextBlock FontSize="14" Text="{Binding StoreName}" />
+                                <TextBlock FontSize="14" Text="{Binding Source={StaticResource GlobalCache}, Path=StoreName}" />
 
                             </StackPanel>
                         </StackPanel>
 
-                        <StackPanel Margin="0,0,0,15" Orientation="Horizontal">
-                            <StackPanel.Resources>
+                        <Grid Margin="0,0,0,15">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.Resources>
                                 <Style BasedOn="{StaticResource {x:Type RadioButton}}" TargetType="RadioButton">
                                     <Setter Property="Cursor" Value="Hand" />
                                     <Setter Property="Foreground" Value="{StaticResource 0.8OpacityBlackTheme}" />
                                     <Setter Property="FontSize" Value="14" />
                                 </Style>
-                            </StackPanel.Resources>
+                            </Grid.Resources>
                             <TextBlock
-                                Margin="0,0,5,0"
+                                Margin="0,0,0,5"
+                                VerticalAlignment="Center"
                                 FontSize="14"
                                 Foreground="{StaticResource 0.8OpacityBlackTheme}"
                                 Text="选择角色：" />
-                            <RadioButton
-                                Margin="0,0,15,0"
-                                Content="我是售前客服"
-                                IsChecked="{Binding IsItPreSalesCustomerService}" />
-                            <RadioButton
-                                Margin="0,0,15,0"
-                                Content="我是售后客服"
-                                IsChecked="{Binding IsItPreSalesCustomerService, Converter={StaticResource Boolean2BooleanReConverter}}" />
-                        </StackPanel>
+                            <WrapPanel Grid.Column="1">
+                                <RadioButton
+                                    Margin="0,0,15,5"
+                                    Content="我是售前客服"
+                                    IsChecked="{Binding IsItPreSalesCustomerService}" />
+                                <RadioButton
+                                    Margin="0,0,15,5"
+                                    Content="我是售后客服"
+                                    IsChecked="{Binding IsItPreSalesCustomerService, Converter={StaticResource Boolean2BooleanReConverter}}" />
+                            </WrapPanel>
+                        </Grid>
                     </StackPanel>
                 </Grid>
             </Grid>

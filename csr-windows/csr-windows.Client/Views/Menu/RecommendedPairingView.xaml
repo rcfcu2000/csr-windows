@@ -15,7 +15,14 @@
     mc:Ignorable="d">
     <Border Background="White" CornerRadius="15 15 0 0">
         <Grid>
-            <Image VerticalAlignment="Top" Source="{StaticResource IMG_Menu_SuspendedBg}" />
+            <Border
+                Height="150"
+                VerticalAlignment="Top"
+                CornerRadius="15 15 0 0 ">
+                <Border.Background>
+                    <ImageBrush ImageSource="{StaticResource IMG_Menu_SuspendedBg}" />
+                </Border.Background>
+            </Border>
             <Grid>
                 <controls:ImageButton
                     Width="36"
@@ -78,7 +85,7 @@
                                             <ItemsControl.ItemTemplate>
                                                 <DataTemplate>
                                                     <controls:ProductControl
-                                                        Width="370"
+                                                        Margin="15,0,15,10"
                                                         Command="{Binding DataContext.ChooseCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
                                                         CommandParameter="{Binding .}" />
                                                 </DataTemplate>
@@ -104,7 +111,7 @@
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
                                                 <controls:ProductControl
-                                                    Width="370"
+                                                    Margin="15,0,15,10"
                                                     Command="{Binding DataContext.ChooseCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
                                                     CommandParameter="{Binding .}" />
                                             </DataTemplate>
@@ -148,7 +155,7 @@
                                             <ItemsControl.ItemTemplate>
                                                 <DataTemplate>
                                                     <controls:ProductControl
-                                                        Width="370"
+                                                        Margin="15,0,15,10"
                                                         Command="{Binding DataContext.ChooseCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
                                                         CommandParameter="{Binding .}" />
                                                 </DataTemplate>

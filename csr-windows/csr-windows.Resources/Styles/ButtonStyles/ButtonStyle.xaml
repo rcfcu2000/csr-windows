@@ -123,6 +123,7 @@
         <Setter Property="Opacity" Value="1" />
         <Setter Property="Border.CornerRadius" Value="5" />
         <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="attach:IconProperties.IconThickness" Value="0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -162,6 +163,8 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="Content" Value="{x:Null}">
                             <Setter TargetName="cp" Property="Visibility" Value="Collapsed" />
+                            <!--<Setter Property="attach:IconProperties.IconThickness" Value="0" />-->
+                            <Setter TargetName="image" Property="Margin" Value="0,0,0,0" />
                         </Trigger>
                         <!--<Trigger Property="attach:IconProperties.IconUrl" Value="{x:Null}">
                             <Setter TargetName="image" Property="Visibility" Value="Collapsed" />

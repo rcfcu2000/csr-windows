@@ -14,6 +14,7 @@
     d:DataContext="{d:DesignInstance vm:CustomerInitBottomViewModel}"
     d:DesignHeight="94"
     d:DesignWidth="400"
+    SizeChanged="UserControl_SizeChanged"
     UseLayoutRounding="True"
     mc:Ignorable="d">
     <UserControl.Resources>
@@ -23,11 +24,21 @@
         <system:Double x:Key="PopupProductHorizontalOffset">-150</system:Double>
         <system:Double x:Key="PopupProductVerticalOffset">0</system:Double>
     </UserControl.Resources>
-    <StackPanel Margin="15">
-        <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Margin="0,0,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
             <Grid Margin="0,0,5,0">
                 <Button
-                    Width="155"
+                    x:Name="how2replyBt"
+                    Width="auto"
                     Height="40"
                     attach:IconProperties.IconHeight="20"
                     attach:IconProperties.IconThickness="0 0 15 0"
@@ -44,10 +55,9 @@
 
             </Grid>
 
-
-            <Grid Margin="0,0,5,0">
+            <Grid Grid.Column="1" Margin="0,0,5,0">
                 <Button
-                    Width="155"
+                    x:Name="want2replyBt"
                     Height="40"
                     attach:IconProperties.IconHeight="20"
                     attach:IconProperties.IconThickness="0 0 15 0"
@@ -62,7 +72,7 @@
                     Foreground="White"
                     Style="{StaticResource PrimaryImageContentButton}" />
             </Grid>
-            <Grid>
+            <Grid Grid.Column="2">
                 <ToggleButton
                     x:Name="tb"
                     Width="50"
@@ -136,8 +146,9 @@
                     </Border>
                 </Grid>
             </Popup>
-        </StackPanel>
-        <Grid>
+        </Grid>
+
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition Width="auto" />
@@ -146,15 +157,24 @@
                 <TextBlock
                     Foreground="{StaticResource 0.8OpacityBlackTheme}"
                     Text="暂无可供 AI 分析的商品"
+                    TextWrapping="Wrap"
                     Visibility="{Binding Source={StaticResource GlobalCache}, Path=IsHaveProduct, Converter={StaticResource Boolean2VisibilityReConverter}}" />
-                <StackPanel Orientation="Horizontal" Visibility="{Binding Source={StaticResource GlobalCache}, Path=IsHaveProduct, Converter={StaticResource Boolean2VisibilityConverter}}">
-                    <StackPanel.Resources>
+                <Grid Visibility="{Binding Source={StaticResource GlobalCache}, Path=IsHaveProduct, Converter={StaticResource Boolean2VisibilityConverter}}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.Resources>
                         <Style TargetType="TextBlock">
                             <Setter Property="Foreground" Value="{StaticResource 0.8OpacityBlackTheme}" />
                         </Style>
-                    </StackPanel.Resources>
+                    </Grid.Resources>
                     <TextBlock Text="后续内容将基于 " />
-                    <Button Command="{Binding OpenProductUrlCommand}" Cursor="Hand">
+                    <Button
+                        Grid.Column="1"
+                        Command="{Binding OpenProductUrlCommand}"
+                        Cursor="Hand">
                         <Button.Style>
                             <Style TargetType="{x:Type Button}">
                                 <Setter Property="Template">
@@ -200,14 +220,18 @@
                             </controls:Poptip>
                         </hc:Poptip.Instance>
                     </Button>
-                    <TextBlock Text=" 生成" />
-                </StackPanel>
+                    <TextBlock
+                        Grid.Column="2"
+                        Margin="0,0,5,0"
+                        Text=" 生成"
+                        TextWrapping="Wrap" />
+                </Grid>
             </Grid>
             <Button
                 Grid.Column="1"
                 Width="70"
                 Height="15"
-                Margin="15,0,0,2"
+                Margin="0,0,0,2"
                 Padding="0"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom"
@@ -222,6 +246,6 @@
                 Foreground="{StaticResource ThemeColorBrush}"
                 Style="{StaticResource PrimaryImageContentButton}" />
         </Grid>
+    </Grid>
 
-    </StackPanel>
 </UserControl>

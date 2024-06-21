@@ -11,8 +11,9 @@
     d:DesignHeight="800"
     d:DesignWidth="400"
     mc:Ignorable="d">
-    <Grid Width="400">
+    <Grid>
         <StackPanel
+            MaxWidth="400"
             Margin="30,0"
             HorizontalAlignment="Center"
             VerticalAlignment="Center">
@@ -30,7 +31,8 @@
                     Margin="0,0,0,5"
                     FontSize="24"
                     FontWeight="Bold"
-                    Text="似乎您还没进入千牛接待中心" />
+                    Text="似乎您还没进入千牛接待中心"
+                    TextWrapping="Wrap" />
                 <TextBlock
                     Grid.Row="1"
                     FontSize="14"
@@ -40,13 +42,13 @@
                     TextWrapping="Wrap" />
             </Grid>
             <Button
-                Width="340"
                 Height="50"
                 Margin="0,203,0,0"
+                HorizontalAlignment="Stretch"
                 hc:BorderElement.CornerRadius="5"
                 Background="#2335C5"
                 Command="{Binding StartClientCommand}"
-                Content="启动并打开千牛工作台接待中心"
+                Content="打开千牛工作台接待中心"
                 Cursor="Hand"
                 FontSize="18"
                 FontWeight="Bold"

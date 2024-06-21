@@ -11,7 +11,14 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
     <Grid>
-        <Border Background="#65000000" />
-        <UserControl VerticalAlignment="Bottom" Content="{Binding ContentControl}" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Border Grid.RowSpan="2" Background="#65000000" />
+        <UserControl
+            Grid.Row="1"
+            VerticalAlignment="Bottom"
+            Content="{Binding ContentControl}" />
     </Grid>
 </UserControl>
