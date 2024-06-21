@@ -112,6 +112,7 @@ namespace csr_windows.Client.ViewModels.Customer
                 WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel("请在接待中心输入您想优化的内容",promptEnum:PromptEnum.Note), MessengerConstMessage.OpenPromptMessageToken);
                 return;
             }
+            TopHelp.ClearQNChatInputText();
             WeakReferenceMessenger.Default.Send<string, string>(chat_text, MessengerConstMessage.Want2ReplyToken);
             //_uIService.OpenCustomerBottomInputAIView();
         }

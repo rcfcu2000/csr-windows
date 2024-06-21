@@ -447,6 +447,11 @@ namespace csr_windows.Client.Services.WebService
             else return null;
         }
 
+        public static void ClearQNChatInputText()
+        {
+            QNSendMsgVer912(clearText: true);
+        }
+
         public static string GetQNChatTitle()
         {
             string title = csr_windows.Common.Utils.AutomationUtil.GetQNChatTitle();
@@ -560,7 +565,7 @@ namespace csr_windows.Client.Services.WebService
         /// <param name="msg"></param>
         /// <param name="sleep"></param>
         /// <returns></returns>
-        public static bool QNSendMsgVer912(string nick, string msg, int sleep = 200)
+        public static bool QNSendMsgVer912(string nick = null, string msg = null, int sleep = 200, bool clearText = false)
         {
             //bool isSuccess = OpenAliim(nick);
 
@@ -638,45 +643,57 @@ namespace csr_windows.Client.Services.WebService
                             Thread.Sleep(5);
                         }
 
-                        try
+                        if (clearText)
                         {
-                            Thread th = new Thread(new ThreadStart(delegate ()
-                            {
-                                for (int i = 0; i < 10; i++)
-                                {
-                                    try
-                                    {
-                                        System.Windows.Clipboard.SetText(msg);
-                                        break;
-                                    }
-                                    catch
-                                    {
-                                        System.Threading.Thread.Sleep(10);//这句加不加都没关系
-                                    }
-                                }
-                                //System.Windows.Clipboard.SetDataObject(msg);
-                            }));
-                            th.TrySetApartmentState(ApartmentState.STA);
-                            th.Start();
-                            th.Join();
-
                             // 使用SendKeys类模拟输入文本消息
-                            SendKeys.SendWait("^{END}");
-                            SendKeys.SendWait("^v");
+                            Thread.Sleep(15);
+                            SendKeys.SendWait("^a");
+                            SendKeys.SendWait("{BACKSPACE}");
                             SetCursorPos(lpPoint.X, lpPoint.Y);
-                            //SendKeys.SendWait("{ENTER}");
-                            //SendTextToWindow(hwd,msg);
-                            Logger.WriteInfo($"消息 '{msg}' 已发送至窗口 {hwd.ToInt64()}");
+                            Logger.WriteInfo("消息已清空!");
                             return true;
                         }
-                        catch (Exception ex)
+                        else
                         {
-                            // 捕获SendKeys异常
-                            Logger.WriteInfo("给指定买家发消息发送按键时发生错误: " + ex.Message);
-                            Logger.WriteError($"给买家{nick}发消息时发生错误:{ex.Message}");
-                            return false;
-                        }
+                            try
+                            {
+                                Thread th = new Thread(new ThreadStart(delegate ()
+                                {
+                                    for (int i = 0; i < 10; i++)
+                                    {
+                                        try
+                                        {
+                                            System.Windows.Clipboard.SetText(msg);
+                                            break;
+                                        }
+                                        catch
+                                        {
+                                            System.Threading.Thread.Sleep(10);//这句加不加都没关系
+                                        }
+                                    }
+                                    //System.Windows.Clipboard.SetDataObject(msg);
+                                }));
+                                th.TrySetApartmentState(ApartmentState.STA);
+                                th.Start();
+                                th.Join();
 
+                                // 使用SendKeys类模拟输入文本消息
+                                SendKeys.SendWait("^{END}");
+                                SendKeys.SendWait("^v");
+                                SetCursorPos(lpPoint.X, lpPoint.Y);
+                                //SendKeys.SendWait("{ENTER}");
+                                //SendTextToWindow(hwd,msg);
+                                Logger.WriteInfo($"消息 '{msg}' 已发送至窗口 {hwd.ToInt64()}");
+                                return true;
+                            }
+                            catch (Exception ex)
+                            {
+                                // 捕获SendKeys异常
+                                Logger.WriteInfo("给指定买家发消息发送按键时发生错误: " + ex.Message);
+                                Logger.WriteError($"给买家{nick}发消息时发生错误:{ex.Message}");
+                                return false;
+                            }
+                        }
                     }
                     else
                     {
