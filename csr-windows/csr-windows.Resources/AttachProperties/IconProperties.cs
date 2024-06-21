@@ -27,6 +27,23 @@ namespace csr_windows.Resources.AttachProperties
         public static readonly DependencyProperty IconThicknessProperty =
             DependencyProperty.RegisterAttached("IconThickness", typeof(Thickness), typeof(IconProperties), new PropertyMetadata(new Thickness(0)));
 
+
+
+        public static HorizontalAlignment GetIconHorizontalAlignment(DependencyObject obj)
+        {
+            return (HorizontalAlignment)obj.GetValue(IconHorizontalAlignmentProperty);
+        }
+
+        public static void SetIconHorizontalAlignment(DependencyObject obj, HorizontalAlignment value)
+        {
+            obj.SetValue(IconHorizontalAlignmentProperty, value);
+        }
+
+        // Using a DependencyProperty as the backing store for IconHorizontalAlignment.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IconHorizontalAlignmentProperty =
+            DependencyProperty.RegisterAttached("IconHorizontalAlignment", typeof(HorizontalAlignment), typeof(IconProperties));
+
+
         #endregion
 
         #region 图标路径

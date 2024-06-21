@@ -29,12 +29,28 @@
                                 <RowDefinition Height="auto" />
                             </Grid.RowDefinitions>
                             <TextBlock
-                                Margin="0,5"
+                                Margin="0,5,0,5"
+                                Padding="0,2,0,0"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Center"
                                 FontWeight="Bold"
+                                LineHeight="22"
                                 Text="{Binding Content}"
-                                TextWrapping="Wrap" />
+                                TextWrapping="Wrap">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <!--  Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Path=IsMouseOver, Converter={StaticResource Boolean2VisibilityConverter}}"  -->
+                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid, AncestorLevel=2}, Path=IsMouseOver}" Value="False">
+                                                <Setter Property="Foreground" Value="#CC000000" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid, AncestorLevel=2}, Path=IsMouseOver}" Value="True">
+                                                <Setter Property="Foreground" Value="#FF2335C5" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
 
                             <!--<StackPanel
                                 Grid.Column="1"
@@ -73,45 +89,49 @@
                                 Visibility="{Binding IsLast, Converter={StaticResource Boolean2VisibilityReConverter}}" />
                         </Grid>
                         <Border
-                            Background="#E6E9EBF9"
+                            Margin="13,0"
+                            Background="#1A2335C5"
+                            CornerRadius="2"
                             Cursor="Hand"
                             Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Grid}, Path=IsMouseOver, Converter={StaticResource Boolean2VisibilityConverter}}">
-                            <StackPanel
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Orientation="Horizontal">
-                                <StackPanel.Resources>
-                                    <Style BasedOn="{StaticResource ColorChangedNoOpacityImageButtonStyle}" TargetType="Button">
-                                        <Setter Property="Width" Value="99" />
-                                        <Setter Property="Height" Value="28" />
-                                        <Setter Property="Padding" Value="0,0,0,3" />
-                                        <Setter Property="HorizontalAlignment" Value="Left" />
-                                        <Setter Property="HorizontalContentAlignment" Value="Left" />
-                                        <Setter Property="attach:MouseDependencyProperty.OverBackColor" Value="#FFC7CCF0" />
-                                        <Setter Property="attach:MouseDependencyProperty.PressedColor" Value="#FFA4ADE9" />
-                                        <Setter Property="hc:BorderElement.CornerRadius" Value="5" />
-                                        <Setter Property="Background" Value="Transparent" />
-                                        <Setter Property="Cursor" Value="Hand" />
-                                        <Setter Property="FontSize" Value="14" />
-                                        <Setter Property="Foreground" Value="#FF2335C5" />
-                                        <Setter Property="attach:IconProperties.IconHeight" Value="16" />
-                                        <Setter Property="attach:IconProperties.IconWidth" Value="16" />
-                                        <Setter Property="attach:IconProperties.IconThickness" Value="10 0 5 0" />
-                                    </Style>
-                                </StackPanel.Resources>
-
-                                <Button
-                                    Margin="0,0,15,0"
-                                    attach:IconProperties.IconUrl="{StaticResource IMG_Chat_Copy}"
-                                    Command="{Binding DataContext.SingleChatCopyCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                            <Border.InputBindings>
+                                <MouseBinding
+                                    Command="{Binding DataContext.SingleChatSendCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
                                     CommandParameter="{Binding}"
-                                    Content="复制分句" />
-                                <Button
+                                    MouseAction="LeftClick" />
+                            </Border.InputBindings>
+                            <Border.Resources>
+                                <Style BasedOn="{StaticResource ColorChangedNoOpacityImageButtonStyle}" TargetType="Button">
+                                    <Setter Property="Width" Value="27" />
+                                    <Setter Property="Height" Value="27" />
+                                    <Setter Property="HorizontalAlignment" Value="Center" />
+                                    <Setter Property="HorizontalContentAlignment" Value="Left" />
+                                    <Setter Property="attach:MouseDependencyProperty.OverBackColor" Value="#FFC7CCF0" />
+                                    <Setter Property="attach:MouseDependencyProperty.PressedColor" Value="#FFA4ADE9" />
+                                    <Setter Property="hc:BorderElement.CornerRadius" Value="5" />
+                                    <Setter Property="Background" Value="Transparent" />
+                                    <Setter Property="Cursor" Value="Hand" />
+                                    <Setter Property="FontSize" Value="14" />
+                                    <Setter Property="Foreground" Value="#FF2335C5" />
+                                    <Setter Property="attach:IconProperties.IconHeight" Value="16" />
+                                    <Setter Property="attach:IconProperties.IconWidth" Value="16" />
+                                    <Setter Property="attach:IconProperties.IconThickness" Value="0 0 0 0" />
+                                    <Setter Property="attach:IconProperties.IconHorizontalAlignment" Value="Center" />
+                                </Style>
+                            </Border.Resources>
+
+                            <Button
+                                Margin="3"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom"
+                                attach:IconProperties.IconUrl="{StaticResource IMG_Chat_Copy}"
+                                Command="{Binding DataContext.SingleChatCopyCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                                CommandParameter="{Binding}" />
+                            <!--<Button
                                     attach:IconProperties.IconUrl="{StaticResource IMG_Chat_Send}"
                                     Command="{Binding DataContext.SingleChatSendCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
                                     CommandParameter="{Binding}"
-                                    Content="发送分句" />
-                            </StackPanel>
+                                    Content="发送分句" />-->
 
                         </Border>
                     </Grid>

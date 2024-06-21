@@ -259,6 +259,7 @@
                                 Width="{TemplateBinding attach:IconProperties.IconWidth}"
                                 Height="{TemplateBinding attach:IconProperties.IconHeight}"
                                 Margin="{TemplateBinding attach:IconProperties.IconThickness}"
+                                HorizontalAlignment="{TemplateBinding attach:IconProperties.IconHorizontalAlignment}"
                                 VerticalAlignment="Center"
                                 RenderOptions.BitmapScalingMode="NearestNeighbor"
                                 SnapsToDevicePixels="True"
@@ -309,12 +310,14 @@
                 <ControlTemplate TargetType="Button">
                     <Border
                         x:Name="Chrome"
+                        Width="{TemplateBinding Width}"
+                        Height="{TemplateBinding Height}"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
                         SnapsToDevicePixels="true">
-                        <Grid>
+                        <Grid HorizontalAlignment="{TemplateBinding attach:IconProperties.IconHorizontalAlignment}">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="auto" />
                                 <ColumnDefinition />
