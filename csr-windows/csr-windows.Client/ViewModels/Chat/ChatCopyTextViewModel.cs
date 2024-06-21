@@ -162,7 +162,7 @@ namespace csr_windows.Client.ViewModels.Chat
             WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel(SendContentMessage, true), MessengerConstMessage.OpenPromptMessageToken);
             //发送消息
             var msg = TopHelp.QNSendMsgJS(GlobalCache.CurrentCustomer.UserNiceName, content, GlobalCache.CurrentProduct?.ProductName);
-            WebServiceClient.SendSocket(msg);
+            WebServiceClient.SendSocket(msg,GlobalCache.CustomerServiceNickName);
 
         }
 

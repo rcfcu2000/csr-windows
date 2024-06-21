@@ -8,6 +8,7 @@ using csr_windows.Client.Services.WebService.Enums;
 using csr_windows.Client.View.Chat;
 using csr_windows.Client.ViewModels.Chat;
 using csr_windows.Client.Views.Chat;
+using csr_windows.Common;
 using csr_windows.Core;
 using csr_windows.Domain;
 using csr_windows.Domain.Api;
@@ -43,8 +44,6 @@ namespace csr_windows.Client.ViewModels.Customer
 
         private ObservableCollection<UserControl> _userControls = new ObservableCollection<UserControl>();
 
-
-
         private CustomerModel _currentCustomer;
 
 
@@ -78,6 +77,21 @@ namespace csr_windows.Client.ViewModels.Customer
             OpenChangePersonaCommand = new RelayCommand(OnOpenChangePersonaCommand);
             _uiService.OpenCustomerInitBottomView();
 
+
+        }
+
+        private void OnKeyCombinationPressed(KeyEventEnum @enum)
+        {
+            switch (@enum)
+            {
+                case KeyEventEnum.AltC:
+
+                    break;
+                case KeyEventEnum.AltD:
+                    break;
+                default:
+                    break;
+            };
         }
 
         #endregion

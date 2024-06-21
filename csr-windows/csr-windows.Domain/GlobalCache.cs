@@ -6,6 +6,7 @@ using csr_windows.Domain.Common;
 using csr_windows.Domain.WebSocketModels;
 using csr_windows.Resources.Enumeration;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -85,7 +86,7 @@ namespace csr_windows.Domain
         /// <summary>
         /// 店铺维度的 SSOLogin
         /// </summary>
-        public static Dictionary<string, SSOLoginModel> StoreSSOLoginModel = new Dictionary<string, SSOLoginModel>();
+        public static ConcurrentDictionary<string, SSOLoginModel> StoreSSOLoginModel = new ConcurrentDictionary<string, SSOLoginModel>();
 
         /// <summary>
         /// 店铺维度的 商店
@@ -324,12 +325,12 @@ namespace csr_windows.Domain
         /// <summary>
         /// 自动回复的模型列表
         /// </summary>
-        public static List<BackendAutoReplyModel> AutoReplyModels { get; set; }
+        public static List<BackendAutoReplyModel> AutoReplyModels { get; set; } = new List<BackendAutoReplyModel>();
 
         /// <summary>
         /// QA回复的模型列表
         /// </summary>
-        public static List<QAModel> QAModels { get; set; }
+        public static List<QAModel> QAModels { get; set; } = new List<QAModel>();
 
 
         public static SSOLoginModel SSOLoginModel

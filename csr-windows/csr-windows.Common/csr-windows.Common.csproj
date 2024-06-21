@@ -83,6 +83,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Utils\AutomationUtil.cs" />
+    <Compile Include="Utils\HookKeyUtil.cs" />
     <Compile Include="Utils\Logger.cs" />
     <Compile Include="Utils\StringProcessor.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

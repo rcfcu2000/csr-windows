@@ -5,6 +5,7 @@ using CommunityToolkit.Mvvm.Messaging;
 using csr_windows.Client.Services.Base;
 using csr_windows.Client.Services.WebService;
 using csr_windows.Client.Services.WebService.Enums;
+using csr_windows.Common;
 using csr_windows.Domain;
 using csr_windows.Domain.Enumeration;
 using csr_windows.Domain.WeakReferenceMessengerModels;
@@ -17,6 +18,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -76,10 +78,9 @@ namespace csr_windows.Client.ViewModels.Customer
             RecommendedPairingCommand = new RelayCommand(OnRecommendedPairingCommand);
             ChooseProductCommand = new RelayCommand(OnChooseProductCommand);
             OpenProductUrlCommand = new RelayCommand(OnOpenProductUrlCommand);
+
+            HookKeyUtil.SetGlobalKeyHook(OnKeyCombinationPressed);
         }
-
-
-
 
         #endregion
 
@@ -156,6 +157,25 @@ namespace csr_windows.Client.ViewModels.Customer
             {
                 FileName = GlobalCache.CurrentProduct.ProductUrl, // 在这里替换为你想要打开的网页 URL
                 UseShellExecute = true
+            });
+        }
+
+        private void OnKeyCombinationPressed(KeyEventEnum @enum)
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                switch (@enum)
+                {
+                    case KeyEventEnum.AltC:
+                        InputAICommand.Execute(string.Empty);
+                        //OnInputAICommand();
+                        break;
+                    case KeyEventEnum.AltD:
+                        AskAICommand.Execute(string.Empty);
+                        break;
+                    default:
+                        break;
+                };
             });
         }
         #endregion
