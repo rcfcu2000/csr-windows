@@ -295,7 +295,7 @@ namespace csr_windows.Client
                         WebServiceClient.SendJSFunc(JSFuncType.GetCurrentConv);
 
                         #region 处理登录
-                        if (!GlobalCache.StoreSSOLoginModel.ContainsKey(GlobalCache.StoreName))
+                        if (GlobalCache.StoreSSOLoginModel.Count != 0 && !GlobalCache.StoreSSOLoginModel.ContainsKey(GlobalCache.StoreName))
                         {
                             LoginServer.Instance.Login();
                         }
