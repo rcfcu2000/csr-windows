@@ -180,7 +180,7 @@ namespace csr_windows.Client
                 #region Init
                 this.SizeToContent = SizeToContent.Manual;
                 //this.Width = 411 * GetDpiX();
-                this.Width = 411;
+                this.Width = GetDpiX() < 1 ? 310 : 410;
                 this.Left = (ScreenManager.GetScreenWidth() - Width) / 2;
                 //this.Height = 811 * GetDpiY();
                 this.Height = 811 * scaleY;
@@ -210,7 +210,26 @@ namespace csr_windows.Client
         }
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            this.DragMove();
+            if (e.ChangedButton == System.Windows.Input.MouseButton.Left)
+            {
+                if (Mouse.LeftButton == MouseButtonState.Pressed)
+                {
+                    var windowMode = this.ResizeMode;
+                    if (this.ResizeMode != ResizeMode.NoResize)
+                    {
+                        this.ResizeMode = ResizeMode.NoResize;
+                    }
+                    this.UpdateLayout();
+
+                    DragMove();
+                    if (this.ResizeMode != windowMode)
+                    {
+                        this.ResizeMode = windowMode;
+                    }
+                    this.UpdateLayout();
+                }
+            }
+            //this.DragMove();
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -318,7 +337,7 @@ namespace csr_windows.Client
                     var hight = Math.Abs(rect.Bottom - rect.Top);
                     var windowWith = Math.Abs(rect.Right - rect.Left);
                     this.Height = (hight + 15) * scaleY;
-                    this.Width = 411;
+                    this.Width = GetDpiX() < 1 ? 310 : 410;
                     //右边
                     this.Left = (rect.Right + _dockMargin) * scaleX;
                     //左边
@@ -331,7 +350,8 @@ namespace csr_windows.Client
                 }
             });
         }
-
+        private bool needTopMost = false;
+        private IntPtr lastForegroundWindow = IntPtr.Zero;
         /// <summary>
         /// 更新窗口位置
         /// </summary>
@@ -351,15 +371,21 @@ namespace csr_windows.Client
                         Win32.RECT rect = new Win32.RECT();
                         Win32.GetWindowRect(GlobalCache.FollowHandle, ref rect);
                         var foregroundWindowIntptr = Win32.GetForegroundWindow();
-                        if (foregroundWindowIntptr == GlobalCache.FollowHandle)
+                        if (!needTopMost)
+                        {
+                            needTopMost = foregroundWindowIntptr == GlobalCache.FollowHandle;
+                        }
+                        if (needTopMost && foregroundWindowIntptr != lastForegroundWindow)
                         {
                             Application.Current.Dispatcher.Invoke(() => 
                             {
-                                this.Topmost = true;
-                                this.Topmost = false;
+                                Topmost = true;
+                                Topmost = false;
                             });
-                            //Win32.SetActiveWindow(Handle);
+                            //Win32.SetForegroundWindow(foregroundWindowIntptr);
+                            needTopMost = false;
                         }
+                        lastForegroundWindow = foregroundWindowIntptr;
                         if (!(_lastRect.Bottom == rect.Bottom && _lastRect.Top == rect.Top && _lastRect.Left == rect.Left && _lastRect.Right == rect.Right))
                         {
                             if (isFirst)
@@ -370,7 +396,7 @@ namespace csr_windows.Client
                             }
                             _subTaskHandler();
                         }
-                        Task.Delay(20).Wait();
+                        Task.Delay(50).Wait();
                         //System.Threading.Thread.Sleep(10);
                     } while (_isUpdatePos);
                 }
@@ -395,8 +421,9 @@ namespace csr_windows.Client
             Win32.GetWindowPlacement(GlobalCache.FollowHandle, ref placement);
             this.Dispatcher.Invoke(() =>
             {
-         
                 this.Topmost = true;
+                this.Topmost = false;
+                Win32.ShowWindow(Handle,4);
                 var hwndSource = (HwndSource)PresentationSource.FromVisual(this);
                 if (hwndSource == null)
                     return;
@@ -409,8 +436,8 @@ namespace csr_windows.Client
                     this.Height = (hight + 15) * scaleY;
                 windowWith = this.Width;
                 windowHeight = this.Height;
-                this.Topmost = false;
                 Point sp = new Point(rect.Right - _lastRect.Right + thisRect.Left, rect.Top - _lastRect.Top + thisRect.Top);
+                IntPtr HWND_TOPMOST = new IntPtr(-1);
                 Win32.SetWindowPos(Handle, GlobalCache.FollowHandle, (int)sp.X, (int)sp.Y, (int)windowWith, (int)windowHeight, 0x0001 | 0x0004);
             });
             _lastRect = rect;

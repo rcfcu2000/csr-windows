@@ -14,11 +14,13 @@
     <Grid>
         <Border Background="#66000000" />
         <Border
-            HorizontalAlignment="Center"
+            MaxWidth="350"
+            Margin="30,0"
+            HorizontalAlignment="Stretch"
             VerticalAlignment="Center"
             Background="White"
             CornerRadius="5">
-            <StackPanel Margin="20" HorizontalAlignment="Center">
+            <StackPanel Margin="20">
                 <Image
                     Width="48"
                     Height="48"
@@ -36,11 +38,15 @@
                     FontSize="14"
                     Foreground="#99000000"
                     Text="退出后将我将无法继续帮助您" />
-                <StackPanel Orientation="Horizontal">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
                     <Button
-                        Width="120"
                         Height="40"
                         Margin="0,0,15,0"
+                        HorizontalAlignment="Stretch"
                         hc:BorderElement.CornerRadius="5"
                         Background="{StaticResource 0.1OpacityBlueTheme}"
                         Command="{Binding ContinueToUseCommand}"
@@ -50,8 +56,9 @@
                         Foreground="#FF2335C5" />
 
                     <Button
-                        Width="120"
+                        Grid.Column="1"
                         Height="40"
+                        HorizontalAlignment="Stretch"
                         hc:BorderElement.CornerRadius="5"
                         Background="{StaticResource ThemeColorBrush}"
                         Command="{Binding ExitCommand}"
@@ -60,7 +67,7 @@
                         FontSize="14"
                         FontWeight="Bold"
                         Foreground="White" />
-                </StackPanel>
+                </Grid>
             </StackPanel>
         </Border>
 
