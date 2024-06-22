@@ -13,7 +13,10 @@
     d:DesignHeight="700"
     d:DesignWidth="400"
     mc:Ignorable="d">
-    <Border Background="White" CornerRadius="15 15 0 0">
+    <Border
+        VerticalAlignment="Stretch"
+        Background="White"
+        CornerRadius="15 15 0 0">
         <Grid>
             <Border
                 Height="150"
@@ -38,20 +41,28 @@
                     Style="{StaticResource BorderImageButton}"
                     ToolTip="关闭" />
                 <Grid>
-                    <StackPanel>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
                         <TextBlock
                             Margin="15,30,0,5"
                             FontSize="24"
                             FontWeight="Bold"
                             Text="推荐搭配" />
                         <TextBlock
+                            Grid.Row="1"
                             Margin="15,0,0,15"
                             FontSize="14"
                             Foreground="#99000000"
                             Text="选择商品，我将给出它们的搭配文案" />
 
                         <hc:TextBox
-                            Grid.Row="1"
+                            Grid.Row="2"
                             Height="40"
                             Margin="15,0,15,15"
                             Padding="0"
@@ -71,9 +82,9 @@
                                 <KeyBinding Key="Enter" Command="{Binding SearchCommand}" />
                             </hc:TextBox.InputBindings>
                         </hc:TextBox>
-                        <Grid Visibility="{Binding IsSearch, Converter={StaticResource Boolean2VisibilityReConverter}}">
+                        <Grid Grid.Row="3" Visibility="{Binding IsSearch, Converter={StaticResource Boolean2VisibilityReConverter}}">
 
-                            <hc:ScrollViewer Height="387">
+                            <hc:ScrollViewer>
                                 <StackPanel>
                                     <StackPanel Visibility="{Binding HaveDialogueProduct, Converter={StaticResource Boolean2VisibilityConverter}}">
                                         <TextBlock
@@ -117,12 +128,19 @@
                                             </DataTemplate>
                                         </ItemsControl.ItemTemplate>
                                     </ItemsControl>
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        Margin="0,0,0,15"
+                                        HorizontalAlignment="Center"
+                                        FontSize="12"
+                                        Foreground="#65000000"
+                                        Text="没有更多了" />
                                 </StackPanel>
                             </hc:ScrollViewer>
                         </Grid>
-                        <Grid Visibility="{Binding IsSearch, Converter={StaticResource Boolean2VisibilityConverter}}">
+                        <Grid Grid.Row="3" Visibility="{Binding IsSearch, Converter={StaticResource Boolean2VisibilityConverter}}">
                             <Grid Visibility="{Binding IsSearchResult, Converter={StaticResource Boolean2VisibilityConverter}}">
-                                <hc:ScrollViewer Height="387">
+                                <hc:ScrollViewer>
                                     <StackPanel>
                                         <Grid Margin="15,0,15,7">
                                             <Grid.ColumnDefinitions>
@@ -161,10 +179,17 @@
                                                 </DataTemplate>
                                             </ItemsControl.ItemTemplate>
                                         </ItemsControl>
+                                        <TextBlock
+                                            Grid.Row="1"
+                                            Margin="0,0,0,15"
+                                            HorizontalAlignment="Center"
+                                            FontSize="12"
+                                            Foreground="#65000000"
+                                            Text="没有更多了" />
                                     </StackPanel>
                                 </hc:ScrollViewer>
                             </Grid>
-                            <Grid Height="387" Visibility="{Binding IsSearchResult, Converter={StaticResource Boolean2VisibilityReConverter}}">
+                            <Grid Visibility="{Binding IsSearchResult, Converter={StaticResource Boolean2VisibilityReConverter}}">
                                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
 
                                     <Image
@@ -190,7 +215,10 @@
                             </Grid>
                         </Grid>
 
-                        <Border BorderBrush="#19000000" BorderThickness="0,1,0,0">
+                        <Border
+                            Grid.Row="4"
+                            BorderBrush="#19000000"
+                            BorderThickness="0,1,0,0">
                             <StackPanel Margin="15">
                                 <Grid>
                                     <Grid.RowDefinitions>
@@ -305,7 +333,7 @@
                                     Foreground="White" />
                             </StackPanel>
                         </Border>
-                    </StackPanel>
+                    </Grid>
                 </Grid>
             </Grid>
         </Grid>

@@ -13,7 +13,10 @@
     d:DesignHeight="700"
     d:DesignWidth="400"
     mc:Ignorable="d">
-    <Border Background="White" CornerRadius="15 15 0 0">
+    <Border
+        VerticalAlignment="Stretch"
+        Background="White"
+        CornerRadius="15 15 0 0">
         <Grid>
             <Border
                 Height="150"
@@ -38,20 +41,27 @@
                     Style="{StaticResource BorderImageButton}"
                     ToolTip="关闭" />
                 <Grid>
-                    <StackPanel>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
                         <TextBlock
                             Margin="15,30,0,5"
                             FontSize="24"
                             FontWeight="Bold"
                             Text="选择商品" />
                         <TextBlock
+                            Grid.Row="1"
                             Margin="15,0,0,15"
                             FontSize="14"
                             Foreground="#99000000"
                             Text="后续回答将基于此商品" />
 
                         <hc:TextBox
-                            Grid.Row="1"
+                            Grid.Row="2"
                             Height="40"
                             Margin="15,0,15,15"
                             Padding="0"
@@ -71,9 +81,8 @@
                                 <KeyBinding Key="Enter" Command="{Binding SearchCommand}" />
                             </hc:TextBox.InputBindings>
                         </hc:TextBox>
-                        <Grid Visibility="{Binding IsSearch, Converter={StaticResource Boolean2VisibilityReConverter}}">
-
-                            <hc:ScrollViewer Height="545">
+                        <Grid Grid.Row="3" Visibility="{Binding IsSearch, Converter={StaticResource Boolean2VisibilityReConverter}}">
+                            <hc:ScrollViewer>
                                 <StackPanel>
                                     <StackPanel Visibility="{Binding HaveDialogueProduct, Converter={StaticResource Boolean2VisibilityConverter}}">
                                         <TextBlock
@@ -117,17 +126,32 @@
                                             </DataTemplate>
                                         </ItemsControl.ItemTemplate>
                                     </ItemsControl>
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        Margin="0,0,0,15"
+                                        HorizontalAlignment="Center"
+                                        FontSize="12"
+                                        Foreground="#65000000"
+                                        Text="没有更多了" />
                                 </StackPanel>
                             </hc:ScrollViewer>
                         </Grid>
-                        <Grid Visibility="{Binding IsSearch, Converter={StaticResource Boolean2VisibilityConverter}}">
+                        <Grid
+                            Grid.Row="3"
+                            VerticalAlignment="Stretch"
+                            Visibility="{Binding IsSearch, Converter={StaticResource Boolean2VisibilityConverter}}">
                             <Grid Visibility="{Binding IsSearchResult, Converter={StaticResource Boolean2VisibilityConverter}}">
-                                <hc:ScrollViewer Height="545">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition Height="auto" />
+                                </Grid.RowDefinitions>
+                                <hc:ScrollViewer>
                                     <StackPanel>
                                         <Grid Margin="15,0,15,7">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="auto" />
                                                 <ColumnDefinition />
+                                                <ColumnDefinition Width="auto" />
                                             </Grid.ColumnDefinitions>
                                             <TextBlock
                                                 FontSize="14"
@@ -162,10 +186,18 @@
                                                 </DataTemplate>
                                             </ItemsControl.ItemTemplate>
                                         </ItemsControl>
+                                        <TextBlock
+                                            Grid.Row="1"
+                                            Margin="0,0,0,15"
+                                            HorizontalAlignment="Center"
+                                            FontSize="12"
+                                            Foreground="#65000000"
+                                            Text="没有更多了" />
                                     </StackPanel>
                                 </hc:ScrollViewer>
                             </Grid>
-                            <Grid Height="545" Visibility="{Binding IsSearchResult, Converter={StaticResource Boolean2VisibilityReConverter}}">
+
+                            <Grid Margin="0,15,0,30" Visibility="{Binding IsSearchResult, Converter={StaticResource Boolean2VisibilityReConverter}}">
                                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                                     <Image
                                         Width="82"
@@ -186,7 +218,7 @@
                                 </StackPanel>
                             </Grid>
                         </Grid>
-                    </StackPanel>
+                    </Grid>
                 </Grid>
             </Grid>
         </Grid>

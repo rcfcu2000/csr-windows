@@ -13,7 +13,10 @@
     d:DesignHeight="167"
     d:DesignWidth="400"
     mc:Ignorable="d">
-    <Border Background="White" CornerRadius="15 15 0 0">
+    <Border
+        VerticalAlignment="Bottom"
+        Background="White"
+        CornerRadius="15 15 0 0">
         <Grid>
             <Border
                 Height="150"

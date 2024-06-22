@@ -17,7 +17,10 @@
     <UserControl.DataContext>
         <vm:ChangePersonaViewModel />
     </UserControl.DataContext>
-    <Border Background="White" CornerRadius="15 15 0 0">
+    <Border
+        VerticalAlignment="Stretch"
+        Background="White"
+        CornerRadius="15 15 0 0">
         <Grid>
             <Border
                 Height="150"
@@ -50,21 +53,38 @@
                   Command="{Binding CloseCommand}"
                   NormalImageSource="{StaticResource IMG_Main_Close}" />-->
                 <Grid Margin="15,30">
-                    <StackPanel>
-                        <TextBlock
-                            Margin="0,0,0,5"
-                            FontSize="24"
-                            FontWeight="Bold"
-                            Text="选择您的助手" />
-                        <TextBlock
-                            FontSize="14"
-                            Foreground="#99000000"
-                            Text="不同的助手会有不同的说话方式和语气" />
-
-                        <ItemsControl Margin="0,0,0,15" ItemsSource="{Binding PersionaList}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock
+                        Margin="0,0,0,5"
+                        FontSize="24"
+                        FontWeight="Bold"
+                        Text="选择您的助手" />
+                    <TextBlock
+                        Grid.Row="1"
+                        Margin="0,0,0,15"
+                        FontSize="14"
+                        Foreground="#99000000"
+                        Text="不同的助手会有不同的说话方式和语气" />
+                    <hc:ScrollViewer Grid.Row="2">
+                        <ItemsControl ItemsSource="{Binding PersionaList}">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Grid Margin="0,15,0,0">
+                                    <Grid>
+                                        <Grid.Style>
+                                            <Style TargetType="Grid">
+                                                <Setter Property="Margin" Value="0,0,0,15" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding PersonaEnum}" Value="LinDa">
+                                                        <Setter Property="Margin" Value="0,0,0,0" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Grid.Style>
                                         <Border
                                             Padding="10"
                                             BorderBrush="#1A000000"
@@ -91,113 +111,121 @@
                                                             <RowDefinition Height="auto" />
                                                             <RowDefinition />
                                                         </Grid.RowDefinitions>
-                                                        <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
+                                                        <Grid Margin="0,0,0,5">
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="auto" />
+                                                                <ColumnDefinition />
+                                                            </Grid.ColumnDefinitions>
                                                             <TextBlock
-                                                                Margin="0,0,5,0"
+                                                                Margin="0,0,5,5"
+                                                                VerticalAlignment="Center"
                                                                 FontSize="20"
                                                                 FontWeight="Bold"
                                                                 Text="{Binding Name}" />
-                                                            <Grid Margin="0,0,5,0">
-                                                                <!--  专业客服  -->
-                                                                <Border
-                                                                    Width="60"
-                                                                    Height="22"
-                                                                    CornerRadius="2">
-                                                                    <Border.Style>
-                                                                        <Style TargetType="Border">
-                                                                            <Setter Property="Visibility" Value="Collapsed" />
-                                                                            <Style.Triggers>
-                                                                                <DataTrigger Binding="{Binding PersonaEnum}" Value="XiaoXiao">
-                                                                                    <Setter Property="Visibility" Value="Visible" />
-                                                                                </DataTrigger>
-                                                                            </Style.Triggers>
-                                                                        </Style>
-                                                                    </Border.Style>
-                                                                    <Border.Background>
-                                                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                                                            <GradientStop Offset="0.0" Color="#ff46baec" />
-                                                                            <GradientStop Offset="1.0" Color="#ff0179bc" />
-                                                                        </LinearGradientBrush>
-                                                                    </Border.Background>
-                                                                    <TextBlock
-                                                                        HorizontalAlignment="Center"
-                                                                        VerticalAlignment="Center"
-                                                                        Foreground="#FFFFFFFF"
-                                                                        Text="专业客服" />
-                                                                </Border>
-                                                                <!--  资深客服  -->
-                                                                <Border
-                                                                    Width="60"
-                                                                    Height="22"
-                                                                    CornerRadius="2">
-                                                                    <Border.Style>
-                                                                        <Style TargetType="Border">
-                                                                            <Setter Property="Visibility" Value="Collapsed" />
-                                                                            <Style.Triggers>
-                                                                                <DataTrigger Binding="{Binding PersonaEnum}" Value="LeLe">
-                                                                                    <Setter Property="Visibility" Value="Visible" />
-                                                                                </DataTrigger>
-                                                                            </Style.Triggers>
-                                                                        </Style>
-                                                                    </Border.Style>
-                                                                    <Border.Background>
-                                                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                                                            <GradientStop Offset="0.0" Color="#ff6473ed" />
-                                                                            <GradientStop Offset="1.0" Color="#ff2335c5" />
-                                                                        </LinearGradientBrush>
-                                                                    </Border.Background>
-                                                                    <TextBlock
-                                                                        HorizontalAlignment="Center"
-                                                                        VerticalAlignment="Center"
-                                                                        Foreground="#FFFFFFFF"
-                                                                        Text="资深客服" />
-                                                                </Border>
-                                                                <!--  客服主管  -->
-                                                                <Border
-                                                                    Width="60"
-                                                                    Height="22"
-                                                                    CornerRadius="2">
-                                                                    <Border.Style>
-                                                                        <Style TargetType="Border">
-                                                                            <Setter Property="Visibility" Value="Collapsed" />
-                                                                            <Style.Triggers>
-                                                                                <DataTrigger Binding="{Binding PersonaEnum}" Value="LinDa">
-                                                                                    <Setter Property="Visibility" Value="Visible" />
-                                                                                </DataTrigger>
-                                                                            </Style.Triggers>
-                                                                        </Style>
-                                                                    </Border.Style>
-                                                                    <Border.Background>
-                                                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                                                            <GradientStop Offset="0.0" Color="#ff5f5f5f" />
-                                                                            <GradientStop Offset="1.0" Color="#ff090909" />
-                                                                        </LinearGradientBrush>
-                                                                    </Border.Background>
-                                                                    <TextBlock
-                                                                        HorizontalAlignment="Center"
-                                                                        VerticalAlignment="Center"
-                                                                        Foreground="#FFFFC700"
-                                                                        Text="客服主管" />
-                                                                </Border>
-                                                            </Grid>
-                                                            <Border
-                                                                Height="21"
-                                                                Background="#30FFC700"
-                                                                CornerRadius="2">
-                                                                <Grid Margin="5,3">
-                                                                    <Grid.ColumnDefinitions>
-                                                                        <ColumnDefinition Width="auto" />
-                                                                        <ColumnDefinition />
-                                                                    </Grid.ColumnDefinitions>
-                                                                    <Image
-                                                                        Width="15"
-                                                                        Height="15"
-                                                                        Margin="0,0,5,0"
-                                                                        Source="{StaticResource IMG_Menu_PersonPriceIcon}" />
-                                                                    <TextBlock Grid.Column="1" Text="{Binding Price, StringFormat={}{0}/次}" />
+                                                            <WrapPanel Grid.Column="1" Orientation="Horizontal">
+                                                                <Grid Margin="0,0,5,5">
+                                                                    <!--  专业客服  -->
+                                                                    <Border
+                                                                        Width="60"
+                                                                        Height="22"
+                                                                        CornerRadius="2">
+                                                                        <Border.Style>
+                                                                            <Style TargetType="Border">
+                                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                                                <Style.Triggers>
+                                                                                    <DataTrigger Binding="{Binding PersonaEnum}" Value="XiaoXiao">
+                                                                                        <Setter Property="Visibility" Value="Visible" />
+                                                                                    </DataTrigger>
+                                                                                </Style.Triggers>
+                                                                            </Style>
+                                                                        </Border.Style>
+                                                                        <Border.Background>
+                                                                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                                                <GradientStop Offset="0.0" Color="#ff46baec" />
+                                                                                <GradientStop Offset="1.0" Color="#ff0179bc" />
+                                                                            </LinearGradientBrush>
+                                                                        </Border.Background>
+                                                                        <TextBlock
+                                                                            HorizontalAlignment="Center"
+                                                                            VerticalAlignment="Center"
+                                                                            Foreground="#FFFFFFFF"
+                                                                            Text="专业客服" />
+                                                                    </Border>
+                                                                    <!--  资深客服  -->
+                                                                    <Border
+                                                                        Width="60"
+                                                                        Height="22"
+                                                                        CornerRadius="2">
+                                                                        <Border.Style>
+                                                                            <Style TargetType="Border">
+                                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                                                <Style.Triggers>
+                                                                                    <DataTrigger Binding="{Binding PersonaEnum}" Value="LeLe">
+                                                                                        <Setter Property="Visibility" Value="Visible" />
+                                                                                    </DataTrigger>
+                                                                                </Style.Triggers>
+                                                                            </Style>
+                                                                        </Border.Style>
+                                                                        <Border.Background>
+                                                                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                                                <GradientStop Offset="0.0" Color="#ff6473ed" />
+                                                                                <GradientStop Offset="1.0" Color="#ff2335c5" />
+                                                                            </LinearGradientBrush>
+                                                                        </Border.Background>
+                                                                        <TextBlock
+                                                                            HorizontalAlignment="Center"
+                                                                            VerticalAlignment="Center"
+                                                                            Foreground="#FFFFFFFF"
+                                                                            Text="资深客服" />
+                                                                    </Border>
+                                                                    <!--  客服主管  -->
+                                                                    <Border
+                                                                        Width="60"
+                                                                        Height="22"
+                                                                        CornerRadius="2">
+                                                                        <Border.Style>
+                                                                            <Style TargetType="Border">
+                                                                                <Setter Property="Visibility" Value="Collapsed" />
+                                                                                <Style.Triggers>
+                                                                                    <DataTrigger Binding="{Binding PersonaEnum}" Value="LinDa">
+                                                                                        <Setter Property="Visibility" Value="Visible" />
+                                                                                    </DataTrigger>
+                                                                                </Style.Triggers>
+                                                                            </Style>
+                                                                        </Border.Style>
+                                                                        <Border.Background>
+                                                                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                                                <GradientStop Offset="0.0" Color="#ff5f5f5f" />
+                                                                                <GradientStop Offset="1.0" Color="#ff090909" />
+                                                                            </LinearGradientBrush>
+                                                                        </Border.Background>
+                                                                        <TextBlock
+                                                                            HorizontalAlignment="Center"
+                                                                            VerticalAlignment="Center"
+                                                                            Foreground="#FFFFC700"
+                                                                            Text="客服主管" />
+                                                                    </Border>
                                                                 </Grid>
-                                                            </Border>
-                                                        </StackPanel>
+                                                                <Border
+                                                                    Height="21"
+                                                                    Margin="0,0,0,5"
+                                                                    Background="#30FFC700"
+                                                                    CornerRadius="2">
+                                                                    <Grid Margin="5,3">
+                                                                        <Grid.ColumnDefinitions>
+                                                                            <ColumnDefinition Width="auto" />
+                                                                            <ColumnDefinition />
+                                                                        </Grid.ColumnDefinitions>
+                                                                        <Image
+                                                                            Width="15"
+                                                                            Height="15"
+                                                                            Margin="0,0,5,0"
+                                                                            Source="{StaticResource IMG_Menu_PersonPriceIcon}" />
+                                                                        <TextBlock Grid.Column="1" Text="{Binding Price, StringFormat={}{0}/次}" />
+                                                                    </Grid>
+                                                                </Border>
+                                                            </WrapPanel>
+                                                        </Grid>
                                                         <TextBlock
                                                             Grid.Row="1"
                                                             FontSize="14"
@@ -239,11 +267,13 @@
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
-                        <TextBlock
-                            HorizontalAlignment="Center"
-                            Foreground="#66000000"
-                            Text="更多优质AI助手正在持续加入中" />
-                    </StackPanel>
+                    </hc:ScrollViewer>
+                    <TextBlock
+                        Grid.Row="3"
+                        Margin="0,15,0,0"
+                        HorizontalAlignment="Center"
+                        Foreground="#66000000"
+                        Text="更多优质AI助手正在持续加入中" />
 
                 </Grid>
             </Grid>

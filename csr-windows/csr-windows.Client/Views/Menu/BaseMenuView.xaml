@@ -16,9 +16,6 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <Border Grid.RowSpan="2" Background="#65000000" />
-        <UserControl
-            Grid.Row="1"
-            VerticalAlignment="Bottom"
-            Content="{Binding ContentControl}" />
+        <UserControl Grid.Row="1" Content="{Binding ContentControl}" />
     </Grid>
 </UserControl>

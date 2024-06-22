@@ -140,7 +140,15 @@ namespace csr_windows.Client.ViewModels.Menu
         public string SearchContent
         {
             get => _searchContent;
-            set => SetProperty(ref _searchContent, value);
+            set
+            {
+                SetProperty(ref _searchContent, value);
+                //if (string.IsNullOrEmpty(value))
+                //{
+                //    OnSearchCommand();
+                //}
+                OnSearchCommand();
+            }
         }
 
         /// <summary>
