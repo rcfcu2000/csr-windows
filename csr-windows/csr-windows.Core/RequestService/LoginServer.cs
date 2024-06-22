@@ -7,12 +7,18 @@ using csr_windows.Domain.WeakReferenceMessengerModels;
 using csr_windows.Resources.Enumeration;
 using Newtonsoft.Json;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using csr_windows.Domain.BaseModels;
 using csr_windows.Domain.Common;
+using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
+using System.Windows.Controls;
+using System.ComponentModel;
+
 
 namespace csr_windows.Core.RequestService
 {
@@ -24,17 +30,35 @@ namespace csr_windows.Core.RequestService
         {
             
         }
+
+
         public async void Login()
         {
+
+            string privateKeyText = File.ReadAllText("public_key.pem");
+            var privateKey = RSAExtensions.PemToXml(privateKeyText);
+            var rsa = new RSACryptoServiceProvider();
+            rsa.FromXmlString(privateKey);
+
+
+
+            string guid = "90217b8f-642d-49f8-94ee-84ca42796eea";
+            long unixTime = ((DateTimeOffset) DateTime.Now).ToUnixTimeSeconds();
+            string data = $"{guid}|{unixTime}";
+
+            byte[] dataBytes = Encoding.UTF8.GetBytes(data);
+            byte[] encryptedData = rsa.Encrypt(dataBytes, RSAEncryptionPadding.Pkcs1);
+            string authKey = Convert.ToBase64String(encryptedData);
+
             Dictionary<string, object> keyValuePairs = new Dictionary<string, object>()
             {
-                {"password","123456" },
+                {"authKey",authKey },
                 {"ssoUsername",$"{GlobalCache.CustomerServiceNickName}" },
-                {"username","admin"}
             };
 
+
             WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.ShowLoadingVisibilityChangeToken);
-            string content = await ApiClient.Instance.PostAsync(BackEndApiList.SSOLogin, keyValuePairs);
+            string content = await ApiClient.Instance.PostAsync(BackEndApiList.RSASSOLogin, keyValuePairs);
             if (content == string.Empty)
             {
                 return;

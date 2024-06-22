@@ -124,10 +124,11 @@ namespace csr_windows.Core
                 response = await _httpClient.PostAsync(url, content);
                 response.EnsureSuccessStatusCode();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 WeakReferenceMessenger.Default.Send(new PromptMessageTokenModel(NoteMessage, promptEnum: PromptEnum.Note), MessengerConstMessage.OpenPromptMessageToken);
                 WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.HiddenLoadingVisibilityChangeToken);
+                Logger.WriteError(url, ex);
                 return string.Empty;
             }
             return await response?.Content.ReadAsStringAsync();
