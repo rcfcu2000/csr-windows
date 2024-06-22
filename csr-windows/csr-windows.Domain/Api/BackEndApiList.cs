@@ -23,6 +23,7 @@ namespace csr_windows.Domain.Api
         /// SSO登录注册
         /// </summary>
         public const string SSOLogin = "/base/ssoLogin";
+        public const string RSA = "/base/rsaSsoLogin";
 
         /// <summary>
         /// 设置用户信息

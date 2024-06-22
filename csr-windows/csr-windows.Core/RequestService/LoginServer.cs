@@ -58,7 +58,7 @@ namespace csr_windows.Core.RequestService
 
 
             WeakReferenceMessenger.Default.Send(string.Empty, MessengerConstMessage.ShowLoadingVisibilityChangeToken);
-            string content = await ApiClient.Instance.PostAsync(BackEndApiList.SSOLogin, keyValuePairs);
+            string content = await ApiClient.Instance.PostAsync(BackEndApiList.RSASSOLogin, keyValuePairs);
             if (content == string.Empty)
             {
                 return;
