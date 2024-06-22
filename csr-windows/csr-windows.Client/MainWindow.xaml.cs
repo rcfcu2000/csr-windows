@@ -362,6 +362,7 @@ namespace csr_windows.Client
                 }
                 catch (Exception ex)
                 {
+                    Logger.WriteError("error UpdateWindowPos", ex);
                 }
             });
         }
