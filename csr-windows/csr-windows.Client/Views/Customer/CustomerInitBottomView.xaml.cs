@@ -38,5 +38,18 @@ namespace csr_windows.Client.Views.Customer
                 });
             });
         }
+
+        private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (this.ActualWidth < 350)
+            {
+                how2replyBt.Content = null;
+                want2replyBt.Content = null;
+            }else
+            {
+                how2replyBt.Content = "我该怎么回";
+                want2replyBt.Content = "我想这样回";
+            }
+        }
     }
 }

@@ -13,7 +13,7 @@
     d:DesignHeight="800"
     d:DesignWidth="400"
     mc:Ignorable="d">
-    <StackPanel Width="400" VerticalAlignment="Center">
+    <StackPanel MaxWidth="400" VerticalAlignment="Center">
         <Grid
             Height="auto"
             Margin="30,0"
@@ -41,7 +41,6 @@
                 TextWrapping="Wrap" />
         </Grid>
         <Border
-            Width="340"
             Margin="30,50"
             Background="White"
             CornerRadius="5">
@@ -85,31 +84,31 @@
                     </StackPanel>
                 </Grid>
 
-                <StackPanel Margin="0,0,0,15" Orientation="Horizontal">
-                    <StackPanel.Resources>
-                        <Style BasedOn="{StaticResource {x:Type RadioButton}}" TargetType="RadioButton">
-                            <Setter Property="Cursor" Value="Hand" />
-                            <Setter Property="Foreground" Value="{StaticResource 0.8OpacityBlackTheme}" />
-                            <Setter Property="FontSize" Value="14" />
-                        </Style>
-                    </StackPanel.Resources>
+                <Grid Margin="0,0,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
                     <TextBlock
-                        Margin="0,0,5,0"
+                        Margin="0,0,5,5"
+                        VerticalAlignment="Center"
                         FontSize="14"
                         Foreground="{StaticResource 0.8OpacityBlackTheme}"
                         Text="选择角色：" />
-                    <RadioButton
-                        Margin="0,0,15,0"
-                        Content="我是售前客服"
-                        IsChecked="{Binding Source={StaticResource GlobalCache}, Path=IsItPreSalesCustomerService}" />
-                    <RadioButton
-                        Margin="0,0,15,0"
-                        Content="我是售后客服"
-                        IsChecked="{Binding Source={StaticResource GlobalCache}, Path=IsItPreSalesCustomerService, Converter={StaticResource Boolean2BooleanReConverter}}" />
-                </StackPanel>
+                    <WrapPanel Grid.Column="1">
+                        <RadioButton
+                            Margin="0,0,15,5"
+                            Content="我是售前客服"
+                            IsChecked="{Binding Source={StaticResource GlobalCache}, Path=IsItPreSalesCustomerService}" />
+                        <RadioButton
+                            Margin="0,0,15,5"
+                            Content="我是售后客服"
+                            IsChecked="{Binding Source={StaticResource GlobalCache}, Path=IsItPreSalesCustomerService, Converter={StaticResource Boolean2BooleanReConverter}}" />
+                    </WrapPanel>
+                </Grid>
                 <Button
-                    Width="310"
                     Height="40"
+                    HorizontalAlignment="Stretch"
                     hc:BorderElement.CornerRadius="5"
                     Background="#2335C5"
                     Command="{Binding ConfirmCommand}"

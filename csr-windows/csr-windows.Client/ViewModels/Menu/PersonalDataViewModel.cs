@@ -19,9 +19,6 @@ namespace csr_windows.Client.ViewModels.Menu
     public class PersonalDataViewModel : ObservableRecipient
     {
         #region Fields
-        private string _userName = "小玲";
-
-        private string _storeName = "蜡笔派家居旗舰店";
 
         private bool _isItPreSalesCustomerService;
 
@@ -71,23 +68,6 @@ namespace csr_windows.Client.ViewModels.Menu
         #endregion
 
         #region Properties
-        /// <summary>
-        /// 用户昵称
-        /// </summary>
-        public string UserName
-        {
-            get => _userName;
-            set => SetProperty(ref _userName, value);
-        }
-
-        /// <summary> 
-        /// 店铺名称
-        /// </summary>
-        public string StoreName
-        {
-            get => _storeName;
-            set => SetProperty(ref _storeName, value);
-        }
 
         /// <summary>
         /// 是否是售前

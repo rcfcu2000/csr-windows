@@ -19,7 +19,14 @@
     </UserControl.DataContext>
     <Border Background="White" CornerRadius="15 15 0 0">
         <Grid>
-            <Image VerticalAlignment="Top" Source="{StaticResource IMG_Menu_SuspendedBg}" />
+            <Border
+                Height="150"
+                VerticalAlignment="Top"
+                CornerRadius="15 15 0 0 ">
+                <Border.Background>
+                    <ImageBrush ImageSource="{StaticResource IMG_Menu_SuspendedBg}" />
+                </Border.Background>
+            </Border>
             <Grid>
                 <controls:ImageButton
                     Width="36"
@@ -199,10 +206,9 @@
                                                     </Grid>
                                                 </Grid>
                                                 <Grid Grid.Row="1">
-
                                                     <Button
-                                                        Width="350"
                                                         Height="40"
+                                                        HorizontalAlignment="Stretch"
                                                         hc:BorderElement.CornerRadius="5"
                                                         Background="{StaticResource 0.1OpacityBlueTheme}"
                                                         Command="{Binding ContinueToUseCommand}"
@@ -214,8 +220,8 @@
 
                                                     <Button
                                                         x:Name="change_button"
-                                                        Width="350"
                                                         Height="40"
+                                                        HorizontalAlignment="Stretch"
                                                         hc:BorderElement.CornerRadius="5"
                                                         Background="{StaticResource ThemeColorBrush}"
                                                         Command="{Binding DataContext.ChangePersionCommand, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}"
