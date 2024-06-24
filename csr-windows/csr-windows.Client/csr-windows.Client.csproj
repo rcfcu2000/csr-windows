@@ -257,6 +257,9 @@
     <Compile Include="Views\Main\FirstSettingView.xaml.cs">
       <DependentUpon>FirstSettingView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Main\FloatingWindow.xaml.cs">
+      <DependentUpon>FloatingWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Main\NoStartClientView.xaml.cs">
       <DependentUpon>NoStartClientView.xaml</DependentUpon>
     </Compile>
@@ -352,6 +355,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Main\FirstSettingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\FloatingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

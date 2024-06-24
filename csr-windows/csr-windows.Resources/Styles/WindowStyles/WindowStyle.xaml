@@ -25,6 +25,8 @@
 
     <Style x:Key="WindowChromeStyle" TargetType="{x:Type Window}">
         <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="WindowStyle" Value="None" />
         <Setter Property="ResizeMode" Value="NoResize" />
         <Setter Property="WindowChrome.WindowChrome">
             <Setter.Value>

@@ -109,6 +109,9 @@
                         <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="border" Property="Background" Value="{Binding Path=(attach:MouseDependencyProperty.PressedColor), RelativeSource={RelativeSource TemplatedParent}}" />
                         </Trigger>
+                        <Trigger Property="SpecialState" Value="True">
+                            <Setter TargetName="PART_Image" Property="Source" Value="{Binding Path=(SpecialStatusImageSource), RelativeSource={RelativeSource TemplatedParent}}" />
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

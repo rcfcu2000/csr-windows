@@ -17,9 +17,6 @@ namespace csr_windows.Resources.Controls
         private const string EnableImageSourcePropertyName = "EnableImageSource";
 
 
-
-
-
         public static readonly DependencyProperty NormalImageSourceProperty =
             DependencyProperty.Register(NormalImageSourcePropertyName, typeof(ImageSource), typeof(ImageButton));
         public static readonly DependencyProperty MouseOverImageSourceProperty =
@@ -28,6 +25,10 @@ namespace csr_windows.Resources.Controls
             DependencyProperty.Register(MouseOverPressedImageSourcePropertyName, typeof(ImageSource), typeof(ImageButton));
         public static readonly DependencyProperty EnableImageSourceProperty =
             DependencyProperty.Register(EnableImageSourcePropertyName, typeof(ImageSource), typeof(ImageButton));
+        public static readonly DependencyProperty SpecialStateProperty =
+            DependencyProperty.Register("SpecialState", typeof(bool), typeof(ImageButton));
+        public static readonly DependencyProperty SpecialStatusImageSourceProperty =
+            DependencyProperty.Register("SpecialStatusImageSource", typeof(ImageSource), typeof(ImageButton));
 
 
 
@@ -84,5 +85,24 @@ namespace csr_windows.Resources.Controls
                 SetValue(EnableImageSourceProperty, value);
             }
         }
+
+        /// <summary>
+        /// 特殊状态
+        /// </summary>
+        public bool SpecialState
+        {
+            get { return (bool)GetValue(SpecialStateProperty); }
+            set { SetValue(SpecialStateProperty, value); }
+        }
+
+        /// <summary>
+        /// 特殊状态的ImageSource
+        /// </summary>
+        public ImageSource SpecialStatusImageSource
+        {
+            get { return (ImageSource)GetValue(SpecialStatusImageSourceProperty); }
+            set { SetValue(SpecialStatusImageSourceProperty, value); }
+        }
+
     }
 }

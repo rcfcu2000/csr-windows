@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--  浮动图标  -->
+    <ImageSource x:Key="IMG_Floating_Icon">/csr-windows.Resources;component/Images/Floating/icon.png</ImageSource>
+
+    <!--  显示（正常）  -->
+    <ImageSource x:Key="IMG_Floating_ShowNormal">/csr-windows.Resources;component/Images/Floating/show_normal.png</ImageSource>
+
+    <!--  显示（被选中）  -->
+    <ImageSource x:Key="IMG_Floating_ShowChecked">/csr-windows.Resources;component/Images/Floating/show_checked.png</ImageSource>
+
+    <!--  我该怎么回 特殊颜色  -->
+    <ImageSource x:Key="IMG_Floating_AskAiSpecial">/csr-windows.Resources;component/Images/Floating/ask_ai_special.png</ImageSource>
+
+    <!--  我想这样回 特殊颜色  -->
+    <ImageSource x:Key="IMG_Floating_InputAiSpecial">/csr-windows.Resources;component/Images/Floating/input_ai_special.png</ImageSource>
+
+
+</ResourceDictionary>

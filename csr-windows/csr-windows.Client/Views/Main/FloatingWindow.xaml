@@ -1,0 +1,76 @@
+﻿<Window
+    x:Class="csr_windows.Client.Views.Main.FloatingWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:attach="clr-namespace:csr_windows.Resources.AttachProperties;assembly=csr-windows.Resources"
+    xmlns:controls="clr-namespace:csr_windows.Resources.Controls;assembly=csr-windows.Resources"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:local="clr-namespace:csr_windows.Client.Views.Main"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="会回"
+    AllowsTransparency="True"
+    Background="Transparent"
+    Cursor="Hand"
+    MouseLeftButtonDown="Window_MouseLeftButtonDown"
+    SizeToContent="WidthAndHeight"
+    Style="{StaticResource WindowChromeStyle}"
+    Topmost="True"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Border
+        Height="34"
+        Background="#CC000000"
+        BorderBrush="White"
+        BorderThickness="1"
+        CornerRadius="18">
+        <StackPanel Orientation="Horizontal">
+            <controls:ImageButton
+                Width="24"
+                Height="24"
+                Margin="5,0"
+                attach:IconProperties.IconHeight="24"
+                attach:IconProperties.IconWidth="24"
+                Background="Transparent"
+                NormalImageSource="{StaticResource IMG_Floating_Icon}"
+                Style="{StaticResource BorderImageButton}" />
+            <controls:ImageButton
+                Width="36"
+                Height="24"
+                attach:IconProperties.IconHeight="16"
+                attach:IconProperties.IconWidth="16"
+                attach:MouseDependencyProperty.OverBackColor="#33FFFFFF"
+                hc:BorderElement.CornerRadius="11"
+                Background="Transparent"
+                NormalImageSource="{StaticResource IMG_Customer_AskAI}"
+                SpecialStatusImageSource="{StaticResource IMG_Floating_AskAiSpecial}"
+                Style="{StaticResource BorderImageButton}" />
+            <controls:ImageButton
+                Width="36"
+                Height="24"
+                attach:IconProperties.IconHeight="16"
+                attach:IconProperties.IconWidth="16"
+                attach:MouseDependencyProperty.OverBackColor="#33FFFFFF"
+                hc:BorderElement.CornerRadius="11"
+                Background="Transparent"
+                NormalImageSource="{StaticResource IMG_Customer_InputAI}"
+                SpecialStatusImageSource="{StaticResource IMG_Floating_InputAiSpecial}"
+                Style="{StaticResource BorderImageButton}" />
+            <ToggleButton
+                Width="36"
+                Height="24"
+                Margin="0,0,5,0"
+                Padding="0"
+                attach:IconProperties.CheckIconUrl="{StaticResource IMG_Floating_ShowChecked}"
+                attach:IconProperties.IconHeight="16"
+                attach:IconProperties.IconUrl="{StaticResource IMG_Floating_ShowNormal}"
+                attach:IconProperties.IconWidth="16"
+                attach:MouseDependencyProperty.OverBackColor="#33FFFFFF"
+                hc:BorderElement.CornerRadius="11"
+                Background="Transparent"
+                BorderThickness="0"
+                Style="{StaticResource FloatingShowTBStyle}" />
+
+        </StackPanel>
+    </Border>
+</Window>

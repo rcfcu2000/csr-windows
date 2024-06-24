@@ -6,6 +6,7 @@
         <ResourceDictionary Source="Customer/CustomerImagesDictionary.xaml" />
         <ResourceDictionary Source="Main/MainImagesDictionary.xaml" />
         <ResourceDictionary Source="Common/CommonImagesDictionary.xaml" />
+        <ResourceDictionary Source="Floating/FloatingImagesDictionary.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

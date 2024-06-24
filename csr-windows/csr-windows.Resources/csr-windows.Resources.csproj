@@ -107,6 +107,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Images\ImageManagers\Floating\FloatingImagesDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Images\ImageManagers\ImageManagerAllDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -259,6 +263,19 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Main\docked_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Floating\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Floating\show_normal.png" />
+    <Resource Include="Images\Floating\show_checked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Floating\input_ai_special.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Floating\ask_ai_special.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
